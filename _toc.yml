@@ -7,3 +7,4 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
+- file: sec_2-1.ipynb
