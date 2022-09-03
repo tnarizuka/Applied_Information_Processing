@@ -17,15 +17,15 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# CSVファイルをPandasのデータフレーム形式で読み込み
+# アヤメデータの読み込み
 Iris = pd.read_csv('material/sec_2-1/Iris.csv')
 Iris = Iris.iloc[:, 1:5]
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Input [0;32mIn [6][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m [38;5;66;03m# CSVファイルをPandasのデータフレーム形式で読み込み[39;00m
+Input [0;32mIn [2][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [38;5;66;03m# アヤメデータの読み込み[39;00m
 [0;32m----> 2[0m Iris [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mmaterial/sec_2-1/Iris.csv[39;49m[38;5;124;43m'[39;49m[43m)[49m
 [1;32m      3[0m Iris [38;5;241m=[39m Iris[38;5;241m.[39miloc[:, [38;5;241m1[39m:[38;5;241m5[39m]
 
