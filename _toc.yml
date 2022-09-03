@@ -4,9 +4,14 @@
 format: jb-book
 root: intro
 
-numbered: True
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: sec_2-1
+parts:
+- caption: はじめに
+	numbered: True
+	chapters:
+		- file: markdown
+		- file: notebooks
+		- file: markdown-notebooks
+- caption: 記述統計
+	numbered: True
+	chapters:
+		- file: sec_2-1
