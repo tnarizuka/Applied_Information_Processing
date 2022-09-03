@@ -3,15 +3,16 @@
 
 format: jb-book
 root: intro
+options:
+    numbered: 3
 
-parts:
-- caption: はじめに
-  numbered: True
-  chapters:
-    - file: markdown
-    - file: notebooks
-    - file: markdown-notebooks
-- caption: 記述統計
-  numbered: True
-  chapters:
-    - file: sec_2-1
+chapters:
+- file: chap_2/chap_2
+  sections:
+      - file: chap_2/sec_2-1
+      - file: chap_2/sec_2-2
+# - file: markdown
+# - file: notebooks
+# - file: markdown-notebooks
+#   sections:
+#   - file: sec_2-1
