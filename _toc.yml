@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: index
 options:
     numbered: 3
 
@@ -12,8 +12,3 @@ chapters:
   sections:
       - file: chap_2/sec_2-1
       - file: chap_2/sec_2-2
-# - file: markdown
-# - file: notebooks
-# - file: markdown-notebooks
-#   sections:
-#   - file: sec_2-1
