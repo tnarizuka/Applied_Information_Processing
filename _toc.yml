@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 options:
-    numbered: 4
+    numbered: 3
 
 chapters:
 - caption:
