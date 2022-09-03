@@ -15,6 +15,8 @@
 
 ## [講義ノート](https://tnarizuka.github.io/AIP_2022/)
 
+本講義ノートは[Jupyter Book](https://jupyterbook.org/en/stable/intro.html)を用いて作られています
+
 
 
 ## 参考文献
