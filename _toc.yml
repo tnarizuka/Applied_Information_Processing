@@ -7,7 +7,6 @@ options:
     numbered: 3
 
 chapters:
-- caption:
 - file: chap_1/chap_1
 - file: chap_2/chap_2
   sections:
