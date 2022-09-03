@@ -11,7 +11,7 @@ DS学部では，1年次からpythonのプログラミングを学ぶので，�
 
 講義で用いる資料は講義ノートとスライド，jupyter notebook（プログラミングの解説）であり，これらは随時更新する．講義のメインテキストは
 
-- https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm
+- [総務省政策統括官政策基準部編集，高校からの統計・データサイエンス活用～上級編～，日本統計協会，2017．](https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm)
 
 であり，全体の構成はこれに基づくが，統計学の内容は文献\cite{b,e,f,g}を参考にしている．
 
