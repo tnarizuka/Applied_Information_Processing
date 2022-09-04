@@ -14,7 +14,7 @@ import pandas as pd
 from pandas import DataFrame
 pd.set_option('display.precision', 3)   # 小数点以下の表示桁
 pd.set_option('display.max_rows', 20)  # 表示する行数
-precision 3
+get_ipython().run_line_magic('precision', '3')
 
 
 # ## データの整理
@@ -57,21 +57,21 @@ precision 3
 # 
 # - [pythonで四分位点や任意の分位点を計算する3つの方法](https://bunsekikobako.com/how_to_get_quantile_information_with_python/)
 
-# In[5]:
+# In[2]:
 
 
 x1 = [15, 20, 23, 20, 19, 21, 20, 18, 23, 18, 19, 20, 22]
 x2 = [7, 6, 9, 6, 10, 13, 12, 10, 14, 18, 7, 10, 13, 22]
 
 
-# In[6]:
+# In[3]:
 
 
 # 最小値，第1四分位数，中央値，第3四分位数，最大値
 np.percentile(x1, q=[0, 25, 50, 75, 100])
 
 
-# In[7]:
+# In[4]:
 
 
 # 最小値，第1四分位数，中央値，第3四分位数，最大値
@@ -83,7 +83,7 @@ np.percentile(x2, q=[0, 25, 50, 75, 100])
 # - [matplotlib.pyplot.boxplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
 # - [箱ひげ図を描く【Python】](https://biotech-lab.org/articles/4978)
 
-# In[8]:
+# In[5]:
 
 
 fig, ax = plt.subplots()
@@ -107,7 +107,7 @@ ax.set_yticks([0, 5, 10, 15, 20, 25, 30])  # 縦軸の表示目盛り
 #     - Petal Length – 花弁の長さ(cm)
 #     - Petal Width – 花弁の幅(cm)
 
-# In[7]:
+# In[6]:
 
 
 # CSVファイルをPandasのデータフレーム形式で読み込み
