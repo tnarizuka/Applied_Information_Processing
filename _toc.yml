@@ -8,6 +8,7 @@ options:
 
 chapters:
 - file: chap_1/chap_1
+    - caption: はじめに
 - file: chap_2/chap_2
   sections:
       - file: chap_2/sec_2-1/sec_2-1
