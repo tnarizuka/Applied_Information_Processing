@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.5. 回帰直線と最小二乗法 &#8212; Applied Information Processing 2022</title>
+    <title>回帰直線と最小二乗法 &#8212; Applied Information Processing 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="2.3. 散布図と相関係数" href="../sec_2-3/sec_2-3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,42 +113,22 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../chap_1/chap_1.html">
    1. イントロダクション
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap_2.html">
    2. 記述統計学
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-1/sec_2-1.html">
-     2.1. データの整理
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-2/sec_2-2.html">
-     2.2. 特性値の活用
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-3/sec_2-3.html">
-     2.3. 散布図と相関係数
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.5. 回帰直線と最小二乗法
-    </a>
-   </li>
+  <ul class="simple">
   </ul>
  </li>
 </ul>
@@ -360,49 +339,49 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   2.5. 回帰直線と最小二乗法
+   回帰直線と最小二乗法
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     2.5.1. データの作成
+     データの作成
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     2.5.2. 最小二乗法
+     最小二乗法
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     2.5.3. 決定係数
+     決定係数
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.6. 実例：都市の平均気温と緯度の関係
+   実例：都市の平均気温と緯度の関係
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
-     2.6.1. STEP1: Problem
+     STEP1: Problem
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
-     2.6.2. STEP2: Plan
+     STEP2: Plan
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
-     2.6.3. STEP3: Data
+     STEP3: Data
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
-     2.6.4. STEP4: Analysis
+     STEP4: Analysis
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -431,7 +410,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
-     2.6.5. STEP5: Conclusion
+     STEP5: Conclusion
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -443,17 +422,17 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-6-problem-2">
-     2.6.6. STEP 6: Problem 2
+     STEP 6: Problem 2
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-7-plan-data-2">
-     2.6.7. STEP 7: Plan &amp; Data 2
+     STEP 7: Plan &amp; Data 2
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-8-analysis-2">
-     2.6.8. STEP 8: Analysis 2
+     STEP 8: Analysis 2
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -465,7 +444,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-9-conclusion-2">
-     2.6.9. STEP 9: Conclusion 2
+     STEP 9: Conclusion 2
     </a>
    </li>
   </ul>
@@ -491,49 +470,49 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   2.5. 回帰直線と最小二乗法
+   回帰直線と最小二乗法
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     2.5.1. データの作成
+     データの作成
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     2.5.2. 最小二乗法
+     最小二乗法
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     2.5.3. 決定係数
+     決定係数
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.6. 実例：都市の平均気温と緯度の関係
+   実例：都市の平均気温と緯度の関係
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
-     2.6.1. STEP1: Problem
+     STEP1: Problem
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
-     2.6.2. STEP2: Plan
+     STEP2: Plan
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
-     2.6.3. STEP3: Data
+     STEP3: Data
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
-     2.6.4. STEP4: Analysis
+     STEP4: Analysis
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -562,7 +541,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
-     2.6.5. STEP5: Conclusion
+     STEP5: Conclusion
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -574,17 +553,17 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-6-problem-2">
-     2.6.6. STEP 6: Problem 2
+     STEP 6: Problem 2
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-7-plan-data-2">
-     2.6.7. STEP 7: Plan &amp; Data 2
+     STEP 7: Plan &amp; Data 2
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-8-analysis-2">
-     2.6.8. STEP 8: Analysis 2
+     STEP 8: Analysis 2
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -596,7 +575,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-9-conclusion-2">
-     2.6.9. STEP 9: Conclusion 2
+     STEP 9: Conclusion 2
     </a>
    </li>
   </ul>
@@ -1062,9 +1041,9 @@ all of MD as it is not optimized for dense, information rich UIs.
 }</style></div></div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">2.5. </span>回帰直線と最小二乗法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>回帰直線と最小二乗法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">2.5.1. </span>データの作成<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>データの作成<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
@@ -1133,7 +1112,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.5.2. </span>最小二乗法<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>最小二乗法<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scipy.optimize.curve_fit</span>
@@ -1189,7 +1168,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">2.5.3. </span>決定係数<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h2>決定係数<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
@@ -1221,16 +1200,16 @@ all of MD as it is not optimized for dense, information rich UIs.
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id5">
-<h1><span class="section-number">2.6. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
+<h1>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
 <section id="step1-problem">
-<h2><span class="section-number">2.6.1. </span>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h2>
+<h2>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>地球上では，赤道付近は暑く，極地に近づくほど寒くなる．</p></li>
 <li><p>世界の様々な地域の年間平均気温がどのように決まっているのだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-plan">
-<h2><span class="section-number">2.6.2. </span>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h2>
+<h2>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>世界の各地域で年間平均気温は異なっている．</p></li>
 <li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられる．</p></li>
@@ -1238,7 +1217,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </ul>
 </section>
 <section id="step3-data">
-<h2><span class="section-number">2.6.3. </span>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h2>
+<h2>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>理科年表から得られた各都市の年間平均気温，緯度，標高のデータを用いる</p></li>
 </ul>
@@ -1259,7 +1238,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </section>
 <section id="step4-analysis">
-<h2><span class="section-number">2.6.4. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h2>
+<h2>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h2>
 <section id="id6">
 <h3>散布図<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -1412,7 +1391,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </section>
 </section>
 <section id="step5-conclusion">
-<h2><span class="section-number">2.6.5. </span>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="Permalink to this headline">#</a></h2>
+<h2>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>各都市の年間平均気温と緯度の関係を散布図によって調べた結果，緯度の２乗に対して直線関係があることが分かった．</p></li>
 <li><p>一方，年間平均気温が緯度の2次関数になるということは，緯度が高くなれば気温もいくらでも大きくなることを意味し，やや奇妙である．</p></li>
@@ -1469,7 +1448,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </section>
 </section>
 <section id="step-6-problem-2">
-<h2><span class="section-number">2.6.6. </span>STEP 6: Problem 2<a class="headerlink" href="#step-6-problem-2" title="Permalink to this headline">#</a></h2>
+<h2>STEP 6: Problem 2<a class="headerlink" href="#step-6-problem-2" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>緯度の2乗と平均気温の散布図を見ると，直線関係から少し外れる都市がいくつかあることが分かる．</p></li>
 <li><p>これらの都市は，外れ値の大きい順にボコダ，メキシコ，アジスアベバ，である．</p></li>
@@ -1477,7 +1456,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </ul>
 </section>
 <section id="step-7-plan-data-2">
-<h2><span class="section-number">2.6.7. </span>STEP 7: Plan &amp; Data 2<a class="headerlink" href="#step-7-plan-data-2" title="Permalink to this headline">#</a></h2>
+<h2>STEP 7: Plan &amp; Data 2<a class="headerlink" href="#step-7-plan-data-2" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>直線から外れている都市についてのデータを見ると，ある共通点が浮かび上がる．</p></li>
 <li><p>それは，標高が高いことである（いずれも標高2000m以上）．</p></li>
@@ -1491,7 +1470,7 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 </ul>
 </section>
 <section id="step-8-analysis-2">
-<h2><span class="section-number">2.6.8. </span>STEP 8: Analysis 2<a class="headerlink" href="#step-8-analysis-2" title="Permalink to this headline">#</a></h2>
+<h2>STEP 8: Analysis 2<a class="headerlink" href="#step-8-analysis-2" title="Permalink to this headline">#</a></h2>
 <section id="id11">
 <h3>実習<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -1596,7 +1575,7 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 </section>
 </section>
 <section id="step-9-conclusion-2">
-<h2><span class="section-number">2.6.9. </span>STEP 9: Conclusion 2<a class="headerlink" href="#step-9-conclusion-2" title="Permalink to this headline">#</a></h2>
+<h2>STEP 9: Conclusion 2<a class="headerlink" href="#step-9-conclusion-2" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>年間平均気温と緯度の2乗の関係において発生する外れ値は，標高の影響によるものであることが分かった．</p></li>
 <li><p>そこで，標高の影響を調整することで，年間平均気温，緯度，標高に対する適切な関数を推定することができた．</p></li>
@@ -1631,13 +1610,6 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../sec_2-3/sec_2-3.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2.3. </span>散布図と相関係数</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>
