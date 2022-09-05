@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -1405,7 +1407,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 <section id="id10">
 <h3>実習<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>緯度$ \theta $における太陽エネルギーは$ \cos\theta $に比例することが知られている．これより，年間平均気温と緯度を結びつける，より適切な関数を求めよ．</p></li>
+<li><p>緯度<span class="math notranslate nohighlight">\( \theta \)</span>における太陽エネルギーは<span class="math notranslate nohighlight">\( \cos\theta \)</span>に比例することが知られている．これより，年間平均気温と緯度を結びつける，より適切な関数を求めよ．</p></li>
 <li><p>テイラー展開の観点から，2次関数の妥当性を議論せよ．</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1469,9 +1471,9 @@ all of MD as it is not optimized for dense, information rich UIs.
 <li><p>一般的に，標高が高くなるほど都市の気温は低くなる．</p></li>
 <li><p>よって，平均気温と緯度の関係を見るためには，標高の影響を調整する必要がある．</p></li>
 <li><p>一般に，標高が100m高くなると，気温は0.6℃低くなると言われている．</p></li>
-<li><p>これより，平均気温（$ T $）に対して標高（$ z $）の影響を調整した気温（高度調整済み平均気温）は
-$$ T_{0}=T+0.006z
-$$
+<li><p>これより，平均気温（<span class="math notranslate nohighlight">\( T \)</span>）に対して標高（<span class="math notranslate nohighlight">\( z \)</span>）の影響を調整した気温（高度調整済み平均気温）は
+$<span class="math notranslate nohighlight">\( T_{0}=T+0.006z 
+  \)</span>$
 と表される．</p></li>
 </ul>
 </section>
@@ -1480,7 +1482,7 @@ $$
 <section id="id11">
 <h3>実習<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>緯度の２乗，$\cos(緯度)$と高度調整済み平均気温の散布図を描け</p></li>
+<li><p>緯度の２乗，<span class="math notranslate nohighlight">\(\cos(緯度)\)</span>と高度調整済み平均気温の散布図を描け</p></li>
 <li><p>この散布図から相関係数を求めよ</p></li>
 <li><p>この散布図に対して回帰直線を引き，直線の式を求めよ</p></li>
 </ul>
