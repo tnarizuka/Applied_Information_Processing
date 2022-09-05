@@ -67,6 +67,14 @@ get_ipython().run_line_magic('precision', '3')
 
 # ![5number](./5number.png)
 
+# ```{figure} 5number.png
+# ---
+# height: 150px
+# name: directive-fig
+# ---
+# 15個の量的データを小さい順に並べた例．
+# ```
+
 # 
 # - [pythonで四分位点や任意の分位点を計算する3つの方法](https://bunsekikobako.com/how_to_get_quantile_information_with_python/)
 
