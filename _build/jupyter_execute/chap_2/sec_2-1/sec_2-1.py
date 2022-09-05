@@ -65,7 +65,7 @@ get_ipython().run_line_magic('precision', '3')
 # また，第3四分位数と第1四分位数の差$ Q_{3}-Q_{1} $を**四分位範囲**と呼ぶ．
 # なお，四分位は英語でquartileなので，各四分位数（イ，ウ，エ）を$ Q_{1},\ Q_{2},\ Q_{3} $と表すことが多い．
 
-# <!-- ![5number](../../figure/5number.pdf) -->
+# ![5number](../../figure/5number.pdf)
 
 # 
 # - [pythonで四分位点や任意の分位点を計算する3つの方法](https://bunsekikobako.com/how_to_get_quantile_information_with_python/)
