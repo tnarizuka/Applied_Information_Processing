@@ -601,6 +601,16 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <h2>量的データの要約<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <section id="id4">
 <h3>四分位数と五数要約<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>15個の量的データがあるとする．
+これを小さい順に並べたとき，図\ref{fig:5number}のように4等分に分割できる．
+このとき，アを<strong>最小値</strong>，イを<strong>第1四分位</strong>，ウを<strong>中央値（第2四分位数）</strong>，エを<strong>第3四分位数</strong>，オを<strong>最大値</strong>と呼ぶ．
+また，データを小さい順に並べたとき，左半分のデータを下位データ，右半分のデータを上位データと呼ぶ．
+ただし，データの数が奇数個の場合は中央値を除いて下位・上位に分ける方法を採用する（中央値を両方に含める場合もある）．
+このとき，第1四分位数<span class="math notranslate nohighlight">\( Q_{1} \)</span>は下位データの中央値，第3四分位数<span class="math notranslate nohighlight">\( Q_{3} \)</span>は上位データの中央値である．
+以上のようにデータのばらつきを5つの数で表す方法を<strong>五数要約</strong>と呼ぶ．
+また，第3四分位数と第1四分位数の差<span class="math notranslate nohighlight">\( Q_{3}-Q_{1} \)</span>を<strong>四分位範囲</strong>と呼ぶ．
+なお，四分位は英語でquartileなので，各四分位数（イ，ウ，エ）を<span class="math notranslate nohighlight">\( Q_{1},\ Q_{2},\ Q_{3} \)</span>と表すことが多い．</p>
+<p><img alt="5number" src="../../_images/5number.pdf" /></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bunsekikobako.com/how_to_get_quantile_information_with_python/">pythonで四分位点や任意の分位点を計算する3つの方法</a></p></li>
 </ul>
@@ -657,7 +667,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_11_0.png" src="../../_images/sec_2-1_11_0.png" />
+<img alt="../../_images/sec_2-1_14_0.png" src="../../_images/sec_2-1_14_0.png" />
 </div>
 </div>
 </section>
@@ -835,10 +845,10 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_18_0.png" src="../../_images/sec_2-1_18_0.png" />
-<img alt="../../_images/sec_2-1_18_1.png" src="../../_images/sec_2-1_18_1.png" />
-<img alt="../../_images/sec_2-1_18_2.png" src="../../_images/sec_2-1_18_2.png" />
-<img alt="../../_images/sec_2-1_18_3.png" src="../../_images/sec_2-1_18_3.png" />
+<img alt="../../_images/sec_2-1_21_0.png" src="../../_images/sec_2-1_21_0.png" />
+<img alt="../../_images/sec_2-1_21_1.png" src="../../_images/sec_2-1_21_1.png" />
+<img alt="../../_images/sec_2-1_21_2.png" src="../../_images/sec_2-1_21_2.png" />
+<img alt="../../_images/sec_2-1_21_3.png" src="../../_images/sec_2-1_21_3.png" />
 </div>
 </div>
 </section>
@@ -961,7 +971,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;number&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_23_1.png" src="../../_images/sec_2-1_23_1.png" />
+<img alt="../../_images/sec_2-1_26_1.png" src="../../_images/sec_2-1_26_1.png" />
 </div>
 </div>
 <section id="step-1-problem">
@@ -1118,7 +1128,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Maximum Temperature [$^\\circ$C]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_32_1.png" src="../../_images/sec_2-1_32_1.png" />
+<img alt="../../_images/sec_2-1_35_1.png" src="../../_images/sec_2-1_35_1.png" />
 </div>
 </div>
 </section>
@@ -1140,7 +1150,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Minimum Temperature [$^\\circ$C]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_34_1.png" src="../../_images/sec_2-1_34_1.png" />
+<img alt="../../_images/sec_2-1_37_1.png" src="../../_images/sec_2-1_37_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1320,7 +1330,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Discomfort Index&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_38_1.png" src="../../_images/sec_2-1_38_1.png" />
+<img alt="../../_images/sec_2-1_41_1.png" src="../../_images/sec_2-1_41_1.png" />
 </div>
 </div>
 </section>
