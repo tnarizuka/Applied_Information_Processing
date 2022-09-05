@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="2.1. データの整理" href="../sec_2-1/sec_2-1.html" />
@@ -1140,7 +1138,7 @@ dtype: float64
 </div>
 </div>
 <p>公式から求める
-$<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}| \)</span>$</p>
+$$ G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}| $$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
@@ -1181,7 +1179,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <section id="step3-data">
 <h3>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>1人当たり県民所得は，内閣府「県民経済計算」(<a class="reference external" href="https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html">https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html</a>) から利用することができる．</p></li>
+<li><p>1人当たり県民所得は，内閣府「県民経済計算」(https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html) から利用することができる．</p></li>
 <li><p>ただし，年度が同じでも基準（平成23年基準や平成17年基準など）によって算出された値が異なることに注意する．</p></li>
 </ul>
 <div class="cell docutils container">
