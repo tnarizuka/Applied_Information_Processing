@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2.2. 特性値の活用" href="../sec_2-2/sec_2-2.html" />
@@ -592,7 +590,7 @@ title="Print to PDF"
 まず，「男・女」など，他と区別するためだけに用いる尺度を\textbf{名義尺度}と呼び，対応するデータをカテゴリカルデータと呼ぶ．
 カテゴリカルデータに対しては一切の計算が許されず，唯一できるのは数をカウントすること（度数や最頻値の計算）だけである．
 一方，「小・中・大」のように大小や前後が決まるような尺度を\textbf{順序尺度}と呼び，対応するデータを順序データと呼ぶ．
-順序データに対しては<span class="math notranslate nohighlight">\( &gt;, = \)</span>などの演算が許される．</p>
+順序データに対しては$ &gt;, = $などの演算が許される．</p>
 <p>次に，量的データも測定尺度によって2つに分類できる．
 まず，値の大小関係と値の差だけに意味があるような尺度を<strong>間隔尺度</strong>と呼び，対応するデータは間隔データと呼ばれる．
 間隔データは値同士の加減が許される．
@@ -618,17 +616,11 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 このとき，アを<strong>最小値</strong>，イを<strong>第1四分位</strong>，ウを<strong>中央値（第2四分位数）</strong>，エを<strong>第3四分位数</strong>，オを<strong>最大値</strong>と呼ぶ．
 また，データを小さい順に並べたとき，左半分のデータを下位データ，右半分のデータを上位データと呼ぶ．
 ただし，データの数が奇数個の場合は中央値を除いて下位・上位に分ける方法を採用する（中央値を両方に含める場合もある）．
-このとき，第1四分位数<span class="math notranslate nohighlight">\( Q_{1} \)</span>は下位データの中央値，第3四分位数<span class="math notranslate nohighlight">\( Q_{3} \)</span>は上位データの中央値である．
+このとき，第1四分位数$ Q_{1} $は下位データの中央値，第3四分位数$ Q_{3} $は上位データの中央値である．
 以上のようにデータのばらつきを5つの数で表す方法を<strong>五数要約</strong>と呼ぶ．
-また，第3四分位数と第1四分位数の差<span class="math notranslate nohighlight">\( Q_{3}-Q_{1} \)</span>を<strong>四分位範囲</strong>と呼ぶ．
-なお，四分位は英語でquartileなので，各四分位数（イ，ウ，エ）を<span class="math notranslate nohighlight">\( Q_{1},\ Q_{2},\ Q_{3} \)</span>と表すことが多い．</p>
-<!-- ![5number](./5number.pdf) -->
-<figure class="align-default" id="directive-fig">
-<a class="reference internal image-reference" href="../../_images/5number.pdf"><img alt="../../_images/5number.pdf" src="../../_images/5number.pdf" style="height: 150px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#directive-fig" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+また，第3四分位数と第1四分位数の差$ Q_{3}-Q_{1} $を<strong>四分位範囲</strong>と呼ぶ．
+なお，四分位は英語でquartileなので，各四分位数（イ，ウ，エ）を$ Q_{1},\ Q_{2},\ Q_{3} $と表すことが多い．</p>
+<p><img alt="5number" src="../../_images/5number.pdf" /></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://bunsekikobako.com/how_to_get_quantile_information_with_python/">pythonで四分位点や任意の分位点を計算する3つの方法</a></p></li>
 </ul>
@@ -696,7 +688,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <li><p>Iris Dataset</p>
 <ul>
 <li><p>Kaggleにて無料会員登録後に下記のURLからダウロード可</p></li>
-<li><p><a class="reference external" href="https://www.kaggle.com/uciml/iris">https://www.kaggle.com/uciml/iris</a></p></li>
+<li><p>https://www.kaggle.com/uciml/iris</p></li>
 </ul>
 </li>
 <li><p>アヤメのデータセット</p>
@@ -1008,14 +1000,14 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </section>
 <section id="step2-plan">
 <h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h3>
-<p>気象庁のHP (<a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/index.php">http://www.data.jma.go.jp/gmd/risk/obsdl/index.php</a>) には1日の平均気温，最高気温，最低気温，湿度などのデータが掲載されている．
+<p>気象庁のHP (http://www.data.jma.go.jp/gmd/risk/obsdl/index.php) には1日の平均気温，最高気温，最低気温，湿度などのデータが掲載されている．
 ここでは，1日の最高気温，最低気温，湿度のデータを収集する．</p>
 <p>収集したデータは五数要約や箱ひげ図によって傾向を調べる．
 また，夏の蒸し暑さを定量化した指標である\textbf{不快指数}を計算し，各都市の特徴を調べる．
-不快指数は気温を<span class="math notranslate nohighlight">\( t \)</span>，湿度を<span class="math notranslate nohighlight">\( H \)</span>とすると
-$<span class="math notranslate nohighlight">\(
-	不快指数=0.81t + 0.01H(0.99t-14.3)+46.3
-\)</span>$
+不快指数は気温を$ t $，湿度を$ H $とすると
+$$
+不快指数=0.81t + 0.01H(0.99t-14.3)+46.3
+$$
 によって求められる．
 一般に，不快指数が75になると人口の約1割が不快を感じ，85になると全員が不快になる（三省堂編集所，大辞林，三省堂(1988)）．</p>
 </section>

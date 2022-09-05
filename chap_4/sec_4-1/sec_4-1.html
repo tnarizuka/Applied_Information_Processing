@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -408,11 +406,7 @@ title="Print to PDF"
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#n">
-       各
-       <span class="math notranslate nohighlight">
-        \( n \)
-       </span>
-       に対する黒玉比率の標本平均と標準偏差
+       各 $ n $ に対する黒玉比率の標本平均と標準偏差
       </a>
      </li>
     </ul>
@@ -511,11 +505,7 @@ title="Print to PDF"
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#n">
-       各
-       <span class="math notranslate nohighlight">
-        \( n \)
-       </span>
-       に対する黒玉比率の標本平均と標準偏差
+       各 $ n $ に対する黒玉比率の標本平均と標準偏差
       </a>
      </li>
     </ul>
@@ -1119,18 +1109,18 @@ all of MD as it is not optimized for dense, information rich UIs.
 <section id="id4">
 <h2>標準化と標準正規分布<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>正規分布の相補累積分布関数は
-$<span class="math notranslate nohighlight">\(
-    P(X \geq x) = \int_{x}^{\infty} \frac{1}{\sqrt{2\pi} \sigma} \exp \left[ - \frac{(x-\mu)^{2}}{2\sigma^{2}} \right] dx
-\)</span><span class="math notranslate nohighlight">\(
+$$
+P(X \geq x) = \int_{x}^{\infty} \frac{1}{\sqrt{2\pi} \sigma} \exp \left[ - \frac{(x-\mu)^{2}}{2\sigma^{2}} \right] dx
+$$
 と表される．
 これは，誤差関数
-\)</span><span class="math notranslate nohighlight">\(
-    \mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} \mathrm{e}^{-t^2} dt
-\)</span><span class="math notranslate nohighlight">\(
+$$
+\mathrm{erf}(x) = \frac{2}{\sqrt{\pi}} \int_{0}^{x} \mathrm{e}^{-t^2} dt
+$$
 を用いると，
-\)</span><span class="math notranslate nohighlight">\(
-    P(X \geq x) = \frac{1}{2} \left[1 - \mathrm{erf}\left(\frac{x-\mu}{\sqrt{2}\sigma} \right) \right]
-\)</span>$
+$$
+P(X \geq x) = \frac{1}{2} \left[1 - \mathrm{erf}\left(\frac{x-\mu}{\sqrt{2}\sigma} \right) \right]
+$$
 と表される．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1155,10 +1145,9 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <section id="id5">
 <h3>標準正規分布の上側確率の計算<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-    P(-a \leq Z \leq a)  = 1 - 2P(Z \geq a) = \mathrm{erf}(x/\sqrt{2})
-\]</div>
+<p>$$
+P(-a \leq Z \leq a)  = 1 - 2P(Z \geq a) = \mathrm{erf}(x/\sqrt{2})
+$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
@@ -1228,14 +1217,14 @@ $<span class="math notranslate nohighlight">\(
 <li><p>まず，黒玉を「番組を見た世帯」，白玉を「番組を見ていない世帯」とする．</p></li>
 <li><p>黒玉は20個，白玉は60個用意して箱の中に入れる．</p></li>
 <li><p>すなわち，視聴率の理論値は20/80=25%となる．</p></li>
-<li><p>実験では，まず，箱の中から<span class="math notranslate nohighlight">\( 4 \)</span>個の玉を取り出すことを200回繰り返し，黒玉の比率（視聴率）のヒストグラムを作成する．</p></li>
-<li><p>次に，標本サイズが<span class="math notranslate nohighlight">\( n=12,15,30 \)</span>の場合に対して同様のことを繰り返し，ヒストグラムの変化を見る．</p></li>
+<li><p>実験では，まず，箱の中から$ 4 $個の玉を取り出すことを200回繰り返し，黒玉の比率（視聴率）のヒストグラムを作成する．</p></li>
+<li><p>次に，標本サイズが$ n=12,15,30 $の場合に対して同様のことを繰り返し，ヒストグラムの変化を見る．</p></li>
 </ul>
 </section>
 <section id="step-3-data">
 <h2>STEP 3: Data<a class="headerlink" href="#step-3-data" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( n=4,12,15,30 \)</span>の場合に模擬実験を200回繰り返した結果，以下のような結果を得た．</p></li>
+<li><p>$ n=4,12,15,30 $の場合に模擬実験を200回繰り返した結果，以下のような結果を得た．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1257,9 +1246,9 @@ $<span class="math notranslate nohighlight">\(
 <section id="id7">
 <h3>実習<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>実験で得られたデータを用いて，各 <span class="math notranslate nohighlight">\( n \)</span> に対する黒玉比率のヒストグラムを作成せよ．</p></li>
-<li><p><span class="math notranslate nohighlight">\( n \)</span> の増加に応じてヒストグラムの形がどのように変化するか確認せよ．</p></li>
-<li><p>各 <span class="math notranslate nohighlight">\( n \)</span> に対して黒玉比率の標本平均と標準偏差を計算せよ．</p></li>
+<li><p>実験で得られたデータを用いて，各 $ n $ に対する黒玉比率のヒストグラムを作成せよ．</p></li>
+<li><p>$ n $ の増加に応じてヒストグラムの形がどのように変化するか確認せよ．</p></li>
+<li><p>各 $ n $ に対して黒玉比率の標本平均と標準偏差を計算せよ．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1330,7 +1319,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </section>
 <section id="n">
-<h3>各 <span class="math notranslate nohighlight">\( n \)</span> に対する黒玉比率の標本平均と標準偏差<a class="headerlink" href="#n" title="Permalink to this headline">#</a></h3>
+<h3>各 $ n $ に対する黒玉比率の標本平均と標準偏差<a class="headerlink" href="#n" title="Permalink to this headline">#</a></h3>
 </section>
 </section>
 <section id="step-5-conclusion">
