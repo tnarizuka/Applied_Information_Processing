@@ -10,5 +10,5 @@ chapters:
 - file: chap_1/chap_1
 - file: chap_2/chap_2
   sections:
-    - file: chap_2/sec_2-1
-    # - file: chap_2/sec_2-2
+    - file: chap_2/sec_2-1/sec_2-1
+    - file: chap_2/sec_2-2/sec_2-2
