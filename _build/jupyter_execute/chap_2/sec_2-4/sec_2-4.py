@@ -15,7 +15,7 @@ from pandas import DataFrame
 from scipy import optimize
 
 
-# In[7]:
+# In[2]:
 
 
 # カレントディレクトリの変更（自分の作業フォルダのパスを設定）
@@ -238,7 +238,8 @@ y_err = D.groupby('group').std()['T']  # groupごとの標準偏差
 
 # 平均絶対緯度と平均気温の平均
 fig, ax = plt.subplots()
-ax.errorbar(D2['L2'], D2['T'], yerr= y_err,            capsize=3, fmt='co', markersize=7, ecolor='k', markeredgecolor='k', color='w')
+ax.errorbar(D2['L2'], D2['T'], yerr= y_err,\
+            capsize=3, fmt='co', markersize=7, ecolor='k', markeredgecolor='k', color='w')
 ax.set_xlim(0, 60); ax.set_ylim(-10, 35)
 ax.set_xlabel('平均絶対緯度（度）')
 ax.set_ylabel('平均気温（℃）')
