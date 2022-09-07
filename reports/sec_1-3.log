@@ -17,17 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# カレントディレクトリの変更（自分の作業フォルダのパスを設定）
-os.chdir('/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/')
-# os.chdir("G:\\マイドライブ\\document\\講義\\立正\\情報処理の応用")
+# エラーが出る
+print("C:\Users\username\OneDrive\情報処理の応用")
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m [38;5;66;03m# カレントディレクトリの変更（自分の作業フォルダのパスを設定）[39;00m
-[0;32m----> 2[0m [43mos[49m[38;5;241;43m.[39;49m[43mchdir[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43m/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;36m  Input [0;32mIn [1][0;36m[0m
+[0;31m    print("C:\Users\username\OneDrive\情報処理の応用")[0m
+[0m                                              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/'
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/'
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape (3724379268.py, line 2)
 
