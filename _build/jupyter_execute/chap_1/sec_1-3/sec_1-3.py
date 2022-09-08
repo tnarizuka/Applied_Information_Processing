@@ -125,14 +125,14 @@ print("C:\Users\username\OneDrive\情報処理の応用")
 print(r"C:\Users\username\OneDrive\情報処理の応用")
 
 
-# In[5]:
+# In[3]:
 
 
 # \ -> /
 print("C:/Users/username/OneDrive/情報処理の応用")
 
 
-# In[6]:
+# In[4]:
 
 
 # \ -> \\
