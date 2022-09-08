@@ -163,6 +163,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../reference.html">
+   3. 付録
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -346,12 +351,12 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    1.1.2. 講義スタイル
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    1.1.3. 評価方法
   </a>
  </li>
@@ -380,12 +385,12 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    1.1.2. 講義スタイル
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    1.1.3. 評価方法
   </a>
  </li>
@@ -405,19 +410,15 @@ title="Print to PDF"
 <h2><span class="section-number">1.1.1. </span>講義の概要<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>本講義で扱う内容は，主に統計学の基礎とデータ解析の基礎である．高校から大学初年度で扱う統計学の入門的な内容を網羅的に学び，簡単なデータ解析ができるようになることを講義全体の目的とする．講義は複数のテーマからなり，基本的には講義１回で１テーマ（おおよそ本講義ノートの１セクションに対応）を扱う．各テーマでは，まず必要な統計学の知識を学んだ後，実データの解析例を示すという構成になっている．</p>
 <p>DS学部では，1年次からpythonのプログラミングを学ぶので，実データの解析を扱う際にはpythonによるコーディングの例も示すようにする．（ただし，プログラミングの授業ではないので，詳細には立ち入らない．）統計学に関するより厳密で高度な内容は2年次の必修科目である「統計学I，II」で扱うことになる．よって，本講義はその前段階の橋渡し的な位置づけと捉えても良い．本講義は複数クラス開講科目であり，「情報処理の応用A」が並列で行われる．メインテキストはA，Bともに同じであるが，細かい授業内容は異なる．レポートや評価基準についてはできる限り統一する．なお，「情報処理の基礎」とのつながりはあまりない．</p>
-<p>講義で用いる資料は講義ノートとスライド，jupyter notebook（プログラミングの解説）であり，これらは随時更新する．講義のメインテキストは</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm">総務省政策統括官政策基準部編集，高校からの統計・データサイエンス活用～上級編～，日本統計協会，2017．</a></p></li>
-</ul>
-<p>であり，全体の構成はこれに基づくが，統計学の内容は文献\cite{b,e,f,g}を参考にしている．</p>
+<p>講義で用いる資料は講義ノートとスライド，jupyter notebook（プログラミングの解説）であり，これらは随時更新する．講義のメインテキストは<span id="id3">[<a class="reference internal" href="../../reference.html#id4" title="総務省政策統括官政策基準部編集. 高校からの統計・データサイエンス活用〜上級編〜. 日本統計協会, 2017. URL: https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm.">1</a>]</span>であり，全体の構成はこれに基づくが，統計学の内容は文献<span id="id4">[<a class="reference internal" href="../../reference.html#id5" title="竹村彰通・姫野哲人・高田聖治編. データサイエンス入門. 学術図書出版社, 2019.">2</a>, <a class="reference internal" href="../../reference.html#id6" title="東京大学教養学部統計学教室編. 統計学入門. 東京大学出版会, 1991.">3</a>, <a class="reference internal" href="../../reference.html#id7" title="薩摩順吉. 確率・統計. 岩波書店, 2019.">4</a>, <a class="reference internal" href="../../reference.html#id8" title="栗原伸一. 入門統計学（第2版）. オーム社, 2021.">5</a>]</span>を参考にしている．</p>
 </section>
-<section id="id3">
-<h2><span class="section-number">1.1.2. </span>講義スタイル<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<section id="id5">
+<h2><span class="section-number">1.1.2. </span>講義スタイル<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>コロナウイルスの蔓延状況によって，対面（パターンI）とオンライン（パターンII）が混在する可能性がある．対面の場合は基本的に板書に基づいて進め，プログラミングの説明などは適宜スライドやjupyter notebookを用いて行う．pythonが動くPCが手元にあると良い．オンラインの場合はZoomを用いた同時双方向授業を行い，基本的にはスライドを用意する予定であるが，場合によっては手書きになるかもしれない．</p>
 <p>講義に関する連絡や講義ノート・スライドの共有にはポータルサイトの「オンライン授業」を用いる．対面授業に移った場合でも「オンライン授業」を用いる．</p>
 </section>
-<section id="id4">
-<h2><span class="section-number">1.1.3. </span>評価方法<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<section id="id6">
+<h2><span class="section-number">1.1.3. </span>評価方法<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <p>レポート（60%）と授業への取り組み姿勢（40%）で評価する．試験は行わない．レポートは2回くらい？を予定し，講義で扱った実例についてレポートの形にまとめてもらう（予定）．提出されたレポートは添削して返却し，再提出してもらう（予定）．レポートは科学的な文書を書く訓練の意味も兼ねているので，ある程度書き方を指定する（次節参照）．</p>
 </section>
 </section>

@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 options:
-    numbered: 3
+  numbered: 3
 
 chapters:
 - file: chap_1/chap_1
@@ -12,7 +12,10 @@ chapters:
     - file: chap_1/sec_1-1/sec_1-1
     - file: chap_1/sec_1-2/sec_1-2
     - file: chap_1/sec_1-3/sec_1-3
+
 - file: chap_2/chap_2
   sections:
     - file: chap_2/sec_2-1/sec_2-1
     - file: chap_2/sec_2-2/sec_2-2
+
+- file: reference.md

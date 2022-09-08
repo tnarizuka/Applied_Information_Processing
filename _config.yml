@@ -19,6 +19,11 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# sphinx:
+#   config:
+#     bibtex_reference_style: author_year # "author_year"/"label"/"super"
+#     bibtex_bibfiles: "reference.bib"
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/tnarizuka/AIP_2022  # Online location of your book
