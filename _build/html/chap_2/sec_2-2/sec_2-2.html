@@ -401,13 +401,11 @@ title="Print to PDF"
      最頻値
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   2.2.2. データのばらつきを表す特性値
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     データのばらつきを表す特性値
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
      平均偏差
@@ -427,7 +425,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   2.2.3. ローレンツ曲線とジニ係数
+   2.2.2. ローレンツ曲線とジニ係数
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -444,7 +442,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id14">
-   2.2.4. 実例：地域の豊かさの格差は拡大しているか？
+   2.2.3. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -466,23 +464,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id15">
-       実習：平均と標準偏差
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id16">
-       実習：変動係数
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id17">
-       実習：ローレンツ曲線，ジニ係数
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
@@ -535,13 +516,11 @@ title="Print to PDF"
      最頻値
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   2.2.2. データのばらつきを表す特性値
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     データのばらつきを表す特性値
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
      平均偏差
@@ -561,7 +540,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   2.2.3. ローレンツ曲線とジニ係数
+   2.2.2. ローレンツ曲線とジニ係数
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -578,7 +557,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id14">
-   2.2.4. 実例：地域の豊かさの格差は拡大しているか？
+   2.2.3. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -600,23 +579,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id15">
-       実習：平均と標準偏差
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id16">
-       実習：変動係数
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id17">
-       実習：ローレンツ曲線，ジニ係数
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
@@ -635,20 +597,18 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>使用するモジュールのimport</p>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="c1"># import japanize_matplotlib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id1">
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">2.2. </span>特性値の活用<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <section id="id2">
 <h2><span class="section-number">2.2.1. </span>データの中心を表す特性値<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
@@ -682,8 +642,8 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># がく片の長さに対する度数分布表</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">BN</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">f</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">),</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">))],</span>
-          <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;最小&#39;</span><span class="p">,</span> <span class="s1">&#39;最大&#39;</span><span class="p">,</span> <span class="s1">&#39;階級値&#39;</span><span class="p">,</span> <span class="s1">&#39;度数&#39;</span><span class="p">,</span> <span class="s1">&#39;相対度数&#39;</span><span class="p">,</span> <span class="s1">&#39;累積相対度数&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">f</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">),</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">))],</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;最小&#39;</span><span class="p">,</span> <span class="s1">&#39;最大&#39;</span><span class="p">,</span> <span class="s1">&#39;階級値&#39;</span><span class="p">,</span> <span class="s1">&#39;度数&#39;</span><span class="p">,</span> <span class="s1">&#39;相対度数&#39;</span><span class="p">,</span> <span class="s1">&#39;累積相対度数&#39;</span><span class="p">])</span>
 <span class="c1"># df.to_csv(&#39;material/sec_2-1/fdt.csv&#39;, index=False, encoding=&quot;shift-jis&quot;)</span>
 <span class="n">df</span>
 </pre></div>
@@ -810,7 +770,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_9_1.png" src="../../_images/sec_2-2_9_1.png" />
+<img alt="../../_images/sec_2-2_8_1.png" src="../../_images/sec_2-2_8_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -893,9 +853,9 @@ dtype: float64
 </div>
 </div>
 </section>
-</section>
 <section id="id7">
-<h2><span class="section-number">2.2.2. </span>データのばらつきを表す特性値<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<h3>データのばらつきを表す特性値<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+</section>
 <section id="id8">
 <h3>平均偏差<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
@@ -957,7 +917,7 @@ dtype: float64
 </section>
 </section>
 <section id="id11">
-<h2><span class="section-number">2.2.3. </span>ローレンツ曲線とジニ係数<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>ローレンツ曲線とジニ係数<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
@@ -970,8 +930,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Y</span><span class="p">],</span>
-          <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;サイズ&#39;</span><span class="p">,</span> <span class="s1">&#39;サイズの累積相対度数&#39;</span><span class="p">,</span> <span class="s1">&#39;平均所得&#39;</span><span class="p">,</span> <span class="s1">&#39;所得の累積相対度数&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Y</span><span class="p">],</span>
+             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;サイズ&#39;</span><span class="p">,</span> <span class="s1">&#39;サイズの累積相対度数&#39;</span><span class="p">,</span> <span class="s1">&#39;平均所得&#39;</span><span class="p">,</span> <span class="s1">&#39;所得の累積相対度数&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1019,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_32_0.png" src="../../_images/sec_2-2_32_0.png" />
+<img alt="../../_images/sec_2-2_31_0.png" src="../../_images/sec_2-2_31_0.png" />
 </div>
 </div>
 </section>
@@ -1107,7 +1067,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </section>
 </section>
 <section id="id14">
-<h2><span class="section-number">2.2.4. </span>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -1488,8 +1448,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </section>
 <section id="step4-analysis">
 <h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h3>
-<section id="id15">
-<h4>実習：平均と標準偏差<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<p><strong>実習：平均と標準偏差</strong></p>
 <ul class="simple">
 <li><p>各年度に対して平均と標準偏差を求めよ．</p></li>
 <li><p>1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？平均値の変化と関連付けて考えよ．</p></li>
@@ -1516,12 +1475,10 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;標準偏差（万円）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_47_1.png" src="../../_images/sec_2-2_47_1.png" />
+<img alt="../../_images/sec_2-2_46_1.png" src="../../_images/sec_2-2_46_1.png" />
 </div>
 </div>
-</section>
-<section id="id16">
-<h4>実習：変動係数<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<p><strong>実習：変動係数</strong></p>
 <ul class="simple">
 <li><p>全年度に対して変動係数を求め，時系列変化を可視化せよ．</p></li>
 <li><p>変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．</p></li>
@@ -1548,12 +1505,10 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;変動係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_49_1.png" src="../../_images/sec_2-2_49_1.png" />
+<img alt="../../_images/sec_2-2_48_1.png" src="../../_images/sec_2-2_48_1.png" />
 </div>
 </div>
-</section>
-<section id="id17">
-<h4>実習：ローレンツ曲線，ジニ係数<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
+<p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
 <ul class="simple">
 <li><p>年度を１つ選び，その年度のローレンツ曲線とジニ係数を求めよ．</p></li>
 <li><p>全年度に対してジニ係数を求め，時系列変化を可視化せよ．</p></li>
@@ -1590,7 +1545,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;所得の累積相対度数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_53_1.png" src="../../_images/sec_2-2_53_1.png" />
+<img alt="../../_images/sec_2-2_52_1.png" src="../../_images/sec_2-2_52_1.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1631,10 +1586,9 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ジニ係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_56_1.png" src="../../_images/sec_2-2_56_1.png" />
+<img alt="../../_images/sec_2-2_55_1.png" src="../../_images/sec_2-2_55_1.png" />
 </div>
 </div>
-</section>
 </section>
 <section id="step-5-conclusion">
 <h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Permalink to this headline">#</a></h3>

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## プログラミング環境の構築
+# # プログラミング環境の構築
 
-# ### Anacondaのインストール
+# ## Anacondaのインストール
 # 
 # 既に「プログラミング基礎」の授業内でAnacondaをインストールしているはずなので，以下ではインストールの概要だけ述べる．詳細は[Python.jp](https://www.python.jp/install/anaconda/windows/install.html)や[Let'sプログラミング](https://www.javadrive.jp/python/install/index5.html)などが参考になる．
 # 
@@ -13,7 +13,7 @@
 #     - 途中で，`add Anaconda to the system Path environment variable`にチェックを入れてPathの設定を行う
 # - Anaconda Navigatorが起動するか確認する
 
-# ### Maplotlibの日本語対応
+# ## Maplotlibの日本語対応
 # 
 # Matplotlibはグラフ作成のためのライブラリである．
 # Matplotlibは標準で日本語に対応していないが，以下の2つの方法で日本語を出力することができる（詳しくは[こちら](https://ai-inter1.com/matplotlib-japanize/)）：
@@ -40,7 +40,7 @@
 #     pip install japanize-matplotlib
 #     ```
 
-# ### 作業フォルダの作成
+# ## 作業フォルダの作成
 # データ分析では，様々なファイルを扱わなければならない．
 # これらのファイルが自分のPC内のどこに保存されているかを把握しておかないと，ファイルを探すだけで時間を取られてしまい，時間の無駄である．
 # データ分析を始める際にまず行うべきことは，PC内のフォルダやファイルを整理することである．
@@ -71,9 +71,9 @@
 #     - [others]
 # ```
 
-# ### パス（Path）について
+# ## パス（Path）について
 # 
-# #### パスとは何か？
+# ### パスとは何か？
 # Pythonプログラムの実行，自分のPC上のファイルの読み込み，加工したデータの保存を行うには，対象となるファイルの在り処，つまりアドレスが分からないといけない．
 # このアドレスを指定する文字列のことをパス（Path）と呼ぶ．
 # 
@@ -92,11 +92,11 @@
 # また，2番目のパスは`test.txt`というファイルのパスを表す．
 # 3番目は先頭の文字が`G`となっているが，これはGoogle Driveのパスを表している．
 
-# #### パスの取得方法（Windows）
+# ### パスの取得方法（Windows）
 # 
 # エクスプローラー上で，パスをコピーしたいファイルやフォルダに対しshiftキーを押しながら右クリックし，「パスのコピー」を選択すればよい．
 
-# #### WindowsのPythonでパスを指定する際の注意
+# ### WindowsのPythonでパスを指定する際の注意
 # 
 # Windows環境においてパスをコピーして貼り付けると
 # ``
@@ -139,7 +139,7 @@ print("C:/Users/username/OneDrive/情報処理の応用")
 print("C:\\Users\\username\\OneDrive\\情報処理の応用")
 
 
-# #### 絶対パスと相対パス
+# ### 絶対パスと相対パス
 # まず，以下のようなプログラムをPythonスクリプト（test.py）に保存する（[ダウンロードはこちら](https://drive.google.com/uc?export=download&id=1htV_JZw26qMvnefhc1YGZfhZCiYMojmk)）．
 # ```python
 # for i in range(5):
@@ -184,12 +184,12 @@ get_ipython().run_line_magic('run', '"./chap_1/test.py"             # 実行')
 # 相対パスは，カレントディレクトリからの相対的な位置関係を表しており，"."というのがカレントディレクトリのパスを表す省略記号である．
 # 相対パスを用いると，パスが短くなるので便利であるが，カレントディレクトリがどこなのかを認識しておく必要がある．
 
-# ### Jupyter Lab
+# ## Jupyter Lab
 # 
 # Anacondaをインストールすると，自動的にJupyter NotebookとJupyter Labが使えるようになる．
 # 本講義ではJupyter Labの方を用いる．
 
-# #### Jupyter Labの起動方法
+# ### Jupyter Labの起動方法
 # 
 # 1. ターミナル（またはコマンドプロンプト）から起動
 #     - 次のコマンドを実行：`jupyter lab "起動ディレクトリのパス"`
@@ -200,7 +200,7 @@ get_ipython().run_line_magic('run', '"./chap_1/test.py"             # 実行')
 #     - ［Jupyter Lab］をクリック
 # - 初期状態ではLauncherが起動するので，NotebookからPython 3を選択する
 
-# #### .ipynbファイルの起動方法
+# ### .ipynbファイルの起動方法
 
 # - .ipynbファイルをダウンロードし，作業フォルダに保存する．
 #     - 講義ノート冒頭のDLリンクをクリックし，ダウンロードアイコンをクリック
@@ -208,7 +208,7 @@ get_ipython().run_line_magic('run', '"./chap_1/test.py"             # 実行')
 # - Jupyter Labを起動し，左上のフォルダアイコンをクリックする．
 # - .ipynbファイルを保存した作業フォルダに移動し，.ipynbファイルをダブルクリックする．
 
-# #### Jupyter Labの運用方法
+# ### Jupyter Labの運用方法
 
 # Jupyter Labで作業する際には，以下の手順でカレントディレクトリを作業フォルダに変更しておくと良い：
 # 1. エクスプローラー上で，作業フォルダをshiftを押しながら右クリックし，パスのコピーを選択
@@ -254,7 +254,7 @@ fig.savefig('./chap_1/graph.pdf', bbox_inches="tight", pad_inches=0.2, transpare
 # - Atom
 # - Sublime Text
 
-# #### （参考）便利な機能
+# ### （参考）便利な機能
 # 
 # **Jupyterのconfigファイル**
 # - ターミナルで以下を実行する
@@ -332,7 +332,7 @@ mm.my_func()
 mm.my_func()
 
 
-# ### （任意）Windows Terminalのインストール
+# ## （任意）Windows Terminalのインストール
 # 
 # プログラミングをする上でコマンドによる操作は避けて通れない．
 # Windowsにはコマンドプロンプトというコマンドラインツールが搭載されているが，使いづらいのでWindows Terminalをインストールすることを推奨する．
@@ -353,7 +353,7 @@ mm.my_func()
 # **実行**
 # - タスクバーにピン留めしておいて，そこから実行すると良い
 
-# ### （参考）Google Colab
+# ## （参考）Google Colab
 # 
 # Google Colab（正式名称はGoogle Colaboratoty）はgoogleが提供するPython実行環境であり，Jupyter Notebookがベースになっている．
 # 実際，Google Colabで作成したノートブックは".ipynb形式"で保存されるので，相互互換性がある．
@@ -370,14 +370,14 @@ mm.my_func()
 # また，GPUが無料で使用可能なので，重い計算を行う際にも重宝する．
 # 本講義では，基本的にJupyter Labを用いるが，Google Colabを用いても問題ない．
 
-# #### Google colabでjupyter notebookを開く
+# ### Google colabでjupyter notebookを開く
 # 
 # - Google Driveを開いて作業フォルダに移動
 # - 既存の`.ipynbファイル`を選択するとGoogle Colabが開く
 # - 新規作成作成の場合は以下
 #     - ［右クリック］→［その他］→［Google Colaboratory］
 
-# #### 必要なモジュールをimportする
+# ### 必要なモジュールをimportする
 # 
 # - google colabにインストールされていないモジュール（japanize_matplotlibなど）
 # 
@@ -391,7 +391,7 @@ mm.my_func()
 #     import numpy as np
 #     ```
 
-# #### Google Driveをマウントする
+# ### Google Driveをマウントする
 # 
 # Google Driveに保存した自作モジュールやファイルにアクセスしたい場合はGoogle Driveをマウントする必要がある．
 # 
@@ -403,7 +403,7 @@ mm.my_func()
 # - 「このノートブックにGoogleドライブのファイルへのアクセスを許可しますか？」と聞かれるので「Google ドライブに接続」を選択
 # - 自分のGoogleアカウントを選択し，「許可」を選択
 
-# #### （任意）自作モジュールをimportする
+# ### （任意）自作モジュールをimportする
 # ```python
 # import sys
 # sys.path.append('/content/drive/My Drive/***')
@@ -412,7 +412,7 @@ mm.my_func()
 # ```
 # ※ なお，自作モジュールの変更を反映したい場合は［ランタイムを出荷時設定にリセット］し，再度マウントする
 
-# #### （任意）matplotlibのスタイルファイルを読み込む
+# ### （任意）matplotlibのスタイルファイルを読み込む
 # 
 # ```python
 # import matplotlib.pyplot as plt
