@@ -3,21 +3,22 @@
 
 format: jb-book
 root: index
-options:
-  numbered: 3
 
 parts:
--caption:
+- caption:
+  numbered: True
   chapters:
   - file: chap_1/chap_1
     sections:
       - file: chap_1/sec_1-1/sec_1-1.md
       - file: chap_1/sec_1-2/sec_1-2.md
       - file: chap_1/sec_1-3/sec_1-3.ipynb
-
   - file: chap_2/chap_2
     sections:
       - file: chap_2/sec_2-1/sec_2-1.ipynb
       # - file: chap_2/sec_2-2/sec_2-2.ipynb
-
+;
+- caption:
+  numbered: False
+  chapters:
   - file: reference.md
