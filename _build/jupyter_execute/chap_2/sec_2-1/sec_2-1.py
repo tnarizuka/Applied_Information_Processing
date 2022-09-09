@@ -365,7 +365,7 @@ ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Discomfort Index')
 
 
-# #### STEP 5: Conclusion
+# ### STEP 5: Conclusion
 
 # **実習**
 # - 最高気温に対する並行箱ひげ図を基に，各地点の特徴について分かったことを次の観点からまとめよ．
