@@ -20,7 +20,7 @@ from pandas import DataFrame
 
 # #### 算術平均
 
-# In[2]:
+# In[3]:
 
 
 # アヤメデータの読み込み

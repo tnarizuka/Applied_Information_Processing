@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 # カレントディレクトリの変更（自分の作業フォルダのパスを設定）

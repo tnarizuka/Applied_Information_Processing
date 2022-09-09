@@ -3,7 +3,7 @@
 
 # 使用するモジュールのimport
 
-# In[1]:
+# In[3]:
 
 
 import sys, os
@@ -103,21 +103,21 @@ get_ipython().run_line_magic('precision', '3')
 # ##### Pythonでの例
 # - [pythonで四分位点や任意の分位点を計算する3つの方法](https://bunsekikobako.com/how_to_get_quantile_information_with_python/)
 
-# In[2]:
+# In[4]:
 
 
 x1 = [15, 20, 23, 20, 19, 21, 20, 18, 23, 18, 19, 20, 22]
 x2 = [7, 6, 9, 6, 10, 13, 12, 10, 14, 18, 7, 10, 13, 22]
 
 
-# In[3]:
+# In[5]:
 
 
 # 最小値，第1四分位数，中央値，第3四分位数，最大値
 np.percentile(x1, q=[0, 25, 50, 75, 100])
 
 
-# In[4]:
+# In[6]:
 
 
 # 最小値，第1四分位数，中央値，第3四分位数，最大値
@@ -129,7 +129,7 @@ np.percentile(x2, q=[0, 25, 50, 75, 100])
 # - [matplotlib.pyplot.boxplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
 # - [箱ひげ図を描く【Python】](https://biotech-lab.org/articles/4978)
 
-# In[5]:
+# In[10]:
 
 
 fig, ax = plt.subplots()
@@ -153,7 +153,7 @@ ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
 #     - Petal Length – 花弁の長さ(cm)
 #     - Petal Width – 花弁の幅(cm)
 
-# In[6]:
+# In[41]:
 
 
 # CSVファイルをPandasのデータフレーム形式で読み込み
@@ -161,20 +161,20 @@ Iris = pd.read_csv('Iris.csv')
 Iris = Iris.iloc[:, 1:5]
 
 
-# In[7]:
+# In[12]:
 
 
 Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 
 
-# In[8]:
+# In[13]:
 
 
 # ビンの個数（スタージェスの公式）
 BN = int(1+np.log2(len(Iris)))
 
 
-# In[9]:
+# In[14]:
 
 
 # がく片の長さに対する度数分布表
@@ -185,7 +185,7 @@ df = DataFrame(np.c_[x[:-1], x[1:], 0.5*(x[1:]+x[:-1]), f, 100*f/len(Iris), 100*
 df
 
 
-# In[10]:
+# In[17]:
 
 
 # ヒストグラムの描画と保存
@@ -208,7 +208,7 @@ for i in Iris.columns:
 # 実習
 # - 表2.2のデータから折れ線グラフを作成せよ
 
-# In[11]:
+# In[18]:
 
 
 # 2015年の月別国内旅行者数
@@ -217,7 +217,7 @@ df = DataFrame({'month': np.arange(12)+1,
 df
 
 
-# In[12]:
+# In[19]:
 
 
 fig, ax = plt.subplots(figsize=(5, 3))
@@ -258,7 +258,7 @@ ax.set_ylabel('number')
 # - [気象庁のHP](http://www.data.jma.go.jp/gmd/risk/obsdl/index.php)から2015年8月の各地点の1日の平均気温，最高気温，最低気温，湿度のデータ（csvファイル）をダウンロードせよ．
 # - ダウンロードしたデータをpythonなどで解析しやすいように加工せよ．
 
-# In[13]:
+# In[20]:
 
 
 # 加工済みcsvデータ
@@ -274,13 +274,13 @@ H = pd.read_csv('humidity.csv')
 # - 各都市の最高気温のデータに対し，五数要約と四分位範囲を求めよ．
 # - 五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．
 
-# In[14]:
+# In[25]:
 
 
 Tmax.describe().loc[['min', '25%','50%', '75%','max']]
 
 
-# In[15]:
+# In[28]:
 
 
 fig, ax = plt.subplots(figsize=(5,3))
@@ -295,7 +295,7 @@ ax.set_ylabel('Maximum Temperature [$^\circ$C]')
 # - 各地点の最低気温のデータについて，並行箱ひげ図を作成せよ
 # - 各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ
 
-# In[16]:
+# In[29]:
 
 
 fig, ax = plt.subplots(figsize=(5,3))
@@ -303,7 +303,7 @@ ret = ax.boxplot(Tmin.values, labels=Tmax.columns, whis=100, widths=0.5, vert=Tr
 ax.set_ylabel('Minimum Temperature [$^\circ$C]')
 
 
-# In[17]:
+# In[30]:
 
 
 # 熱帯夜の日数
@@ -315,14 +315,14 @@ ax.set_ylabel('Minimum Temperature [$^\circ$C]')
 # - 6地点の2015年8月1日から31日までの不快指数を計算せよ
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
 
-# In[18]:
+# In[ ]:
 
 
 DI = 0.81*Tave + 0.01*H*(0.99*Tave-14.3)+46.3
 DI
 
 
-# In[19]:
+# In[32]:
 
 
 fig, ax = plt.subplots(figsize=(5,3))
