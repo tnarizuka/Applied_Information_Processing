@@ -696,10 +696,10 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <section id="id6">
 <h3>ヒストグラム<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>データの分布の傾向（どの値がどのくらいあるか）を表す方法として，箱ひげ図ではデータを要約しすぎてしまい適切にその特徴を表せないことがある．
-そこで，より詳細に分布の傾向を可視化する方法として度数分布表やそれを可視化した**ヒストグラム（度数分布図）**がある．
+そこで，より詳細に分布の傾向を可視化する方法として度数分布表やそれを可視化した<strong>ヒストグラム</strong>（<strong>度数分布図</strong>）がある．
 度数分布とは，値を0以上10未満，10以上20未満などのいくつかの区間（<strong>階級，ビン</strong>）に分けてそれぞれの区間に含まれるデータの個数（度数）をまとめたもので，横軸に階級の代表値（<strong>階級値</strong>），縦軸に度数をとったグラフがヒストグラムである．
 なお，ヒストグラムの横軸には各階級の最小と最大を表示する場合と，階級値として階級の最小値や中央値を示す場合がある．
-また，縦軸には度数ではなく相対度数（<span class="math notranslate nohighlight">\(度数/データ数\)</span>）を取ることもある．</p>
+また，縦軸には度数ではなく相対度数（度数/データ数）を取ることもある．</p>
 <p>具体例として，ここではIris Dataset（<a class="reference external" href="https://www.kaggle.com/uciml/iris">Kaggleのウェブサイト</a>からダウンロード可能）に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 まずはIrisデータセットをダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：</p>
 <div class="cell docutils container">
@@ -1036,11 +1036,12 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 ここでは，1日の最高気温，最低気温，湿度のデータを収集する．</p>
 <p>収集したデータは五数要約や箱ひげ図によって傾向を調べる．
 また，夏の蒸し暑さを定量化した指標である<strong>不快指数</strong>を計算し，各都市の特徴を調べる．
-不快指数は気温を<span class="math notranslate nohighlight">\( t \)</span>，湿度を<span class="math notranslate nohighlight">\( H \)</span>とすると
-$<span class="math notranslate nohighlight">\(
+不快指数は気温を<span class="math notranslate nohighlight">\( t \)</span>，湿度を<span class="math notranslate nohighlight">\( H \)</span>とすると</p>
+<div class="math notranslate nohighlight">
+\[
 	不快指数=0.81t + 0.01H(0.99t-14.3)+46.3
-\)</span>$
-によって求められる．
+\]</div>
+<p>によって求められる．
 一般に，不快指数が75になると人口の約1割が不快を感じ，85になると全員が不快になる［三省堂編集所，大辞林，三省堂(1988)］．</p>
 </section>
 <section id="step3-data">
