@@ -157,8 +157,7 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
-fig.savefig('./box_ex.png', bbox_inches="tight",\
-            pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### ヒストグラム
@@ -234,8 +233,7 @@ for i in Iris.columns:
     ax.set_xticks(x2) 
     ax.set_xlabel(i+' [cm]')
     ax.set_ylabel('Frequency')
-    fig.savefig('./hist_%s.png'%i, bbox_inches="tight",\
-                pad_inches=0.2, transparent=True, dpi=300) # 保存
+    fig.savefig('./hist_%s.png'%i, bbox_inches="tight",                pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ## 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜
