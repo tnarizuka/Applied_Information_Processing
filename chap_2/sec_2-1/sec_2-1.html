@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,12 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="参考文献リスト" href="../../reference.html" />
     <link rel="prev" title="2. 記述統計学" href="../chap_2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     <!-- Google Analytics -->
@@ -213,7 +214,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/tnarizuka/AIP_2022/main?urlpath=tree/docs/chap_2/sec_2-1/sec_2-1.ipynb"
+        <a href="https://mybinder.org/v2/gh/tnarizuka/AIP_2022/main?urlpath=lab/tree/docs/chap_2/sec_2-1/sec_2-1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -527,9 +528,9 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">2.1. </span>データの整理<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2.1. </span>データの整理<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">2.1.1. </span>質的データ・量的データと尺度<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.1. </span>質的データ・量的データと尺度<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>データには<strong>質的データ</strong>と<strong>量的データ</strong>の2種類がある．
 質的データとは，数値で表すことができず，あるカテゴリーに属していることやある状態にあることだけが分かるデータである．
 例えば，性別（男，女），学歴（大卒，高卒，中卒），天気（晴，曇，雨，雪），などは質的データである．
@@ -557,11 +558,11 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 例えば，摂氏温度や西暦が0だったとしてもそれらは無いわけではないが，身長や速度が0であるときは本当に無いので，前者は間隔尺度，後者は比例尺度の例である．</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.1.2. </span>量的データの要約<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.2. </span>量的データの要約<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="id4">
-<h3>四分位数と五数要約<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>四分位数と五数要約<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>15個の量的データがあるとする．
-これを小さい順に並べたとき，<a class="reference internal" href="#fig-5number"><span class="std std-numref">Fig. 2.1</span></a>のように4等分に分割できる．
+これを小さい順に並べたとき，<a class="reference internal" href="#fig-5number"><span class="std std-numref">図 2.1</span></a>のように4等分に分割できる．
 このとき，アを<strong>最小値</strong>，イを<strong>第1四分位</strong>，ウを<strong>中央値（第2四分位数）</strong>，エを<strong>第3四分位数</strong>，オを<strong>最大値</strong>と呼ぶ．
 また，データを小さい順に並べたとき，左半分のデータを下位データ，右半分のデータを上位データと呼ぶ．
 ただし，データの数が奇数個の場合は中央値を除いて下位・上位に分ける方法を採用する（中央値を両方に含める場合もある）．
@@ -572,7 +573,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <figure class="align-default" id="fig-5number">
 <a class="reference internal image-reference" href="../../_images/5number.png"><img alt="../../_images/5number.png" src="../../_images/5number.png" style="height: 100px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">15個の量的データを小さい順に並べた例．</span><a class="headerlink" href="#fig-5number" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">図 2.1 </span><span class="caption-text">15個の量的データを小さい順に並べた例．</span><a class="headerlink" href="#fig-5number" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 <p>五数要約の求め方はデータの数が奇数個の場合と偶数個の場合で異なる．
@@ -633,8 +634,8 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </section>
 <section id="id5">
-<h3>箱ひげ図<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<p>五数要約の結果は<a class="reference internal" href="#fig-boxplot"><span class="std std-numref">Fig. 2.2</span></a>のような図によって可視化できる．
+<h3>箱ひげ図<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>五数要約の結果は<a class="reference internal" href="#fig-boxplot"><span class="std std-numref">図 2.2</span></a>のような図によって可視化できる．
 これを<strong>箱ひげ図</strong>と呼ぶ．
 箱ひげ図は以下の手順によって描く（これを<strong>テューキーの方式</strong>と呼ぶ）．</p>
 <ul class="simple">
@@ -648,7 +649,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <figure class="align-default" id="fig-boxplot">
 <a class="reference internal image-reference" href="../../_images/box_plot.png"><img alt="../../_images/box_plot.png" src="../../_images/box_plot.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">テューキーの方式による箱ひげ図の例</span><a class="headerlink" href="#fig-boxplot" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">図 2.2 </span><span class="caption-text">テューキーの方式による箱ひげ図の例</span><a class="headerlink" href="#fig-boxplot" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 <p>以下はPythonでの実装例である．</p>
@@ -678,7 +679,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </section>
 <section id="id6">
-<h3>ヒストグラム<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>ヒストグラム<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>データの分布の傾向（どの値がどのくらいあるか）を表す方法として，箱ひげ図ではデータを要約しすぎてしまい適切にその特徴を表せないことがある．
 そこで，より詳細に分布の傾向を可視化する方法として度数分布表やそれを可視化した<strong>ヒストグラム</strong>（<strong>度数分布図</strong>）がある．
 度数分布とは，値を0以上10未満，10以上20未満などのいくつかの区間（<strong>階級，ビン</strong>）に分けてそれぞれの区間に含まれるデータの個数（度数）をまとめたもので，横軸に階級の代表値（<strong>階級値</strong>），縦軸に度数をとったグラフがヒストグラムである．
@@ -975,7 +976,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">2.1.3. </span>実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.3. </span>実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．</p>
 <div class="cell docutils container">
@@ -1001,7 +1002,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <section id="step-1-problem">
-<h3>STEP 1: Problem<a class="headerlink" href="#step-1-problem" title="Permalink to this headline">#</a></h3>
+<h3>STEP 1: Problem<a class="headerlink" href="#step-1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>ある高校に通う5人の高校生は，2015年の夏休みにそれぞれ別の都市で過ごした．
 以下は日本の各都市についての気候に関する意見をまとめたものである．</p>
 <ul class="simple">
@@ -1015,7 +1016,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 特に，日本では，夏に避暑地を訪れる人が多いが，避暑地にはどのような特徴があるのだろうか？</p>
 </section>
 <section id="step2-plan">
-<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h3>
+<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/index.php">気象庁のHP</a> には1日の平均気温，最高気温，最低気温，湿度などのデータが掲載されている．
 ここでは，1日の最高気温，最低気温，湿度のデータを収集する．</p>
 <p>収集したデータは五数要約や箱ひげ図によって傾向を調べる．
@@ -1029,7 +1030,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 一般に，不快指数が75になると人口の約1割が不快を感じ，85になると全員が不快になる［三省堂編集所，大辞林，三省堂(1988)］．</p>
 </section>
 <section id="step3-data">
-<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h3>
+<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/index.php">気象庁のHP</a>から2015年8月の各地点の1日の平均気温，最高気温，最低気温，湿度のデータ（csvファイル）をダウンロードせよ．</p></li>
@@ -1049,7 +1050,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </section>
 <section id="step4-analysis">
-<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h3>
+<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習</strong>：最高気温</p>
 <ul class="simple">
 <li><p>各都市の最高気温のデータに対し，五数要約と四分位範囲を求めよ．</p></li>
@@ -1356,7 +1357,7 @@ dtype: int64
 </div>
 </section>
 <section id="step-5-conclusion">
-<h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Permalink to this headline">#</a></h3>
+<h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>最高気温に対する並行箱ひげ図を基に，各地点の特徴について分かったことを次の観点からまとめよ．</p>
@@ -1402,16 +1403,16 @@ dtype: int64
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chap_2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../chap_2.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">前へ</p>
             <p class="prev-next-title"><span class="section-number">2. </span>記述統計学</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../reference.html" title="next page">
+    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title">参考文献リスト</p>
     </div>
     <i class="fas fa-angle-right"></i>
@@ -1423,7 +1424,10 @@ dtype: int64
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-      &copy; Copyright 2021- by 成塚拓真（Takuma Narizuka）.<br/>
+    <div class="extra_footer">
+      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，作品中のコードは<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
+    </div>
 </p>
         </footer>
     </div>
