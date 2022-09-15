@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>特性値の活用 &#8212; Applied Information Processing B 2022</title>
+    <title>2.2. 特性値の活用 &#8212; Applied Information Processing B 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,10 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="参考文献リスト" href="../../reference.html" />
+    <link rel="prev" title="2.1. データの整理" href="../sec_2-1/sec_2-1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     <!-- Google Analytics -->
@@ -100,15 +103,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../index.html">
-                    情報処理の応用B
-                </a>
-            </li>
-        </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../chap_1/chap_1.html">
    1. イントロダクション
@@ -136,19 +131,24 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../chap_2.html">
    2. 記述統計学
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../sec_2-1/sec_2-1.html">
      2.1. データの整理
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2. 特性値の活用
     </a>
    </li>
   </ul>
@@ -368,7 +368,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   データの中心を表す特性値
+   2.2.1. データの中心を表す特性値
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -391,11 +391,13 @@ title="Print to PDF"
      最頻値
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     データのばらつきを表す特性値
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   2.2.2. データのばらつきを表す特性値
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
      平均偏差
@@ -415,7 +417,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   ローレンツ曲線とジニ係数
+   2.2.3. ローレンツ曲線とジニ係数
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -432,7 +434,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id14">
-   実例：地域の豊かさの格差は拡大しているか？
+   2.2.4. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -483,7 +485,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   データの中心を表す特性値
+   2.2.1. データの中心を表す特性値
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -506,11 +508,13 @@ title="Print to PDF"
      最頻値
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     データのばらつきを表す特性値
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   2.2.2. データのばらつきを表す特性値
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
      平均偏差
@@ -530,7 +534,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id11">
-   ローレンツ曲線とジニ係数
+   2.2.3. ローレンツ曲線とジニ係数
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -547,7 +551,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id14">
-   実例：地域の豊かさの格差は拡大しているか？
+   2.2.4. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -592,49 +596,81 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># import japanize_matplotlib</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 小数点以下の表示桁</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
+<span class="o">%</span><span class="k">precision</span> 3
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%.3f&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>特性値の活用<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2.2. </span>特性値の活用<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2>データの中心を表す特性値<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>データの中心を表す特性値<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="id3">
-<h3>算術平均<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>算術平均<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>データの中心を表す特性値として最もよく知られ，よく用いられるのが<strong>算術平均</strong>であり，</p>
+<div class="math notranslate nohighlight" id="equation-eq-arithmetic-mean">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-arithmetic-mean" title="この数式へのパーマリンク">#</a></span>\[
+	\bar{x} = \frac{x_{1}+x_{2}+\cdots+x_{n}}{n} = \frac{1}{n} \sum_{i=1}^{n}x_{i}
+\]</div>
+<p>と定義される．
+ただし，算術平均は分布形状が左右対称に近いデータの場合にはデータの中心を表す量と捉えられるが，分布形状が極端に非対称な場合にはデータの中心を表す特性値としてふさわしくない．</p>
+<p>算術平均は度数分布表から求めることもできる．
+具体的には，階級値を<span class="math notranslate nohighlight">\( v_{i} \)</span>，対応する度数を<span class="math notranslate nohighlight">\( f_{i} \)</span>，階級の数を<span class="math notranslate nohighlight">\( k \)</span>とすると，平均値は</p>
+<div class="math notranslate nohighlight" id="equation-eq-arithmetic-mean2">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-arithmetic-mean2" title="この数式へのパーマリンク">#</a></span>\[
+	\bar{x} = \frac{f_{1}v_{1}+f_{2}v_{2}+\cdots+f_{k}v_{k}}{f_{1}+f_{2}+\cdots+f_{k}}
+	= \frac{1}{n} \sum_{i=1}^{k} f_{i}v_{i}
+\]</div>
+<p>と表される．</p>
+<p>以上をPythonで実装してみよう．
+まずはアヤメデータを読み込む．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータの読み込み</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;material/sec_2-1/Iris.csv&#39;</span><span class="p">)</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Iris.csv&#39;</span><span class="p">)</span>
 <span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>このデータに対し，式<a class="reference internal" href="#equation-eq-arithmetic-mean">(2.1)</a>を当てはめれば算術平均を計算することができる．
+例えば，アヤメのがく片の長さのデータの場合，平均値は<span class="math notranslate nohighlight">\( \bar{x}=5.843 \)</span> cmとなる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメのがく片の長さの平均</span>
+<span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.843333333333335
 </pre></div>
 </div>
 </div>
 </div>
+<p>一方，がく片の長さに対する度数分布表は以下のようになる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ビンの個数（スタージェスの公式）</span>
-<span class="n">BN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># がく片の長さに対する度数分布表</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">BN</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">bn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">)))</span>
+
+<span class="c1"># がく片の長さに対する度数分布表</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bn</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">f</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">),</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Iris</span><span class="p">))],</span>
                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;最小&#39;</span><span class="p">,</span> <span class="s1">&#39;最大&#39;</span><span class="p">,</span> <span class="s1">&#39;階級値&#39;</span><span class="p">,</span> <span class="s1">&#39;度数&#39;</span><span class="p">,</span> <span class="s1">&#39;相対度数&#39;</span><span class="p">,</span> <span class="s1">&#39;累積相対度数&#39;</span><span class="p">])</span>
-<span class="c1"># df.to_csv(&#39;material/sec_2-1/fdt.csv&#39;, index=False, encoding=&quot;shift-jis&quot;)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -671,111 +707,80 @@ title="Print to PDF"
       <th>0</th>
       <td>4.30</td>
       <td>4.75</td>
-      <td>4.53</td>
+      <td>4.525</td>
       <td>11.0</td>
-      <td>7.33</td>
-      <td>7.33</td>
+      <td>7.333</td>
+      <td>7.333</td>
     </tr>
     <tr>
       <th>1</th>
       <td>4.75</td>
       <td>5.20</td>
-      <td>4.97</td>
+      <td>4.975</td>
       <td>30.0</td>
-      <td>20.00</td>
-      <td>27.33</td>
+      <td>20.000</td>
+      <td>27.333</td>
     </tr>
     <tr>
       <th>2</th>
       <td>5.20</td>
       <td>5.65</td>
-      <td>5.43</td>
+      <td>5.425</td>
       <td>24.0</td>
-      <td>16.00</td>
-      <td>43.33</td>
+      <td>16.000</td>
+      <td>43.333</td>
     </tr>
     <tr>
       <th>3</th>
       <td>5.65</td>
       <td>6.10</td>
-      <td>5.88</td>
+      <td>5.875</td>
       <td>24.0</td>
-      <td>16.00</td>
-      <td>59.33</td>
+      <td>16.000</td>
+      <td>59.333</td>
     </tr>
     <tr>
       <th>4</th>
       <td>6.10</td>
       <td>6.55</td>
-      <td>6.33</td>
+      <td>6.325</td>
       <td>31.0</td>
-      <td>20.67</td>
-      <td>80.00</td>
+      <td>20.667</td>
+      <td>80.000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6.55</td>
       <td>7.00</td>
-      <td>6.78</td>
+      <td>6.775</td>
       <td>17.0</td>
-      <td>11.33</td>
-      <td>91.33</td>
+      <td>11.333</td>
+      <td>91.333</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7.00</td>
       <td>7.45</td>
-      <td>7.22</td>
+      <td>7.225</td>
       <td>7.0</td>
-      <td>4.67</td>
-      <td>96.00</td>
+      <td>4.667</td>
+      <td>96.000</td>
     </tr>
     <tr>
       <th>7</th>
       <td>7.45</td>
       <td>7.90</td>
-      <td>7.68</td>
+      <td>7.675</td>
       <td>6.0</td>
-      <td>4.00</td>
-      <td>100.00</td>
+      <td>4.000</td>
+      <td>100.000</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ヒストグラムの描画と保存</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">BN</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 横軸に表示する階級値を計算（中央値）</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>  
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal Length [cm]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-2_8_1.png" src="../../_images/sec_2-2_8_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメのがく片の長さの平均</span>
-<span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.843333333333335
-</pre></div>
-</div>
-</div>
-</div>
+<p>この度数分布表のデータを式<a class="reference internal" href="#equation-eq-arithmetic-mean2">(2.2)</a>に当てはめれば算術平均を計算することができる．
+実際にアヤメのがく片に対して算術平均を求めると，<span class="math notranslate nohighlight">\( \bar{x}=5.854 \)</span> cmとなる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメのがく片の長さの平均（度数分布表から求めたもの）</span>
@@ -789,9 +794,34 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>以上の例を見て分かるように，度数分布表から求めた平均値はデータから直接求めた平均値と一致しない．
+これは，度数分布表から求めた平均値が近似値であるからである．
+度数分布表では，各階級の値を階級値で代表させているためこのようなことが起こるが，各階級の幅を十分小さく取れば近似の度合いは上昇する．</p>
 </section>
 <section id="id4">
-<h3>幾何平均<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>幾何平均<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>算術平均に対して，幾何平均というものも存在する．
+これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータに対して，値の積の<span class="math notranslate nohighlight">\( n \)</span>乗根をとったもので，</p>
+<div class="math notranslate nohighlight" id="equation-eq-geometric-mean">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-geometric-mean" title="この数式へのパーマリンク">#</a></span>\[
+	\bar{x}_{g} = \sqrt[n]{x_{1}\times\cdots \times x_{n}} = \sqrt[n]{\prod_{i=1}^{n}x_{i}} = \left(\prod_{i=1}^{n}x_{i}\right)^{1/n}
+\]</div>
+<p>と定義される．
+定義より，幾何平均は正の数のみしか扱えず，さらに掛け算によって定義されるので比率データにしか適用できない．</p>
+<p>幾何平均は成長率や倍率の平均を計算するときに用いられる．
+例えば，次のような事例を考える：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1年目から2年目にかけての物価は対前年比2倍になり（100円のものが200円になり），2年目から3年目にかけての物価は対前年比8倍となった（200円のものが1600円になった）．
+では，この2年間の物価の対前年比伸び率の平均はいくらか？
+</pre></div>
+</div>
+<p>まず，算術平均を適用してみる．
+すると，物価の対前年比伸び率の平均は<span class="math notranslate nohighlight">\( (2+8)/2=5 \)</span>倍となる．
+これは，1年目に100円だったものが2年目に500円になり，さらに3年目に2500円になることを意味するので，実際よりも過大に見積もってしまう．
+そこで，次に幾何平均を適用してみる．
+すると，物価の対前年比伸び率の平均は<span class="math notranslate nohighlight">\( \sqrt[2]{2\times 8}=4 \)</span>倍となる．
+これは，1年目に100円だったものが2年目に400円になり，さらに3年目に1600円になることを意味するので，実際の金額と一致する．
+このように，倍率の平均値を計算する場合には，算術平均ではなく幾何平均を用いるのが妥当である．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats.mstats</span> <span class="kn">import</span> <span class="n">gmean</span>
@@ -806,14 +836,25 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.785720390427728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.786
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id5">
-<h3>中央値<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3>中央値<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>データの分布形状が歪んでいる場合，算術平均はデータの中心を表す特性値としてふさわしくない．
+例えば，</p>
+<div class="math notranslate nohighlight">
+\[
+	1,1,1,1,2,3,4,5,16,20 
+\]</div>
+<p>のようなデータがあったとき，この算術平均は5.4になるが，平均より小さいものが8個を占め，残りの2個が平均より大きい．
+これは，少数のデータ（16と20）が平均を押し上げている例である．
+このような場合，分布の中心という意味では既に述べた**中央値（メディアン）**を用いる方が適切である．
+実際，中央値を用いれば，その値より小さい数と大きい数の個数が等しくなる．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
@@ -821,14 +862,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.800
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id6">
-<h3>最頻値<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>最頻値<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>平均値，中央値の他によく用いられる特性値として，<strong>最頻値</strong>（モード）がある．
+これは，データの中で最も頻出する数であり，度数分布表において度数が最大となる階級の階級値に対応する．
+ただし，分布形状が双峰性の場合には有効な特性値とならないので注意が必要である．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
@@ -837,17 +882,39 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    5.0
-dtype: float64
+Name: Sepal Length, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id7">
-<h3>データのばらつきを表す特性値<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 </section>
+<section id="id7">
+<h2><span class="section-number">2.2.2. </span>データのばらつきを表す特性値<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>データの特性を知りたい場合，中心を表す特性値だけでは情報不足であり，中心からどの程度ばらついているかも考慮しなければならない．
+例えば，以下の3つのデータは中心を表す算術平均，中央値，最頻値がすべて5であるが，分布の形状は異なる．</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	&amp;A: 0,3,3,5,5,5,5,7,7,10 \\
+	&amp;B: 0,1,2,3,5,5,7,8,9,10 \\
+	&amp;C: 3,4,4,5,5,5,5,6,6,7
+\end{align*}\]</div>
+<p>通常，ばらつきを求める際には，算術平均からの距離<span class="math notranslate nohighlight">\( x_{i} - \bar{x} \)</span>を考える．
+これを<strong>偏差</strong>と呼ぶ．
+この偏差を全データに対して平均すれば，ばらつきを表す特性値になりそうであるが，これだと問題が生じる．
+例えば，データが左右対称に分布している場合，平均より小さい値のデータ（偏差が負）と大きい値のデータ（偏差が正）が同程度あるため，偏差を平均するとほぼ0になってしまう．
+ばらつきが0というのは明らかにおかしいため，別の特性値を考える必要がある．
+以下に代表的な方法を示す．</p>
 <section id="id8">
-<h3>平均偏差<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3>平均偏差<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>１つ目の方法は偏差の絶対値を取ってから平均するというものであり，<strong>平均偏差</strong>と呼ばれる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-deviation">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-mean-deviation" title="この数式へのパーマリンク">#</a></span>\[
+	平均偏差 = \frac{1}{n} \sum_{i=1}^{n}|x_{i}-\bar{x}| 
+\]</div>
+<p>これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータの1個当りの平均からの距離であり，ばらつきの指標として直感的に理解しやすい．
+しかし，絶対値の扱いが数学的に面倒，分布の中心が<span class="math notranslate nohighlight">\( \bar{x} \)</span>ではなく中央値のときに最小になる，平均から大きく外れた値も等しい寄与となる，など問題があるため利用されることは少ない．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -862,7 +929,21 @@ dtype: float64
 </div>
 </section>
 <section id="id9">
-<h3>分散・標準偏差<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>分散・標準偏差<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>２つ目の方法は，偏差の２乗をとってから平均するというものであり，<strong>分散</strong>と呼ばれる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-deviation">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-deviation" title="この数式へのパーマリンク">#</a></span>\[
+	s^{2} = \frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}
+\]</div>
+<p>分散は<span class="math notranslate nohighlight">\( n \)</span>個のデータ1個当りの平均からの距離の2乗であり，平均から大きく離れるほど寄与が大きくなる指標である．</p>
+<p>また，分散の平方根<span class="math notranslate nohighlight">\( s \)</span>は<strong>標準偏差</strong>と呼ばれる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-standard-deviation">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-standard-deviation" title="この数式へのパーマリンク">#</a></span>\[
+	s = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}}
+\]</div>
+<p>標準偏差はデータの測定単位と同一の単位となるので扱いやすい．
+通常，データのばらつきを表す特性値としては分散または標準偏差が最もよく用いられる．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分散</span>
@@ -891,7 +972,17 @@ dtype: float64
 </div>
 </section>
 <section id="id10">
-<h3>変動係数<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<h3>変動係数<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>標準偏差は測定単位によって値が変化してしまう．
+また，データの水準の変化（おおまかには平均値の大きさ）とともに標準偏差の大きさは変化する．
+そこで，データの水準を平均値によって調整した指標が<strong>変動係数</strong>（Coefficient of Variation）で，次式で定義される：</p>
+<div class="math notranslate nohighlight" id="equation-eq-cv">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
+	\mathrm{CV} = \frac{s}{\bar{x}}
+\]</div>
+<p>変動係数は同じ単位を持つ量同士で割り算をしているので，無次元（単位がない）となり，データの測定単位に寄らない．
+通常，単位や平均が異なるグループ間でばらつきを比較する際には変動係数が用いられる．</p>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -907,7 +998,7 @@ dtype: float64
 </section>
 </section>
 <section id="id11">
-<h2>ローレンツ曲線とジニ係数<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>ローレンツ曲線とジニ係数<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
@@ -984,7 +1075,7 @@ dtype: float64
 </div></div></div>
 </div>
 <section id="id12">
-<h3>ローレンツ曲線<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<h3>ローレンツ曲線<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
@@ -1009,12 +1100,12 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_31_0.png" src="../../_images/sec_2-2_31_0.png" />
+<img alt="../../_images/sec_2-2_49_0.png" src="../../_images/sec_2-2_49_0.png" />
 </div>
 </div>
 </section>
 <section id="id13">
-<h3>ジニ係数<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<h3>ジニ係数<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>面積から求める</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1057,9 +1148,9 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </section>
 </section>
 <section id="id14">
-<h2>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.4. </span>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
-<h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h3>
+<h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>2015年の国勢調査では，日本全体の人口が1920年の調査開始以来，初めて減少したことが明らかになった．</p></li>
 <li><p>また，都道府県ごとの人口を見ても，5年前（2010年）に比べて人口が減少したのは39の道府県にのぼる．</p></li>
@@ -1069,7 +1160,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </ul>
 </section>
 <section id="step2-plan">
-<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h3>
+<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>地域ごとの経済的な豊かさを捉える指標として，都道府県別の1人当たり県民所得に着目する．</p></li>
 <li><p>これは，企業を含めて県民全体の経済水準を表すもので，都道府県間で比較可能な統計データである．</p></li>
@@ -1079,7 +1170,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </ul>
 </section>
 <section id="step3-data">
-<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h3>
+<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>1人当たり県民所得は，内閣府「県民経済計算」(<a class="reference external" href="https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html">https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html</a>) から利用することができる．</p></li>
 <li><p>ただし，年度が同じでも基準（平成23年基準や平成17年基準など）によって算出された値が異なることに注意する．</p></li>
@@ -1437,7 +1528,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </div>
 </section>
 <section id="step4-analysis">
-<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h3>
+<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習：平均と標準偏差</strong></p>
 <ul class="simple">
 <li><p>各年度に対して平均と標準偏差を求めよ．</p></li>
@@ -1465,7 +1556,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;標準偏差（万円）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_46_1.png" src="../../_images/sec_2-2_46_1.png" />
+<img alt="../../_images/sec_2-2_64_1.png" src="../../_images/sec_2-2_64_1.png" />
 </div>
 </div>
 <p><strong>実習：変動係数</strong></p>
@@ -1495,7 +1586,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;変動係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_48_1.png" src="../../_images/sec_2-2_48_1.png" />
+<img alt="../../_images/sec_2-2_66_1.png" src="../../_images/sec_2-2_66_1.png" />
 </div>
 </div>
 <p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
@@ -1535,7 +1626,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;所得の累積相対度数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_52_1.png" src="../../_images/sec_2-2_52_1.png" />
+<img alt="../../_images/sec_2-2_70_1.png" src="../../_images/sec_2-2_70_1.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1576,12 +1667,12 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ジニ係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_55_1.png" src="../../_images/sec_2-2_55_1.png" />
+<img alt="../../_images/sec_2-2_73_1.png" src="../../_images/sec_2-2_73_1.png" />
 </div>
 </div>
 </section>
 <section id="step-5-conclusion">
-<h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Permalink to this headline">#</a></h3>
+<h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>格差を表す指標の40年間の推移から地域間で経済的な豊かさの格差が拡大したのかどうか考えよ．</p></li>
 <li><p>格差を表す指標の40年間の推移を見ると，細かい時間スケールでの変動が見られる．これらは具体的にどのような出来事を反映していると考えられるか？</p></li>
@@ -1617,6 +1708,20 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../sec_2-1/sec_2-1.html" title="前へ ページ">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">前へ</p>
+            <p class="prev-next-title"><span class="section-number">2.1. </span>データの整理</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">参考文献リスト</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -1624,9 +1729,10 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book community<br/>
-  
-      &copy; Copyright 2021- by 成塚拓真（Takuma Narizuka）.<br/>
+    <div class="extra_footer">
+      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
+    </div>
 </p>
         </footer>
     </div>
