@@ -419,21 +419,9 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id11">
    2.2.3. ローレンツ曲線とジニ係数
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     ローレンツ曲線
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     ジニ係数
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id14">
+  <a class="reference internal nav-link" href="#id12">
    2.2.4. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
@@ -536,21 +524,9 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id11">
    2.2.3. ローレンツ曲線とジニ係数
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     ローレンツ曲線
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     ジニ係数
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id14">
+  <a class="reference internal nav-link" href="#id12">
    2.2.4. 実例：地域の豊かさの格差は拡大しているか？
   </a>
   <ul class="nav section-nav flex-column">
@@ -999,6 +975,66 @@ Name: Sepal Length, dtype: float64
 </section>
 <section id="id11">
 <h2><span class="section-number">2.2.3. </span>ローレンツ曲線とジニ係数<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>ある社会を構成する構成員（人物でも市町村でも何でも良い）に対し，所得が対応したデータを考える．
+この構成員を所得の小さい順に並べて<span class="math notranslate nohighlight">\( n \)</span>個の階級に分け，階級<span class="math notranslate nohighlight">\( i \)</span>のサイズ（人数や個数）を<span class="math notranslate nohighlight">\( x_{i} \)</span>，平均所得を<span class="math notranslate nohighlight">\( y_{i} \)</span>とする．
+また，サイズの累積相対度数を<span class="math notranslate nohighlight">\( X_{i} \)</span>，平均所得の累積相対度数を<span class="math notranslate nohighlight">\( Y_{i} \)</span>とする．
+このとき，横軸に構成員の累積相対度数，縦軸に所得の累積相対度数を取ったグラフを<strong>ローレンツ曲線</strong>と呼ぶ．
+グラフの横軸，縦軸はともに0から1の範囲であり，曲線上の<span class="math notranslate nohighlight">\( (X, Y) \)</span>という点は，社会全体の貧しい側から<span class="math notranslate nohighlight">\( X\times100 \)</span>%の人が全体の<span class="math notranslate nohighlight">\( Y\times100 \)</span>%の富を占めることを表す．
+例えば，<span class="math notranslate nohighlight">\( (0.25, 0.1) \)</span>という点は，社会全体の25%の人が10%の富を占めるということを表す．
+ローレンツ曲線はこれらの点を点線で結んだ折れ線グラフとして表され，必ず両端が<span class="math notranslate nohighlight">\( (0, 0) \)</span>と<span class="math notranslate nohighlight">\( (1, 1) \)</span>になる．
+もし，富が全構成員に平等に配分されている場合，ローレンツ曲線は傾き1の直線となり，これを<strong>完全平等線</strong>と呼ぶ．
+一方，富の配分に格差があるほどローレンツ曲線は完全平等線から下にずれていく．
+このように，ローレンツ曲線はある社会における富の配分格差を可視化したグラフといえる．</p>
+<p>社会の格差の度合いはローレンツ曲線が完全平等線から下にずれるほど大きくなる．
+よって，ローレンツ曲線と完全平等線によって囲まれた部分の面積が，完全平等線，<span class="math notranslate nohighlight">\( x=1 \)</span>，<span class="math notranslate nohighlight">\( y=0 \)</span>で構成される三角形の面積に占める割合を格差の指標と考えることができる．
+この指標は<strong>ジニ係数</strong>と呼ばれる．
+階級を<span class="math notranslate nohighlight">\( n \)</span>等分したとき，下から<span class="math notranslate nohighlight">\( i \)</span>番目の階級の平均所得を<span class="math notranslate nohighlight">\( y_{i} \)</span>とする（<span class="math notranslate nohighlight">\( y_{1}\leq y_{2} \leq \cdots \leq y_{n} \)</span>）．
+このとき，ジニ係数を以下のように表すこともできる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-gini">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-gini" title="この数式へのパーマリンク">#</a></span>\[
+	G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}|
+\]</div>
+<p>ただし，<span class="math notranslate nohighlight">\( \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_{i} \)</span>は全体の平均所得である．
+ジニ係数は0から1の間で定義され，完全に平等な配分のときに<span class="math notranslate nohighlight">\( G=0 \)</span>，一人がすべての所得を占有しているときに<span class="math notranslate nohighlight">\( G=(n-1)/n \)</span>となる（つまり<span class="math notranslate nohighlight">\( n \)</span>が大きいときには1に近づく）．</p>
+<p><strong>例）<span class="math notranslate nohighlight">\( n=3 \)</span>の場合</strong></p>
+<p>まず，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>を用いてジニ係数を計算すると，</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\sum_{i=1}^{3}\sum_{j=1}^{3} |y_{i}-y_{j}|
+	&amp;= 2\{(y_{2}-y_{1})+(y_{3}-y_{1})+(y_{3}-y_{2})\} \\
+	&amp;= 4(y_{3}-y_{1}) \\
+	\bar{y} &amp;= \frac{1}{3} (y_{1}+y_{2}+y_{3})
+\end{align*}\]</div>
+<p>より</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	G &amp;= \frac{2}{3} \frac{y_{3}-y_{1}}{y_{1}+y_{2}+y_{3}}
+\end{align*}\]</div>
+<p>となる．</p>
+<p>次に，面積からジニ係数を計算する．
+横軸と縦軸の値はそれぞれ表\ref{tb:lorentz}のようになる．
+ローレンツ曲線と<span class="math notranslate nohighlight">\( x=1 \)</span>，<span class="math notranslate nohighlight">\( y=0 \)</span>に囲まれた領域の面積は1つの三角形と2つの台形から成るので，</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\frac{1}{2}\cdot\frac{1}{3} \left[\alpha_{1}+(\alpha_{1}+\alpha_{2})+(\alpha_{2}+1)\right]
+	&amp;= \frac{1}{6}(2\alpha_{1}+2\alpha_{2}+1)
+\end{align*}\]</div>
+<p>これより，完全平等線と<span class="math notranslate nohighlight">\( x=1 \)</span>，<span class="math notranslate nohighlight">\( y=0 \)</span>に囲まれた領域の面積は</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\frac{1}{2} - \frac{1}{6}(2\alpha_{1}+2\alpha_{2}+1) = \frac{1}{3} (1-\alpha_{1}-\alpha_{2})
+\end{align*}\]</div>
+<p>となるので，ジニ係数は</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	G 
+	&amp;= \frac{1}{3} (1-\alpha_{1}-\alpha_{2}) \div \frac{1}{2} \\
+	&amp;= \frac{2}{3} (1-\alpha_{1}-\alpha_{2}) \\
+	&amp;= \frac{2}{3} \frac{y_{3}-y_{1}}{y_{1}+y_{2}+y_{3}}
+\end{align*}\]</div>
+<p>と求まる．</p>
+<p>以上より，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>から求めたジニ係数と面積から求めたジニ係数が確かに一致することが分かった．
+なお，一般の<span class="math notranslate nohighlight">\( n \)</span>に対する証明は省略する．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
@@ -1074,8 +1110,7 @@ Name: Sepal Length, dtype: float64
 </table>
 </div></div></div>
 </div>
-<section id="id12">
-<h3>ローレンツ曲線<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
@@ -1100,12 +1135,9 @@ Name: Sepal Length, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_49_0.png" src="../../_images/sec_2-2_49_0.png" />
+<img alt="../../_images/sec_2-2_52_0.png" src="../../_images/sec_2-2_52_0.png" />
 </div>
 </div>
-</section>
-<section id="id13">
-<h3>ジニ係数<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>面積から求める</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1130,8 +1162,7 @@ Name: Sepal Length, dtype: float64
 </div>
 </div>
 </div>
-<p>公式から求める
-$<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}| \)</span>$</p>
+<p>公式から求める</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
@@ -1146,9 +1177,8 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 </div>
 </div>
 </section>
-</section>
-<section id="id14">
-<h2><span class="section-number">2.2.4. </span>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id12">
+<h2><span class="section-number">2.2.4. </span>実例：地域の豊かさの格差は拡大しているか？<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
@@ -1556,7 +1586,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;標準偏差（万円）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_64_1.png" src="../../_images/sec_2-2_64_1.png" />
+<img alt="../../_images/sec_2-2_66_1.png" src="../../_images/sec_2-2_66_1.png" />
 </div>
 </div>
 <p><strong>実習：変動係数</strong></p>
@@ -1586,7 +1616,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;変動係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_66_1.png" src="../../_images/sec_2-2_66_1.png" />
+<img alt="../../_images/sec_2-2_68_1.png" src="../../_images/sec_2-2_68_1.png" />
 </div>
 </div>
 <p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
@@ -1626,7 +1656,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;所得の累積相対度数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_70_1.png" src="../../_images/sec_2-2_70_1.png" />
+<img alt="../../_images/sec_2-2_72_1.png" src="../../_images/sec_2-2_72_1.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1667,7 +1697,7 @@ $<span class="math notranslate nohighlight">\( G = \frac{1}{2n^{2} \bar{y}} \sum
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ジニ係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_73_1.png" src="../../_images/sec_2-2_73_1.png" />
+<img alt="../../_images/sec_2-2_75_1.png" src="../../_images/sec_2-2_75_1.png" />
 </div>
 </div>
 </section>
