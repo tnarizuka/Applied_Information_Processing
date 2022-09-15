@@ -19,7 +19,7 @@
 
 
 
-## 参考文献
+## 参考書
 
 - [総務省政策統括官政策基準部編集，高校からの統計・データサイエンス活用～上級編～，日本統計協会，2017．](https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm)
 

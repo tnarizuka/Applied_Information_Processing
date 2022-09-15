@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="参考文献リスト" href="../../reference.html" />
+    <link rel="next" title="2.2. 特性値の活用" href="../sec_2-2/sec_2-2.html" />
     <link rel="prev" title="2. 記述統計学" href="../chap_2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="ja">
@@ -144,6 +144,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      2.1. データの整理
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sec_2-2/sec_2-2.html">
+     2.2. 特性値の活用
     </a>
    </li>
   </ul>
@@ -513,7 +518,10 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># import japanize_matplotlib</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 小数点以下の表示桁</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
@@ -546,8 +554,8 @@ title="Print to PDF"
 間隔データは値同士の加減が許される．
 間隔データの代表例は，摂氏・華氏温度や時刻である．
 例えば，摂氏温度は水の融点を0℃，沸点を100℃としてその間を等分した尺度なので，値の大小関係と差に意味はあるが，比に意味はない．
-実際，4℃と8℃を比較して4℃暑いということはできるが，2倍暑いなどということはできない\footnote{比例尺度である絶対温度で表すと，4℃は277.15K，8℃は281.15Kであり，その比は2倍ではない\cite{d}．}．
-一方，値の大小関係と値の差に加えて，値同士の比にも意味があるような尺度を\textbf{比率尺度}と呼び，対応するデータは比率データと呼ぶ．
+実際，4℃と8℃を比較して4℃暑いということはできるが，2倍暑いなどということはできない（比例尺度である絶対温度で表すと，4℃は277.15K，8℃は281.15Kであり，その比は2倍ではない）．</p>
+<p>一方，値の大小関係と値の差に加えて，値同士の比にも意味があるような尺度を<strong>比率尺度</strong>と呼び，対応するデータは比率データと呼ぶ．
 比率データは値同士の加減乗除が全て許される．
 比率データの代表例は身長，体重，年齢などである．
 例えば，身長150cmと180cmには「値の大小関係」があり，「値の差」も30cmと意味がある．
@@ -597,7 +605,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <p>この場合，中央値は<span class="math notranslate nohighlight">\( Q_{2}=(7+9)/2=8 \)</span>となる．
 また，第1四分位数は<span class="math notranslate nohighlight">\( Q_{1}=5 \)</span>，第3四分位数は<span class="math notranslate nohighlight">\( Q_{3}=13 \)</span>と求まる．
 四分位範囲は<span class="math notranslate nohighlight">\( Q_{3}-Q_{1}=13-5=8 \)</span>である．</p>
-<p>以下はPythonでの実装例である．</p>
+<p><strong>Pythonでの実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
@@ -652,7 +660,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 <p><span class="caption-number">図 2.2 </span><span class="caption-text">テューキーの方式による箱ひげ図の例</span><a class="headerlink" href="#fig-boxplot" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
-<p>以下はPythonでの実装例である．</p>
+<p><strong>Pythonでの実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
@@ -674,7 +682,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_17_0.png" src="../../_images/sec_2-1_17_0.png" />
+<img alt="../../_images/sec_2-1_20_0.png" src="../../_images/sec_2-1_20_0.png" />
 </div>
 </div>
 </section>
@@ -943,7 +951,7 @@ K（ケルビン）で表される絶対温度も比例データの例である�
 </div>
 </div>
 </div>
-<p>次に，Pythonでヒストグラムを描画するには<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>の<code class="docutils literal notranslate"><span class="pre">hist</span></code>メソッドを用いる．
+<p>Pythonでヒストグラムを描画するには<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>の<code class="docutils literal notranslate"><span class="pre">hist</span></code>メソッドを用いる．
 以下はアヤメのがく片の長さ，がく片の幅，花弁の長さ，花弁の幅について，一度にヒストグラムを描画する例である．</p>
 <p>ヒストグラムの中でデータが集中している部分が山のようになっているとき，山が１つの場合には<strong>単峰性</strong>，2つの場合には<strong>双峰性</strong>，それ以上の場合には<strong>多峰性</strong>と呼ぶ．
 Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性，花弁（Petal）のヒストグラムは双峰性である．
@@ -967,10 +975,10 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_26_0.png" src="../../_images/sec_2-1_26_0.png" />
-<img alt="../../_images/sec_2-1_26_1.png" src="../../_images/sec_2-1_26_1.png" />
-<img alt="../../_images/sec_2-1_26_2.png" src="../../_images/sec_2-1_26_2.png" />
-<img alt="../../_images/sec_2-1_26_3.png" src="../../_images/sec_2-1_26_3.png" />
+<img alt="../../_images/sec_2-1_29_0.png" src="../../_images/sec_2-1_29_0.png" />
+<img alt="../../_images/sec_2-1_29_1.png" src="../../_images/sec_2-1_29_1.png" />
+<img alt="../../_images/sec_2-1_29_2.png" src="../../_images/sec_2-1_29_2.png" />
+<img alt="../../_images/sec_2-1_29_3.png" src="../../_images/sec_2-1_29_3.png" />
 </div>
 </div>
 </section>
@@ -998,7 +1006,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_30_0.png" src="../../_images/sec_2-1_30_0.png" />
+<img alt="../../_images/sec_2-1_33_0.png" src="../../_images/sec_2-1_33_0.png" />
 </div>
 </div>
 <section id="step-1-problem">
@@ -1154,7 +1162,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Maximum Temperature [$^\\circ$C]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_39_1.png" src="../../_images/sec_2-1_39_1.png" />
+<img alt="../../_images/sec_2-1_42_1.png" src="../../_images/sec_2-1_42_1.png" />
 </div>
 </div>
 <p><strong>実習</strong>：最低気温</p>
@@ -1174,7 +1182,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Minimum Temperature [$^\\circ$C]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_41_1.png" src="../../_images/sec_2-1_41_1.png" />
+<img alt="../../_images/sec_2-1_44_1.png" src="../../_images/sec_2-1_44_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1352,7 +1360,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Discomfort Index&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-1_45_1.png" src="../../_images/sec_2-1_45_1.png" />
+<img alt="../../_images/sec_2-1_48_1.png" src="../../_images/sec_2-1_48_1.png" />
 </div>
 </div>
 </section>
@@ -1410,10 +1418,10 @@ dtype: int64
             <p class="prev-next-title"><span class="section-number">2. </span>記述統計学</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
+    <a class='right-next' id="next-link" href="../sec_2-2/sec_2-2.html" title="次へ ページ">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
-        <p class="prev-next-title">参考文献リスト</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>特性値の活用</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
