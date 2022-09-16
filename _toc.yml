@@ -16,7 +16,7 @@ parts:
   - file: chap_2/chap_2
     sections:
       - file: chap_2/sec_2-1/sec_2-1.ipynb
-      - file: chap_2/sec_2-2/sec_2-2.ipynb
+      # - file: chap_2/sec_2-2/sec_2-2.ipynb
 - caption:
   numbered: False
   chapters:
