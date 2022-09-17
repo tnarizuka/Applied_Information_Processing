@@ -12,7 +12,7 @@ try:
 except:
     pass
 import pandas as pd
-pd.set_option('display.precision', 3)   # 小数点以下の表示桁
+pd.set_option('display.precision', 3)  # 小数点以下の表示桁
 pd.set_option('display.max_rows', 20)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
@@ -146,17 +146,17 @@ np.percentile(x2, q=[0, 25, 50, 75, 100])
 
 # **Pythonでの実装**
 
-# In[24]:
+# In[3]:
 
 
 x1 = [15, 20, 23, 20, 19, 21, 20, 18, 23, 18, 19, 20, 22]
 x2 = [7, 6, 9, 6, 10, 13, 12, 10, 14, 18, 7, 10, 13, 22]
 
 
-# In[25]:
+# In[4]:
 
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(3.5, 3), dpi=300)
 ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
