@@ -538,8 +538,8 @@ title="Print to PDF"
 </section>
 <section id="jupyter-lab">
 <h2><span class="section-number">1.3.3. </span>Jupyter Labの運用<a class="headerlink" href="#jupyter-lab" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>Anacondaをインストールすると，自動的にJupyter NotebookとJupyter Labが使えるようになる．
-本講義ではJupyter Labの方を用いる．</p>
+<p>Anacondaをインストールすると，自動的にJupyter Labが使えるようになる．
+本講義では演習の時間を設けるので，その際には以下のようにJupyter Labを運用する．</p>
 <section id="id3">
 <h3>Jupyter Labの起動<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
@@ -571,16 +571,12 @@ title="Print to PDF"
 <h3>パスとは何か？<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>自分のPCに保存されたファイルをJupyter Labに読み込んだり，逆にJupyter Labで作成した図などを自分のPCに保存するには，対象となるファイルの在り処，つまりアドレスが分からないといけない．
 このアドレスを指定する文字列のことをパス（Path）と呼ぶ．</p>
-<p>Windowsの場合，パスはフォルダの階層構造を区切り文字<code class="docutils literal notranslate"><span class="pre">¥</span></code>（またはバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\\</span></code>）によって区切った形式で以下のように表される：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>C:¥Program Files
-C:¥Users¥username¥work¥test.txt
+<p>Windowsの場合，パスはフォルダの階層構造を区切り文字<code class="docutils literal notranslate"><span class="pre">¥</span></code>（またはバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\</span></code>）によって区切った形式で以下のように表される：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>C:¥ユーザー¥ドキュメント
 </pre></div>
 </div>
-<p>それぞれのパスの先頭は<code class="docutils literal notranslate"><span class="pre">C</span></code>から始まっている．
-これは，最も上の階層であるドライブ名を表す文字で，エクスプローラーを開いてナビゲーションウィンドウからPCアイコンをクリックすると表示される［例えば，<code class="docutils literal notranslate"><span class="pre">C</span></code>はCドライブを意味し，<code class="docutils literal notranslate"><span class="pre">ローカルディスク（C:）</span></code>と表示されているものに対応する］．
-また，フォルダの階層の区切りは<code class="docutils literal notranslate"><span class="pre">¥</span></code>（またはバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\\</span></code>）によって表されており，<code class="docutils literal notranslate"><span class="pre">¥</span></code>の隣にはフォルダの名前が記載されている．
-例えば，１番目のパスは，Cドライブの中にある<code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Files</span></code>というフォルダのパスを表す．
-また，2番目のパスは<code class="docutils literal notranslate"><span class="pre">test.txt</span></code>というファイルのパスを表す．</p>
+<p>フォルダの階層の区切りは<code class="docutils literal notranslate"><span class="pre">¥</span></code>（またはバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\\</span></code>）によって表されており，<code class="docutils literal notranslate"><span class="pre">¥</span></code>の隣にはフォルダの名前が記載されている．
+上の例は，Cドライブ（<code class="docutils literal notranslate"><span class="pre">C:</span></code>）の中にある<code class="docutils literal notranslate"><span class="pre">ユーザー</span></code>フォルダの中の<code class="docutils literal notranslate"><span class="pre">ドキュメント</span></code>フォルダのパスを表す．</p>
 </section>
 <section id="id5">
 <h3>相対パスと絶対パス<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
@@ -614,19 +610,19 @@ C:¥Users¥username¥work¥test.txt
 </div>
 </div>
 <p><strong>絶対パス</strong></p>
-<p>最も上の階層であるドライブ名（通常は<code class="docutils literal notranslate"><span class="pre">C</span></code>）から始まるパスを<strong>絶対パス</strong>と呼ぶ．
+<p>最も上の階層であるドライブ名（通常は<code class="docutils literal notranslate"><span class="pre">C:</span></code>）から始まるパスを<strong>絶対パス</strong>と呼ぶ．
 Windowsにおいて絶対パスを取得（コピー）するには以下のようにする：</p>
 <ul class="simple">
 <li><p>エクスプローラー上で対象のファイルやフォルダに対しshiftキーを押しながら右クリック</p></li>
 <li><p>「パスのコピー」を選択</p></li>
 </ul>
 <p>なお，Windows環境においてパスをコピーして貼り付けると
-<code class="docutils literal notranslate"><span class="pre">C:\Users\username\OneDrive\情報処理の応用</span></code>
+<code class="docutils literal notranslate"><span class="pre">C:\ユーザー\ユーザー名\OneDrive\情報処理の応用</span></code>
 のように区切り文字がバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\</span></code>または<code class="docutils literal notranslate"><span class="pre">¥</span></code>になるはずである．
 ところが，pythonではバックスラッシュ<code class="docutils literal notranslate"><span class="pre">\</span></code>と文字を組み合わせたエスケープシーケンスいう特別な文字列が存在し，例えば，<code class="docutils literal notranslate"><span class="pre">\n</span></code>は改行，<code class="docutils literal notranslate"><span class="pre">\t</span></code>はタブを表すエスケープシーケンスとなる．
 これにより，上の例の中にある<code class="docutils literal notranslate"><span class="pre">\t</span></code>の部分はパスの区切りではなくエスケープシーケンスとして認識され，エラーが出ることがある（特に，pythonでファイルの入出力を行うとき）．
 これを回避するには以下のように先頭に<code class="docutils literal notranslate"><span class="pre">r</span></code>を付ける</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s2">&quot;C:\Users\username\OneDrive\情報処理の応用&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s2">&quot;C:\ユーザー\ユーザー名\OneDrive\情報処理の応用&quot;</span>
 </pre></div>
 </div>
 <p>これは，raw文字列と呼ばれ，&quot;&quot;の中に指定した文字列をそのままの形で認識させることができる．</p>
