@@ -223,7 +223,7 @@ Iris.columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 Iris
 
 
-# まず，Irisデータに対してスタージェスの公式を適用すると以下のようになる．
+# このデータに対してスタージェスの公式を適用すると以下のようになる．
 
 # In[94]:
 
