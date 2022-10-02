@@ -733,11 +733,11 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 <section id="id8">
 <h3>ヒストグラム<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>データの分布の傾向（どの値がどのくらいあるか）を表す方法として，箱ひげ図ではデータを要約しすぎてしまい適切にその特徴を表せないことがある．
-そこで，より詳細に分布の傾向を捉える方法として度数分布がある．
+そこで，より詳細に分布の傾向を捉える方法として<strong>度数分布</strong>がある．
 度数分布とは，ある値のデータがいくつあるかを示したもので，以下のように作成する．</p>
 <ul class="simple">
 <li><p>値を0以上10未満，10以上20未満などのいくつかの区間（<strong>階級，ビン</strong>）に分ける</p></li>
-<li><p>それぞれの階級に含まれるデータの個数（度数）を数える</p></li>
+<li><p>それぞれの階級に含まれるデータの個数（<strong>度数</strong>）を数える</p></li>
 <li><p>階級と度数の関係を可視化する</p></li>
 </ul>
 <p>度数分布を可視化する方法には，階級と度数の関係を表で表した<strong>度数分布表</strong>と横軸に階級の代表値（<strong>階級値</strong>），縦軸に度数をとった<strong>ヒストグラム</strong>がある．
@@ -748,6 +748,7 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 そこで，一般的な目安として，階級数は標本の大きさ（サンプルサイズ）<span class="math notranslate nohighlight">\( N \)</span>の平方根<span class="math notranslate nohighlight">\( \sqrt{N} \)</span>程度が良いとされている．
 例えば，100個のデータを含む場合は10程度の階級が望ましい．
 また，<span class="math notranslate nohighlight">\( 1 + \log_{2} N \)</span>という公式も存在し，これを<strong>スタージェスの公式</strong>と呼ぶ．</p>
+<p><strong>Pythonでの実装</strong></p>
 <p>具体例として，ここではIris Dataset（<a class="reference external" href="https://www.kaggle.com/uciml/iris">Kaggleのウェブサイト</a>からダウンロード可能）に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 まずはIrisデータセットをダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：</p>
 <div class="cell docutils container">
