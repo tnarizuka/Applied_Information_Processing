@@ -166,6 +166,8 @@ np.percentile(x2, q=[0, 25, 50, 75, 100])
 # ```
 
 # **Pythonでの実装**
+# 
+# Pythonで箱ひげ図を描くには，Matplotlibの`boxplot`関数を用いれば良い．
 
 # In[91]:
 
