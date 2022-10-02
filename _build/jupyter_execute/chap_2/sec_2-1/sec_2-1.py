@@ -175,8 +175,7 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
-fig.savefig('./box_ex.png', bbox_inches="tight",\
-            pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### ヒストグラム
