@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[87]:
+# In[1]:
 
 
 import sys, os
@@ -185,7 +185,8 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
-fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./box_ex.png', bbox_inches="tight",\
+            pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### ヒストグラム
@@ -213,7 +214,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, tran
 # 具体例として，ここではIris Dataset（[Kaggleのウェブサイト](https://www.kaggle.com/uciml/iris)からダウンロード可能）に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 # まずはIrisデータセットをダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
 
-# In[93]:
+# In[2]:
 
 
 # CSVファイルをPandasのデータフレーム形式で読み込み
@@ -225,7 +226,7 @@ Iris
 
 # このデータに対してスタージェスの公式を適用すると以下のようになる．
 
-# In[94]:
+# In[3]:
 
 
 # ビンの個数（スタージェスの公式）
@@ -238,13 +239,18 @@ bn
 # 例えば，階級4の相対度数は0.207なので，6.1以上6.55以下のデータが全体の20%程度存在することが分かる．
 # また，階級4の累積相対度数は0.8なので，6.55以下のデータが全体の80%を占めることが分かる．
 
-# In[95]:
+# In[6]:
 
 
 # がく片の長さに対する度数分布表
 f, x = np.histogram(Iris['Sepal Length'], bins=bn, density=0)
-df = pd.DataFrame(np.c_[x[:-1], x[1:], 0.5*(x[1:]+x[:-1]), f, f/len(Iris), np.cumsum(f/len(Iris))],
-          columns=['階級の最小値', '階級の最大値', '階級値', '度数', '相対度数', '累積相対度数'])
+df = pd.DataFrame({'階級の最小値': x[:-1],
+                   '階級の最大値': x[1:],
+                   '階級値': 0.5*(x[1:]+x[:-1]),
+                   '度数': f,
+                   '相対度数': f/len(Iris),
+                   '累積相対度数': np.cumsum(f/len(Iris))
+                   })
 df.to_csv('./Iris_fdt.csv', index=False, encoding="utf_8_sig")
 df
 
@@ -258,22 +264,25 @@ df
 # 特に，多峰性のヒストグラムの場合には箱ひげ図によって可視化するとデータを要約しすぎてしまうため，適切にその特徴を表すことができない．
 # この他にも，値の小さなところにデータが集中していて大きな値のところに少数のデータがあるとき，「右に裾を引いている」という．
 
-# In[96]:
+# In[7]:
 
 
 # ヒストグラムの描画と保存
 for i in Iris.columns:
     fig, ax = plt.subplots(figsize=(3.5, 3), dpi=100)
-    x = ax.hist(Iris[i], bins=bn, histtype='bar', color='c', ec='k', alpha=0.5)[1]
-    x2 = np.round(0.5*(x[1:]+x[:-1]), 2)  # 横軸に表示する階級値を計算（中央値）
+    x = ax.hist(Iris[i], # データ
+                bins=bn, # 階級数
+                histtype='bar',  # ヒストグラムの種類
+                color='c', ec='k', alpha=0.5  # 縦棒の色，透明度
+               )[1]
+    x2 = np.round(0.5*(x[1:]+x[:-1]), 2)  # 横軸に表示する階級値（中央値）
     
-    ax.set_title(i)
-    ax.set_xticks(x2)
-    ax.set_xticklabels(x2, fontsize=8)
-    ax.set_xlabel(i+' [cm]')
-    ax.set_ylabel('Frequency')
-    # fig.savefig('./Iris_hist_%s.png'%i, bbox_inches="tight", 
-    # pad_inches=0.2, transparent=True, dpi=300) # 保存
+    ax.set_title(i)  # グラフのタイトル
+    ax.set_xticks(x2) # 横軸の目盛り
+    ax.set_xticklabels(x2, fontsize=8) # 横軸の目盛り
+    ax.set_xlabel(i+' [cm]')  # 横軸のラベル
+    ax.set_ylabel('Frequency') # 縦軸のラベル
+    fig.savefig('./Iris_hist_%s.png'%i, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ## 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜
