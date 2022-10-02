@@ -290,7 +290,7 @@ for i in Iris.columns:
 # 日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 # 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．
 
-# In[97]:
+# In[8]:
 
 
 # 2015年の月別国内旅行者数
@@ -298,11 +298,12 @@ df = pd.DataFrame({'month': np.arange(12)+1,
                    'number': [4315, 3620, 5331, 4456, 6322, 4693, 4458, 7177, 5707, 4647, 4794, 4952]})
 
 
-# In[98]:
+# In[10]:
 
 
 fig, ax = plt.subplots(figsize=(5, 3))
 ax.plot(df['month'], df['number'])
+ax.set_xticks(np.arange(12)+1)
 ax.set_xlabel('Month', fontsize=15)
 ax.set_ylabel('Number of tourist', fontsize=15);
 
@@ -319,8 +320,6 @@ ax.set_ylabel('Number of tourist', fontsize=15);
 # 
 # それぞれの場所で，本当に暑さに違いはあったのだろうか？
 # 特に，日本では，夏に避暑地を訪れる人が多いが，避暑地にはどのような特徴があるのだろうか？
-
-# 
 
 # ### STEP2: Plan
 # [気象庁のHP](http://www.data.jma.go.jp/gmd/risk/obsdl/index.php) には1日の平均気温，最高気温，最低気温，湿度などのデータが掲載されている．
