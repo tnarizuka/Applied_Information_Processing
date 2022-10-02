@@ -569,11 +569,11 @@ title="Print to PDF"
 <h3>質的データ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>まず，性別（男，女），天気（晴，曇，雨，雪）など，他と区別することだけができるデータを<strong>カテゴリカルデータ</strong>と呼ぶ．
 カテゴリカルデータは，「男を１，女を２」などとすれば数値で表すことができるが，その数値には他と区別するという以上の意味はない．
-このような数値の割り当て方は<strong>名義尺度</strong>と呼ばれる．
+このように数値を割り当てる規則は<strong>名義尺度</strong>と呼ばれる．
 カテゴリカルデータに対しては数をカウントすること（度数や最頻値の計算）を除いて一切の計算が許されない．</p>
-<p>一方，マラソンの順位（1位，2位，3位）や満足度（3：満足，2：普通，1：不満）のように大小や前後が決まるデータを順序データと呼ぶ．
-順序データを作るためには，マラソンのタイムなどを大小関係だけが区別できるように数値を割り当てれば良い．
-このような数値の割り当て方は<strong>順序尺度</strong>と呼ばれる．
+<p>一方，スポーツの順位（1位，2位，3位）や満足度（3：満足，2：普通，1：不満）のように大小関係や前後関係が決まるデータを順序データと呼ぶ．
+順序データを作るためには，マラソンのタイムなどを大小関係だけが区別できるように数値化すれば良い．
+このように数値を割り当てる規則は<strong>順序尺度</strong>と呼ばれる．
 順序データに対しては大小関係を比較すること（<span class="math notranslate nohighlight">\( &gt;, = \)</span>などの演算）が許される．</p>
 <p>以上のカテゴリカルデータと順序データを合わせて<strong>質的データ</strong>と呼ぶ．</p>
 </section>
@@ -583,23 +583,23 @@ title="Print to PDF"
 間隔データの代表例は，摂氏・華氏温度や時刻（時間ではない）である．
 例えば，摂氏温度は水の融点を0℃，沸点を100℃としてその間を等分することで数値を定める．
 また，時刻は時間の流れの中の1点を便宜的に0とし，そこからの相対的な間隔によって数値を割り当てる．
-このような数値の割り当て方は<strong>間隔尺度</strong>と呼ばれる．
-間隔データでは，値の大小関係と差に意味はあるが，比に意味はない．
-実際，4℃と8℃を比較して4℃暑いということはできるが，2倍暑いなどということはできない．
-なお，間隔データは大小関係の比較に加えて値同士の加減が許される．</p>
+このように数値を割り当てる規則は<strong>間隔尺度</strong>と呼ばれる．
+間隔データでは，値同士の大小関係と差に意味はあるが，値同士の比に意味はない．
+実際，4℃と8℃を比較して後者の方が4℃暑いということはできるが，2倍暑いなどということはできない．
+なお，間隔データは大小関係の比較に加えて値同士の加減（<span class="math notranslate nohighlight">\(+,\ -\)</span>の演算）が許される．</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">摂氏温度について</p>
 <p>摂氏温度を比率尺度である絶対温度で表すと，4℃は277.15K，8℃は281.15Kであり，その比は2倍ではない</p>
 </aside>
 <p>最後に，値の大小関係と値の差に加えて，値同士の比にも意味があるようなデータを<strong>比率（比例）データ</strong>と呼ぶ．
 比率データの代表例は身長，体重，年齢などである．
-例えば，身長150cmと180cmには「値の大小関係」があり，「値の差」も30cmと意味がある．
-また100cmと200cmであれば，「後者は前者の2倍」であると解釈でき，比が意味を持つ．
+例えば，身長50cmと200cmには「値の大小関係」があり，「値の差」も150cmと意味がある．
+また，「後者は前者の4倍」であると解釈でき，比が意味を持つ．
 K（ケルビン）で表される絶対温度も比率データの例である．
-実際，絶対温度は値0が絶対的な意味を持ち，1Kと2Kではある量（原子や分子の運動の激しさ）が実際に2倍になっているので比にも意味がある．
+実際，絶対温度において，1Kと2Kではある量（原子や分子の運動の激しさ）が実際に2倍になっているので値同士の比に意味がある．
 比率データは値同士の加減乗除が全て許される．</p>
 <p>間隔尺度と比率尺度が見分けづらい場合は，「0の値が相対的な意味しか持たない」場合が間隔尺度，「0の値が絶対的な意味を持つ」（ある量が実際に無いことを意味する）場合が比率尺度と考えると良い．
-例えば，摂氏温度における0は原子や分子の運動がゼロであるわけではないが，身長が0であるときには本当に長さが無いので，前者は間隔尺度，後者は比率尺度の例である．</p>
+例えば，摂氏温度における0は便宜的に決めたものであるが，絶対温度における0は原子や分子の運動がゼロであるという絶対的な意味を持つため，前者は間隔尺度，後者は比率尺度である．</p>
 <p>以上の間隔データと比率データを合わせて<strong>量的データ</strong>と呼ぶ．</p>
 </section>
 </section>
@@ -721,7 +721,7 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_23_0.png" src="../../_images/sec_2-1_23_0.png" />
+<img alt="../../_images/sec_2-1_25_0.png" src="../../_images/sec_2-1_25_0.png" />
 </div>
 </div>
 </section>
@@ -1023,10 +1023,10 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_34_0.png" src="../../_images/sec_2-1_34_0.png" />
-<img alt="../../_images/sec_2-1_34_1.png" src="../../_images/sec_2-1_34_1.png" />
-<img alt="../../_images/sec_2-1_34_2.png" src="../../_images/sec_2-1_34_2.png" />
-<img alt="../../_images/sec_2-1_34_3.png" src="../../_images/sec_2-1_34_3.png" />
+<img alt="../../_images/sec_2-1_36_0.png" src="../../_images/sec_2-1_36_0.png" />
+<img alt="../../_images/sec_2-1_36_1.png" src="../../_images/sec_2-1_36_1.png" />
+<img alt="../../_images/sec_2-1_36_2.png" src="../../_images/sec_2-1_36_2.png" />
+<img alt="../../_images/sec_2-1_36_3.png" src="../../_images/sec_2-1_36_3.png" />
 </div>
 </div>
 </section>
@@ -1054,7 +1054,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_38_0.png" src="../../_images/sec_2-1_38_0.png" />
+<img alt="../../_images/sec_2-1_40_0.png" src="../../_images/sec_2-1_40_0.png" />
 </div>
 </div>
 <section id="step-1-problem">
@@ -1211,7 +1211,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_48_0.png" src="../../_images/sec_2-1_48_0.png" />
+<img alt="../../_images/sec_2-1_50_0.png" src="../../_images/sec_2-1_50_0.png" />
 </div>
 </div>
 <div class="admonition- admonition">
@@ -1231,7 +1231,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_50_0.png" src="../../_images/sec_2-1_50_0.png" />
+<img alt="../../_images/sec_2-1_52_0.png" src="../../_images/sec_2-1_52_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1410,7 +1410,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_54_0.png" src="../../_images/sec_2-1_54_0.png" />
+<img alt="../../_images/sec_2-1_56_0.png" src="../../_images/sec_2-1_56_0.png" />
 </div>
 </div>
 </section>
