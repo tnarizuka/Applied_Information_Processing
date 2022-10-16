@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 import sys, os
@@ -238,7 +238,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # 具体例として，ここではIris Dataset（[Kaggleのウェブサイト](https://www.kaggle.com/uciml/iris)からダウンロード可能）に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 # まずはIrisデータセットをダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
 
-# In[2]:
+# In[3]:
 
 
 # CSVファイルをPandasのデータフレーム形式で読み込み
@@ -250,7 +250,7 @@ Iris
 
 # このデータに対してスタージェスの公式を適用すると以下のようになる．
 
-# In[3]:
+# In[4]:
 
 
 # ビンの個数（スタージェスの公式）
@@ -263,7 +263,7 @@ bn
 # 例えば，階級4の相対度数は0.207なので，6.1以上6.55以下のデータが全体の20%程度存在することが分かる．
 # また，階級4の累積相対度数は0.8なので，6.55以下のデータが全体の80%を占めることが分かる．
 
-# In[6]:
+# In[5]:
 
 
 # がく片の長さに対する度数分布表
@@ -288,7 +288,7 @@ df
 # 特に，多峰性のヒストグラムの場合には箱ひげ図によって可視化するとデータを要約しすぎてしまうため，適切にその特徴を表すことができない．
 # この他にも，値の小さなところにデータが集中していて大きな値のところに少数のデータがあるとき，「右に裾を引いている」という．
 
-# In[7]:
+# In[6]:
 
 
 # ヒストグラムの描画と保存
@@ -314,7 +314,7 @@ for i in Iris.columns:
 # 日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 # 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．
 
-# In[8]:
+# In[7]:
 
 
 # 2015年の月別国内旅行者数
@@ -322,14 +322,15 @@ df = pd.DataFrame({'month': np.arange(12)+1,
                    'number': [4315, 3620, 5331, 4456, 6322, 4693, 4458, 7177, 5707, 4647, 4794, 4952]})
 
 
-# In[10]:
+# In[8]:
 
 
 fig, ax = plt.subplots(figsize=(5, 3))
 ax.plot(df['month'], df['number'])
 ax.set_xticks(np.arange(12)+1)
 ax.set_xlabel('Month', fontsize=15)
-ax.set_ylabel('Number of tourist', fontsize=15);
+ax.set_ylabel('Number of tourist', fontsize=15)
+# fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### STEP 1: Problem
@@ -368,7 +369,7 @@ ax.set_ylabel('Number of tourist', fontsize=15);
 # - 加工したデータを読み込め．
 # ```
 
-# In[99]:
+# In[9]:
 
 
 # 加工済みcsvデータ
@@ -385,21 +386,21 @@ H = pd.read_csv('./humidity.csv')
 # - 五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．
 # ```
 
-# In[100]:
+# In[10]:
 
 
 # 五数要約
 Tmax.describe().loc[['min', '25%','50%', '75%','max']]
 
 
-# In[101]:
+# In[11]:
 
 
 # 並行箱ひげ図（最高気温）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(Tmax.values, labels=Tmax.columns, whis=100, widths=0.5, vert=True)
-ax.set_ylabel('Maximum Temperature [$^\circ$C]');
-# fig.savefig('figure/box_ex.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+ax.set_ylabel('Maximum Temperature [$^\circ$C]')
+fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ```{admonition} 実習：最低気温
@@ -407,16 +408,17 @@ ax.set_ylabel('Maximum Temperature [$^\circ$C]');
 # - 各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ
 # ```
 
-# In[102]:
+# In[12]:
 
 
 # 並行箱ひげ図（最低気温）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(Tmin.values, labels=Tmax.columns, whis=100, widths=0.5, vert=True)
-ax.set_ylabel('Minimum Temperature [$^\circ$C]');
+ax.set_ylabel('Minimum Temperature [$^\circ$C]')
+fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
-# In[103]:
+# In[13]:
 
 
 # 熱帯夜の日数
@@ -428,7 +430,7 @@ ax.set_ylabel('Minimum Temperature [$^\circ$C]');
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
 # ```
 
-# In[106]:
+# In[14]:
 
 
 # 不快指数
@@ -436,13 +438,14 @@ DI = 0.81*Tave + 0.01*H*(0.99*Tave-14.3)+46.3
 DI
 
 
-# In[105]:
+# In[15]:
 
 
 # 並行箱ひげ図（不快指数）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
-ax.set_ylabel('Discomfort Index');
+ax.set_ylabel('Discomfort Index')
+fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### STEP 5: Conclusion
