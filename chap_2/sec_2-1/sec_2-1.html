@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://github.com/tnarizuka/AIP_2022/chap_2/sec_2-1/sec_2-1.html" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="2.2. 特性値の活用" href="../sec_2-2/sec_2-2.html" />
@@ -757,6 +756,18 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 そこで，一般的な目安として，階級数は標本の大きさ（サンプルサイズ）<span class="math notranslate nohighlight">\( N \)</span>の平方根<span class="math notranslate nohighlight">\( \sqrt{N} \)</span>程度が良いとされている．
 例えば，100個のデータを含む場合は10程度の階級が望ましい．
 また，<span class="math notranslate nohighlight">\( 1 + \log_{2} N \)</span>という公式も存在し，これを<strong>スタージェスの公式</strong>と呼ぶ．</p>
+<figure class="align-default" id="fig-fdt-data">
+<a class="reference internal image-reference" href="../../_images/fdt_data.png"><img alt="../../_images/fdt_data.png" src="../../_images/fdt_data.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 2.3 </span><span class="caption-text">量的データの例</span><a class="headerlink" href="#fig-fdt-data" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-fdt">
+<a class="reference internal image-reference" href="chap_2/sec_2-1/fdt.png"><img alt="chap_2/sec_2-1/fdt.png" src="chap_2/sec_2-1/fdt.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 2.4 </span><span class="caption-text">度数分布表の例</span><a class="headerlink" href="#fig-fdt" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
 <p><strong>Pythonでの実装</strong></p>
 <p>具体例として，ここではIris Dataset（<a class="reference external" href="https://www.kaggle.com/uciml/iris">Kaggleのウェブサイト</a>からダウンロード可能）に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 まずはIrisデータセットをダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：</p>
@@ -1046,10 +1057,10 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_37_0.png" src="../../_images/sec_2-1_37_0.png" />
-<img alt="../../_images/sec_2-1_37_1.png" src="../../_images/sec_2-1_37_1.png" />
-<img alt="../../_images/sec_2-1_37_2.png" src="../../_images/sec_2-1_37_2.png" />
-<img alt="../../_images/sec_2-1_37_3.png" src="../../_images/sec_2-1_37_3.png" />
+<img alt="../../_images/sec_2-1_38_0.png" src="../../_images/sec_2-1_38_0.png" />
+<img alt="../../_images/sec_2-1_38_1.png" src="../../_images/sec_2-1_38_1.png" />
+<img alt="../../_images/sec_2-1_38_2.png" src="../../_images/sec_2-1_38_2.png" />
+<img alt="../../_images/sec_2-1_38_3.png" src="../../_images/sec_2-1_38_3.png" />
 </div>
 </div>
 </section>
@@ -1078,7 +1089,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_41_0.png" src="../../_images/sec_2-1_41_0.png" />
+<img alt="../../_images/sec_2-1_42_0.png" src="../../_images/sec_2-1_42_0.png" />
 </div>
 </div>
 <section id="step-1-problem">
@@ -1235,7 +1246,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_50_0.png" src="../../_images/sec_2-1_50_0.png" />
+<img alt="../../_images/sec_2-1_51_0.png" src="../../_images/sec_2-1_51_0.png" />
 </div>
 </div>
 <div class="admonition- admonition">
@@ -1255,7 +1266,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_52_0.png" src="../../_images/sec_2-1_52_0.png" />
+<img alt="../../_images/sec_2-1_53_0.png" src="../../_images/sec_2-1_53_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1434,7 +1445,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-1_56_0.png" src="../../_images/sec_2-1_56_0.png" />
+<img alt="../../_images/sec_2-1_57_0.png" src="../../_images/sec_2-1_57_0.png" />
 </div>
 </div>
 </section>
