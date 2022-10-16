@@ -211,15 +211,15 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 
 # ```{figure} fdt_data.png
 # ---
-# height: 300px
+# height: 100px
 # name: fig:fdt_data
 # ---
 # 量的データの例
 # ```
 # 
-# ```{figure} fdt.png
+# ```{figure} fdt_ex.png
 # ---
-# height: 300px
+# height: 200px
 # name: fig:fdt
 # ---
 # 度数分布表の例
