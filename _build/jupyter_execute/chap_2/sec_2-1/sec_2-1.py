@@ -236,11 +236,6 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # **Pythonでの実装**
 # 
 # 具体例として，ここではIris Dataset {cite}`Fisher1936`に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
-# 
-# ```{margin} Iris Dataset
-# Ronald A Fisher. The use of multiple measurements in taxonomic problems. Annals of eugenics, 7(2):179–188, 1936.
-# ```
-# 
 # まずは[Iris Datasetをダウンロード](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)して作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
 
 # In[3]:
