@@ -185,7 +185,8 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
-fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./box_ex.png', bbox_inches="tight",\
+            pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### ヒストグラム
@@ -207,6 +208,22 @@ fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, tran
 # そこで，一般的な目安として，階級数は標本の大きさ（サンプルサイズ）$ N $の平方根$ \sqrt{N} $程度が良いとされている．
 # 例えば，100個のデータを含む場合は10程度の階級が望ましい．
 # また，$ 1 + \log_{2} N $という公式も存在し，これを**スタージェスの公式**と呼ぶ．
+
+# ```{figure} fdt_data.png
+# ---
+# height: 300px
+# name: fig:fdt_data
+# ---
+# 量的データの例
+# ```
+# 
+# ```{figure} fdt.png
+# ---
+# height: 300px
+# name: fig:fdt
+# ---
+# 度数分布表の例
+# ```
 
 # **Pythonでの実装**
 # 

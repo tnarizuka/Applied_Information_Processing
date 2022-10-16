@@ -71,6 +71,6 @@ sphinx:
     language: ja
     html_show_copyright: false
     # bibtex_reference_style: author_year
-    html_baseurl: 'https://github.com/tnarizuka/AIP_2022/'
-  extra_extension:
-    - sphinx_sitemap
+  #   html_baseurl: 'https://github.com/tnarizuka/AIP_2022/'
+  # extra_extension:
+  #   - sphinx_sitemap
