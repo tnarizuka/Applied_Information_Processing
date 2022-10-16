@@ -224,6 +224,14 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # ---
 # 度数分布表の例
 # ```
+# 
+# ```{figure} hist_ex.png
+# ---
+# height: 250px
+# name: fig:fdt
+# ---
+# ヒストグラムの例
+# ```
 
 # **Pythonでの実装**
 # 
