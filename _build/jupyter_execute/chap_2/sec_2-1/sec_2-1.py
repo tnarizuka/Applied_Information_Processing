@@ -211,7 +211,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 
 # ```{figure} fdt_data.png
 # ---
-# height: 100px
+# height: 80px
 # name: fig:fdt_data
 # ---
 # 量的データの例
