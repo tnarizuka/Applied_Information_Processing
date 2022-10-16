@@ -214,7 +214,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # height: 80px
 # name: fig:fdt_data
 # ---
-# 量的データの例
+# 量的データ$X$
 # ```
 # 
 # ```{figure} fdt_ex.png
@@ -227,7 +227,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # 
 # ```{figure} hist_ex.png
 # ---
-# height: 250px
+# height: 300px
 # name: fig:fdt
 # ---
 # ヒストグラムの例
