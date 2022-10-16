@@ -235,8 +235,8 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 
 # **Pythonでの実装**
 # 
-# 具体例として，ここでは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
-# まずは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)をダウンロードして作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
+# 具体例として，ここではIris Dataset{cite}`Fisher1936`に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
+# まずは[Iris Datasetをダウンロード](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)して作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
 
 # In[3]:
 
