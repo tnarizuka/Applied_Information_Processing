@@ -219,7 +219,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # 
 # ```{figure} fdt_ex.png
 # ---
-# height: 200px
+# height: 300px
 # name: fig:fdt
 # ---
 # 度数分布表の例
