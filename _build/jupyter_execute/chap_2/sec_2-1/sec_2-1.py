@@ -362,11 +362,10 @@ fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transpar
 
 # ### STEP3: Data
 
-# ```{admonition} 実習：データの加工
+# **実習：データの加工**
 # - [気象庁のHP](http://www.data.jma.go.jp/gmd/risk/obsdl/index.php)から2015年8月の各地点の1日の平均気温，最高気温，最低気温，湿度のデータ（csvファイル）をダウンロードせよ．
 # - ダウンロードしたデータをpythonなどで解析しやすいように加工せよ．
 # - 加工したデータを読み込め．
-# ```
 
 # In[44]:
 
@@ -380,10 +379,9 @@ H = pd.read_csv('./humidity.csv')
 
 # ### STEP4: Analysis
 
-# ```{admonition} 実習：最高気温
+# **実習：最高気温**
 # - 各都市の最高気温のデータに対し，五数要約と四分位範囲を求めよ．
 # - 五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．
-# ```
 
 # In[36]:
 
@@ -408,10 +406,9 @@ ax.set_ylabel('Maximum Temperature [$^\circ$C]')
 fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
-# ```{admonition} 実習：最低気温
+# **実習：最低気温**
 # - 各地点の最低気温のデータについて，並行箱ひげ図を作成せよ
 # - 各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ
-# ```
 
 # In[38]:
 
@@ -436,10 +433,9 @@ fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 (Tmin >= 25).sum(axis=0)
 
 
-# ```{admonition} 実習：不快指数
+# **実習：不快指数**
 # - 6地点の2015年8月1日から31日までの不快指数を計算せよ
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
-# ```
 
 # In[49]:
 
@@ -461,7 +457,7 @@ fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent
 
 # ### STEP 5: Conclusion
 
-# ```{admonition} 実習
+# **実習：考察**
 # - 最高気温に対する並行箱ひげ図を基に，各地点の特徴について分かったことを次の観点からまとめよ．
 #     - 東京や大阪のような大都市は避暑地と比べて暑い日が多いか？
 # 	- 避暑地として人気の高い軽井沢は高原にあるが，北海道とどのように違うか？
@@ -470,4 +466,3 @@ fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent
 # - 不快指数を基に，各都市の特徴をまとめよ
 # - 軽井沢や札幌は夏の避暑地として人気が高い．その理由をまとめよ．
 # - その他，分析結果を基に自由に考察せよ．
-# ```
