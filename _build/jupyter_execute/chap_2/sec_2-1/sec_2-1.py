@@ -238,23 +238,22 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # 具体例として，ここではIris Dataset {cite}`Fisher1936`に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
 # まずは[Iris Datasetをダウンロード](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)して作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：
 
-# In[3]:
+# In[25]:
 
 
 # CSVファイルをPandasのデータフレーム形式で読み込み
-Iris = pd.read_csv('Iris.csv')
-Iris = Iris.iloc[:, 1:5]
+Iris = pd.read_csv('Iris.csv', usecols=[1, 2, 3, 4])
 Iris.columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 Iris
 
 
 # このデータに対してスタージェスの公式を適用すると以下のようになる．
 
-# In[4]:
+# In[26]:
 
 
 # ビンの個数（スタージェスの公式）
-bn = int(1+np.log2(len(Iris)))
+bn = 1+np.log2(len(Iris))
 bn
 
 
@@ -263,11 +262,11 @@ bn
 # 例えば，階級4の相対度数は0.207なので，6.1以上6.55以下のデータが全体の20%程度存在することが分かる．
 # また，階級4の累積相対度数は0.8なので，6.55以下のデータが全体の80%を占めることが分かる．
 
-# In[5]:
+# In[29]:
 
 
 # がく片の長さに対する度数分布表
-f, x = np.histogram(Iris['Sepal Length'], bins=bn, density=0)
+f, x = np.histogram(Iris['Sepal Length'], bins=int(bn), density=0)
 df = pd.DataFrame({'階級の最小値': x[:-1],
                    '階級の最大値': x[1:],
                    '階級値': 0.5*(x[1:]+x[:-1]),
@@ -288,14 +287,14 @@ df
 # 特に，多峰性のヒストグラムの場合には箱ひげ図によって可視化するとデータを要約しすぎてしまうため，適切にその特徴を表すことができない．
 # この他にも，値の小さなところにデータが集中していて大きな値のところに少数のデータがあるとき，「右に裾を引いている」という．
 
-# In[6]:
+# In[30]:
 
 
 # ヒストグラムの描画と保存
 for i in Iris.columns:
     fig, ax = plt.subplots(figsize=(3.5, 3), dpi=100)
     x = ax.hist(Iris[i], # データ
-                bins=bn, # 階級数
+                bins=int(bn), # 階級数
                 histtype='bar',  # ヒストグラムの種類
                 color='c', ec='k', alpha=0.5  # 縦棒の色，透明度
                )[1]
@@ -314,7 +313,7 @@ for i in Iris.columns:
 # 日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 # 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．
 
-# In[7]:
+# In[31]:
 
 
 # 2015年の月別国内旅行者数
@@ -322,7 +321,7 @@ df = pd.DataFrame({'month': np.arange(12)+1,
                    'number': [4315, 3620, 5331, 4456, 6322, 4693, 4458, 7177, 5707, 4647, 4794, 4952]})
 
 
-# In[8]:
+# In[33]:
 
 
 fig, ax = plt.subplots(figsize=(5, 3))
@@ -330,7 +329,7 @@ ax.plot(df['month'], df['number'])
 ax.set_xticks(np.arange(12)+1)
 ax.set_xlabel('Month', fontsize=15)
 ax.set_ylabel('Number of tourist', fontsize=15)
-# fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### STEP 1: Problem
@@ -369,10 +368,10 @@ ax.set_ylabel('Number of tourist', fontsize=15)
 # - 加工したデータを読み込め．
 # ```
 
-# In[9]:
+# In[44]:
 
 
-# 加工済みcsvデータ
+# csvデータの読み込み
 Tave = pd.read_csv('./temp_ave.csv')
 Tmax = pd.read_csv('./temp_max.csv')
 Tmin = pd.read_csv('./temp_min.csv')
@@ -386,14 +385,20 @@ H = pd.read_csv('./humidity.csv')
 # - 五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．
 # ```
 
-# In[10]:
+# In[36]:
+
+
+Tmax
+
+
+# In[48]:
 
 
 # 五数要約
-Tmax.describe().loc[['min', '25%','50%', '75%','max']]
+Tmax.describe()
 
 
-# In[11]:
+# In[37]:
 
 
 # 並行箱ひげ図（最高気温）
@@ -408,7 +413,13 @@ fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 # - 各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ
 # ```
 
-# In[12]:
+# In[38]:
+
+
+Tmin
+
+
+# In[39]:
 
 
 # 並行箱ひげ図（最低気温）
@@ -418,7 +429,7 @@ ax.set_ylabel('Minimum Temperature [$^\circ$C]')
 fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
-# In[13]:
+# In[40]:
 
 
 # 熱帯夜の日数
@@ -430,7 +441,7 @@ fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
 # ```
 
-# In[14]:
+# In[49]:
 
 
 # 不快指数
@@ -438,7 +449,7 @@ DI = 0.81*Tave + 0.01*H*(0.99*Tave-14.3)+46.3
 DI
 
 
-# In[15]:
+# In[50]:
 
 
 # 並行箱ひげ図（不快指数）
