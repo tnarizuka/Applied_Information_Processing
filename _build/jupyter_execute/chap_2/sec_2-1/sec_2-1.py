@@ -363,8 +363,9 @@ fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transpar
 # ### STEP3: Data
 
 # **実習：データの加工**
-# - [気象庁のHP](http://www.data.jma.go.jp/gmd/risk/obsdl/index.php)から2015年8月の各地点の1日の平均気温，最高気温，最低気温，湿度のデータ（csvファイル）をダウンロードせよ．
-# - ダウンロードしたデータをpythonなどで解析しやすいように加工せよ．
+# - [気象庁のHP](http://www.data.jma.go.jp/gmd/risk/obsdl/index.php)から2015年8月の各地点（東京，軽井沢，熊谷，石垣島，札幌，大阪）の日平均気温，日最高気温，日最低気温，日平均相対湿度のデータをcsv形式でダウンロードせよ．
+# - ダウンロードしたデータをPythonで解析しやすいように加工せよ．
+#   - [加工済みデータのダウンロード](https://drive.google.com/uc?export=download&id=1p62JY9i2OUwDMP_S_x4FQ0Gn0do-J-qH)（まずは自分でやってみること）
 # - 加工したデータを読み込め．
 
 # In[44]:
