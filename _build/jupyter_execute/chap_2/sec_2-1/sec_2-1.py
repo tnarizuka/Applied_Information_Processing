@@ -380,7 +380,7 @@ H = pd.read_csv('./humidity.csv')
 # ### STEP4: Analysis
 
 # **実習：最高気温**
-# - 各都市の最高気温のデータに対し，五数要約と四分位範囲を求めよ．
+# - 6地点の2015年8月1日から31日までの最高気温のデータに対し，五数要約と四分位範囲を求めよ．
 # - 五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．
 
 # In[36]:
@@ -396,18 +396,19 @@ Tmax
 Tmax.describe()
 
 
-# In[37]:
+# In[16]:
 
 
 # 並行箱ひげ図（最高気温）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(Tmax.values, labels=Tmax.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Maximum Temperature [$^\circ$C]')
+ax.set_ylim(15, 40)
 fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # **実習：最低気温**
-# - 各地点の最低気温のデータについて，並行箱ひげ図を作成せよ
+# - 6地点の2015年8月1日から31日までの最低気温のデータについて，並行箱ひげ図を作成せよ
 # - 各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ
 
 # In[38]:
@@ -416,13 +417,15 @@ fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 Tmin
 
 
-# In[39]:
+# In[19]:
 
 
 # 並行箱ひげ図（最低気温）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(Tmin.values, labels=Tmax.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Minimum Temperature [$^\circ$C]')
+ax.set_ylim(10, 30)
+ax.set_yticks([10, 15, 20, 25, 30])
 fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
@@ -434,7 +437,7 @@ fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 
 
 # **実習：湿度**
-# - 各地点の湿度のデータについて，並行箱ひげ図を作成せよ
+# - 6地点の2015年8月1日から31日までの湿度のデータについて，並行箱ひげ図を作成せよ
 
 # In[11]:
 
@@ -458,13 +461,14 @@ DI = 0.81*Tave + 0.01*H*(0.99*Tave-14.3)+46.3
 DI
 
 
-# In[9]:
+# In[15]:
 
 
 # 並行箱ひげ図（不快指数）
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Discomfort Index')
+ax.set_ylim(55, 85)
 fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 

@@ -1154,7 +1154,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 <h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習：最高気温</strong></p>
 <ul class="simple">
-<li><p>各都市の最高気温のデータに対し，五数要約と四分位範囲を求めよ．</p></li>
+<li><p>6地点の2015年8月1日から31日までの最高気温のデータに対し，五数要約と四分位範囲を求めよ．</p></li>
 <li><p>五数要約の結果から，各都市に対して並行箱ひげ図を作成せよ．</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1412,6 +1412,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">Tmax</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">Tmax</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Maximum Temperature [$^\circ$C]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./boxplot_max-temp.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
@@ -1422,7 +1423,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 <p><strong>実習：最低気温</strong></p>
 <ul class="simple">
-<li><p>各地点の最低気温のデータについて，並行箱ひげ図を作成せよ</p></li>
+<li><p>6地点の2015年8月1日から31日までの最低気温のデータについて，並行箱ひげ図を作成せよ</p></li>
 <li><p>各地点について，熱帯夜（最低気温が25℃以上の夜）の日数を求めよ</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1569,6 +1570,8 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">Tmin</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">Tmax</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Minimum Temperature [$^\circ$C]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./boxplot_min-temp.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
@@ -1598,7 +1601,7 @@ dtype: int64
 </div>
 <p><strong>実習：湿度</strong></p>
 <ul class="simple">
-<li><p>各地点の湿度のデータについて，並行箱ひげ図を作成せよ</p></li>
+<li><p>6地点の2015年8月1日から31日までの湿度のデータについて，並行箱ひげ図を作成せよ</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1765,6 +1768,7 @@ dtype: int64
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">DI</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">DI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Discomfort Index&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">85</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./boxplot_di.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
