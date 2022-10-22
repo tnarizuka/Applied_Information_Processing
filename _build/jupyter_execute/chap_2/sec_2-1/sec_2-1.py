@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import sys, os
@@ -185,8 +185,7 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
-fig.savefig('./box_ex.png', bbox_inches="tight",\
-            pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./box_ex.png', bbox_inches="tight",            pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### ヒストグラム
@@ -313,7 +312,7 @@ for i in Iris.columns:
 # 日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 # 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．
 
-# In[31]:
+# In[2]:
 
 
 # 2015年の月別国内旅行者数
@@ -321,7 +320,7 @@ df = pd.DataFrame({'month': np.arange(12)+1,
                    'number': [4315, 3620, 5331, 4456, 6322, 4693, 4458, 7177, 5707, 4647, 4794, 4952]})
 
 
-# In[33]:
+# In[3]:
 
 
 fig, ax = plt.subplots(figsize=(5, 3))
@@ -368,7 +367,7 @@ fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transpar
 #   - [加工済みデータのダウンロード](https://drive.google.com/uc?export=download&id=1p62JY9i2OUwDMP_S_x4FQ0Gn0do-J-qH)（まずは自分でやってみること）
 # - 加工したデータを読み込め．
 
-# In[44]:
+# In[4]:
 
 
 # csvデータの読み込み
@@ -438,7 +437,7 @@ fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 # - 6地点の2015年8月1日から31日までの不快指数を計算せよ
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
 
-# In[49]:
+# In[8]:
 
 
 # 不快指数
@@ -446,7 +445,7 @@ DI = 0.81*Tave + 0.01*H*(0.99*Tave-14.3)+46.3
 DI
 
 
-# In[50]:
+# In[9]:
 
 
 # 並行箱ひげ図（不快指数）
@@ -454,6 +453,18 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Discomfort Index')
 fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+
+
+# （参考）湿度の並行箱ひげ図
+
+# In[10]:
+
+
+# 並行箱ひげ図（湿度）
+fig, ax = plt.subplots(figsize=(7, 3))
+ret = ax.boxplot(H.values, labels=H.columns, whis=100, widths=0.5, vert=True)
+ax.set_ylabel('Humidity [%]')
+fig.savefig('./boxplot_humidty.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### STEP 5: Conclusion
