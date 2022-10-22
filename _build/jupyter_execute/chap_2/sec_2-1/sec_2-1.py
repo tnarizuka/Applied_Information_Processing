@@ -433,6 +433,19 @@ fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, trans
 (Tmin >= 25).sum(axis=0)
 
 
+# **実習：湿度**
+# - 各地点の湿度のデータについて，並行箱ひげ図を作成せよ
+
+# In[11]:
+
+
+# 並行箱ひげ図（湿度）
+fig, ax = plt.subplots(figsize=(7, 3))
+ret = ax.boxplot(H.values, labels=H.columns, whis=100, widths=0.5, vert=True)
+ax.set_ylabel('Humidity [%]')
+fig.savefig('./boxplot_humidty.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+
+
 # **実習：不快指数**
 # - 6地点の2015年8月1日から31日までの不快指数を計算せよ
 # - 各地点の不快指数のデータについて，並行箱ひげ図を作成せよ
@@ -453,18 +466,6 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Discomfort Index')
 fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
-
-
-# （参考）湿度の並行箱ひげ図
-
-# In[10]:
-
-
-# 並行箱ひげ図（湿度）
-fig, ax = plt.subplots(figsize=(7, 3))
-ret = ax.boxplot(H.values, labels=H.columns, whis=100, widths=0.5, vert=True)
-ax.set_ylabel('Humidity [%]')
-fig.savefig('./boxplot_humidty.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
 # ### STEP 5: Conclusion
