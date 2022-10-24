@@ -46,7 +46,7 @@ PPDACメソッドとの対応関係はおおよそ以下のようになる：
 | Problem    | Introduction（導入，はじめに）         |
 | Plan, Data | Method（方法）                         |
 | Analysis   | Result（結果）                         |
-| Coclusion  | Discussion（議論）, Conclusion（結論） |
+| Coclusion  | Discussion（考察）, Conclusion（結論） |
 
 ## レポートの書き方
 
