@@ -639,7 +639,7 @@ title="Print to PDF"
 <p>まずはアヤメデータを読み込む．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータの読み込み</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
 <span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
 <span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
@@ -760,7 +760,7 @@ title="Print to PDF"
 </section>
 <section id="id5">
 <h3>中央値<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>データの分布形状が歪んでいる場合，算術平均はデータの中心を表す特性値としてふさわしくない．
+<p>データの分布形状が単峰性であっても左右非対称である場合，算術平均はデータの中心を表す特性値としてふさわしくない．
 例えば，</p>
 <div class="math notranslate nohighlight">
 \[
@@ -773,7 +773,8 @@ title="Print to PDF"
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最頻値の計算（Pandasのmedianメソッドを用いる）</span>
+<span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -787,12 +788,14 @@ title="Print to PDF"
 <section id="id6">
 <h3>最頻値<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>平均値，中央値の他によく用いられる特性値として，<strong>最頻値</strong>（モード）がある．
-これは，データの中で最も頻出する数であり，度数分布表において度数が最大となる階級の階級値に対応する．
+これは，データの中で最も頻出する数であり，度数分布において度数が最大となる階級の階級値に対応する．
+分布形状が単峰性で左右非対称な場合には，データの中心を表す特性値としてよく用いられる．
 ただし，分布形状が双峰性の場合には有効な特性値とならないので注意が必要である．</p>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最頻値の計算（Pandasのmodeメソッドを用いる）</span>
+<span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -819,7 +822,7 @@ Name: Sepal Length, dtype: float64
 この偏差を全データに対して平均すれば，ばらつきを表す特性値になりそうであるが，これだと問題が生じる．
 例えば，データが左右対称に分布している場合，平均より小さい値のデータ（偏差が負）と大きい値のデータ（偏差が正）が同程度あるため，偏差を平均するとほぼ0になってしまう．
 ばらつきが0というのは明らかにおかしいため，別の特性値を考える必要がある．
-以下に代表的な方法を示す．</p>
+以下に代表的な方法を説明する．</p>
 <section id="id8">
 <h3>平均偏差<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>１つ目の方法は偏差の絶対値を取ってから平均するという方法であり，<strong>平均偏差</strong>と呼ばれる：</p>
@@ -827,7 +830,7 @@ Name: Sepal Length, dtype: float64
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-mean-deviation" title="この数式へのパーマリンク">#</a></span>\[
 	平均偏差 = \frac{1}{n} \sum_{i=1}^{n}|x_{i}-\bar{x}| 
 \]</div>
-<p>これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータの1個当りの平均からの距離であり，ばらつきの指標として直感的に理解しやすい．
+<p>これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータの偏差の絶対値を平均した値であり，ばらつきの指標として直感的に理解しやすい．
 しかし，絶対値の扱いが数学的に面倒，分布の中心が<span class="math notranslate nohighlight">\( \bar{x} \)</span>ではなく中央値のときに最小になる，平均から大きく外れた値も等しい寄与となる，など問題があるため利用されることは少ない．</p>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
@@ -850,7 +853,7 @@ Name: Sepal Length, dtype: float64
 <span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-deviation" title="この数式へのパーマリンク">#</a></span>\[
 	s^{2} = \frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}
 \]</div>
-<p>分散は<span class="math notranslate nohighlight">\( n \)</span>個のデータ1個当りの平均からの距離の2乗であり，平均から大きく離れるほど寄与が大きくなる指標である．</p>
+<p>分散は<span class="math notranslate nohighlight">\( n \)</span>個のデータの偏差の２乗を平均した値であり，平均値から大きく離れたデータほど寄与が大きくなる．</p>
 <p>また，分散の平方根<span class="math notranslate nohighlight">\( s \)</span>は<strong>標準偏差</strong>と呼ばれる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-standard-deviation">
 <span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-standard-deviation" title="この数式へのパーマリンク">#</a></span>\[
@@ -888,15 +891,20 @@ Name: Sepal Length, dtype: float64
 </section>
 <section id="id10">
 <h3>変動係数<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>標準偏差は測定単位によって値が変化してしまう．
-また，データの水準の変化（おおまかには平均値の大きさ）とともに標準偏差の大きさは変化する．
-そこで，データの水準を平均値によって調整した指標が<strong>変動係数</strong>（Coefficient of Variation）で，次式で定義される：</p>
+<p>日本人男性の身長のデータは，平均値が約170cm，標準偏差が約6cmである．
+一方，身長の単位をmで表すと，平均値は1.7m，標準偏差は0.06mとなる．
+このように，標準偏差は測定単位によって値が変化してしまう．
+また，標準偏差はデータの水準の変化（おおまかには平均値の大きさ）によっても大きさが変化する．
+例えば，サイズの非常に小さい昆虫の場合には，サイズの平均値や標準偏差は人間の身長の場合よりも非常に小さくなるだろう．</p>
+<p>以上のように単位やデータの水準が異なる場合でも，データの分布形状がよく似ていれば平均値からのばらつきの程度を同じ指標で比較することが可能である．
+このためには，データの水準を平均値によって調整した指標が<strong>変動係数</strong>（Coefficient of Variation）を用いる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-cv">
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
 	\mathrm{CV} = \frac{s}{\bar{x}}
 \]</div>
 <p>変動係数は同じ単位を持つ量同士で割り算をしているので，無次元（単位がない）となり，データの測定単位に依らない．
-通常，単位や平均が異なるグループ間でばらつきを比較する際には変動係数が用いられる．</p>
+また，データの水準を表す平均値で割っているので，データの水準にも依らない．
+よって，通常，単位や平均値が異なるグループ間でばらつきを比較する際には変動係数がよく用いられる．</p>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
