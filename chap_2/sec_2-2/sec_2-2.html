@@ -635,14 +635,14 @@ title="Print to PDF"
 \]</div>
 <p>と定義される．
 ただし，算術平均は分布形状が左右対称に近いデータの場合にはデータの中心を表す量と捉えられるが，分布形状が極端に非対称な場合にはデータの中心を表す特性値としてふさわしくない．</p>
-<p>算術平均は度数分布表から求めることもでき，階級値を<span class="math notranslate nohighlight">\( v_{i} \)</span>，対応する度数を<span class="math notranslate nohighlight">\( f_{i} \)</span>，階級の数を<span class="math notranslate nohighlight">\( k \)</span>としたとき</p>
-<div class="math notranslate nohighlight" id="equation-eq-arithmetic-mean2">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-arithmetic-mean2" title="この数式へのパーマリンク">#</a></span>\[
+<!-- 算術平均は度数分布表から求めることもでき，階級値を$ v_{i} $，対応する度数を$ f_{i} $，階級の数を$ k $としたとき
+
+$$
 	\bar{x} = \frac{f_{1}v_{1}+f_{2}v_{2}+\cdots+f_{k}v_{k}}{f_{1}+f_{2}+\cdots+f_{k}}
 	= \frac{1}{n} \sum_{i=1}^{k} f_{i}v_{i}
-\]</div>
-<p>で与えられる．</p>
-<p><strong>Pythonによる実装</strong></p>
+$$(eq:arithmetic_mean2)
+
+で与えられる． --><p><strong>Pythonによる実装</strong></p>
 <p>まずはアヤメデータを読み込む．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -787,7 +787,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>この度数分布表のデータを式<a class="reference internal" href="#equation-eq-arithmetic-mean2">(2.2)</a>に当てはめれば算術平均を計算することができ，実際に求めると，<span class="math notranslate nohighlight">\( \bar{x}=5.854 \)</span> cmとなる．</p>
+<p>この度数分布表のデータを式<code class="xref eq docutils literal notranslate"><span class="pre">eq:arithmetic_mean2</span></code>に当てはめれば算術平均を計算することができ，実際に求めると，<span class="math notranslate nohighlight">\( \bar{x}=5.854 \)</span> cmとなる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメのがく片の長さの平均（度数分布表から求めたもの）</span>
@@ -810,7 +810,7 @@ title="Print to PDF"
 <p>算術平均に対して，<strong>幾何平均</strong>というものも存在する．
 これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータに対して，値の積の<span class="math notranslate nohighlight">\( n \)</span>乗根をとったもので，</p>
 <div class="math notranslate nohighlight" id="equation-eq-geometric-mean">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-geometric-mean" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-geometric-mean" title="この数式へのパーマリンク">#</a></span>\[
 	\bar{x}_{g} = \sqrt[n]{x_{1}\times\cdots \times x_{n}} = \sqrt[n]{\prod_{i=1}^{n}x_{i}} = \left(\prod_{i=1}^{n}x_{i}\right)^{1/n}
 \]</div>
 <p>と定義される．
@@ -925,7 +925,7 @@ Name: Sepal Length, dtype: float64
 <h3>平均偏差<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>１つ目の方法は偏差の絶対値を取ってから平均するという方法であり，<strong>平均偏差</strong>と呼ばれる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-mean-deviation">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-mean-deviation" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-mean-deviation" title="この数式へのパーマリンク">#</a></span>\[
 	平均偏差 = \frac{1}{n} \sum_{i=1}^{n}|x_{i}-\bar{x}| 
 \]</div>
 <p>これは，<span class="math notranslate nohighlight">\( n \)</span>個のデータの1個当りの平均からの距離であり，ばらつきの指標として直感的に理解しやすい．
@@ -948,13 +948,13 @@ Name: Sepal Length, dtype: float64
 <h3>分散・標準偏差<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>２つ目の方法は，偏差を２乗してから平均するという方法であり，<strong>分散</strong>と呼ばれる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-deviation">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-deviation" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-deviation" title="この数式へのパーマリンク">#</a></span>\[
 	s^{2} = \frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}
 \]</div>
 <p>分散は<span class="math notranslate nohighlight">\( n \)</span>個のデータ1個当りの平均からの距離の2乗であり，平均から大きく離れるほど寄与が大きくなる指標である．</p>
 <p>また，分散の平方根<span class="math notranslate nohighlight">\( s \)</span>は<strong>標準偏差</strong>と呼ばれる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-standard-deviation">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-standard-deviation" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-standard-deviation" title="この数式へのパーマリンク">#</a></span>\[
 	s = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}}
 \]</div>
 <p>標準偏差はデータの測定単位と同一の単位となるので扱いやすい．
@@ -993,7 +993,7 @@ Name: Sepal Length, dtype: float64
 また，データの水準の変化（おおまかには平均値の大きさ）とともに標準偏差の大きさは変化する．
 そこで，データの水準を平均値によって調整した指標が<strong>変動係数</strong>（Coefficient of Variation）で，次式で定義される：</p>
 <div class="math notranslate nohighlight" id="equation-eq-cv">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
 	\mathrm{CV} = \frac{s}{\bar{x}}
 \]</div>
 <p>変動係数は同じ単位を持つ量同士で割り算をしているので，無次元（単位がない）となり，データの測定単位に依らない．
@@ -1139,14 +1139,14 @@ Name: Sepal Length, dtype: float64
 <p>階級を<span class="math notranslate nohighlight">\( n \)</span>等分したとき，下から<span class="math notranslate nohighlight">\( i \)</span>番目の階級の平均所得を<span class="math notranslate nohighlight">\( y_{i} \)</span>とする（<span class="math notranslate nohighlight">\( y_{1}\leq y_{2} \leq \cdots \leq y_{n} \)</span>）．
 このとき，ジニ係数を以下のように表すことができる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-gini">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-gini" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-gini" title="この数式へのパーマリンク">#</a></span>\[
 	G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}|
 \]</div>
 <p>ただし，<span class="math notranslate nohighlight">\( \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_{i} \)</span>は全体の平均所得である．
 ジニ係数は0から1の間で定義され，完全に平等な配分のときに<span class="math notranslate nohighlight">\( G=0 \)</span>，一人がすべての所得を占有しているときに<span class="math notranslate nohighlight">\( G=(n-1)/n \)</span>となる（つまり<span class="math notranslate nohighlight">\( n \)</span>が大きいときには1に近づく）．</p>
 <div class="dropdown admonition">
 <p class="admonition-title">例）<span class="math notranslate nohighlight">\( n=3 \)</span> の場合の証明</p>
-<p>まず，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>を用いてジニ係数を計算すると，</p>
+<p>まず，式<a class="reference internal" href="#equation-eq-gini">(2.7)</a>を用いてジニ係数を計算すると，</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 	\bar{y} &amp;= \frac{1}{3} (y_{1}+y_{2}+y_{3}) \\
@@ -1182,7 +1182,7 @@ Name: Sepal Length, dtype: float64
 	&amp;= \frac{2}{3} \frac{y_{3}-y_{1}}{y_{1}+y_{2}+y_{3}}
 \end{align*}\]</div>
 <p>と求まる．</p>
-<p>以上より，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>から求めたジニ係数と面積から求めたジニ係数が確かに一致することが分かった．
+<p>以上より，式<a class="reference internal" href="#equation-eq-gini">(2.7)</a>から求めたジニ係数と面積から求めたジニ係数が確かに一致することが分かった．
 なお，一般の<span class="math notranslate nohighlight">\( n \)</span>に対する証明は省略する．</p>
 </div>
 <table class="colwidths-auto table" id="tb-n-3">
