@@ -212,21 +212,15 @@ print(np.mean(x_B), np.median(x_B), stats.mode(x_B))
 print(np.mean(x_C), np.median(x_C), stats.mode(x_C))
 
 
-# In[52]:
+# In[57]:
 
 
 # 各データのヒストグラムを描く
-fig, ax = plt.subplots()
-ax.hist(x_A, bins=np.arange(len(x_A))-0.5, color='k', ec='k', alpha=0.5)
-ax.set_xlim(-1, 11)
-
-fig, ax = plt.subplots()
-ax.hist(x_B, bins=np.arange(len(x_B))-0.5, color='k', ec='k', alpha=0.5)
-ax.set_xlim(-1, 11)
-
-fig, ax = plt.subplots()
-ax.hist(x_C, bins=np.arange(len(x_C))-0.5, color='k', ec='k', alpha=0.5)
-ax.set_xlim(-1, 11)
+for x in [x_A, x_B, x_C]:
+    fig, ax = plt.subplots(figsize=(3, 2.5))
+    ax.hist(x, bins=np.arange(len(x_A))-0.5, color='k', ec='k', alpha=0.5)
+    ax.set_xticks(np.arange(0, 10, 2))
+    ax.set_xlim(-1, 11)
 
 
 # 通常，ばらつきを求める際には，算術平均と各データとの差$ x_{i} - \bar{x} $を考える．
