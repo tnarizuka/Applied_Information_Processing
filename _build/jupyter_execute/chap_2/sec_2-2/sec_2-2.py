@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[7]:
 
 
 import sys, os
@@ -33,65 +33,64 @@ get_ipython().run_line_magic('precision', '3')
 # と定義される．
 # ただし，算術平均は分布形状が左右対称に近いデータの場合にはデータの中心を表す量と捉えられるが，分布形状が極端に非対称な場合にはデータの中心を表す特性値としてふさわしくない．
 
-# <!-- 算術平均は度数分布表から求めることもでき，階級値を$ v_{i} $，対応する度数を$ f_{i} $，階級の数を$ k $としたとき
-# 
-# $$
-# 	\bar{x} = \frac{f_{1}v_{1}+f_{2}v_{2}+\cdots+f_{k}v_{k}}{f_{1}+f_{2}+\cdots+f_{k}}
-# 	= \frac{1}{n} \sum_{i=1}^{k} f_{i}v_{i}
-# $$(eq:arithmetic_mean2)
-# 
-# で与えられる． -->
-
 # **Pythonによる実装**
 # 
 # まずはアヤメデータを読み込む．
 
-# In[16]:
+# In[3]:
 
 
 # アヤメデータの読み込み
-Iris = pd.read_csv('Iris.csv')
+Iris = pd.read_csv('./Iris.csv')
 Iris = Iris.iloc[:, 1:5]
 Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 
 
 # このデータに対し，式{eq}`eq:arithmetic_mean`を当てはめれば算術平均を計算することができる．
-# 例えば，アヤメのがく片の長さ（Sepal Length）のデータの場合，平均値は$ \bar{x}=5.843 $ cmとなる．
+# 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は$ \bar{x}=3.054 $ cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は$ \bar{x}=1.199 $ cmとなる．
 
-# In[27]:
+# In[19]:
 
 
 # アヤメのがく片の長さの平均（Pandasのmeanメソッドを用いる）
-Iris['Sepal Length'].mean()
+print('がく片の幅の平均', Iris['Sepal Width'].mean())
+print('花弁の幅の平均', Iris['Petal Width'].mean())
 
 
-# 一方，がく片の長さに対する度数分布表は以下のようになる．
+# 以下はがく片の幅（Sepal Width）と花弁の幅（Petal Width）のヒストグラム上に平均値を示した図である．
+# がく片の幅についてはヒストグラムが単峰性で左右対称となるため，平均値がデータの中心にほぼ一致していることが分かる．
+# 一方，花弁の幅についてはヒストグラムが双峰性となるため，平均値だけを見るとデータの特性を見誤る恐れがある．
+# このような場合を想定し，データが与えられたらまずはヒストグラムを確認することが重要である．
+# 
 
-# In[64]:
+# In[22]:
 
 
 # ビンの個数（スタージェスの公式）
 bn = int(1+np.log2(len(Iris)))
 
-# がく片の長さに対する度数分布表
-f, x = np.histogram(Iris['Sepal Length'], bins=bn, density=0)
-df = pd.DataFrame(np.c_[x[:-1], x[1:], 0.5*(x[1:]+x[:-1]), f, 100*f/len(Iris), 100*np.cumsum(f/len(Iris))],
-              columns=['最小', '最大', '階級値', '度数', '相対度数', '累積相対度数'])
-df
+# ヒストグラムの描画と保存
+for i in ['Sepal Width', 'Petal Width']:
+    fig, ax = plt.subplots(figsize=(3.5, 3), dpi=100)
 
+    # 平均値の位置
+    ave = Iris[i].mean()
+    ax.plot([ave, ave], [0, 100], 'r-')
+    
+    x = ax.hist(Iris[i], # データ
+                bins=int(bn), # 階級数
+                histtype='bar',  # ヒストグラムの種類
+                color='c', ec='k', alpha=0.5  # 縦棒の色，透明度
+               )[1]
+    x2 = np.round(0.5*(x[1:]+x[:-1]), 2)  # 横軸に表示する階級値（中央値）
+    
+    ax.set_title(i)  # グラフのタイトル
+    ax.set_xticks(x2) # 横軸の目盛り
+    ax.set_xticklabels(x2, fontsize=8) # 横軸の目盛り
+    ax.set_xlabel(i+' [cm]')  # 横軸のラベル
+    ax.set_ylabel('Frequency') # 縦軸のラベル
+    ax.set_ylim(0, 45)
 
-# この度数分布表のデータを式{eq}`eq:arithmetic_mean2`に当てはめれば算術平均を計算することができ，実際に求めると，$ \bar{x}=5.854 $ cmとなる．
-
-# In[19]:
-
-
-# アヤメのがく片の長さの平均（度数分布表から求めたもの）
-np.sum(df['度数']*df['階級値'])/np.sum(df['度数'])
-
-
-# 以上の例を見て分かるように，度数分布表から求めた平均値（5.854cm）はデータから直接求めた平均値（5.843cm）と一致しない．
-# これは，度数分布表から求めた平均値が近似値だからである．
-# 度数分布表では，各階級の値を階級値で代表させているためこのようなことが起こるが，各階級の幅を十分小さく取れば近似の度合いは上昇する．
 
 # ### 幾何平均
 
