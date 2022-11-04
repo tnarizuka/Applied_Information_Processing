@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[26]:
 
 
+# モジュール・ライブラリのインポート（必ず最初に実行）
 import sys, os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,6 +13,8 @@ try:
 except:
     pass
 import pandas as pd
+
+# 表記の設定
 pd.set_option('display.precision', 3)   # 小数点以下の表示桁
 pd.set_option('display.max_rows', 20)  # 表示する行数
 pd.set_option('display.max_columns', 10)  # 表示する行数
