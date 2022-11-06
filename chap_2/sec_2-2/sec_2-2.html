@@ -629,7 +629,7 @@ title="Print to PDF"
 <h1><span class="section-number">2.2. </span>特性値の活用<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p>量的データが与えられたとき，まず行うべきことはヒストグラムを描いてデータの分布（どの値がどの程度あるか）を把握することである．
 その上で，分布形状が単峰性であれば，データから計算した少数の指標によってデータを要約することができる．
-このように，データの特性を定量的に表すための指標を<strong>特性値</strong>（あるいは代表値，記述統計量，ようやく統計量）と呼ぶ．
+このように，データの特性を定量的に表すための指標を<strong>特性値</strong>（あるいは代表値，記述統計量，要約統計量）と呼ぶ．
 一般にデータの特性はデータの中心を表す特性値と中心からのばらつきを表す特性値によって要約される．</p>
 <p>※ データの分布形状が多峰性の場合に中心＋ばらつきのように少数の指標で要約すると，データの特性をうまく表すことができないので注意する．</p>
 <section id="id2">
@@ -642,7 +642,8 @@ title="Print to PDF"
 	\bar{x} = \frac{x_{1}+x_{2}+\cdots+x_{n}}{n} = \frac{1}{n} \sum_{i=1}^{n}x_{i}
 \]</div>
 <p>と定義される．
-ただし，算術平均は分布形状が左右対称に近いデータの場合にはデータの中心を表す量と捉えられるが，分布形状が極端に非対称な場合にはデータの中心を表す特性値としてふさわしくない．</p>
+算術平均は分布形状が左右対称に近いデータの場合にデータの中心を表す量として適切である．
+しかし，分布形状が極端に非対称な場合には，大きな値を持つ少数のデータが平均値をお仕上げてしまうため，データの中心を表す特性値としてふさわしくない．</p>
 <p><strong>Pythonによる実装</strong></p>
 <p>まずはアヤメデータを読み込む．</p>
 <div class="cell docutils container">
@@ -855,6 +856,7 @@ Name: Sepal Length, dtype: float64
     <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_A</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;values&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
