@@ -213,14 +213,14 @@ print(np.mean(x_B), np.median(x_B), stats.mode(x_B))
 print(np.mean(x_C), np.median(x_C), stats.mode(x_C))
 
 
-# In[7]:
+# In[8]:
 
 
 # 各データのヒストグラムを描く
 for x in [x_A, x_B, x_C]:
     fig, ax = plt.subplots(figsize=(3, 2.5))
     ax.hist(x, bins=np.arange(len(x_A))-0.5, color='k', ec='k', alpha=0.5)
-    ax.set_xticks(np.arange(0, 10, 2))
+    ax.set_xticks(np.arange(0, 10, 1))
     ax.set_xlim(-1, 11)
     ax.set(xlabel='values', ylabel='Frequency')
 
