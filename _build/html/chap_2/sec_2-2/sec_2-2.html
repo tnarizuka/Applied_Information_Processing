@@ -956,6 +956,23 @@ Name: Sepal Length, dtype: float64
 <p>前節の五数要約の所で説明した<strong>四分位範囲</strong>もデータのばらつきを表す特性値である．
 四分位範囲はデータの第３四分位数<span class="math notranslate nohighlight">\(Q_{3}\)</span>と第1四分位数<span class="math notranslate nohighlight">\(Q_{1}\)</span>の差<span class="math notranslate nohighlight">\(Q_{3}-Q_{1}\)</span>として定義される．
 定義より，データの中心から極端に外れた値（外れ値）は除外されるため，外れ値の影響を受けにくいという利点がある．</p>
+<p><strong>Pythonによる実装</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最小値，第1四分位数，中央値，第3四分位数，最大値</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+
+<span class="c1"># 四分位範囲</span>
+<span class="n">Q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.300
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id11">
 <h3>変動係数<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h3>
@@ -1103,7 +1120,7 @@ Name: Sepal Length, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_54_0.png" src="../../_images/sec_2-2_54_0.png" />
+<img alt="../../_images/sec_2-2_56_0.png" src="../../_images/sec_2-2_56_0.png" />
 </div>
 </div>
 </section>
@@ -1492,7 +1509,7 @@ Name: Sepal Length, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;標準偏差（万円）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_70_1.png" src="../../_images/sec_2-2_70_1.png" />
+<img alt="../../_images/sec_2-2_72_1.png" src="../../_images/sec_2-2_72_1.png" />
 </div>
 </div>
 <p><strong>実習：変動係数</strong></p>
@@ -1522,7 +1539,7 @@ Name: Sepal Length, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;変動係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_72_1.png" src="../../_images/sec_2-2_72_1.png" />
+<img alt="../../_images/sec_2-2_74_1.png" src="../../_images/sec_2-2_74_1.png" />
 </div>
 </div>
 <p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
@@ -1562,7 +1579,7 @@ Name: Sepal Length, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;所得の累積相対度数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_76_1.png" src="../../_images/sec_2-2_76_1.png" />
+<img alt="../../_images/sec_2-2_78_1.png" src="../../_images/sec_2-2_78_1.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1603,7 +1620,7 @@ Name: Sepal Length, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ジニ係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_79_1.png" src="../../_images/sec_2-2_79_1.png" />
+<img alt="../../_images/sec_2-2_81_1.png" src="../../_images/sec_2-2_81_1.png" />
 </div>
 </div>
 </section>
