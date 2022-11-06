@@ -195,15 +195,16 @@ Iris['Sepal Length'].mode()
 # データの特性を知りたい場合，中心を表す特性値だけでは情報不足であり，中心からどの程度ばらついているかも考慮しなければならない．
 # 例えば，以下の3つのデータは中心を表す算術平均，中央値，最頻値がすべて5であるが，分布の形状は異なる．
 
-# In[5]:
+# In[9]:
 
 
+# 3つのデータを作成
 x_A = np.array([0,3,3,5,5,5,5,7,7,10])
 x_B = np.array([0,1,2,3,5,5,7,8,9,10])
 x_C = np.array([3,4,4,5,5,5,5,6,6,7])
 
 
-# In[6]:
+# In[10]:
 
 
 # 各データの平均値，中央値，最頻値を求める
@@ -213,15 +214,16 @@ print(np.mean(x_B), np.median(x_B), stats.mode(x_B))
 print(np.mean(x_C), np.median(x_C), stats.mode(x_C))
 
 
-# In[8]:
+# In[18]:
 
 
 # 各データのヒストグラムを描く
 for x in [x_A, x_B, x_C]:
     fig, ax = plt.subplots(figsize=(3, 2.5))
-    ax.hist(x, bins=np.arange(len(x_A))-0.5, color='k', ec='k', alpha=0.5)
+    ax.plot([5, 5], [0, 100], 'r-')
+    ax.hist(x, bins=np.arange(len(x_A))-0.5, color='k', ec='k', alpha=0.4)
     ax.set_xticks(np.arange(0, 10, 1))
-    ax.set_xlim(-1, 11)
+    ax.set_xlim(-1, 11); ax.set_ylim(0, 4.5);
     ax.set(xlabel='values', ylabel='Frequency')
 
 
@@ -241,7 +243,7 @@ for x in [x_A, x_B, x_C]:
 # $$(eq:mean_deviation)
 # 
 # これは，$ n $個のデータの偏差の絶対値を平均した値であり，ばらつきの指標として直感的に理解しやすい．
-# しかし，絶対値の扱いが数学的に面倒，分布の中心が$ \bar{x} $ではなく中央値のときに最小になる，平均から大きく外れた値も等しい寄与となる，など問題があるため利用されることは少ない．
+# しかし，絶対値の扱いが数学的に面倒であるため，利用されることは少ない．
 
 # **Pythonによる実装**
 
