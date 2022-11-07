@@ -964,7 +964,7 @@ Name: Sepal Length, dtype: float64
 このように，標準偏差は測定単位によって値が変化してしまう．
 また，標準偏差はデータの水準の変化（おおまかには平均値の大きさ）によっても大きさが変化する．
 例えば，990点満点の英語の某テストの場合，ある回の平均点は575点，標準偏差は167点となり，人間の身長の場合よりも大きくなる．
-これは，テストの点数のばらつき（標準偏差）が大きいというよりも，そもそもデータの水準（平均値）が身長の場合より大きいことが原因である．</p>
+これは，テストの点数のばらつき（標準偏差）が大きいというだけでなく，そもそもデータの水準（平均値）が身長の場合より大きいことが原因である．</p>
 <p>以上のように単位やデータの水準が異なる場合でも，データの分布形状がよく似ていれば平均値からのばらつきの程度を同じ指標で比較することが可能である．
 このためには，以下で定義される<strong>変動係数</strong>（Coefficient of Variation）を用いる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-cv">
@@ -976,11 +976,13 @@ Name: Sepal Length, dtype: float64
 また，データの水準を表す平均値で割っているので，データの水準にも依らない．
 よって，通常，単位や平均値が異なるグループ間でばらつきを比較する際には変動係数がよく用いられる．</p>
 <p>実際に，身長とテストの点数の場合に変動係数を求めると以下のようになる：</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58dcee12-b213-4e1b-9ed9-d93403fe25b0">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-58dcee12-b213-4e1b-9ed9-d93403fe25b0" title="この数式へのパーマリンク">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e02f18d-1fff-449e-9dd5-ba5b460c836a">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-2e02f18d-1fff-449e-9dd5-ba5b460c836a" title="この数式へのパーマリンク">#</a></span>\[\begin{align}
 	身長：CV &amp;= 6/170 = 0.035 \\
 	英語のテスト：CV &amp;= 167/575 = 0.29 
 \end{align}\]</div>
+<p>この場合，身長の変動係数よりも英語のテストの変動係数の方が10倍近く大きくなっている．
+すなわち，身長のデータのばらつきよりも英語のテストのばらつきの方が大きいことが分かる．</p>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
