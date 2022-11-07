@@ -418,12 +418,12 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id10">
-     四分位範囲
+     変動係数
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
-     変動係数
+     四分位範囲
     </a>
    </li>
   </ul>
@@ -540,12 +540,12 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id10">
-     四分位範囲
+     変動係数
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
-     変動係数
+     四分位範囲
     </a>
    </li>
   </ul>
@@ -958,36 +958,7 @@ Name: Sepal Length, dtype: float64
 </div>
 </section>
 <section id="id10">
-<h3>四分位範囲<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>前節の五数要約の所で説明した<strong>四分位範囲</strong>もデータのばらつきを表す特性値である．
-四分位範囲はデータの第３四分位数<span class="math notranslate nohighlight">\(Q_{3}\)</span>と第1四分位数<span class="math notranslate nohighlight">\(Q_{1}\)</span>の差</p>
-<div class="math notranslate nohighlight">
-\[
-Q_{3}-Q_{1}
-\]</div>
-<p>として定義される．
-定義より，データの中心から極端に外れた値（外れ値）は除外されるため，外れ値の影響を受けにくいという利点がある．
-しかし，数学的には扱いにくい．</p>
-<p><strong>Pythonによる実装</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最小値，第1四分位数，中央値，第3四分位数，最大値</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
-
-<span class="c1"># 四分位範囲</span>
-<span class="n">Q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.300
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id11">
-<h3>変動係数<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>変動係数<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>日本人男性の身長のデータは，平均値が約170cm，標準偏差が約6cmである．
 一方，身長の単位をmで表すと，平均値は1.7m，標準偏差は0.06mとなる．
 このように，標準偏差は測定単位によって値が変化してしまう．
@@ -1012,6 +983,35 @@ Q_{3}-Q_{1}
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.142
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>四分位範囲<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>前節の五数要約の所で説明した<strong>四分位範囲</strong>もデータのばらつきを表す特性値である．
+四分位範囲はデータの第３四分位数<span class="math notranslate nohighlight">\(Q_{3}\)</span>と第1四分位数<span class="math notranslate nohighlight">\(Q_{1}\)</span>の差</p>
+<div class="math notranslate nohighlight">
+\[
+Q_{3}-Q_{1}
+\]</div>
+<p>として定義される．
+定義より，データの中心から極端に外れた値（外れ値）は除外されるため，外れ値の影響を受けにくいという利点がある．
+しかし，数学的には扱いにくい．</p>
+<p><strong>Pythonによる実装</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最小値，第1四分位数，中央値，第3四分位数，最大値</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+
+<span class="c1"># 四分位範囲</span>
+<span class="n">Q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.300
 </pre></div>
 </div>
 </div>
