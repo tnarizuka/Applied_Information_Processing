@@ -46,7 +46,7 @@ get_ipython().run_line_magic('precision', '3')
 
 # **Pythonによる実装**
 # 
-# まずはアヤメデータを読み込む．
+# まずは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)を読み込む．
 
 # In[3]:
 
