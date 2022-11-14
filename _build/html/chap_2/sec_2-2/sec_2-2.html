@@ -930,19 +930,21 @@ Name: Sepal Length, dtype: float64
 \]</div>
 <p>のように表す．</p>
 <p><strong>分散公式</strong></p>
-<p>分散について，以下の公式が知られている：
-$<span class="math notranslate nohighlight">\(
+<p>分散について，以下の公式が知られている：</p>
+<div class="math notranslate nohighlight" id="equation-eq-deviation2">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-deviation2" title="この数式へのパーマリンク">#</a></span>\[
     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2}
-\)</span>$(eq:deviation2)
-分散（または標準偏差）を計算するときは，定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を用いるよりもこの公式を用いた方が楽である．</p>
+\]</div>
+<p>分散（または標準偏差）を計算するときは，定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を用いるよりもこの公式を用いた方が楽である．</p>
 <div class="dropdown admonition">
 <p class="admonition-title">証明</p>
-<p>以下のように分散の定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を変形することで直ちに得られる：
-$<span class="math notranslate nohighlight">\(
+<p>以下のように分散の定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を変形することで直ちに得られる：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
     s^{2} 
     = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
     = \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})
-\)</span>$</p>
+\end{split}\]</div>
 </div>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
@@ -983,7 +985,7 @@ $<span class="math notranslate nohighlight">\(
 <p>以上のように単位やデータの水準が異なる場合でも，データの分布形状がよく似ていれば平均値からのばらつきの程度を同じ指標で比較することが可能である．
 このためには，以下で定義される<strong>変動係数</strong>（Coefficient of Variation）を用いる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-cv">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-cv" title="この数式へのパーマリンク">#</a></span>\[
 	\mathrm{CV} = \frac{s}{\bar{x}}
 \]</div>
 <p>変動係数はデータの標準偏差を平均値で割った量である．
@@ -1168,14 +1170,14 @@ Q_{3}-Q_{1}
 <p>階級を<span class="math notranslate nohighlight">\( n \)</span>等分したとき，下から<span class="math notranslate nohighlight">\( i \)</span>番目の階級の平均所得を<span class="math notranslate nohighlight">\( y_{i} \)</span>とする（<span class="math notranslate nohighlight">\( y_{1}\leq y_{2} \leq \cdots \leq y_{n} \)</span>）．
 このとき，ジニ係数を以下のように表すことができる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-gini">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-gini" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-gini" title="この数式へのパーマリンク">#</a></span>\[
 	G = \frac{1}{2n^{2} \bar{y}} \sum_{i=1}^{n} \sum_{j=1}^{n} |y_{i} - y_{j}|
 \]</div>
 <p>ただし，<span class="math notranslate nohighlight">\( \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_{i} \)</span>は全体の平均所得である．
 ジニ係数は0から1の間で定義され，完全に平等な配分のときに<span class="math notranslate nohighlight">\( G=0 \)</span>，一人がすべての所得を占有しているときに<span class="math notranslate nohighlight">\( G=(n-1)/n \)</span>となる（つまり<span class="math notranslate nohighlight">\( n \)</span>が大きいときには1に近づく）．</p>
 <div class="dropdown admonition">
 <p class="admonition-title">例）<span class="math notranslate nohighlight">\( n=3 \)</span> の場合の証明</p>
-<p>まず，式<a class="reference internal" href="#equation-eq-gini">(2.7)</a>を用いてジニ係数を計算すると，</p>
+<p>まず，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>を用いてジニ係数を計算すると，</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 	\bar{y} &amp;= \frac{1}{3} (y_{1}+y_{2}+y_{3}) \\
@@ -1211,7 +1213,7 @@ Q_{3}-Q_{1}
 	&amp;= \frac{2}{3} \frac{y_{3}-y_{1}}{y_{1}+y_{2}+y_{3}}
 \end{align*}\]</div>
 <p>と求まる．</p>
-<p>以上より，式<a class="reference internal" href="#equation-eq-gini">(2.7)</a>から求めたジニ係数と面積から求めたジニ係数が確かに一致することが分かった．
+<p>以上より，式<a class="reference internal" href="#equation-eq-gini">(2.8)</a>から求めたジニ係数と面積から求めたジニ係数が確かに一致することが分かった．
 なお，一般の<span class="math notranslate nohighlight">\( n \)</span>に対する証明は省略する．</p>
 </div>
 <table class="colwidths-auto table" id="tb-n-3">
