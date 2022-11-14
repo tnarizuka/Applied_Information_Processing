@@ -280,6 +280,23 @@ np.fabs(Iris['Sepal Length'] - Iris['Sepal Length'].mean()).mean()
 # 
 # のように表す．
 
+# #### 分散公式
+# 分散について，以下の公式が知られている：
+# $$
+#     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2}
+# $$(eq:deviation2)
+# 分散（または標準偏差）を計算するときは，定義式{eq}`eq:deviation`を用いるよりもこの公式を用いた方が楽である．
+# 
+# ```{admonition} 証明
+# :class: dropdown
+# 以下のように分散の定義式{eq}`eq:deviation`を変形することで直ちに得られる：
+# $$
+#     s^{2} 
+#     = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
+#     = \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})
+# $$
+# ```
+
 # **Pythonによる実装**
 
 # In[30]:
