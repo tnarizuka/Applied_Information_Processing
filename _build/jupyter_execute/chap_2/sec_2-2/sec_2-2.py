@@ -280,7 +280,8 @@ np.fabs(Iris['Sepal Length'] - Iris['Sepal Length'].mean()).mean()
 # 
 # のように表す．
 
-# #### 分散公式
+# **分散公式**
+# 
 # 分散について，以下の公式が知られている：
 # $$
 #     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2}
