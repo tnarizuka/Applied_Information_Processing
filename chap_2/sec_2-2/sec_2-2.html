@@ -635,6 +635,16 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">2.2. </span>特性値の活用<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p>量的データが与えられたとき，まず行うべきことはヒストグラムを描いてデータの分布（どの値がどの程度あるか）を把握することである．
@@ -655,18 +665,8 @@ title="Print to PDF"
 算術平均は分布形状が左右対称に近いデータの場合にデータの中心を表す量として適切である．
 しかし，分布形状が極端に非対称な場合には，大きな値を持つ少数のデータが平均値を押し上げてしまうため，データの中心を表す特性値としてふさわしくない．</p>
 <p><strong>Pythonによる実装</strong></p>
-<p>まずは<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN">Iris Dataset</a>を読み込む．</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>このデータに対し，式<a class="reference internal" href="#equation-eq-arithmetic-mean">(2.1)</a>を当てはめれば算術平均を計算することができる．
+<p>まずは<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN">Iris Dataset</a>を読み込んでおく．
+このデータに対し，式<a class="reference internal" href="#equation-eq-arithmetic-mean">(2.1)</a>を当てはめれば算術平均を計算することができる．
 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は<span class="math notranslate nohighlight">\( \bar{x}=3.054 \)</span> cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は<span class="math notranslate nohighlight">\( \bar{x}=1.199 \)</span> cmとなる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -717,8 +717,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_11_0.png" src="../../_images/sec_2-2_11_0.png" />
-<img alt="../../_images/sec_2-2_11_1.png" src="../../_images/sec_2-2_11_1.png" />
+<img alt="../../_images/sec_2-2_10_0.png" src="../../_images/sec_2-2_10_0.png" />
+<img alt="../../_images/sec_2-2_10_1.png" src="../../_images/sec_2-2_10_1.png" />
 </div>
 </div>
 </section>
@@ -873,9 +873,9 @@ Name: Sepal Length, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_32_0.png" src="../../_images/sec_2-2_32_0.png" />
-<img alt="../../_images/sec_2-2_32_1.png" src="../../_images/sec_2-2_32_1.png" />
-<img alt="../../_images/sec_2-2_32_2.png" src="../../_images/sec_2-2_32_2.png" />
+<img alt="../../_images/sec_2-2_31_0.png" src="../../_images/sec_2-2_31_0.png" />
+<img alt="../../_images/sec_2-2_31_1.png" src="../../_images/sec_2-2_31_1.png" />
+<img alt="../../_images/sec_2-2_31_2.png" src="../../_images/sec_2-2_31_2.png" />
 </div>
 </div>
 <p>通常，ばらつきを求める際には，算術平均と各データとの差<span class="math notranslate nohighlight">\( x_{i} - \bar{x} \)</span>を考える．
@@ -896,12 +896,16 @@ Name: Sepal Length, dtype: float64
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">x_A</span> <span class="o">-</span> <span class="n">x_A</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">x_B</span> <span class="o">-</span> <span class="n">x_B</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">x_C</span> <span class="o">-</span> <span class="n">x_C</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.688
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8
+2.8
+0.8
 </pre></div>
 </div>
 </div>
@@ -933,23 +937,45 @@ Name: Sepal Length, dtype: float64
 <p>分散について，以下の公式が知られている：</p>
 <div class="math notranslate nohighlight" id="equation-eq-deviation2">
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-deviation2" title="この数式へのパーマリンク">#</a></span>\[
-    s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2}
+    s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2}
 \]</div>
-<p>分散（または標準偏差）を計算するときは，定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を用いるよりもこの公式を用いた方が楽である．</p>
+<p>分散（または標準偏差）を求める際には，定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を用いるよりもこの公式を用いた方が計算が楽である．</p>
 <div class="dropdown admonition">
 <p class="admonition-title">証明</p>
 <p>以下のように分散の定義式<a class="reference internal" href="#equation-eq-deviation">(2.4)</a>を変形することで直ちに得られる：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
     s^{2} 
-    = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
-    = \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})
-\end{split}\]</div>
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})\\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \frac{1}{n} \sum_{i=1}^{n} 2x_{i}\bar{x} + \frac{1}{n} \sum_{i=1}^{n} \bar{x}^{2} \\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x} \frac{1}{n} \sum_{i=1}^{n}x_{i} + \frac{1}{n}\bar{x}^{2} \sum_{i=1}^{n} 1\\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x}\bar{x}  + \frac{1}{n}\bar{x}^{2} n\\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x}^{2}  + \bar{x}^{2}\\
+    &amp;= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2}
+\end{align*}\]</div>
 </div>
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分散</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分散（numpyのvar関数を用いる）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x_A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x_B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x_C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.6
+10.8
+1.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分散（Pandasを用いる）</span>
 <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -962,7 +988,24 @@ Name: Sepal Length, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標準偏差</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標準偏差（numpyのstd関数を用いる）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.569046515733026
+3.286335345030997
+1.0954451150103321
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標準偏差（Pandasを用いる）</span>
 <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1003,12 +1046,16 @@ Name: Sepal Length, dtype: float64
 <p><strong>Pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_A</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_B</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_C</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_C</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.142
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5138093031466051
+0.6572670690061994
+0.21908902300206642
 </pre></div>
 </div>
 </div>
@@ -1158,7 +1205,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-2_57_0.png" src="../../_images/sec_2-2_57_0.png" />
+<img alt="../../_images/sec_2-2_58_0.png" src="../../_images/sec_2-2_58_0.png" />
 </div>
 </div>
 </section>
@@ -1547,7 +1594,7 @@ Q_{3}-Q_{1}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;標準偏差（万円）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_73_1.png" src="../../_images/sec_2-2_73_1.png" />
+<img alt="../../_images/sec_2-2_74_1.png" src="../../_images/sec_2-2_74_1.png" />
 </div>
 </div>
 <p><strong>実習：変動係数</strong></p>
@@ -1577,7 +1624,7 @@ Q_{3}-Q_{1}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;変動係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_75_1.png" src="../../_images/sec_2-2_75_1.png" />
+<img alt="../../_images/sec_2-2_76_1.png" src="../../_images/sec_2-2_76_1.png" />
 </div>
 </div>
 <p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
@@ -1617,7 +1664,7 @@ Q_{3}-Q_{1}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;所得の累積相対度数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_79_1.png" src="../../_images/sec_2-2_79_1.png" />
+<img alt="../../_images/sec_2-2_80_1.png" src="../../_images/sec_2-2_80_1.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1658,7 +1705,7 @@ Q_{3}-Q_{1}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ジニ係数&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-2_82_1.png" src="../../_images/sec_2-2_82_1.png" />
+<img alt="../../_images/sec_2-2_83_1.png" src="../../_images/sec_2-2_83_1.png" />
 </div>
 </div>
 </section>
