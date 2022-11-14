@@ -21,6 +21,15 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
+# In[15]:
+
+
+# アヤメデータをPandasに読み込む
+Iris = pd.read_csv('./Iris.csv')
+Iris = Iris.iloc[:, 1:5]
+Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
+
+
 # # 特性値の活用
 
 # 量的データが与えられたとき，まず行うべきことはヒストグラムを描いてデータの分布（どの値がどの程度あるか）を把握することである．
@@ -46,21 +55,11 @@ get_ipython().run_line_magic('precision', '3')
 
 # **Pythonによる実装**
 # 
-# まずは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)を読み込む．
-
-# In[3]:
-
-
-# アヤメデータをPandasに読み込む
-Iris = pd.read_csv('./Iris.csv')
-Iris = Iris.iloc[:, 1:5]
-Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
-
-
+# まずは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)を読み込んでおく．
 # このデータに対し，式{eq}`eq:arithmetic_mean`を当てはめれば算術平均を計算することができる．
 # 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は$ \bar{x}=3.054 $ cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は$ \bar{x}=1.199 $ cmとなる．
 
-# In[19]:
+# In[16]:
 
 
 # アヤメのがく片の長さの平均（Pandasのmeanメソッドを用いる）
@@ -74,7 +73,7 @@ print('花弁の幅の平均', Iris['Petal Width'].mean())
 # このような場合を想定し，データが与えられたらまずはヒストグラムを確認することが重要である．
 # 
 
-# In[22]:
+# In[17]:
 
 
 # ビンの個数（スタージェスの公式）
@@ -135,7 +134,7 @@ for i in ['Sepal Width', 'Petal Width']:
 # 幾何平均の定義をそのまま適用すると，全データの積を計算する必要がありその結果が巨大な数となる可能性がある．
 # この場合，オーバーフローを起こすことがあるので，以下のように対数を取ってから算術平均を計算し，最後に元に戻すとうまくいく．
 
-# In[23]:
+# In[18]:
 
 
 x = np.log(Iris['Sepal Length'])
@@ -144,7 +143,7 @@ np.exp(np.sum(x)/len(x))
 
 # 以下のように`scipy`を使う方法もある．
 
-# In[24]:
+# In[19]:
 
 
 from scipy.stats.mstats import gmean
@@ -167,7 +166,7 @@ gmean(Iris['Sepal Length'])
 
 # **Pythonによる実装**
 
-# In[24]:
+# In[20]:
 
 
 # 最頻値の計算（Pandasのmedianメソッドを用いる）
@@ -183,7 +182,7 @@ Iris['Sepal Length'].median()
 
 # **Pythonによる実装**
 
-# In[25]:
+# In[21]:
 
 
 # 最頻値の計算（Pandasのmodeメソッドを用いる）
@@ -195,7 +194,7 @@ Iris['Sepal Length'].mode()
 # データの特性を知りたい場合，中心を表す特性値だけでは情報不足であり，中心からどの程度ばらついているかも考慮しなければならない．
 # 例えば，以下の3つのデータは中心を表す算術平均，中央値，最頻値がすべて5であるが，分布の形状は異なる．
 
-# In[9]:
+# In[22]:
 
 
 # 3つのデータを作成
@@ -204,7 +203,7 @@ x_B = np.array([0,1,2,3,5,5,7,8,9,10])
 x_C = np.array([3,4,4,5,5,5,5,6,6,7])
 
 
-# In[10]:
+# In[23]:
 
 
 # 各データの平均値，中央値，最頻値を求める
@@ -214,7 +213,7 @@ print(np.mean(x_B), np.median(x_B), stats.mode(x_B))
 print(np.mean(x_C), np.median(x_C), stats.mode(x_C))
 
 
-# In[18]:
+# In[24]:
 
 
 # 各データのヒストグラムを描く
@@ -247,10 +246,12 @@ for x in [x_A, x_B, x_C]:
 
 # **Pythonによる実装**
 
-# In[32]:
+# In[25]:
 
 
-np.fabs(Iris['Sepal Length'] - Iris['Sepal Length'].mean()).mean()
+print(np.fabs(x_A - x_A.mean()).mean())
+print(np.fabs(x_B - x_B.mean()).mean())
+print(np.fabs(x_C - x_C.mean()).mean())
 
 
 # ### 分散・標準偏差
@@ -285,36 +286,59 @@ np.fabs(Iris['Sepal Length'] - Iris['Sepal Length'].mean()).mean()
 # 分散について，以下の公式が知られている：
 # 
 # $$
-#     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2}
+#     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2}
 # $$(eq:deviation2)
 # 
-# 分散（または標準偏差）を計算するときは，定義式{eq}`eq:deviation`を用いるよりもこの公式を用いた方が楽である．
+# 分散（または標準偏差）を求める際には，定義式{eq}`eq:deviation`を用いるよりもこの公式を用いた方が計算が楽である．
 # 
 # ```{admonition} 証明
 # :class: dropdown
 # 以下のように分散の定義式{eq}`eq:deviation`を変形することで直ちに得られる：
 # 
-# $$
+# \begin{align*}
 #     s^{2} 
-#     = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
-#     = \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})
-# $$
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
+#     &= \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})\\
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \frac{1}{n} \sum_{i=1}^{n} 2x_{i}\bar{x} + \frac{1}{n} \sum_{i=1}^{n} \bar{x}^{2} \\
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x} \frac{1}{n} \sum_{i=1}^{n}x_{i} + \frac{1}{n}\bar{x}^{2} \sum_{i=1}^{n} 1\\
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x}\bar{x}  + \frac{1}{n}\bar{x}^{2} n\\
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x}^{2}  + \bar{x}^{2}\\
+#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2}
+# \end{align*}
 # 
 # ```
 
 # **Pythonによる実装**
 
-# In[30]:
+# In[26]:
 
 
-# 分散
+# 分散（numpyのvar関数を用いる）
+print(np.var(x_A))
+print(np.var(x_B))
+print(np.var(x_C))
+
+
+# In[27]:
+
+
+# 分散（Pandasを用いる）
 Iris['Sepal Length'].var()
 
 
-# In[31]:
+# In[9]:
 
 
-# 標準偏差
+# 標準偏差（numpyのstd関数を用いる）
+print(np.std(x_A))
+print(np.std(x_B))
+print(np.std(x_C))
+
+
+# In[28]:
+
+
+# 標準偏差（Pandasを用いる）
 Iris['Sepal Length'].std()
 
 
@@ -351,10 +375,12 @@ Iris['Sepal Length'].std()
 
 # **Pythonによる実装**
 
-# In[ ]:
+# In[12]:
 
 
-Iris['Sepal Length'].std()/Iris['Sepal Length'].mean()
+print(np.std(x_A)/np.mean(x_A))
+print(np.std(x_B)/np.mean(x_B))
+print(np.std(x_C)/np.mean(x_C))
 
 
 # ### 四分位範囲
