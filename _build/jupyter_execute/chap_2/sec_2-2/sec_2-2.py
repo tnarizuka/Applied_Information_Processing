@@ -582,8 +582,8 @@ G
 
 # ### STEP3: Data
 # 
-# - 1人当たり県民所得のデータをPandasで読み込め
-#   - ※ このデータは内閣府「県民経済計算」(https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html) から利用することができる．
+# - [1人当たり県民所得のデータ](https://drive.google.com/uc?export=download&id=1dsA-HFOtttRLpa1RD8FhdaThv_gmgRyF)をPandasで読み込め
+#   - ※ このデータは内閣府「県民経済計算」(https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html) から取得できる．
 #   - ※ ただし，年度が同じでも基準（平成23年基準や平成17年基準など）によって算出された値が異なることに注意する．
 
 # In[65]:
