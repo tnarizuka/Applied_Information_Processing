@@ -1107,7 +1107,7 @@ Q_{3}-Q_{1}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">])</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1116,7 +1116,7 @@ Q_{3}-Q_{1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">Y</span><span class="p">],</span>
-             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;度数xi&#39;</span><span class="p">,</span> <span class="s1">&#39;累積相対度数Xi&#39;</span><span class="p">,</span> <span class="s1">&#39;平均所得yi&#39;</span><span class="p">,</span> <span class="s1">&#39;所得の累積割合Yi&#39;</span><span class="p">],</span>
+             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;度数x&#39;</span><span class="p">,</span> <span class="s1">&#39;累積相対度数X&#39;</span><span class="p">,</span> <span class="s1">&#39;平均所得y&#39;</span><span class="p">,</span> <span class="s1">&#39;所得の累積割合Y&#39;</span><span class="p">],</span>
              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1140,10 +1140,10 @@ Q_{3}-Q_{1}
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>度数xi</th>
-      <th>累積相対度数Xi</th>
-      <th>平均所得yi</th>
-      <th>所得の累積割合Yi</th>
+      <th>度数x</th>
+      <th>累積相対度数X</th>
+      <th>平均所得y</th>
+      <th>所得の累積割合Y</th>
     </tr>
   </thead>
   <tbody>
@@ -1151,28 +1151,28 @@ Q_{3}-Q_{1}
       <th>1</th>
       <td>25.0</td>
       <td>0.25</td>
-      <td>15.0</td>
+      <td>150.0</td>
       <td>0.09375</td>
     </tr>
     <tr>
       <th>2</th>
       <td>25.0</td>
       <td>0.50</td>
-      <td>25.0</td>
+      <td>250.0</td>
       <td>0.25000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>25.0</td>
       <td>0.75</td>
-      <td>40.0</td>
+      <td>400.0</td>
       <td>0.50000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>25.0</td>
       <td>1.00</td>
-      <td>80.0</td>
+      <td>800.0</td>
       <td>1.00000</td>
     </tr>
   </tbody>
