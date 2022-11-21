@@ -190,7 +190,7 @@ ret = ax.boxplot([x1, x2], whis=1.5, widths=0.5, vert=True)
 ax.set_ylim(0, 30);  # 縦軸の表示範囲
 ax.set_yticks([0, 5, 10, 15, 20, 25, 30]);  # 縦軸の表示目盛り
 fig.savefig('./box_ex.png', bbox_inches="tight",\
-            pad_inches=0.2, transparent=True, dpi=300) # 保存
+            pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # ### ヒストグラム
@@ -309,7 +309,7 @@ for i in Iris.columns:
     ax.set_xticklabels(x2, fontsize=8) # 横軸の目盛り
     ax.set_xlabel(i+' [cm]')  # 横軸のラベル
     ax.set_ylabel('Frequency') # 縦軸のラベル
-    fig.savefig('./Iris_hist_%s.png'%i, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+    fig.savefig('./Iris_hist_%s.png'%i, bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # ## 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜
@@ -333,7 +333,7 @@ ax.plot(df['month'], df['number'])
 ax.set_xticks(np.arange(12)+1)
 ax.set_xlabel('Month', fontsize=15)
 ax.set_ylabel('Number of tourist', fontsize=15)
-fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./tourist_month.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # ### STEP 1: Problem
@@ -408,7 +408,7 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(Tmax.values, labels=Tmax.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Maximum Temperature [$^\circ$C]')
 ax.set_ylim(15, 40)
-fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./boxplot_max-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # **実習：最低気温**
@@ -436,7 +436,7 @@ ret = ax.boxplot(Tmin.values, labels=Tmax.columns, whis=100, widths=0.5, vert=Tr
 ax.set_ylabel('Minimum Temperature [$^\circ$C]')
 ax.set_ylim(10, 30)
 ax.set_yticks([10, 15, 20, 25, 30])
-fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./boxplot_min-temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[40]:
@@ -468,7 +468,7 @@ H.describe()
 fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(H.values, labels=H.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Humidity [%]')
-fig.savefig('./boxplot_humidty.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./boxplot_humidty.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # **実習：不快指数**
@@ -498,7 +498,7 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ret = ax.boxplot(DI.values, labels=DI.columns, whis=100, widths=0.5, vert=True)
 ax.set_ylabel('Discomfort Index')
 ax.set_ylim(55, 85)
-fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./boxplot_di.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # ### STEP 5: Conclusion
