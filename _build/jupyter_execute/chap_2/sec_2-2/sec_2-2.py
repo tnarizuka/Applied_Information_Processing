@@ -587,7 +587,7 @@ G
 #   - ただし，年度が同じでも基準（平成23年基準や平成17年基準など）によって算出された値が異なる．
 #   - そこで，異なる基準のデータが適切に接続するように，一部推定値を用いている．
 
-# In[12]:
+# In[13]:
 
 
 PI = pd.read_csv('prefectural_income.csv', index_col='p')
@@ -602,7 +602,7 @@ PI
 # - 各年度に対して平均と標準偏差を求めよ．
 # - 1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？平均値の変化と関連付けて考えよ．
 
-# In[54]:
+# In[17]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -611,20 +611,23 @@ ax.set_xlabel('年度')
 # 1人あたり県民所得の平均
 ax.plot(PI.columns, PI.mean())
 ax.set_ylim(0, 350)
-ax.set_ylabel('平均（万円）')
+ax.set_ylabel('1人あたり県民所得の平均（万円）')
 
 # 1人あたり県民所得の標準偏差
 ax2 = ax.twinx()
 ax2.plot(PI.columns, PI.std(), 'r--')
 ax2.set_ylim(0, 70)
-ax2.set_ylabel('標準偏差（万円）', color='r')
+ax2.set_ylabel('1人あたり県民所得の標準偏差（万円）', color='r')
+
+# 保存
+fig.savefig('./ave_std.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
 
 # **実習：変動係数**
 # - 全年度に対して変動係数を求め，時系列変化を可視化せよ．
 # - 変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．
 
-# In[55]:
+# In[18]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -633,13 +636,15 @@ ax.set_xlabel('年度', fontname='IPAexGothic')
 # 1人あたり県民所得の標準偏差
 ax.plot(PI.columns, PI.std(), 'k-')
 ax.set_ylim(0, 70)
-ax.set_ylabel('標準偏差（万円）', fontname='IPAexGothic')
+ax.set_ylabel('1人あたり県民所得の標準偏差（万円）', fontname='IPAexGothic')
 
 # 1人あたり県民所得の変動係数
 ax2 = ax.twinx()
 ax2.plot(PI.columns, PI.std()/PI.mean(), 'r--')
 ax2.set_ylim(0, 0.2)
-ax2.set_ylabel('変動係数', fontname='IPAexGothic', color='r')
+ax2.set_ylabel('1人あたり県民所得の変動係数', fontname='IPAexGothic', color='r')
+
+fig.savefig('./std_cv.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
 
 # **実習：ローレンツ曲線，ジニ係数**
@@ -649,7 +654,7 @@ ax2.set_ylabel('変動係数', fontname='IPAexGothic', color='r')
 
 # 2013年度のローレンツ曲線
 
-# In[56]:
+# In[19]:
 
 
 x = np.ones(47)
@@ -660,7 +665,7 @@ X2 = np.append(0, X)
 Y2 = np.append(0, Y)
 
 
-# In[57]:
+# In[21]:
 
 
 fig, ax = plt.subplots()
@@ -670,13 +675,15 @@ ax.plot([0, 1], [0, 1], '-')
 
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
-ax.set_xlabel(u'サイズの累積相対度数')
-ax.set_ylabel(u'所得の累積相対度数')
+ax.set_xlabel(u'階級の累積相対度数')
+ax.set_ylabel(u'平均所得の累積比率')
+
+fig.savefig('./lorenz_curve.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
 
 # ジニ係数の時間変化
 
-# In[58]:
+# In[22]:
 
 
 G = []
@@ -690,7 +697,7 @@ for t in PI.columns:
     G.append(g)
 
 
-# In[59]:
+# In[24]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -699,13 +706,16 @@ ax.set_xlabel('年度')
 # 1人あたり県民所得の変動係数
 ax.plot(PI.columns, PI.std()/PI.mean(), 'k', label='変動係数')
 ax.set_ylim(0.1, 0.2)
-ax.set_ylabel('変動係数')
+ax.set_ylabel('1人あたり県民所得の変動係数')
 
 # ジニ係数
 ax2 = ax.twinx()
 ax2.plot(PI.columns, np.array(G), 'r--', label='ジニ係数')
 ax2.set_ylim(0.05, 0.1)
-ax2.set_ylabel('ジニ係数', color='r')
+ax2.set_ylabel('1人あたり県民所得のジニ係数', color='r')
+
+# 保存
+fig.savefig('./gini.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
 
 # ### STEP 5: Conclusion
