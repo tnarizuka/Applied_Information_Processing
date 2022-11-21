@@ -586,8 +586,9 @@ G
 #   - このデータは内閣府[県民経済計算](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/files_kenmin.html) を基に作成している．
 #   - ただし，年度が同じでも基準（平成23年基準や平成17年基準など）によって算出された値が異なる．
 #   - そこで，異なる基準のデータが適切に接続するように，一部推定値を用いている．
+# - 読み込んだ所得のデータは単位が千円になっているので，万円に直せ．
 
-# In[13]:
+# In[27]:
 
 
 PI = pd.read_csv('prefectural_income.csv', index_col='p')
@@ -599,10 +600,10 @@ PI
 # ### STEP4: Analysis
 
 # **実習：平均と標準偏差**
-# - 各年度に対して平均と標準偏差を求めよ．
-# - 1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？平均値の変化と関連付けて考えよ．
+# - 各年度に対して1人あたり県民所得の平均と標準偏差を求め，時系列変化を同じグラフ上にプロットせよ．
+# - 1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？標準偏差の特徴を踏まえた上で平均値の変化と関連付けて考えよ．
 
-# In[17]:
+# In[29]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -624,10 +625,10 @@ fig.savefig('./ave_std.png', bbox_inches="tight", pad_inches=0.2, transparent=Fa
 
 
 # **実習：変動係数**
-# - 全年度に対して変動係数を求め，時系列変化を可視化せよ．
+# - 全年度に対して1人あたり県民所得の標準偏差と変動係数を求め，時系列変化を同じグラフ上にプロットせよ．
 # - 変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．
 
-# In[18]:
+# In[30]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -652,9 +653,9 @@ fig.savefig('./std_cv.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 # - 全年度に対してジニ係数を求め，時系列変化を可視化せよ．
 # - ジニ係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．
 
-# 2013年度のローレンツ曲線
+# 2013年度のローレンツ曲線とジニ係数
 
-# In[19]:
+# In[36]:
 
 
 x = np.ones(47)
@@ -664,8 +665,11 @@ Y = np.cumsum(y) / np.sum(y)
 X2 = np.append(0, X)
 Y2 = np.append(0, Y)
 
+g = np.fabs(np.add.outer(y, -y)).sum() / np.mean(y) / 2 / len(y)**2
+print(g)
 
-# In[21]:
+
+# In[32]:
 
 
 fig, ax = plt.subplots()
@@ -683,9 +687,10 @@ fig.savefig('./lorenz_curve.png', bbox_inches="tight", pad_inches=0.2, transpare
 
 # ジニ係数の時間変化
 
-# In[22]:
+# In[33]:
 
 
+# ジニ係数の計算（公式を使う）
 G = []
 for t in PI.columns:
     x = np.ones(47)
@@ -697,7 +702,7 @@ for t in PI.columns:
     G.append(g)
 
 
-# In[24]:
+# In[34]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))

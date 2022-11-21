@@ -1354,6 +1354,7 @@ Q_{3}-Q_{1}
 <li><p>そこで，異なる基準のデータが適切に接続するように，一部推定値を用いている．</p></li>
 </ul>
 </li>
+<li><p>読み込んだ所得のデータは単位が千円になっているので，万円に直せ．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1575,8 +1576,8 @@ Q_{3}-Q_{1}
 <h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p><strong>実習：平均と標準偏差</strong></p>
 <ul class="simple">
-<li><p>各年度に対して平均と標準偏差を求めよ．</p></li>
-<li><p>1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？平均値の変化と関連付けて考えよ．</p></li>
+<li><p>各年度に対して1人あたり県民所得の平均と標準偏差を求め，時系列変化を同じグラフ上にプロットせよ．</p></li>
+<li><p>1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？標準偏差の特徴を踏まえた上で平均値の変化と関連付けて考えよ．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1605,7 +1606,7 @@ Q_{3}-Q_{1}
 </div>
 <p><strong>実習：変動係数</strong></p>
 <ul class="simple">
-<li><p>全年度に対して変動係数を求め，時系列変化を可視化せよ．</p></li>
+<li><p>全年度に対して1人あたり県民所得の標準偏差と変動係数を求め，時系列変化を同じグラフ上にプロットせよ．</p></li>
 <li><p>変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1638,7 +1639,7 @@ Q_{3}-Q_{1}
 <li><p>全年度に対してジニ係数を求め，時系列変化を可視化せよ．</p></li>
 <li><p>ジニ係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．</p></li>
 </ul>
-<p>2013年度のローレンツ曲線</p>
+<p>2013年度のローレンツ曲線とジニ係数</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
@@ -1647,6 +1648,14 @@ Q_{3}-Q_{1}
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 <span class="n">Y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08075059652462442
 </pre></div>
 </div>
 </div>
@@ -1674,7 +1683,8 @@ Q_{3}-Q_{1}
 <p>ジニ係数の時間変化</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ジニ係数の計算（公式を使う）</span>
+<span class="n">G</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
