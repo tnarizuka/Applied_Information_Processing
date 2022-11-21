@@ -432,11 +432,11 @@ y = np.array([150, 250, 400, 800])
 Y = np.cumsum(y) / np.sum(y)
 
 
-# In[7]:
+# In[8]:
 
 
 pd.DataFrame(np.c_[x, X, y, Y],
-             columns=['度数x', '累積相対度数X', '平均所得y', '所得の累積割合Y'],
+             columns=['度数x', '累積相対度数X', '平均所得y', '平均所得の累積割合Y'],
              index=[1,2,3,4])
 
 
