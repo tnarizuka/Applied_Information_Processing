@@ -440,7 +440,7 @@ pd.DataFrame(np.c_[x, X, y, Y],
              index=[1,2,3,4])
 
 
-# 次に，横軸に累積相対度数$ X_{i} $，縦軸に平均所得の累積割合$ Y_{i} $を取ったグラフを考える．
+# 次に，横軸に階級の累積相対度数$ X_{i} $，縦軸に平均所得の累積割合$ Y_{i} $を取ったグラフを考える．
 # これを**ローレンツ曲線**と呼ぶ．
 # ローレンツ曲線の横軸，縦軸は（割合なので）0から1の範囲であり，必ず両端が$ (0, 0) $と$ (1, 1) $の折れ線グラフとなる．
 # ローレンツ曲線上の$ (X, Y) $という点は，集団全体の貧しい側から$ X\times100 $\%の人が全体の$ Y\times100 $\%の所得を占めることを表す．
@@ -449,7 +449,7 @@ pd.DataFrame(np.c_[x, X, y, Y],
 # 一方，所得の配分に格差があるほどローレンツ曲線は完全平等線から下にずれていく．
 # このように，ローレンツ曲線はある集団における所得の配分格差を可視化したグラフといえる．
 
-# In[6]:
+# In[9]:
 
 
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -461,7 +461,7 @@ ax.plot([0, 1], [0, 1], '-')
 
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
-ax.set_xlabel(u'サイズの累積相対度数', fontsize=15)
+ax.set_xlabel(u'階級の累積相対度数', fontsize=15)
 ax.set_ylabel(u'所得の累積割合', fontsize=15);
 # fig.savefig('./figure/lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 
