@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>散布図と相関係数 &#8212; Applied Information Processing B 2022</title>
+    <title>2.3. 関係の度合い &#8212; Applied Information Processing B 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -50,14 +51,26 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="参考文献リスト" href="../../reference.html" />
+    <link rel="prev" title="2.2. 特性値の活用" href="../sec_2-2/sec_2-2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     <!-- Google Analytics -->
     
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-E0WHXY1NFV');
+                </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -98,15 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../index.html">
-                    情報処理の応用B
-                </a>
-            </li>
-        </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../chap_1/chap_1.html">
    1. イントロダクション
@@ -134,19 +139,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../chap_2.html">
    2. 記述統計学
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../sec_2-1/sec_2-1.html">
      2.1. データの整理
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sec_2-2/sec_2-2.html">
+     2.2. 特性値の活用
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.3. 関係の度合い
     </a>
    </li>
   </ul>
@@ -364,73 +379,52 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   散布図と相関係数
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.3.1. 散布図と相関係数
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     がく片の長さと幅の相関
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     散布図
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     花弁の長さと幅の相関
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     相関係数
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   実例：警察職員数と刑法犯認知件数の関係
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   2.3.2. 相関関係と因果関係
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   2.3.3. 実例：警察職員数と刑法犯認知件数の関係
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
      STEP1: Problem
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-3-plan-data">
      STEP2, 3: Plan, Data
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       実習：相関係数
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       実習：人口との散布図
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       実習：人口の影響を取り除く方法
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
      STEP 5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -443,7 +437,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>散布図と相関係数</h1>
+                <h1>関係の度合い</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -453,73 +447,52 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   散布図と相関係数
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.3.1. 散布図と相関係数
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     がく片の長さと幅の相関
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     散布図
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     花弁の長さと幅の相関
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     相関係数
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   実例：警察職員数と刑法犯認知件数の関係
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   2.3.2. 相関関係と因果関係
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   2.3.3. 実例：警察職員数と刑法犯認知件数の関係
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
      STEP1: Problem
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-3-plan-data">
      STEP2, 3: Plan, Data
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       実習：相関係数
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       実習：人口との散布図
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       実習：人口の影響を取り除く方法
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
      STEP 5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -536,597 +509,126 @@ title="Print to PDF"
   <p>使用するモジュールのimport</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># モジュール・ライブラリのインポート（必ず最初に実行）</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># カレントディレクトリの変更（自分の作業フォルダのパスを設定）</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/&#39;</span><span class="p">)</span>
-<span class="c1"># os.chdir(&quot;G:\\マイドライブ\\document\\講義\\立正\\情報処理の応用&quot;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 小数点以下の表示桁</span>
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">%</span><span class="k">precision</span> 2  # 小数点以下の表示桁
+
+<span class="c1"># 日本語フォントの設定（Mac:&#39;Hiragino Sans&#39;, Windows:&#39;MS Gothic&#39;）</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hiragino Sans&#39;</span>
+
+<span class="c1"># 表記の設定</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 小数点以下の表示桁</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
+<span class="o">%</span><span class="k">precision</span> 3
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%r&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>google colab を使う際のセッティング</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matplotlibで日本語表示</span>
-<span class="o">!</span>pip install japanize-matplotlib
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%.3f&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># google driveをマウントする</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># カレントディレクトリを変更（自分の作業フォルダのパスを設定）</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/My Drive/document/講義/立正/情報処理の応用/&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>jupyter lab のcssスタイルを変更（必要な場合だけ）</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.jp-Cell { width:100% !important; margin: 0 auto; }&lt;/style&gt;&quot;</span><span class="p">))</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./material/variables.css&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
-    <span class="n">css</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39; !important;&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;style type=&quot;text/css&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/style&gt;&#39;</span><span class="o">%</span><span class="k">css</span>))
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>.jp-Cell { width:100% !important; margin: 0 auto; }</style></div><div class="output text_html"><style type="text/css">/*-----------------------------------------------------------------------------
-| Copyright (c) Jupyter Development Team.
-| Distributed under the terms of the Modified BSD License.
-|----------------------------------------------------------------------------*/
-
-/*
-The following CSS variables define the main, public API for styling JupyterLab.
-These variables should be used by all plugins wherever possible. In other
-words, plugins should not define custom colors, sizes, etc unless absolutely
-necessary. This enables users to change the visual theme of JupyterLab
-by changing these variables.
-
-Many variables appear in an ordered sequence (0,1,2,3). These sequences
-are designed to work well together, so for example, `--jp-border-color1` should
-be used with `--jp-layout-color1`. The numbers have the following meanings:
-
-* 0: super-primary, reserved for special emphasis
-* 1: primary, most important under normal situations
-* 2: secondary, next most important under normal situations
-* 3: tertiary, next most important under normal situations
-
-Throughout JupyterLab, we are mostly following principles from Google's
-Material Design when selecting colors. We are not, however, following
-all of MD as it is not optimized for dense, information rich UIs.
-*/
-
-:root {
-  /* Elevation
-   *
-   * We style box-shadows using Material Design's idea of elevation. These particular numbers are taken from here:
-   *
-   * https://github.com/material-components/material-components-web
-   * https://material-components-web.appspot.com/elevation.html
-   */
-
-
-  /* The dark theme shadows need a bit of work, but this will probably also require work on the core layout
-   * colors used in the theme as well. */
-  --jp-shadow-base-lightness: 32 !important;
-  --jp-shadow-umbra-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.2
-  ) !important;
-  --jp-shadow-penumbra-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.14
-  ) !important;
-  --jp-shadow-ambient-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.12
-  ) !important;
-  --jp-elevation-z0: none !important;
-  --jp-elevation-z1: 0px 2px 1px -1px var(--jp-shadow-umbra-color),
-    0px 1px 1px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 3px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z2: 0px 3px 1px -2px var(--jp-shadow-umbra-color),
-    0px 2px 2px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 5px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z4: 0px 2px 4px -1px var(--jp-shadow-umbra-color),
-    0px 4px 5px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 10px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z6: 0px 3px 5px -1px var(--jp-shadow-umbra-color),
-    0px 6px 10px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 18px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z8: 0px 5px 5px -3px var(--jp-shadow-umbra-color),
-    0px 8px 10px 1px var(--jp-shadow-penumbra-color),
-    0px 3px 14px 2px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z12: 0px 7px 8px -4px var(--jp-shadow-umbra-color),
-    0px 12px 17px 2px var(--jp-shadow-penumbra-color),
-    0px 5px 22px 4px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z16: 0px 8px 10px -5px var(--jp-shadow-umbra-color),
-    0px 16px 24px 2px var(--jp-shadow-penumbra-color),
-    0px 6px 30px 5px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z20: 0px 10px 13px -6px var(--jp-shadow-umbra-color),
-    0px 20px 31px 3px var(--jp-shadow-penumbra-color),
-    0px 8px 38px 7px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z24: 0px 11px 15px -7px var(--jp-shadow-umbra-color),
-    0px 24px 38px 3px var(--jp-shadow-penumbra-color),
-    0px 9px 46px 8px var(--jp-shadow-ambient-color) !important;
-
-  /* Borders
-   *
-   * The following variables, specify the visual styling of borders in JupyterLab.
-   */
-
-  --jp-border-width: 1px !important;
-  --jp-border-color0: var(--md-grey-700) !important;
-  --jp-border-color1: var(--md-grey-800) !important;
-  --jp-border-color2: var(--md-grey-800) !important;
-  --jp-border-color3: var(--md-grey-900) !important;
-  --jp-border-radius: 2px !important;
-
-  /* UI Fonts
-   *
-   * The UI font CSS variables are used for the typography all of the JupyterLab
-   * user interface elements that are not directly user generated content.
-   *
-   * The font sizing here is done assuming that the body font size of --jp-ui-font-size1
-   * is applied to a parent element. When children elements, such as headings, are sized
-   * in em all things will be computed relative to that body size.
-   */
-
-  --jp-ui-font-scale-factor: 1.2 !important;
-  --jp-ui-font-size0: 0.83333em !important;
-  --jp-ui-font-size1: 13px !important; /* Base font size */
-  --jp-ui-font-size2: 1.2em !important;
-  --jp-ui-font-size3: 1.44em !important;
-
-  --jp-ui-font-family: 'Source Han Code JP L', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
-
-  /*
-   * Use these font colors against the corresponding main layout colors.
-   * In a light theme, these go from dark to light.
-   */
-
-  /* Defaults use Material Design specification */
-  --jp-ui-font-color0: white !important;
-  --jp-ui-font-color1: var(--md-grey-300) !important;
-  --jp-ui-font-color2: var(--md-grey-500) !important;
-  --jp-ui-font-color3: var(--md-grey-700) !important;
-
-  /*
-   * Use these against the brand/accent/warn/error colors.
-   * These will typically go from light to darker, in both a dark and light theme.
-   */
-
-  --jp-ui-inverse-font-color0: rgba(0, 0, 0, 1) !important;
-  --jp-ui-inverse-font-color1: rgba(0, 0, 0, 0.8) !important;
-  --jp-ui-inverse-font-color2: rgba(0, 0, 0, 0.5) !important;
-  --jp-ui-inverse-font-color3: rgba(0, 0, 0, 0.3) !important;
-
-  /* Content Fonts
-   *
-   * Content font variables are used for typography of user generated content.
-   *
-   * The font sizing here is done assuming that the body font size of --jp-content-font-size1
-   * is applied to a parent element. When children elements, such as headings, are sized
-   * in em all things will be computed relative to that body size.
-   */
-
-  --jp-content-line-height: 2 !important; /* markdownの行間 */
-  --jp-content-font-scale-factor: 1.2 !important;
-  --jp-content-font-size0: 0.83333em !important;
-  --jp-content-font-size1: 14px !important; /* Base font size */
-  --jp-content-font-size2: 1.2em !important;
-  --jp-content-font-size3: 1.44em !important;
-  --jp-content-font-size4: 1.728em !important;
-  --jp-content-font-size5: 2.0736em !important;
-
-  /* This gives a magnification of about 125% in presentation mode over normal. */
-  --jp-content-presentation-font-size1: 17px !important;
-
-  --jp-content-heading-line-height: 2 !important;
-  --jp-content-heading-margin-top: 1.2em !important;
-  --jp-content-heading-margin-bottom: 0.8em !important;
-  --jp-content-heading-font-weight: 500 !important;
-
-  /* Defaults use Material Design specification */
-  --jp-content-font-color0: rgba(255, 255, 255, 1) !important;
-  --jp-content-font-color1: rgba(255, 255, 255, 1) !important;
-  --jp-content-font-color2: rgba(255, 255, 255, 0.7) !important;
-  --jp-content-font-color3: rgba(255, 255, 255, 0.5) !important;
-
-  --jp-content-link-color: var(--md-blue-300) !important;
-
-  --jp-content-font-family: 'Source Han Code JP L', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol' !important;
-
-  /*
-   * Code Fonts
-   *
-   * Code font variables are used for typography of code and other monospaces content.
-   */
-
-  --jp-code-font-size: 13px !important;
-  --jp-code-line-height: 1.3077 !important; /* 17px for 13px base */
-  --jp-code-padding: 0.385em !important; /* 5px for 13px base */
-  --jp-code-font-family-default: 'Source Han Code JP L', Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
-  --jp-code-font-family: var(--jp-code-font-family-default) !important;
-
-  /* This gives a magnification of about 125% in presentation mode over normal. */
-  --jp-code-presentation-font-size: 16px !important;
-
-  /* Layout
-   *
-   * The following are the main layout colors use in JupyterLab. In a light
-   * theme these would go from light to dark.
-   */
-
-  --jp-layout-color0: #111111 !important;
-  --jp-layout-color1: var(--md-grey-900) !important;
-  --jp-layout-color2: var(--md-grey-800) !important;
-  --jp-layout-color3: var(--md-grey-700) !important;
-  --jp-layout-color4: var(--md-grey-600) !important;
-
-  /* Inverse Layout
-   *
-   * The following are the inverse layout colors use in JupyterLab. In a light
-   * theme these would go from dark to light.
-   */
-
-  --jp-inverse-layout-color0: white !important;
-  --jp-inverse-layout-color1: white !important;
-  --jp-inverse-layout-color2: var(--md-grey-200) !important;
-  --jp-inverse-layout-color3: var(--md-grey-400) !important;
-  --jp-inverse-layout-color4: var(--md-grey-600) !important;
-
-  /* Brand/accent */
-
-  --jp-brand-color0: var(--md-blue-700) !important;
-  --jp-brand-color1: var(--md-blue-500) !important;
-  --jp-brand-color2: var(--md-blue-300) !important;
-  --jp-brand-color3: var(--md-blue-100) !important;
-
-  --jp-accent-color0: var(--md-green-700) !important;
-  --jp-accent-color1: var(--md-green-500) !important;
-  --jp-accent-color2: var(--md-green-300) !important;
-  --jp-accent-color3: var(--md-green-100) !important;
-
-  /* State colors (warn, error, success, info) */
-
-  --jp-warn-color0: var(--md-orange-700) !important;
-  --jp-warn-color1: var(--md-orange-500) !important;
-  --jp-warn-color2: var(--md-orange-300) !important;
-  --jp-warn-color3: var(--md-orange-100) !important;
-
-  --jp-error-color0: var(--md-red-700) !important;
-  --jp-error-color1: var(--md-red-500) !important;
-  --jp-error-color2: var(--md-red-300) !important;
-  --jp-error-color3: var(--md-red-100) !important;
-
-  --jp-success-color0: var(--md-green-700) !important;
-  --jp-success-color1: var(--md-green-500) !important;
-  --jp-success-color2: var(--md-green-300) !important;
-  --jp-success-color3: var(--md-green-100) !important;
-
-  --jp-info-color0: var(--md-cyan-700) !important;
-  --jp-info-color1: var(--md-cyan-500) !important;
-  --jp-info-color2: var(--md-cyan-300) !important;
-  --jp-info-color3: var(--md-cyan-100) !important;
-
-  /* Cell specific styles */
-
-  --jp-cell-padding: 8px !important;  /* cell間のスペース */
-
-  --jp-cell-collapser-width: 8px !important;
-  --jp-cell-collapser-min-height: 20px !important;
-  --jp-cell-collapser-not-active-hover-opacity: 0.6 !important;
-
-  --jp-cell-editor-background: var(--md-grey-900) !important;
-  --jp-cell-editor-border-color: var(--md-grey-700) !important;
-  --jp-cell-editor-box-shadow: inset 0 0 2px var(--md-blue-300) !important;
-  --jp-cell-editor-active-background: var(--md-grey-900) !important;
-  --jp-cell-editor-active-border-color: var(--jp-brand-color1) !important;
-
-  --jp-cell-prompt-width: 64px !important;
-  --jp-cell-prompt-font-family: 'Source Han Code JP L', monospace !important;
-  --jp-cell-prompt-letter-spacing: 0px !important;
-  --jp-cell-prompt-opacity: 1 !important;
-  --jp-cell-prompt-not-active-opacity: 1 !important;
-  --jp-cell-prompt-not-active-font-color: var(--md-grey-300) !important;
-
-  /* A custom blend of MD grey and blue 600
-   * See https://meyerweb.com/eric/tools/color-blend/#546E7A:1E88E5:5:hex */
-  --jp-cell-inprompt-font-color: #307fc1 !important;
-  /* A custom blend of MD grey and orange 600
-   * https://meyerweb.com/eric/tools/color-blend/#546E7A:F4511E:5:hex */
-  --jp-cell-outprompt-font-color: #bf5b3d !important;
-
-  /* Notebook specific styles */
-
-  --jp-notebook-padding: 10px !important;
-  --jp-notebook-scroll-padding: 100px !important;
-  --jp-notebook-select-background: var(--md-grey-900) !important;
-  --jp-notebook-multiselected-color: rgba(33, 150, 243, 0.24) !important;
-
-  /* Rendermime styles */
-
-  --jp-rendermime-error-background: var(--md-grey-900) !important;
-  --jp-rendermime-table-row-background: var(--md-grey-900) !important;
-  --jp-rendermime-table-row-hover-background: rgba(3, 169, 244, 0.2) !important;
-
-  /* Dialog specific styles */
-
-  --jp-dialog-background: rgba(0, 0, 0, 0.6) !important;
-
-  /* Console specific styles */
-
-  --jp-console-padding: 10px !important;
-
-  /* Toolbar specific styles */
-
-  --jp-toolbar-border-color: var(--jp-border-color2) !important;
-  --jp-toolbar-micro-height: 8px !important;
-  --jp-toolbar-background: var(--md-grey-900) !important;
-  --jp-toolbar-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.8) !important;
-  --jp-toolbar-header-margin: 4px 4px 0px 4px !important;
-  --jp-toolbar-active-background: var(--jp-layout-color0) !important;
-
-  /* Input field styles */
-
-  --jp-input-box-shadow: inset 0 0 2px var(--md-blue-300) !important;
-  --jp-input-active-background: var(--md-grey-900) !important;
-  --jp-input-hover-background: var(--md-grey-900) !important;
-  --jp-input-background: var(--md-grey-900) !important;
-  --jp-input-border-color: var(--jp-border-color1) !important;
-  --jp-input-active-border-color: var(--jp-brand-color1) !important;
-
-  /* General editor styles */
-
-  --jp-editor-selected-background: var(--md-grey-900) !important;
-  --jp-editor-selected-focused-background: var(--md-grey-700) !important;
-  --jp-editor-cursor-color: var(--jp-ui-font-color0) !important;
-
-  /* Code mirror specific styles */
-
-  --jp-mirror-editor-keyword-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-atom-color: var(--md-blue-300) !important;
-  --jp-mirror-editor-number-color: white !important;
-  --jp-mirror-editor-def-color: var(--md-orange-200) !important;   /* 関数名 */
-  --jp-mirror-editor-variable-color: white !important;
-  --jp-mirror-editor-variable-2-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-variable-3-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-punctuation-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-property-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-operator-color: var(--md-pink-100)  !important;  /* = */
-  --jp-mirror-editor-comment-color: var(--md-green-200) !important;   /* コメント */
-  --jp-mirror-editor-string-color: 	var(--md-cyan-200) !important;    /* 文字列 */
-  --jp-mirror-editor-string-2-color: var(--md-purple-300) !important;
-  --jp-mirror-editor-meta-color: var(--md-pink-200) !important;
-  --jp-mirror-editor-qualifier-color: #555 !important;
-  --jp-mirror-editor-builtin-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-bracket-color: cyan !important;
-  --jp-mirror-editor-tag-color: var(--md-blue-200) !important;  /* markdown */
-  --jp-mirror-editor-attribute-color: var(--md-blue-700) !important;
-  --jp-mirror-editor-header-color: var(--md-blue-500) !important;
-  --jp-mirror-editor-quote-color: var(--md-green-300) !important;
-  --jp-mirror-editor-link-color: var(--md-blue-200) !important;
-  --jp-mirror-editor-error-color: #f00 !important;
-  --jp-mirror-editor-hr-color: #999 !important;
-
-  /* Vega extension styles */
-
-  --jp-vega-background: var(--md-grey-900) !important;
-
-  /* Sidebar-related styles */
-
-  --jp-sidebar-min-width: 180px !important;
-}</style></div></div>
-</div>
-<section id="id1">
-<h1>散布図と相関係数<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<ul class="simple">
-<li><p>アヤメのデータセット</p>
-<ul>
-<li><p>Sepal Length – がく片の長さ(cm)</p></li>
-<li><p>Sepal Width – がく片の幅(cm)</p></li>
-<li><p>Petal Length – 花弁の長さ(cm)</p></li>
-<li><p>Petal Width – 花弁の幅(cm)</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータの読み込み</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;material/sec_2-1/Iris.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal_Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal_Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal_Width&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Sepal_Length</th>
-      <th>Sepal_Width</th>
-      <th>Petal_Length</th>
-      <th>Petal_Width</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>6.7</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.3</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>6.3</td>
-      <td>2.5</td>
-      <td>5.0</td>
-      <td>1.9</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>6.5</td>
-      <td>3.0</td>
-      <td>5.2</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>6.2</td>
-      <td>3.4</td>
-      <td>5.4</td>
-      <td>2.3</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>5.9</td>
-      <td>3.0</td>
-      <td>5.1</td>
-      <td>1.8</td>
-    </tr>
-  </tbody>
-</table>
-<p>150 rows × 4 columns</p>
-</div></div></div>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">2.3. </span>関係の度合い<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2>がく片の長さと幅の相関<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.3.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
+ここでは，2種類の量的データを変数<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
+<section id="id3">
+<h3>散布図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
+すなわち，<span class="math notranslate nohighlight">\( n \)</span>組のデータ<span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span>に対し，<span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>を座標とする点を<span class="math notranslate nohighlight">\( X-Y \)</span>平面上にとったグラフを考える．
+このようなグラフを<strong>散布図</strong>と呼ぶ．
+なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
+また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
+このような場合には加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
+<p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Sepal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+以下のグラフを見ると，長さ（Length）に対して幅（Width）が一定となっており，特に２つの変数に関係はないようである．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal_Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal Length [cm]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal Width [cm]&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/sepal_l-w.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal Length [cm]&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal Width [cm]&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./sepal_l-w.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Sepal Width [cm]&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_15_1.png" src="../../_images/sec_2-3_15_1.png" />
+<img alt="../../_images/sec_2-3_8_0.png" src="../../_images/sec_2-3_8_0.png" />
 </div>
 </div>
+<p>次に，花弁の長さ（Petal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Petal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+今度は右上と左下の区画にデータ点が多く，右上がりの傾向がある．
+すなわち，花弁が長くなれば，それとともに花弁の幅も大きくなる傾向がある．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length [cm]&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width [cm]&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./petal_l-w.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sec_2-3_10_0.png" src="../../_images/sec_2-3_10_0.png" />
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>相関係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図に右上がりの傾向などがある場合には相関関係があるという．
+例えば，アヤメの花弁については，長さ（Petal Length）と幅（Petal Width）に相関関係がある．
+このような相関関係を定量化した量は<strong>ピアソンの相関係数</strong>と呼ばれ，以下の式で定義される：</p>
+<div class="math notranslate nohighlight" id="equation-eq-correlation">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
+	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
+\]</div>
+<p>また，分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を用いると，以下のように表すこともできる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-correlation2">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-correlation2" title="この数式へのパーマリンク">#</a></span>\[
+	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
+\]</div>
+<p>ここで，式<a class="reference internal" href="#equation-eq-correlation">(2.9)</a>の分子に現れた量</p>
+<div class="math notranslate nohighlight" id="equation-eq-covariance">
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-covariance" title="この数式へのパーマリンク">#</a></span>\[
+	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
+\]</div>
+<p>は変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の<strong>共分散</strong>と呼ばれる（<span class="math notranslate nohighlight">\( \mathrm{Cov}(X, Y) \)</span>と表すこともある）．
+共分散は各データごとに<span class="math notranslate nohighlight">\( X,\ Y \)</span>の偏差（平均との差）の積を考え，それらの全データに対する平均を考えている．
+これにより，散布図が右上がりのときに正，右下がりのときには負となる統計量が得られる．
+ただし，これだけだと<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきの度合いによって値が大きく異なってしまい，相関の程度を一定の基準で表すことができない．
+そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差<span class="math notranslate nohighlight">\(s_{X},\ s_{Y}\)</span>で割って，各変数の単位やばらつきの度合いに依らない量としたのが相関係数である．</p>
+<p>相関係数の定義域は<span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span>であり，その絶対値によって相関の強さを表すことができる．
+また，定義より，相関係数の符号は右上がりの傾向の場合に正，右下がりの傾向の場合に負となる．
+特に，相関係数が正の値のときに<strong>正の相関</strong>，負の値のときに<strong>負の相関</strong>があるという．
+また，相関係数が0のときには<strong>無相関</strong>という．</p>
+<p>なお，相関係数はあくまでも２つの変数の散布図が直線的な関係になる場合だけ意味があることに注意しなければならない．
+例えば，<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
+このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．</p>
+<p>実際にアヤメデータから相関係数を求めてみる．
+がく片については<span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span>なのでほぼ無相関，花弁については<span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span>となるので強い正の相関があることが分かる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数（Pandasを用いる）</span>
 <span class="n">Iris</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1150,118 +652,100 @@ all of MD as it is not optimized for dense, information rich UIs.
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Sepal_Length</th>
-      <th>Sepal_Width</th>
-      <th>Petal_Length</th>
-      <th>Petal_Width</th>
+      <th>Sepal Length</th>
+      <th>Sepal Width</th>
+      <th>Petal Length</th>
+      <th>Petal Width</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Sepal_Length</th>
-      <td>1.00</td>
-      <td>-0.11</td>
-      <td>0.87</td>
-      <td>0.82</td>
+      <th>Sepal Length</th>
+      <td>1.000</td>
+      <td>-0.109</td>
+      <td>0.872</td>
+      <td>0.818</td>
     </tr>
     <tr>
-      <th>Sepal_Width</th>
-      <td>-0.11</td>
-      <td>1.00</td>
-      <td>-0.42</td>
-      <td>-0.36</td>
+      <th>Sepal Width</th>
+      <td>-0.109</td>
+      <td>1.000</td>
+      <td>-0.421</td>
+      <td>-0.357</td>
     </tr>
     <tr>
-      <th>Petal_Length</th>
-      <td>0.87</td>
-      <td>-0.42</td>
-      <td>1.00</td>
-      <td>0.96</td>
+      <th>Petal Length</th>
+      <td>0.872</td>
+      <td>-0.421</td>
+      <td>1.000</td>
+      <td>0.963</td>
     </tr>
     <tr>
-      <th>Petal_Width</th>
-      <td>0.82</td>
-      <td>-0.36</td>
-      <td>0.96</td>
-      <td>1.00</td>
+      <th>Petal Width</th>
+      <td>0.818</td>
+      <td>-0.357</td>
+      <td>0.963</td>
+      <td>1.000</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iris</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">][</span><span class="s1">&#39;Sepal_Width&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.10936924995064935
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal_Width&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.  , -0.11],
-       [-0.11,  1.  ]])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id3">
-<h2>花弁の長さと幅の相関<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal_Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal_Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length [cm]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width [cm]&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/petal_l-w.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Petal Width [cm]&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_20_1.png" src="../../_images/sec_2-3_20_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
-<span class="n">Iris</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;Petal_Length&#39;</span><span class="p">][</span><span class="s1">&#39;Petal_Width&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9627570970509667
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
-<section id="id4">
-<h1>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h1>
+<section id="id5">
+<h2><span class="section-number">2.3.2. </span>相関関係と因果関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>2つの変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の間に相関関係があったときに，それらの間に因果関係があるといえるだろうか？
+つまり，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span>または<span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span>という関係が成り立つだろうか？
+実は，これは必ずしも成り立つとは限らない．
+その理由は，第一に，全くの偶然で強い相関関係が現れることがあるからである．
+例えば，文献<span id="id6">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
+<ul class="simple">
+<li><p>「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」</p></li>
+<li><p>「ミス・アメリカの年齢」と「暖房器具による死亡者数」</p></li>
+<li><p>「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」</p></li>
+</ul>
+<p>また，第二に，調べたい2つの変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>それぞれが別の変数<span class="math notranslate nohighlight">\( Z \)</span>と強く相関する場合，<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>の相関が見かけ上強くなってしまうこともある．
+このような相関は<strong>疑似相関</strong>と呼ばれ，疑似相関の原因となる変数<span class="math notranslate nohighlight">\( Z \)</span>のことを<strong>第3の変数</strong>と呼ぶ．
+疑似相関では，<span class="math notranslate nohighlight">\( Z \Rightarrow X \)</span>および<span class="math notranslate nohighlight">\( Z \Rightarrow Y \)</span>という因果関係が成り立つが，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span>または<span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span>という因果関係は成り立たないことに注意する．
+なお，第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は<strong>潜在変数</strong>と呼ぶ．
+疑似相関の例は枚挙にいとまがないが，例えば，「子供の体力」と「子供の学力」の強い相関関係は疑似相関の典型例である．
+この場合，第3の変数は「親の教育熱心さ」であり，親が教育熱心であれば当然学力が高い傾向にあり，また子供にスポーツを習わせるので体力も上がる傾向があるということになる．</p>
+<p>第3の変数の影響を除く方法はいくつか知られている．
+1つ目は第3の変数による層別の方法である．
+これは，第3の変数の値が近いものだけでいくつかのグループに分け，グループ内で相関を見る方法である．</p>
+<p>2つ目は第3の変数の単位あたりの量に変換する方法である．
+例えば，第3の変数が人口の場合，人口1人あたりの<span class="math notranslate nohighlight">\( X,\ Y \)</span>に変換し，これらの相関を見ることで正しい相関関係を調べることができる．</p>
+<p>3つ目は<strong>偏相関係数</strong>を用いる方法である．
+偏相関係数とは，関係を調べたい2つの変数に対して別の変数の影響を取り除いた上で求めた相関係数である．
+いま，第3の変数を<span class="math notranslate nohighlight">\( Z \)</span>とし，<span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) \)</span>に対して<span class="math notranslate nohighlight">\( (z_{1}, \ldots, z_{n}) \)</span>の影響を除いた相関係数を考えたい．
+これには，以下のように回帰直線の考え方を使う．
+まず，<span class="math notranslate nohighlight">\( Z \)</span>による<span class="math notranslate nohighlight">\( X \)</span>の予測値を<span class="math notranslate nohighlight">\( \hat{x}_{i} = a z_{i} + b \)</span>として，最小二乗法によって<span class="math notranslate nohighlight">\( a,\ b \)</span>を求める．
+このとき，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( X \)</span>を<span class="math notranslate nohighlight">\( \tilde{X} \)</span>とすると，これは残差<span class="math notranslate nohighlight">\( \tilde{x}_{i} = x_{i} - \hat{x}_{i} \)</span>によって与えられる．
+同様にして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( Y \)</span>を<span class="math notranslate nohighlight">\( \tilde{Y} \)</span>とすると，これは予測値<span class="math notranslate nohighlight">\( \hat{y}_{i} = c z_{i} + d \)</span>に対して，残差<span class="math notranslate nohighlight">\( \tilde{y}_{i} = y_{i} - \hat{y}_{i} \)</span>によって与えられる．
+このようにして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>のデータ<span class="math notranslate nohighlight">\( (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i})\ (i=1,2,\ldots, n) \)</span>が得られる．
+偏相関係数は<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>の相関係数<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>として定義されるが，実は<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>は以下のように変数<span class="math notranslate nohighlight">\( X,Y,Z \)</span>に対する通常の相関係数から求めることができる：</p>
+<div class="math notranslate nohighlight" id="equation-eq-tpartial-correlation">
+<span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-tpartial-correlation" title="この数式へのパーマリンク">#</a></span>\[
+	r_{\tilde{X}, \tilde{Y}} = \frac{r_{XY} - r_{XZ} r_{YZ}}{\sqrt{(1-r_{XZ}^{2})(1-r_{YZ}^{2})}}
+\]</div>
+<p>証明には次節で扱う最小二乗法が必要となるので省略する（<a class="reference external" href="https://manabitimes.jp/math/1400">ここ</a>を参照）．</p>
+<p>なお，第３の変数を取り除いた結果相関がなくなれば，それは擬似相関であり，2変数間に因果関係がないことが分かる．
+一方，第３の変数を取り除いても相関が大きいままの場合，相関関係が成立する可能性は高くなるが，２変数間に因果関係があるかについては何も言えないことに注意する．
+例えば，偏相関係数が大きくてもそれが因果関係の存在を意味するわけではない．
+また，第３の変数の影響によって見かけ上相関が発生する疑似相関とは逆に，第３の変数の影響によって見かけ上無相関となる<strong>疑似無相関</strong>も存在する．</p>
+</section>
+<section id="id7">
+<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
-<h2>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h2>
+<h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>ある統計によると，警察官の数と犯罪の件数には正の相関関係があると言われている．</p></li>
 <li><p>では，これらの間に因果関係はあるだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-3-plan-data">
-<h2>STEP2, 3: Plan, Data<a class="headerlink" href="#step2-3-plan-data" title="Permalink to this headline">#</a></h2>
+<h3>STEP2, 3: Plan, Data<a class="headerlink" href="#step2-3-plan-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>都道府県別の警察職員数と刑法犯認知件数のデータを用い，これらの相関関係および因果関係の有無を調べることにする．</p></li>
 <li><p>今回用いるデータは以下の通りである：</p>
@@ -1287,7 +771,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データの読み込み</span>
-<span class="n">Crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;material/sec_2-3/number_crime.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="n">Crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./number_crime.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1313,11 +797,10 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_28_1.png" src="../../_images/sec_2-3_28_1.png" />
+<img alt="../../_images/sec_2-3_26_1.png" src="../../_images/sec_2-3_26_1.png" />
 </div>
 </div>
-<section id="id5">
-<h3>実習：相関係数<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p><strong>実習：相関係数</strong></p>
 <ul class="simple">
 <li><p>上図について，相関係数を求めよ．</p></li>
 </ul>
@@ -1335,14 +818,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 </section>
-</section>
 <section id="step4-analysis">
-<h2>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h2>
+<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>まず，都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．</p></li>
 </ul>
-<section id="id6">
-<h3>実習：人口との散布図<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p><strong>実習：人口との散布図</strong></p>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．</p></li>
 <li><p>これらの散布図の相関係数を求め，それが何を意味するか考察せよ．</p></li>
@@ -1354,15 +835,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/pop_crime.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_crime.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_33_1.png" src="../../_images/sec_2-3_33_1.png" />
+<img alt="../../_images/sec_2-3_31_0.png" src="../../_images/sec_2-3_31_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1373,7 +851,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9576469769539204
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.958
 </pre></div>
 </div>
 </div>
@@ -1385,15 +863,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（万人）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/pop_police.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_police.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;警察職員数（万人）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_35_1.png" src="../../_images/sec_2-3_35_1.png" />
+<img alt="../../_images/sec_2-3_33_0.png" src="../../_images/sec_2-3_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1404,14 +879,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9478341323186452
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.948
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id7">
-<h3>実習：人口の影響を取り除く方法<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p><strong>実習：人口の影響を取り除く方法</strong></p>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．</p></li>
 <li><p>人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．</p></li>
@@ -1436,15 +909,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（千人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/police_crime2.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./police_crime2.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_39_1.png" src="../../_images/sec_2-3_39_1.png" />
+<img alt="../../_images/sec_2-3_37_0.png" src="../../_images/sec_2-3_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1455,15 +925,12 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（人口1000人あたり）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（人口1000人あたり）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/police_crime3.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./police_crime3.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（人口1000人あたり）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_40_1.png" src="../../_images/sec_2-3_40_1.png" />
+<img alt="../../_images/sec_2-3_38_0.png" src="../../_images/sec_2-3_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1477,17 +944,15 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.37891466581890526
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.379
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
 <section id="step-5-conclusion">
-<h2>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Permalink to this headline">#</a></h2>
-<section id="id8">
-<h3>実習<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>解析の結果から，警察職員数と刑法犯認知件数の間に因果関係があるかどうか考察せよ．</p></li>
 </ul>
@@ -1522,6 +987,20 @@ all of MD as it is not optimized for dense, information rich UIs.
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../sec_2-2/sec_2-2.html" title="前へ ページ">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">前へ</p>
+            <p class="prev-next-title"><span class="section-number">2.2. </span>特性値の活用</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">参考文献リスト</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -1529,9 +1008,10 @@ all of MD as it is not optimized for dense, information rich UIs.
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book community<br/>
-  
-      &copy; Copyright 2021- by 成塚拓真（Takuma Narizuka）.<br/>
+    <div class="extra_footer">
+      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
+    </div>
 </p>
         </footer>
     </div>
