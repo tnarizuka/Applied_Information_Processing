@@ -152,15 +152,13 @@ fig.savefig(, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 # ## （参考）Maplotlibの日本語対応
 # 
 # Matplotlibはグラフ作成のためのライブラリである．
-# Matplotlibは標準で日本語に対応していないが，以下の2つの方法で日本語を出力することができる（詳しくは[こちら](https://ai-inter1.com/matplotlib-japanize/)）：
-#     
-#     1. japanize_matplotlib を利用する
-#     2. MatplotlibのFontPropertiesを利用する
+# Matplotlibは標準で日本語に対応していないが，以下の2つの方法で日本語を出力することができる
+
+# ### 1. japanize_matplotlib を利用する（pipでインストールする必要がある）
 # 
-# ここでは，1. japanize_matplotlibを利用する方法を説明する．
 # japanize_matplotlibはPythonのモジュールなので，最初にインストールしておけば，あとは他のモジュールと同じように`import japanize_matplotlib`とするだけで日本語が使用可能になる．
 # ただし，使用可能なフォントはIPAexゴシックだけなので，フォントにこだわりたい場合は2.の方法をおすすめする．
-
+# 
 # **japanize_matplotlibのインストール（詳しくは[こちら](https://pypi.org/project/japanize-matplotlib/)）**
 # 
 # - ターミナルを開いて以下のコマンドを実行し，AnacondaのインストールされているフォルダのPathを取得する
@@ -175,3 +173,17 @@ fig.savefig(, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 #     ```zsh
 #     pip install japanize-matplotlib
 #     ```
+
+# ### 2. matplotlibで使用する日本語フォントを設定する
+
+# pipでのインストールを行いたくない場合は，matplotlib用の日本語フォントその都度指定する方法もある．
+# 以下のように，好きな日本語フォントを使用できるが，WindowsやMacによって使用可能なフォントが異なるので注意する．
+# フォントにこだわりがなければ，Windowsの場合は'MS Gothic'，Macの場合は'Hiragino Sans'としておけば良い．
+
+# In[2]:
+
+
+# 日本語フォントの設定（Mac:'Hiragino Sans'，Windows: 'MS Gothic'）
+import matplotlib as plt
+plt.rcParams['font.family'] = 'Hiragino Sans'
+

@@ -3,18 +3,17 @@
 
 # 使用するモジュールのimport
 
-# In[12]:
+# In[18]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
 import sys, os
 import numpy as np
 import matplotlib.pyplot as plt
-try:
-    import japanize_matplotlib
-except:
-    pass
 import pandas as pd
+
+# 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
+plt.rcParams['font.family'] = 'Hiragino Sans'
 
 # 表記の設定
 pd.set_option('display.precision', 3)   # 小数点以下の表示桁
@@ -23,7 +22,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[13]:
+# In[2]:
 
 
 # アヤメデータをPandasに読み込む
@@ -134,11 +133,10 @@ Iris.corr()
 # 例えば，文献{cite}`中室2017`によると，以下の３つは全くの偶然で強い相関関係が現れた例である：
 # - 「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」
 # - 「ミス・アメリカの年齢」と「暖房器具による死亡者数」
-# - 「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」 
-# 
-# 
+# - 「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」
+
 # また，第二に，調べたい2つの変数$ X,\ Y $それぞれが別の変数$ Z $と強く相関する場合，$ X $と$ Y $の相関が見かけ上強くなってしまうこともある．
-# このような相関は\textbf{疑似相関}と呼ばれ，疑似相関の原因となる変数$ Z $のことを**第3の変数**と呼ぶ．
+# このような相関は**疑似相関**と呼ばれ，疑似相関の原因となる変数$ Z $のことを**第3の変数**と呼ぶ．
 # 疑似相関では，$ Z \Rightarrow X $および$ Z \Rightarrow Y $という因果関係が成り立つが，$ X\Rightarrow Y $または$ Y \Rightarrow X $という因果関係は成り立たないことに注意する．
 # なお，第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は**潜在変数**と呼ぶ．
 # 疑似相関の例は枚挙にいとまがないが，例えば，「子供の体力」と「子供の学力」の強い相関関係は疑似相関の典型例である．
@@ -150,7 +148,7 @@ Iris.corr()
 # 
 # 2つ目は第3の変数の単位あたりの量に変換する方法である．
 # 例えば，第3の変数が人口の場合，人口1人あたりの$ X,\ Y $に変換し，これらの相関を見ることで正しい相関関係を調べることができる．
-# 
+
 # 3つ目は**偏相関係数**を用いる方法である．
 # 偏相関係数とは，関係を調べたい2つの変数に対して別の変数の影響を取り除いた上で求めた相関係数である．
 # いま，第3の変数を$ Z $とし，$ (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) $に対して$ (z_{1}, \ldots, z_{n}) $の影響を除いた相関係数を考えたい．
@@ -158,9 +156,7 @@ Iris.corr()
 # まず，$ Z $による$ X $の予測値を$ \hat{x}_{i} = a z_{i} + b $として，最小二乗法によって$ a,\ b $を求める．
 # このとき，$ Z $の影響を除いた$ X $を$ \tilde{X} $とすると，これは残差$ \tilde{x}_{i} = x_{i} - \hat{x}_{i} $によって与えられる．
 # 同様にして，$ Z $の影響を除いた$ Y $を$ \tilde{Y} $とすると，これは予測値$ \hat{y}_{i} = c z_{i} + d $に対して，残差$ \tilde{y}_{i} = y_{i} - \hat{y}_{i} $によって与えられる．
-# %
 # このようにして，$ Z $の影響を除いた$ \tilde{X}, \tilde{Y} $のデータ$ (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i})\ (i=1,2,\ldots, n) $が得られる．
-# %
 # 偏相関係数は$ Z $の影響を除いた$ \tilde{X}, \tilde{Y} $の相関係数$ r_{\tilde{X}, \tilde{Y}} $として定義されるが，実は$ r_{\tilde{X}, \tilde{Y}} $は以下のように変数$ X,Y,Z $に対する通常の相関係数から求めることができる：
 # 
 # $$
@@ -191,11 +187,11 @@ Iris.corr()
 #      - 都道府県別の人口
 #          - [住民基本台帳に基づく人口，人口動態及び世帯数調査](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200241&tstat=000001039591&cycle=7&year=20150&month=0&tclass1=000001039601&result_back=1&tclass2val=0)
 
-# In[13]:
+# In[3]:
 
 
 # データの読み込み
-Crime = pd.read_csv('material/sec_2-3/number_crime.csv', index_col='p')
+Crime = pd.read_csv('./number_crime.csv', index_col='p')
 
 
 # - 下図は2015年度の都道府県別警察職員数と刑法犯認知件数の散布図を表している．
@@ -203,7 +199,7 @@ Crime = pd.read_csv('material/sec_2-3/number_crime.csv', index_col='p')
 # - では，このことから警察職員数と刑法犯認知件数に因果関係があるといえるだろうか？
 # - これを調べるため，今回は都道府県の人口を第3の変数と仮定して解析を行う．
 
-# In[14]:
+# In[7]:
 
 
 fig, ax = plt.subplots()
@@ -214,7 +210,7 @@ ax.set_ylabel('刑法犯認知件数（万件）')
 # fig.savefig('figure/police_crime.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
 
 
-# #### 実習：相関係数
+# **実習：相関係数**
 # - 上図について，相関係数を求めよ．
 
 # In[7]:
@@ -228,11 +224,11 @@ Crime.corr()['刑法犯認知件数']['警察職員数']
 # 
 # - まず，都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．
 
-# #### 実習：人口との散布図
+# **実習：人口との散布図**
 # - 刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．
 # - これらの散布図の相関係数を求め，それが何を意味するか考察せよ．
 
-# In[15]:
+# In[10]:
 
 
 fig, ax = plt.subplots()
@@ -240,17 +236,17 @@ ax.plot(Crime['人口']/10000, Crime['刑法犯認知件数']/10000, 'co', mfc='
 ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 5, 10, 15])
 ax.set_xlabel('人口（万人）')
 ax.set_ylabel('刑法犯認知件数（万件）')
-# fig.savefig('figure/pop_crime.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./pop_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[16]:
+# In[11]:
 
 
 # 相関係数
 Crime.corr()['人口']['刑法犯認知件数']
 
 
-# In[17]:
+# In[12]:
 
 
 fig, ax = plt.subplots()
@@ -258,22 +254,22 @@ ax.plot(Crime['人口']/10000, Crime['警察職員数']/10000, 'co', mfc='None')
 ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 1, 2, 3, 4])
 ax.set_xlabel('人口（万人）')
 ax.set_ylabel('警察職員数（万人）')
-# fig.savefig('figure/pop_police.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./pop_police.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[18]:
+# In[13]:
 
 
 # 相関係数
 Crime.corr()['人口']['警察職員数']
 
 
-# #### 実習：人口の影響を取り除く方法
+# **実習：人口の影響を取り除く方法**
 # - 刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．
 # - 人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．
 # - 人口の影響を除いた警察職員数と刑法犯認知件数の偏相関係数を求め，結果を考察せよ．
 
-# In[25]:
+# In[14]:
 
 
 cnd1 = (Crime['人口'] <  1000000)
@@ -281,7 +277,7 @@ cnd2 = (Crime['人口'] >= 1000000) & (Crime['人口'] < 2000000)
 cnd3 = (Crime['人口'] >= 2000000) & (Crime['人口'] < 5000000)
 
 
-# In[26]:
+# In[15]:
 
 
 # 層別散布図
@@ -292,10 +288,10 @@ ax.plot(Crime.loc[cnd3, '警察職員数']/1000, Crime.loc[cnd3, '刑法犯認�
 ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7]); ax.set_yticks([0, 1, 2, 3])
 ax.set_xlabel('警察職員数（千人）')
 ax.set_ylabel('刑法犯認知件数（万件）')
-# fig.savefig('figure/police_crime2.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./police_crime2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[24]:
+# In[16]:
 
 
 # 人口1000人あたりの散布図
@@ -304,10 +300,10 @@ ax.plot(1000*Crime['警察職員数']/Crime['人口'], 1000*Crime['刑法犯認�
 ax.set_xticks([2, 2.5, 3, 3.5]); ax.set_yticks([0, 5, 10, 15])
 ax.set_xlabel('警察職員数（人口1000人あたり）')
 ax.set_ylabel('刑法犯認知件数（人口1000人あたり）')
-# fig.savefig('figure/police_crime3.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./police_crime3.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[23]:
+# In[17]:
 
 
 # 偏相関係数
@@ -319,5 +315,5 @@ cov / denom
 
 # ### STEP 5: Conclusion
 # 
-# #### 実習
+# **実習**
 # - 解析の結果から，警察職員数と刑法犯認知件数の間に因果関係があるかどうか考察せよ．

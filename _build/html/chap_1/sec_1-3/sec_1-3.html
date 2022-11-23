@@ -425,6 +425,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#maplotlib">
    1.3.5. （参考）Maplotlibの日本語対応
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#japanize-matplotlib-pip">
+     1. japanize_matplotlib を利用する（pipでインストールする必要がある）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matplotlib">
+     2. matplotlibで使用する日本語フォントを設定する
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -493,6 +505,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#maplotlib">
    1.3.5. （参考）Maplotlibの日本語対応
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#japanize-matplotlib-pip">
+     1. japanize_matplotlib を利用する（pipでインストールする必要がある）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matplotlib">
+     2. matplotlibで使用する日本語フォントを設定する
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -660,13 +684,10 @@ Windowsにおいて絶対パスを取得（コピー）するには以下のよ�
 <section id="maplotlib">
 <h2><span class="section-number">1.3.5. </span>（参考）Maplotlibの日本語対応<a class="headerlink" href="#maplotlib" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>Matplotlibはグラフ作成のためのライブラリである．
-Matplotlibは標準で日本語に対応していないが，以下の2つの方法で日本語を出力することができる（詳しくは<a class="reference external" href="https://ai-inter1.com/matplotlib-japanize/">こちら</a>）：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. japanize_matplotlib を利用する
-2. MatplotlibのFontPropertiesを利用する
-</pre></div>
-</div>
-<p>ここでは，1. japanize_matplotlibを利用する方法を説明する．
-japanize_matplotlibはPythonのモジュールなので，最初にインストールしておけば，あとは他のモジュールと同じように<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">japanize_matplotlib</span></code>とするだけで日本語が使用可能になる．
+Matplotlibは標準で日本語に対応していないが，以下の2つの方法で日本語を出力することができる</p>
+<section id="japanize-matplotlib-pip">
+<h3>1. japanize_matplotlib を利用する（pipでインストールする必要がある）<a class="headerlink" href="#japanize-matplotlib-pip" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>japanize_matplotlibはPythonのモジュールなので，最初にインストールしておけば，あとは他のモジュールと同じように<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">japanize_matplotlib</span></code>とするだけで日本語が使用可能になる．
 ただし，使用可能なフォントはIPAexゴシックだけなので，フォントにこだわりたい場合は2.の方法をおすすめする．</p>
 <p><strong>japanize_matplotlibのインストール（詳しくは<a class="reference external" href="https://pypi.org/project/japanize-matplotlib/">こちら</a>）</strong></p>
 <ul>
@@ -686,6 +707,22 @@ japanize_matplotlibはPythonのモジュールなので，最初にインスト�
 </div>
 </li>
 </ul>
+</section>
+<section id="matplotlib">
+<h3>2. matplotlibで使用する日本語フォントを設定する<a class="headerlink" href="#matplotlib" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>pipでのインストールを行いたくない場合は，matplotlib用の日本語フォントその都度指定する方法もある．
+以下のように，好きな日本語フォントを使用できるが，WindowsやMacによって使用可能なフォントが異なるので注意する．
+フォントにこだわりがなければ，Windowsの場合は'MS Gothic'，Macの場合は'Hiragino Sans'としておけば良い．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 日本語フォントの設定（Mac:&#39;Hiragino Sans&#39;，Windows: &#39;MS Gothic&#39;）</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hiragino Sans&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 

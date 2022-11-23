@@ -415,42 +415,16 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step2-3-plan-data">
      STEP2, 3: Plan, Data
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       実習：相関係数
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
-       実習：人口との散布図
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       実習：人口の影響を取り除く方法
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
      STEP 5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -509,42 +483,16 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step2-3-plan-data">
      STEP2, 3: Plan, Data
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       実習：相関係数
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
-       実習：人口との散布図
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       実習：人口の影響を取り除く方法
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-5-conclusion">
      STEP 5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -565,11 +513,10 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># 日本語フォントの設定（Mac:&#39;Hiragino Sans&#39;, Windows:&#39;MS Gothic&#39;）</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hiragino Sans&#39;</span>
 
 <span class="c1"># 表記の設定</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 小数点以下の表示桁</span>
@@ -759,7 +706,7 @@ title="Print to PDF"
 <li><p>「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」</p></li>
 </ul>
 <p>また，第二に，調べたい2つの変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>それぞれが別の変数<span class="math notranslate nohighlight">\( Z \)</span>と強く相関する場合，<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>の相関が見かけ上強くなってしまうこともある．
-このような相関は\textbf{疑似相関}と呼ばれ，疑似相関の原因となる変数<span class="math notranslate nohighlight">\( Z \)</span>のことを<strong>第3の変数</strong>と呼ぶ．
+このような相関は<strong>疑似相関</strong>と呼ばれ，疑似相関の原因となる変数<span class="math notranslate nohighlight">\( Z \)</span>のことを<strong>第3の変数</strong>と呼ぶ．
 疑似相関では，<span class="math notranslate nohighlight">\( Z \Rightarrow X \)</span>および<span class="math notranslate nohighlight">\( Z \Rightarrow Y \)</span>という因果関係が成り立つが，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span>または<span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span>という因果関係は成り立たないことに注意する．
 なお，第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は<strong>潜在変数</strong>と呼ぶ．
 疑似相関の例は枚挙にいとまがないが，例えば，「子供の体力」と「子供の学力」の強い相関関係は疑似相関の典型例である．
@@ -775,9 +722,9 @@ title="Print to PDF"
 これには，以下のように回帰直線の考え方を使う．
 まず，<span class="math notranslate nohighlight">\( Z \)</span>による<span class="math notranslate nohighlight">\( X \)</span>の予測値を<span class="math notranslate nohighlight">\( \hat{x}_{i} = a z_{i} + b \)</span>として，最小二乗法によって<span class="math notranslate nohighlight">\( a,\ b \)</span>を求める．
 このとき，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( X \)</span>を<span class="math notranslate nohighlight">\( \tilde{X} \)</span>とすると，これは残差<span class="math notranslate nohighlight">\( \tilde{x}_{i} = x_{i} - \hat{x}_{i} \)</span>によって与えられる．
-同様にして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( Y \)</span>を<span class="math notranslate nohighlight">\( \tilde{Y} \)</span>とすると，これは予測値<span class="math notranslate nohighlight">\( \hat{y}_{i} = c z_{i} + d \)</span>に対して，残差<span class="math notranslate nohighlight">\( \tilde{y}_{i} = y_{i} - \hat{y}_{i} \)</span>によって与えられる．</p>
-<p>このようにして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>のデータ<span class="math notranslate nohighlight">\( (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i})\ (i=1,2,\ldots, n) \)</span>が得られる．</p>
-<p>偏相関係数は<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>の相関係数<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>として定義されるが，実は<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>は以下のように変数<span class="math notranslate nohighlight">\( X,Y,Z \)</span>に対する通常の相関係数から求めることができる：</p>
+同様にして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( Y \)</span>を<span class="math notranslate nohighlight">\( \tilde{Y} \)</span>とすると，これは予測値<span class="math notranslate nohighlight">\( \hat{y}_{i} = c z_{i} + d \)</span>に対して，残差<span class="math notranslate nohighlight">\( \tilde{y}_{i} = y_{i} - \hat{y}_{i} \)</span>によって与えられる．
+このようにして，<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>のデータ<span class="math notranslate nohighlight">\( (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i})\ (i=1,2,\ldots, n) \)</span>が得られる．
+偏相関係数は<span class="math notranslate nohighlight">\( Z \)</span>の影響を除いた<span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span>の相関係数<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>として定義されるが，実は<span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span>は以下のように変数<span class="math notranslate nohighlight">\( X,Y,Z \)</span>に対する通常の相関係数から求めることができる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-tpartial-correlation">
 <span class="eqno">(2.12)<a class="headerlink" href="#equation-eq-tpartial-correlation" title="この数式へのパーマリンク">#</a></span>\[
 	r_{\tilde{X}, \tilde{Y}} = \frac{r_{XY} - r_{XZ} r_{YZ}}{\sqrt{(1-r_{XZ}^{2})(1-r_{YZ}^{2})}}
@@ -824,7 +771,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データの読み込み</span>
-<span class="n">Crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;material/sec_2-3/number_crime.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="n">Crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./number_crime.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -850,11 +797,10 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_24_1.png" src="../../_images/sec_2-3_24_1.png" />
+<img alt="../../_images/sec_2-3_26_1.png" src="../../_images/sec_2-3_26_1.png" />
 </div>
 </div>
-<section id="id8">
-<h4>実習：相関係数<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p><strong>実習：相関係数</strong></p>
 <ul class="simple">
 <li><p>上図について，相関係数を求めよ．</p></li>
 </ul>
@@ -872,14 +818,12 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-</section>
 <section id="step4-analysis">
 <h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>まず，都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．</p></li>
 </ul>
-<section id="id9">
-<h4>実習：人口との散布図<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p><strong>実習：人口との散布図</strong></p>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．</p></li>
 <li><p>これらの散布図の相関係数を求め，それが何を意味するか考察せよ．</p></li>
@@ -891,15 +835,12 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/pop_crime.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_crime.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_29_1.png" src="../../_images/sec_2-3_29_1.png" />
+<img alt="../../_images/sec_2-3_31_0.png" src="../../_images/sec_2-3_31_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -910,7 +851,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9576469769539204
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.958
 </pre></div>
 </div>
 </div>
@@ -922,15 +863,12 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（万人）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/pop_police.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_police.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;警察職員数（万人）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_31_1.png" src="../../_images/sec_2-3_31_1.png" />
+<img alt="../../_images/sec_2-3_33_0.png" src="../../_images/sec_2-3_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -941,14 +879,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9478341323186452
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.948
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id10">
-<h4>実習：人口の影響を取り除く方法<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p><strong>実習：人口の影響を取り除く方法</strong></p>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．</p></li>
 <li><p>人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．</p></li>
@@ -973,15 +909,12 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（千人）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/police_crime2.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./police_crime2.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_35_1.png" src="../../_images/sec_2-3_35_1.png" />
+<img alt="../../_images/sec_2-3_37_0.png" src="../../_images/sec_2-3_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -992,15 +925,12 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（人口1000人あたり）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（人口1000人あたり）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/police_crime3.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./police_crime3.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（人口1000人あたり）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-3_36_1.png" src="../../_images/sec_2-3_36_1.png" />
+<img alt="../../_images/sec_2-3_38_0.png" src="../../_images/sec_2-3_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1014,21 +944,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.37891466581890526
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.379
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
 <section id="step-5-conclusion">
 <h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
-<section id="id11">
-<h4>実習<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>解析の結果から，警察職員数と刑法犯認知件数の間に因果関係があるかどうか考察せよ．</p></li>
 </ul>
-</section>
 </section>
 </section>
 </section>
