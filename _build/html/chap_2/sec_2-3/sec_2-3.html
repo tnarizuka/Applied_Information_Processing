@@ -383,14 +383,26 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id2">
    2.3.1. 散布図と相関係数
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     散布図
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     相関係数
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    2.3.2. 相関関係と因果関係
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id7">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
   </a>
   <ul class="nav section-nav flex-column">
@@ -405,7 +417,7 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id8">
        実習：相関係数
       </a>
      </li>
@@ -417,12 +429,12 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id9">
        実習：人口との散布図
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id10">
        実習：人口の影響を取り除く方法
       </a>
      </li>
@@ -434,7 +446,7 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#id11">
        実習
       </a>
      </li>
@@ -465,14 +477,26 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id2">
    2.3.1. 散布図と相関係数
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     散布図
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     相関係数
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    2.3.2. 相関関係と因果関係
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id7">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
   </a>
   <ul class="nav section-nav flex-column">
@@ -487,7 +511,7 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id8">
        実習：相関係数
       </a>
      </li>
@@ -499,12 +523,12 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id9">
        実習：人口との散布図
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id10">
        実習：人口の影響を取り除く方法
       </a>
      </li>
@@ -516,7 +540,7 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#id11">
        実習
       </a>
      </li>
@@ -577,36 +601,24 @@ title="Print to PDF"
 <h2><span class="section-number">2.3.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
 ここでは，2種類の量的データを変数<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
+<section id="id3">
+<h3>散布図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
-このようなグラフは<strong>散布図</strong>と呼ばれる．
-より具体的に散布図とは，<span class="math notranslate nohighlight">\( n \)</span>組のデータ<span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span>に対し，<span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>を座標とする点を<span class="math notranslate nohighlight">\( X-Y \)</span>平面上にとったグラフのことである．
-なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．</p>
-<p>例として，アヤメデータについて，がく片の長さと幅，花弁の長さと幅の散布図を描いてみる</p>
+すなわち，<span class="math notranslate nohighlight">\( n \)</span>組のデータ<span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span>に対し，<span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>を座標とする点を<span class="math notranslate nohighlight">\( X-Y \)</span>平面上にとったグラフを考える．
+このようなグラフを<strong>散布図</strong>と呼ぶ．
+なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
+また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
+このような場合には加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
+<p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Sepal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+以下のグラフを見ると，長さ（Length）に対して幅（Width）が一定となっており，特に２つの変数に関係はないようである．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Sepal Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal Length [cm]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal Width [cm]&#39;</span><span class="p">);</span>
-<span class="c1"># fig.savefig(&#39;figure/sepal_l-w.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_7_0.png" src="../../_images/sec_2-3_7_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length [cm]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width [cm]&#39;</span><span class="p">);</span>
-<span class="c1"># fig.savefig(&#39;figure/sepal_l-w.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal Length [cm]&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal Width [cm]&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./sepal_l-w.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
@@ -614,18 +626,36 @@ title="Print to PDF"
 <img alt="../../_images/sec_2-3_8_0.png" src="../../_images/sec_2-3_8_0.png" />
 </div>
 </div>
-<p>まず，がく片の散布図を見ると，長さに対して幅が一定となっており，特に２つの変数に関係はないようである．
-一方，花弁については右上と左下の区画にデータ点が多く，右上がりの傾向がある．
+<p>次に，花弁の長さ（Petal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Petal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+今度は右上と左下の区画にデータ点が多く，右上がりの傾向がある．
 すなわち，花弁が長くなれば，それとともに花弁の幅も大きくなる傾向がある．</p>
-<p>なお，もし散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
-このような場合には加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散布図</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">],</span> <span class="n">Iris</span><span class="p">[</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length [cm]&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width [cm]&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./petal_l-w.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sec_2-3_10_0.png" src="../../_images/sec_2-3_10_0.png" />
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>相関係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図に右上がりの傾向などがある場合には相関関係があるという．
+例えば，アヤメの花弁については，長さ（Petal Length）と幅（Petal Width）に相関関係がある．
 このような相関関係を定量化した量は<strong>ピアソンの相関係数</strong>と呼ばれ，以下の式で定義される：</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation">
 <span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
 	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
 \]</div>
-<p>また，分散公式を用いると，以下のように表すこともできる：</p>
+<p>また，分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を用いると，以下のように表すこともできる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation2">
 <span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-correlation2" title="この数式へのパーマリンク">#</a></span>\[
 	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
@@ -639,15 +669,19 @@ title="Print to PDF"
 共分散は各データごとに<span class="math notranslate nohighlight">\( X,\ Y \)</span>の偏差（平均との差）の積を考え，それらの全データに対する平均を考えている．
 これにより，散布図が右上がりのときに正，右下がりのときには負となる統計量が得られる．
 ただし，これだけだと<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきの度合いによって値が大きく異なってしまい，相関の程度を一定の基準で表すことができない．
-そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差で割って，各変数の単位やばらつきの度合いに依らない量としたのが相関係数である．</p>
-<p>実際，相関係数の定義域は<span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span>であり，その絶対値によって相関の強さを表すことができる．
+そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差<span class="math notranslate nohighlight">\(s_{X},\ s_{Y}\)</span>で割って，各変数の単位やばらつきの度合いに依らない量としたのが相関係数である．</p>
+<p>相関係数の定義域は<span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span>であり，その絶対値によって相関の強さを表すことができる．
 また，定義より，相関係数の符号は右上がりの傾向の場合に正，右下がりの傾向の場合に負となる．
 特に，相関係数が正の値のときに<strong>正の相関</strong>，負の値のときに<strong>負の相関</strong>があるという．
 また，相関係数が0のときには<strong>無相関</strong>という．</p>
-<p>実際にアヤメデータから相関係数を求めてみる．</p>
+<p>なお，相関係数はあくまでも２つの変数の散布図が直線的な関係になる場合だけ意味があることに注意しなければならない．
+例えば，<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
+このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．</p>
+<p>実際にアヤメデータから相関係数を求めてみる．
+がく片については<span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span>なのでほぼ無相関，花弁については<span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span>となるので強い正の相関があることが分かる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数（Pandasを用いる）</span>
 <span class="n">Iris</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -671,57 +705,54 @@ title="Print to PDF"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Sepal_Length</th>
-      <th>Sepal_Width</th>
-      <th>Petal_Length</th>
-      <th>Petal_Width</th>
+      <th>Sepal Length</th>
+      <th>Sepal Width</th>
+      <th>Petal Length</th>
+      <th>Petal Width</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Sepal_Length</th>
-      <td>1.00</td>
-      <td>-0.11</td>
-      <td>0.87</td>
-      <td>0.82</td>
+      <th>Sepal Length</th>
+      <td>1.000</td>
+      <td>-0.109</td>
+      <td>0.872</td>
+      <td>0.818</td>
     </tr>
     <tr>
-      <th>Sepal_Width</th>
-      <td>-0.11</td>
-      <td>1.00</td>
-      <td>-0.42</td>
-      <td>-0.36</td>
+      <th>Sepal Width</th>
+      <td>-0.109</td>
+      <td>1.000</td>
+      <td>-0.421</td>
+      <td>-0.357</td>
     </tr>
     <tr>
-      <th>Petal_Length</th>
-      <td>0.87</td>
-      <td>-0.42</td>
-      <td>1.00</td>
-      <td>0.96</td>
+      <th>Petal Length</th>
+      <td>0.872</td>
+      <td>-0.421</td>
+      <td>1.000</td>
+      <td>0.963</td>
     </tr>
     <tr>
-      <th>Petal_Width</th>
-      <td>0.82</td>
-      <td>-0.36</td>
-      <td>0.96</td>
-      <td>1.00</td>
+      <th>Petal Width</th>
+      <td>0.818</td>
+      <td>-0.357</td>
+      <td>0.963</td>
+      <td>1.000</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>がく片については<span class="math notranslate nohighlight">\( r_{XY} = -0.11 \)</span>なのでほぼ無相関，花弁については<span class="math notranslate nohighlight">\( r_{XY}=0.96 \)</span>となるので強い正の相関があることが分かる．</p>
-<p>なお，相関係数はあくまでも２つの変数の散布図が直線的な関係になる場合だけ意味があることに注意しなければならない．
-例えば，<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
-このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．</p>
 </section>
-<section id="id3">
-<h2><span class="section-number">2.3.2. </span>相関関係と因果関係<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id5">
+<h2><span class="section-number">2.3.2. </span>相関関係と因果関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>2つの変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の間に相関関係があったときに，それらの間に因果関係があるといえるだろうか？
 つまり，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span>または<span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span>という関係が成り立つだろうか？
 実は，これは必ずしも成り立つとは限らない．
 その理由は，第一に，全くの偶然で強い相関関係が現れることがあるからである．
-例えば，文献<span id="id4">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
+例えば，文献<span id="id6">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
 <ul class="simple">
 <li><p>「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」</p></li>
 <li><p>「ミス・アメリカの年齢」と「暖房器具による死亡者数」</p></li>
@@ -757,8 +788,8 @@ title="Print to PDF"
 例えば，偏相関係数が大きくてもそれが因果関係の存在を意味するわけではない．
 また，第３の変数の影響によって見かけ上相関が発生する疑似相関とは逆に，第３の変数の影響によって見かけ上無相関となる<strong>疑似無相関</strong>も存在する．</p>
 </section>
-<section id="id5">
-<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id7">
+<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
@@ -819,11 +850,11 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_22_1.png" src="../../_images/sec_2-3_22_1.png" />
+<img alt="../../_images/sec_2-3_24_1.png" src="../../_images/sec_2-3_24_1.png" />
 </div>
 </div>
-<section id="id6">
-<h4>実習：相関係数<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h4>
+<section id="id8">
+<h4>実習：相関係数<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
 <li><p>上図について，相関係数を求めよ．</p></li>
 </ul>
@@ -847,8 +878,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>まず，都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．</p></li>
 </ul>
-<section id="id7">
-<h4>実習：人口との散布図<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h4>
+<section id="id9">
+<h4>実習：人口との散布図<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．</p></li>
 <li><p>これらの散布図の相関係数を求め，それが何を意味するか考察せよ．</p></li>
@@ -868,7 +899,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_27_1.png" src="../../_images/sec_2-3_27_1.png" />
+<img alt="../../_images/sec_2-3_29_1.png" src="../../_images/sec_2-3_29_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -899,7 +930,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;警察職員数（万人）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_29_1.png" src="../../_images/sec_2-3_29_1.png" />
+<img alt="../../_images/sec_2-3_31_1.png" src="../../_images/sec_2-3_31_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -916,8 +947,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="id8">
-<h4>実習：人口の影響を取り除く方法<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h4>
+<section id="id10">
+<h4>実習：人口の影響を取り除く方法<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
 <li><p>刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．</p></li>
 <li><p>人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．</p></li>
@@ -950,7 +981,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_33_1.png" src="../../_images/sec_2-3_33_1.png" />
+<img alt="../../_images/sec_2-3_35_1.png" src="../../_images/sec_2-3_35_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -969,7 +1000,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（人口1000人あたり）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_34_1.png" src="../../_images/sec_2-3_34_1.png" />
+<img alt="../../_images/sec_2-3_36_1.png" src="../../_images/sec_2-3_36_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -992,8 +1023,8 @@ title="Print to PDF"
 </section>
 <section id="step-5-conclusion">
 <h3>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
-<section id="id9">
-<h4>実習<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h4>
+<section id="id11">
+<h4>実習<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
 <li><p>解析の結果から，警察職員数と刑法犯認知件数の間に因果関係があるかどうか考察せよ．</p></li>
 </ul>

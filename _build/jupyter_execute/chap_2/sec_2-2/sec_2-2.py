@@ -286,7 +286,7 @@ print(np.fabs(x_C - x_C.mean()).mean())
 # 分散について，以下の公式が知られている：
 # 
 # $$
-#     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2}
+#     s^{2} = \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \bar{x}^{2} = \overline{x^{2}} - \bar{x}^2
 # $$(eq:deviation2)
 # 
 # 分散（または標準偏差）を求める際には，定義式{eq}`eq:deviation`を用いるよりもこの公式を用いた方が計算が楽である．
