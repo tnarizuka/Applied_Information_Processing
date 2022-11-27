@@ -103,15 +103,13 @@ fig.savefig('./petal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=
 # 
 # 相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
 # このような統計量として，以下で定義される**共分散**がある：
-# ```{margin}
-# $ 共分散は\mathrm{Cov}(X, Y) $と表すこともある．
-# ```
 # 
 # $$
 # 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
 # $$(eq:covariance)
 # 
 # ただし，2つ目の等式には分散公式{eq}`eq:deviation2`を使った．
+# （共分散は $\mathrm{Cov}(X, Y) $ と表すこともある．）
 # 
 # 共分散の意味は以下の通りである．
 # まず，散布図の中心として，平均値 $ (\bar{x}, \bar{y}) $ を求める．
