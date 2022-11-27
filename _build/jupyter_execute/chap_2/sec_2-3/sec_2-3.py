@@ -22,13 +22,19 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[2]:
+# In[8]:
 
 
 # アヤメデータをPandasに読み込む
 Iris = pd.read_csv('./Iris.csv')
-Iris = Iris.iloc[:, 1:5]
-Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
+Iris = Iris.iloc[:, 1:]
+Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
+
+
+# In[9]:
+
+
+Iris
 
 
 # # 関係の度合い
@@ -58,14 +64,19 @@ Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 # 例として，アヤメデータについて，がく片の長さ（Sepal Length）を$X$，幅（Sepal Width）を$Y$として散布図を描いてみる．
 # 以下のグラフを見ると，長さ（Length）に対して幅（Width）が一定となっており，特に２つの変数に関係はないようである．
 
-# In[19]:
+# In[29]:
 
 
-# 散布図
-fig, ax = plt.subplots()
-ax.plot(Iris['Sepal Length'], Iris['Sepal Width'], 'co', mfc='None')
+# 散布図（アヤメのがく片）
+fig, ax = plt.subplots(figsize=(5, 3))
+for spc in Iris['Species'].unique():
+    x = Iris.loc[Iris['Species']==spc, 'Sepal Length']
+    y = Iris.loc[Iris['Species']==spc, 'Sepal Width']
+    ax.plot(x, y, 'o', mfc='None', label=spc)
 ax.set_xlim(4, 8); ax.set_ylim(0, 5)
+ax.set_yticks([0, 1, 2, 3])
 ax.set_xlabel('Sepal Length [cm]'); ax.set_ylabel('Sepal Width [cm]')
+ax.legend(fontsize=10, loc='upper left', frameon=True, bbox_to_anchor=(1.0, 1.0))
 fig.savefig('./sepal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
@@ -73,15 +84,19 @@ fig.savefig('./sepal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=
 # 今度は右上と左下の区画にデータ点が多く，右上がりの傾向がある．
 # すなわち，花弁が長くなれば，それとともに花弁の幅も大きくなる傾向がある．
 
-# In[18]:
+# In[30]:
 
 
-# 散布図
-fig, ax = plt.subplots()
-ax.plot(Iris['Petal Length'], Iris['Petal Width'], 'co', mfc='None')
+# 散布図（アヤメの花弁）
+fig, ax = plt.subplots(figsize=(5, 3))
+for spc in Iris['Species'].unique():
+    x = Iris.loc[Iris['Species']==spc, 'Petal Length']
+    y = Iris.loc[Iris['Species']==spc, 'Petal Width']
+    ax.plot(x, y, 'o', mfc='None', label=spc)
 ax.set_xlim(0, 8); ax.set_ylim(0, 3)
 ax.set_yticks([0, 1, 2, 3])
 ax.set_xlabel('Petal Length [cm]'); ax.set_ylabel('Petal Width [cm]')
+ax.legend(fontsize=10, loc='upper left', frameon=True, bbox_to_anchor=(1.0, 1.0))
 fig.savefig('./petal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
