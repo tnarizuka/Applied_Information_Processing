@@ -547,15 +547,22 @@ title="Print to PDF"
 <section id="id2">
 <h2><span class="section-number">2.3.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
-ここでは，2種類の量的データを変数<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
+以下では，2種類の量的データを変数<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
 <section id="id3">
 <h3>散布図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
 すなわち，<span class="math notranslate nohighlight">\( n \)</span>組のデータ<span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span>に対し，<span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>を座標とする点を<span class="math notranslate nohighlight">\( X-Y \)</span>平面上にとったグラフを考える．
-このようなグラフを<strong>散布図</strong>と呼ぶ．
+このようなグラフは<strong>散布図</strong>と呼ばれる．
 なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
 また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
-このような場合には加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
+このような場合にはデータの加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
+<p>散布図を描くと明らかな規則性が見いだせる場合もあるが，通常はおおまかに以下の３つのいずれかに当てはまるか検討する：</p>
+<ul class="simple">
+<li><p>散布図が右上がり：正の相関</p></li>
+<li><p>散布図が右下がり：負の相関</p></li>
+<li><p>散布図が広い範囲に一様にばらついている：無相関</p></li>
+</ul>
+<p>もし，これ以外に特別な規則性がありそうな場合（データ点がある曲線上に分布する場合など）は個別に検討する必要がある．</p>
 <p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Sepal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
 以下のグラフを見ると，長さ（Length）に対して幅（Width）が一定となっており，特に２つの変数に関係はないようである．</p>
 <div class="cell docutils container">
@@ -570,7 +577,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_8_0.png" src="../../_images/sec_2-3_8_0.png" />
+<img alt="../../_images/sec_2-3_9_0.png" src="../../_images/sec_2-3_9_0.png" />
 </div>
 </div>
 <p>次に，花弁の長さ（Petal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Petal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
@@ -589,7 +596,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_10_0.png" src="../../_images/sec_2-3_10_0.png" />
+<img alt="../../_images/sec_2-3_11_0.png" src="../../_images/sec_2-3_11_0.png" />
 </div>
 </div>
 </section>
@@ -797,7 +804,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_26_1.png" src="../../_images/sec_2-3_26_1.png" />
+<img alt="../../_images/sec_2-3_27_1.png" src="../../_images/sec_2-3_27_1.png" />
 </div>
 </div>
 <p><strong>実習：相関係数</strong></p>
@@ -840,7 +847,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_31_0.png" src="../../_images/sec_2-3_31_0.png" />
+<img alt="../../_images/sec_2-3_32_0.png" src="../../_images/sec_2-3_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -868,7 +875,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_33_0.png" src="../../_images/sec_2-3_33_0.png" />
+<img alt="../../_images/sec_2-3_34_0.png" src="../../_images/sec_2-3_34_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -914,7 +921,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_37_0.png" src="../../_images/sec_2-3_37_0.png" />
+<img alt="../../_images/sec_2-3_38_0.png" src="../../_images/sec_2-3_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -930,7 +937,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_38_0.png" src="../../_images/sec_2-3_38_0.png" />
+<img alt="../../_images/sec_2-3_39_0.png" src="../../_images/sec_2-3_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
