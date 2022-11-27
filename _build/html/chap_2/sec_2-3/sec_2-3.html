@@ -557,11 +557,11 @@ title="Print to PDF"
 <section id="id2">
 <h2><span class="section-number">2.3.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
-以下では，2種類の量的データを変数<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
+以下では，2種類の量的データを変数 <span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
 <section id="id3">
 <h3>散布図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
-すなわち，<span class="math notranslate nohighlight">\( n \)</span>組のデータ<span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span>に対し，<span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>を座標とする点を<span class="math notranslate nohighlight">\( X-Y \)</span>平面上にとったグラフを考える．
+すなわち， <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span> に対し， <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> を座標とする点を <span class="math notranslate nohighlight">\( X-Y \)</span> 平面上にとったグラフを考える．
 このようなグラフは<strong>散布図</strong>と呼ばれる．
 なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
 また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
@@ -573,7 +573,7 @@ title="Print to PDF"
 <li><p>散布図が広い範囲に一様に分布：無相関</p></li>
 </ul>
 <p>もし，これ以外に特別な規則性がありそうな場合（データ点がある曲線上に分布する場合など）は個別に検討する必要がある．</p>
-<p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Sepal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+<p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を <span class="math notranslate nohighlight">\(X\)</span> ，幅（Sepal Width）を <span class="math notranslate nohighlight">\(Y\)</span> として散布図を描いてみる．
 以下のグラフを見ると，特に正の相関や負の相関は見られない．
 しかし，がく片の長さ（Length）に対して幅（Width）が一定値となっており，がく片の形状を反映した結果となっている．</p>
 <div class="cell docutils container">
@@ -596,7 +596,7 @@ title="Print to PDF"
 <img alt="../../_images/sec_2-3_9_0.png" src="../../_images/sec_2-3_9_0.png" />
 </div>
 </div>
-<p>次に，花弁の長さ（Petal Length）を<span class="math notranslate nohighlight">\(X\)</span>，幅（Petal Width）を<span class="math notranslate nohighlight">\(Y\)</span>として散布図を描いてみる．
+<p>次に，花弁の長さ（Petal Length）を <span class="math notranslate nohighlight">\(X\)</span> ，幅（Petal Width）を <span class="math notranslate nohighlight">\(Y\)</span> として散布図を描いてみる．
 今度は右上と左下の区画にデータ点が多く，右上がりの傾向がある．
 すなわち，花弁が長くなれば，それとともに花弁の幅も大きくなる傾向がある．
 また，アヤメの品種ごとに色分けすると，きれいに品種ごとに分かれることが分かる．</p>
@@ -623,7 +623,7 @@ title="Print to PDF"
 </section>
 <section id="id4">
 <h3>共分散<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図に右上がりや右下がりの傾向がある場合には，<span class="math notranslate nohighlight">\( X \)</span>と<span class="math notranslate nohighlight">\( Y \)</span>に<strong>相関関係がある</strong>という．
+<p>変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の散布図に右上がりや右下がりの傾向がある場合には， <span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> に<strong>相関関係がある</strong>という．
 例えば，アヤメの花弁には，長さ（Petal Length）と幅（Petal Width）に相関関係がある．</p>
 <p>相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
 このような統計量として，以下で定義される<strong>共分散</strong>がある：</p>
@@ -645,8 +645,8 @@ title="Print to PDF"
 </section>
 <section id="id5">
 <h3>相関係数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>共分散はデータ<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきの度合いによって値が異なるため，相関の程度を一定の基準で表すことができない．
-そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差<span class="math notranslate nohighlight">\(s_{X},\ s_{Y}\)</span>で割った量</p>
+<p>共分散はデータ <span class="math notranslate nohighlight">\( X,\ Y \)</span> の単位やばらつきの度合いによって値が異なるため，相関の程度を一定の基準で表すことができない．
+そこで，共分散を <span class="math notranslate nohighlight">\( X,\ Y \)</span> の標準偏差 <span class="math notranslate nohighlight">\( s_{X},\ s_{Y} \)</span> で割った量</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation">
 <span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
 	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
@@ -658,7 +658,7 @@ title="Print to PDF"
 	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
 \]</div>
 <p>これを<strong>ピアソンの相関係数</strong>（あるいは単に相関関係）と呼ぶ．</p>
-<p>相関係数は，データ<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきに依らず，定義域が常に<span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span>となる．
+<p>相関係数は，データ <span class="math notranslate nohighlight">\( X,\ Y \)</span> の単位やばらつきに依らず，定義域が常に <span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span> となる．
 特に，相関係数の符号は散布図が右上がりの場合に正，右下がりの場合に負となる．
 一般に，相関係数が正の値のときに<strong>正の相関</strong>，負の値のときに<strong>負の相関</strong>があるという．
 また，相関係数が0のときには<strong>無相関</strong>という．</p>
@@ -666,7 +666,7 @@ title="Print to PDF"
 例えば，<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
 このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．</p>
 <p>実際にアヤメデータから相関係数を求めてみる．
-がく片については<span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span>なのでほぼ無相関，花弁については<span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span>となるので強い正の相関があることが分かる．</p>
+がく片については <span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span> なのでほぼ無相関，花弁については <span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span> となるので強い正の相関があることが分かる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数（Pandasを用いる）</span>
