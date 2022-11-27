@@ -31,12 +31,6 @@ Iris = Iris.iloc[:, 1:]
 Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 
 
-# In[9]:
-
-
-Iris
-
-
 # # 関係の度合い
 
 # ## 散布図と相関係数
