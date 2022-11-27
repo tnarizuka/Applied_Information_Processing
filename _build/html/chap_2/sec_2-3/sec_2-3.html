@@ -391,18 +391,23 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
+     共分散
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
      相関係数
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    2.3.2. 相関関係と因果関係
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
   </a>
   <ul class="nav section-nav flex-column">
@@ -459,18 +464,23 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
+     共分散
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
      相関係数
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    2.3.2. 相関関係と因果関係
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
   </a>
   <ul class="nav section-nav flex-column">
@@ -612,29 +622,39 @@ title="Print to PDF"
 </div>
 </section>
 <section id="id4">
-<h3>相関係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図に右上がりの傾向などがある場合には相関関係があるという．
-例えば，アヤメの花弁については，長さ（Petal Length）と幅（Petal Width）に相関関係がある．
-このような相関関係を定量化した量は<strong>ピアソンの相関係数</strong>と呼ばれ，以下の式で定義される：</p>
-<div class="math notranslate nohighlight" id="equation-eq-correlation">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
-	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
-\]</div>
-<p>また，分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を用いると，以下のように表すこともできる：</p>
-<div class="math notranslate nohighlight" id="equation-eq-correlation2">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-correlation2" title="この数式へのパーマリンク">#</a></span>\[
-	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
-\]</div>
-<p>ここで，式<a class="reference internal" href="#equation-eq-correlation">(2.9)</a>の分子に現れた量</p>
+<h3>共分散<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図に右上がりや右下がりの傾向などがある場合には相関関係があるという．
+例えば，アヤメの花弁については，長さ（Petal Length）と幅（Petal Width）に相関関係がある．</p>
+<p>相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
+このような統計量として，以下で定義される**共分散（Covariance）**がある：</p>
 <div class="math notranslate nohighlight" id="equation-eq-covariance">
-<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-covariance" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-covariance" title="この数式へのパーマリンク">#</a></span>\[
 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
 \]</div>
-<p>は変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の<strong>共分散</strong>と呼ばれる（<span class="math notranslate nohighlight">\( \mathrm{Cov}(X, Y) \)</span>と表すこともある）．
-共分散は各データごとに<span class="math notranslate nohighlight">\( X,\ Y \)</span>の偏差（平均との差）の積を考え，それらの全データに対する平均を考えている．
-これにより，散布図が右上がりのときに正，右下がりのときには負となる統計量が得られる．
-ただし，これだけだと<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきの度合いによって値が大きく異なってしまい，相関の程度を一定の基準で表すことができない．
-そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差<span class="math notranslate nohighlight">\(s_{X},\ s_{Y}\)</span>で割って，各変数の単位やばらつきの度合いに依らない量としたのが相関係数である．</p>
+<p>ただし，2つ目の等式では分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を使った．</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><span class="math notranslate nohighlight">\( 共分散は\mathrm{Cov}(X, Y) \)</span>と表すこともある．</p>
+</aside>
+<p>共分散は各データごとに<span class="math notranslate nohighlight">\( X,\ Y \)</span>の偏差（平均との差）の積を考え，それらを全データに対して平均している．
+これにより，確かに散布図が右上がりのときに正，右下がりのときには負となる．</p>
+</section>
+<section id="id5">
+<h3>相関係数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>共分散は<span class="math notranslate nohighlight">\( X,\ Y \)</span>の単位やばらつきの度合いによって値が大きく異なってしまい，相関の程度を一定の基準で表すことができない．
+そこで，共分散を<span class="math notranslate nohighlight">\( X,\ Y \)</span>の標準偏差<span class="math notranslate nohighlight">\(s_{X},\ s_{Y}\)</span>で割った量</p>
+<div class="math notranslate nohighlight" id="equation-eq-correlation">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
+	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
+\]</div>
+<p>を考える．
+これを<strong>ピアソンの相関係数</strong>（あるいは単に相関関係）と呼ぶ．
+相関係数は，共分散と異なり変数<span class="math notranslate nohighlight">\(X,\ Y\)</span>の単位やばらつきの度合いに依らない量である．</p>
+<p>なお，分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を用いると，相関係数は以下のように表される：</p>
+<div class="math notranslate nohighlight" id="equation-eq-correlation2">
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-correlation2" title="この数式へのパーマリンク">#</a></span>\[
+	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
+\]</div>
 <p>相関係数の定義域は<span class="math notranslate nohighlight">\( -1\leq r_{XY} \leq 1 \)</span>であり，その絶対値によって相関の強さを表すことができる．
 また，定義より，相関係数の符号は右上がりの傾向の場合に正，右下がりの傾向の場合に負となる．
 特に，相関係数が正の値のときに<strong>正の相関</strong>，負の値のときに<strong>負の相関</strong>があるという．
@@ -711,13 +731,13 @@ title="Print to PDF"
 </div>
 </section>
 </section>
-<section id="id5">
-<h2><span class="section-number">2.3.2. </span>相関関係と因果関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id6">
+<h2><span class="section-number">2.3.2. </span>相関関係と因果関係<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>2つの変数<span class="math notranslate nohighlight">\( X,\ Y \)</span>の間に相関関係があったときに，それらの間に因果関係があるといえるだろうか？
 つまり，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span>または<span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span>という関係が成り立つだろうか？
 実は，これは必ずしも成り立つとは限らない．
 その理由は，第一に，全くの偶然で強い相関関係が現れることがあるからである．
-例えば，文献<span id="id6">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
+例えば，文献<span id="id7">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
 <ul class="simple">
 <li><p>「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」</p></li>
 <li><p>「ミス・アメリカの年齢」と「暖房器具による死亡者数」</p></li>
@@ -753,8 +773,8 @@ title="Print to PDF"
 例えば，偏相関係数が大きくてもそれが因果関係の存在を意味するわけではない．
 また，第３の変数の影響によって見かけ上相関が発生する疑似相関とは逆に，第３の変数の影響によって見かけ上無相関となる<strong>疑似無相関</strong>も存在する．</p>
 </section>
-<section id="id7">
-<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id8">
+<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
@@ -815,7 +835,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_27_1.png" src="../../_images/sec_2-3_27_1.png" />
+<img alt="../../_images/sec_2-3_29_1.png" src="../../_images/sec_2-3_29_1.png" />
 </div>
 </div>
 <p><strong>実習：相関係数</strong></p>
@@ -858,7 +878,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_32_0.png" src="../../_images/sec_2-3_32_0.png" />
+<img alt="../../_images/sec_2-3_34_0.png" src="../../_images/sec_2-3_34_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -886,7 +906,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_34_0.png" src="../../_images/sec_2-3_34_0.png" />
+<img alt="../../_images/sec_2-3_36_0.png" src="../../_images/sec_2-3_36_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -932,7 +952,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_38_0.png" src="../../_images/sec_2-3_38_0.png" />
+<img alt="../../_images/sec_2-3_40_0.png" src="../../_images/sec_2-3_40_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -948,7 +968,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-3_39_0.png" src="../../_images/sec_2-3_39_0.png" />
+<img alt="../../_images/sec_2-3_41_0.png" src="../../_images/sec_2-3_41_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
