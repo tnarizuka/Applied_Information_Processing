@@ -109,7 +109,6 @@ fig.savefig('./petal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=
 # $$(eq:covariance)
 # 
 # ただし，2つ目の等式には分散公式{eq}`eq:deviation2`を使った．
-# （共分散は $\mathrm{Cov}(X, Y) $ と表すこともある．）
 # 
 # 共分散の意味は以下の通りである．
 # まず，散布図の中心として，平均値 $ (\bar{x}, \bar{y}) $ を求める．
