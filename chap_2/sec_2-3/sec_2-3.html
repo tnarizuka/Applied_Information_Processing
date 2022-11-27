@@ -627,15 +627,12 @@ title="Print to PDF"
 例えば，アヤメの花弁には，長さ（Petal Length）と幅（Petal Width）に相関関係がある．</p>
 <p>相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
 このような統計量として，以下で定義される<strong>共分散</strong>がある：</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><span class="math notranslate nohighlight">\( 共分散は\mathrm{Cov}(X, Y) \)</span>と表すこともある．</p>
-</aside>
 <div class="math notranslate nohighlight" id="equation-eq-covariance">
 <span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-covariance" title="この数式へのパーマリンク">#</a></span>\[
 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
 \]</div>
-<p>ただし，2つ目の等式には分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を使った．</p>
+<p>ただし，2つ目の等式には分散公式<a class="reference internal" href="../sec_2-2/sec_2-2.html#equation-eq-deviation2">(2.6)</a>を使った．
+（共分散は <span class="math notranslate nohighlight">\(\mathrm{Cov}(X, Y) \)</span> と表すこともある．）</p>
 <p>共分散の意味は以下の通りである．
 まず，散布図の中心として，平均値 <span class="math notranslate nohighlight">\( (\bar{x}, \bar{y}) \)</span> を求める．
 その上で，データ <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> に対し，平均値から <span class="math notranslate nohighlight">\( X,\ Y \)</span> 方向への増分（つまり偏差）の積 <span class="math notranslate nohighlight">\( (x_{i}-\bar{x})(y_{i}-\bar{y}) \)</span> を計算する．
