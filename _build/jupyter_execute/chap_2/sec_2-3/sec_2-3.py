@@ -102,7 +102,7 @@ fig.savefig('./petal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=
 # 例えば，アヤメの花弁には，長さ（Petal Length）と幅（Petal Width）に相関関係がある．
 # 
 # 相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
-# このような統計量として，以下で定義される**共分散（Covariance）**がある：
+# このような統計量として，以下で定義される**共分散**がある：
 # 
 # $$
 # 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
