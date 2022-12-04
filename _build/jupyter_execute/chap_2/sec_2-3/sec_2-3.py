@@ -301,10 +301,10 @@ fig.savefig('./pop_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=
 Crime.corr()['人口']['刑法犯認知件数']
 
 
-# **実習：人口の影響を取り除く方法１**
+# **実習：人口（$ Z $）の影響を取り除く方法１**
 # - 刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．
 
-# In[14]:
+# In[22]:
 
 
 cnd1 = (Crime['人口'] <  1000000)
@@ -312,7 +312,7 @@ cnd2 = (Crime['人口'] >= 1000000) & (Crime['人口'] < 2000000)
 cnd3 = (Crime['人口'] >= 2000000) & (Crime['人口'] < 5000000)
 
 
-# In[15]:
+# In[23]:
 
 
 # 層別散布図
@@ -321,40 +321,40 @@ ax.plot(Crime.loc[cnd1, '警察職員数']/1000, Crime.loc[cnd1, '刑法犯認�
 ax.plot(Crime.loc[cnd2, '警察職員数']/1000, Crime.loc[cnd2, '刑法犯認知件数']/10000, 'co', mfc='None')
 ax.plot(Crime.loc[cnd3, '警察職員数']/1000, Crime.loc[cnd3, '刑法犯認知件数']/10000, 'mo', mfc='None')
 ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7]); ax.set_yticks([0, 1, 2, 3])
-ax.set_xlabel('警察職員数（千人）')
-ax.set_ylabel('刑法犯認知件数（万件）')
+ax.set_xlabel('警察職員数 $X$（千人）')
+ax.set_ylabel('刑法犯認知件数 $Y$（万件）')
 fig.savefig('./police_crime2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# **実習：人口の影響を取り除く方法２**
+# **実習：人口（$ Z $）の影響を取り除く方法２**
 # - 人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．
 
-# In[16]:
+# In[24]:
 
 
 # 人口1000人あたりの散布図
 fig, ax = plt.subplots()
 ax.plot(1000*Crime['警察職員数']/Crime['人口'], 1000*Crime['刑法犯認知件数']/Crime['人口'], 'co', mfc='None')
 ax.set_xticks([2, 2.5, 3, 3.5]); ax.set_yticks([0, 5, 10, 15])
-ax.set_xlabel('警察職員数（人口1000人あたり）')
-ax.set_ylabel('刑法犯認知件数（人口1000人あたり）')
+ax.set_xlabel('警察職員数 $X$（人口1000人あたり）')
+ax.set_ylabel('刑法犯認知件数 $Y$（人口1000人あたり）')
 fig.savefig('./police_crime3.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# **実習：人口の影響を取り除く方法３**
+# **実習：人口（$ Z $）の影響を取り除く方法３**
 # - 人口の影響を除いた警察職員数と刑法犯認知件数の偏相関係数を求め，結果を考察せよ．
 
-# In[17]:
+# In[27]:
 
 
-# 偏相関係数
+# 偏相関係数（公式を用いる）
 r = Crime.corr()
-cov = r['警察職員数']['刑法犯認知件数'] - r['警察職員数']['人口']*r['刑法犯認知件数']['人口']
-denom = np.sqrt((1-r['警察職員数']['人口']**2)*(1-r['刑法犯認知件数']['人口']**2))
+cov = r['警察職員数']['刑法犯認知件数'] - r['警察職員数']['人口']*r['刑法犯認知件数']['人口'] # 分子
+denom = np.sqrt((1-r['警察職員数']['人口']**2)*(1-r['刑法犯認知件数']['人口']**2))  # 分母
 cov / denom
 
 
 # ### STEP 5: Conclusion
 # 
 # **実習**
-# - 解析の結果から，警察職員数と刑法犯認知件数の間に因果関係があるかどうか考察せよ．
+# - 解析の結果から，警察職員数と刑法犯認知件数の間の相関関係について考察せよ．
