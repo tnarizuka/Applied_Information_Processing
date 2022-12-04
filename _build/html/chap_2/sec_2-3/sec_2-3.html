@@ -812,6 +812,9 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
+</section>
+<section id="step4-analysis">
+<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データの読み込み</span>
@@ -821,10 +824,8 @@ title="Print to PDF"
 </div>
 </div>
 <ul class="simple">
-<li><p>下図は2015年度の都道府県別警察職員数と刑法犯認知件数の散布図を表している．</p></li>
-<li><p>この散布図を見ると確かに両者には正の相関関係があり，相関係数も高くなりそうである．</p></li>
-<li><p>では，このことから警察職員数と刑法犯認知件数に因果関係があるといえるだろうか？</p></li>
-<li><p>これを調べるため，今回は都道府県の人口を第3の変数と仮定して解析を行う．</p></li>
+<li><p>下図は2015年度の都道府県別警察職員数（<span class="math notranslate nohighlight">\( X \)</span>）と刑法犯認知件数（<span class="math notranslate nohighlight">\( Y \)</span>）の散布図を表している．</p></li>
+<li><p>この散布図を見ると確かに両者には正の相関関係があり，以下のように相関係数も大きくなる</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,13 +842,9 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;刑法犯認知件数（万件）&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-3_29_1.png" src="../../_images/sec_2-3_29_1.png" />
+<img alt="../../_images/sec_2-3_30_1.png" src="../../_images/sec_2-3_30_1.png" />
 </div>
 </div>
-<p><strong>実習：相関係数</strong></p>
-<ul class="simple">
-<li><p>上図について，相関係数を求めよ．</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
@@ -861,11 +858,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step4-analysis">
-<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
-<li><p>まず，都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．</p></li>
+<li><p>では，このことから警察職員数と刑法犯認知件数に因果関係があるといえるだろうか？</p></li>
+<li><p>これを調べるため，以下では都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．</p></li>
 </ul>
 <p><strong>実習：人口との散布図</strong></p>
 <ul class="simple">
