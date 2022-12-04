@@ -835,8 +835,8 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;警察職員数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;刑法犯認知件数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（万人）&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;警察職員数 $X$（万人）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数 $Y$（万件）&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./police_crime.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
@@ -869,13 +869,13 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 刑法犯認知件数（X）と人口（Z）の散布図</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 警察職員数（X）と人口（Z）の散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;人口&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;刑法犯認知件数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数（万件）&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_crime.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;人口&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;警察職員数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口 $Z$（万人）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;警察職員数 $X$（万人）&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_police.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
@@ -885,26 +885,26 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 刑法犯認知件数（X）と人口（Z）の相関係数</span>
-<span class="n">Crime</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;人口&#39;</span><span class="p">][</span><span class="s1">&#39;刑法犯認知件数&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 警察職員数（X）と人口（Z）の相関係数</span>
+<span class="n">Crime</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;人口&#39;</span><span class="p">][</span><span class="s1">&#39;警察職員数&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9576469769539209
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9478341323186453
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 警察職員数（Y）と人口（Z）の散布図</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 刑法犯認知件数（Y）と人口（Z）の散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;人口&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;警察職員数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口（万人）&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;警察職員数（万人）&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_police.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;人口&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="n">Crime</span><span class="p">[</span><span class="s1">&#39;刑法犯認知件数&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10000</span><span class="p">,</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;人口 $Z$（万人）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;刑法犯認知件数 $Y$（万件）&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./pop_crime.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
@@ -914,13 +914,13 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 警察職員数（Y）と人口（Z）の相関係数</span>
-<span class="n">Crime</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;人口&#39;</span><span class="p">][</span><span class="s1">&#39;警察職員数&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 刑法犯認知件数（Y）と人口（Z）の相関係数</span>
+<span class="n">Crime</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;人口&#39;</span><span class="p">][</span><span class="s1">&#39;刑法犯認知件数&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9478341323186453
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9576469769539209
 </pre></div>
 </div>
 </div>
