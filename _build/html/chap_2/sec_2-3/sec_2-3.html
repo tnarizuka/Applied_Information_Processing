@@ -405,9 +405,21 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id6">
    2.3.2. 相関関係と因果関係
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     偶然の相関
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     疑似相関
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id11">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
    <span class="xref cite">
     竹村2019
@@ -481,9 +493,21 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#id6">
    2.3.2. 相関関係と因果関係
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     偶然の相関
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     疑似相関
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id11">
    2.3.3. 実例：警察職員数と刑法犯認知件数の関係
    <span class="xref cite">
     竹村2019
@@ -743,13 +767,18 @@ title="Print to PDF"
 つまり，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span> または <span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span> という関係が成り立つだろうか？
 実は，これは必ずしも成り立つとは限らない．
 その理由は，主に以下の２つが考えられる．</p>
+<section id="id7">
+<h3>偶然の相関<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>第一に，全くの偶然で強い相関関係が現れることがある．
-例えば，文献<span id="id7">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
+例えば，文献<span id="id8">[<a class="reference internal" href="../../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
 <ul class="simple">
 <li><p>「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」</p></li>
 <li><p>「ミス・アメリカの年齢」と「暖房器具による死亡者数」</p></li>
 <li><p>「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」</p></li>
 </ul>
+</section>
+<section id="id9">
+<h3>疑似相関<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h3>
 <p>第二に，調べたい2つの変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> それぞれが別の変数 <span class="math notranslate nohighlight">\( Z \)</span> と強く相関する場合，<span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> の相関が見かけ上強くなってしまうこともある．
 このような相関は<strong>疑似相関</strong>と呼ばれ，疑似相関の原因となる変数 <span class="math notranslate nohighlight">\( Z \)</span> のことを<strong>第3の変数</strong>と呼ぶ．
 なお，第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は<strong>潜在変数</strong>と呼ぶ．
@@ -799,8 +828,9 @@ title="Print to PDF"
 すなわち，偏相関係数が大きくてもそれが因果関係の存在を意味するわけではない．
 また，第3の変数の影響によって見かけ上相関が発生する疑似相関とは逆に，第3の変数の影響によって見かけ上無相関となる<strong>疑似無相関</strong>も存在する．</p>
 </section>
-<section id="id9">
-<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係 <span id="id8">[<a class="reference internal" href="../../reference.html#id4" title="竹村彰通・姫野哲人・高田聖治編. データサイエンス入門. 学術図書出版社, 2019.">2</a>]</span><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id11">
+<h2><span class="section-number">2.3.3. </span>実例：警察職員数と刑法犯認知件数の関係 <span id="id10">[<a class="reference internal" href="../../reference.html#id4" title="竹村彰通・姫野哲人・高田聖治編. データサイエンス入門. 学術図書出版社, 2019.">2</a>]</span><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
