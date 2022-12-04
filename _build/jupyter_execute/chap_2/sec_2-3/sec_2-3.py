@@ -197,18 +197,18 @@ Iris.corr()
 # これには，以下のように回帰直線の考え方を使う．
 # まず，$ Z $ による $ X,\ Y $ の予測値を
 # 
-# $$
-# 	\hat{x}_{i} = a z_{i} + b\\
-# 	\hat{y}_{i} = c z_{i} + d
-# $$
+# \begin{align*}
+# 	\hat{x}_{i} &= a z_{i} + b\\
+# 	\hat{y}_{i} &= c z_{i} + d
+# \end{align*}
 # 
 # とする（ $ a,\ b $ および $ c,\ d $ は一般に次節で扱う最小二乗法によって求める）．
 # このとき，$ Z $ の影響を除いた $ X,\ Y $ を $ \tilde{X},\ \tilde{Y} $ とすると，これらは残差
 # 
-# $$
-# 	\tilde{x}_{i} = x_{i} - \hat{x}_{i}\\
-# 	\tilde{y}_{i} = y_{i} - \hat{y}_{i}
-# $$
+# \begin{align*}
+# 	\tilde{x}_{i} &= x_{i} - \hat{x}_{i}\\
+# 	\tilde{y}_{i} &= y_{i} - \hat{y}_{i}
+# \end{align*}
 # 
 # によって与えられる．
 # このようにして，$ Z $ の影響を除いた $ \tilde{X}, \tilde{Y} $ のデータ $ (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i}) $ は，$ Z $ と無相関になる．
