@@ -238,7 +238,7 @@ Crime = pd.read_csv('./number_crime.csv', index_col='p')
 # - 下図は2015年度の都道府県別警察職員数（$ X $）と刑法犯認知件数（$ Y $）の散布図を表している．
 # - この散布図を見ると確かに両者には正の相関関係があり，以下のように相関係数も大きくなる
 
-# In[3]:
+# In[9]:
 
 
 fig, ax = plt.subplots()
@@ -246,10 +246,10 @@ ax.plot(Crime['警察職員数']/10000, Crime['刑法犯認知件数']/10000, 'c
 ax.set_xticks([0, 1, 2, 3, 4]); ax.set_yticks([0, 5, 10, 15])
 ax.set_xlabel('警察職員数（万人）')
 ax.set_ylabel('刑法犯認知件数（万件）')
-# fig.savefig('figure/police_crime.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./police_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[4]:
+# In[6]:
 
 
 # 相関係数
@@ -263,7 +263,7 @@ Crime.corr()['刑法犯認知件数']['警察職員数']
 # - 刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．
 # - これらの散布図の相関係数を求め，それが何を意味するか考察せよ．
 
-# In[10]:
+# In[7]:
 
 
 fig, ax = plt.subplots()
