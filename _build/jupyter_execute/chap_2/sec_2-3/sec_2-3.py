@@ -256,16 +256,17 @@ fig.savefig('./police_crime.png', bbox_inches="tight", pad_inches=0.2, transpare
 Crime.corr()['刑法犯認知件数']['警察職員数']
 
 
-# - では，このことから警察職員数と刑法犯認知件数に因果関係があるといえるだろうか？
-# - これを調べるため，以下では都道府県の人口を第3の変数と仮定し，警察職員数と刑法犯認知件数の関係が疑似相関であるか調べる．
+# - では，このことから警察職員数（$ X $）と刑法犯認知件数（$ Y $）に因果関係があるといえるだろうか？
+# - これを調べるため，以下では都道府県の人口を第3の変数 $ Z $ と仮定し，警察職員数（$ X $）と刑法犯認知件数（$ Y $）の関係が疑似相関であるか調べる．
 
 # **実習：人口との散布図**
-# - 刑法犯認知件数と警察職員数のそれぞれについて人口との散布図を描け．
+# - 刑法犯認知件数（$ X $）と警察職員数（$ Y $）のそれぞれについて人口（$ Z $）との散布図を描け．
 # - これらの散布図の相関係数を求め，それが何を意味するか考察せよ．
 
-# In[7]:
+# In[13]:
 
 
+# 刑法犯認知件数（X）と人口（Z）の散布図
 fig, ax = plt.subplots()
 ax.plot(Crime['人口']/10000, Crime['刑法犯認知件数']/10000, 'co', mfc='None')
 ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 5, 10, 15])
@@ -274,16 +275,17 @@ ax.set_ylabel('刑法犯認知件数（万件）')
 fig.savefig('./pop_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[11]:
-
-
-# 相関係数
-Crime.corr()['人口']['刑法犯認知件数']
-
-
 # In[12]:
 
 
+# 刑法犯認知件数（X）と人口（Z）の相関係数
+Crime.corr()['人口']['刑法犯認知件数']
+
+
+# In[14]:
+
+
+# 警察職員数（Y）と人口（Z）の散布図
 fig, ax = plt.subplots()
 ax.plot(Crime['人口']/10000, Crime['警察職員数']/10000, 'co', mfc='None')
 ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 1, 2, 3, 4])
@@ -292,10 +294,10 @@ ax.set_ylabel('警察職員数（万人）')
 fig.savefig('./pop_police.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[13]:
+# In[15]:
 
 
-# 相関係数
+# 警察職員数（Y）と人口（Z）の相関係数
 Crime.corr()['人口']['警察職員数']
 
 
