@@ -184,6 +184,6 @@ fig.savefig(, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 
 
 # 日本語フォントの設定（Mac:'Hiragino Sans'，Windows: 'MS Gothic'）
-import matplotlib as plt
+import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = 'Hiragino Sans'
 
