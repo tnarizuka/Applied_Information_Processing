@@ -244,13 +244,14 @@ Iris.corr()
 
 # ### STEP2, 3: Plan, Data
 
-# - 都道府県別の警察職員数と刑法犯認知件数のデータを用い，これらの相関関係および因果関係の有無を調べることにする．
-# - 今回用いるデータは以下の通りである：
+# - 都道府県別の警察職員数と刑法犯認知件数について，これらの相関関係および因果関係の有無を調べる．
+# - 今回用いるデータ[（number_crime.csv）](https://drive.google.com/uc?export=download&id=1e77OcwY2VcyOPv60j8i2wdky54I4gvPC)をダウンロードせよ．
+# - このデータは以下から取得できる：
 #     - 都道府県別の刑法犯認知件数
 #         - [H27年，都道府県別刑法犯の認知件数，検挙件数，検挙人員](https://www.npa.go.jp/hakusyo/h27/data.html)
 #     - 都道府県別の警察職員数
 #         - [H27年，地方公共団体定員管理関係](https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/teiin/109981data.html)
-#      - 都道府県別の人口
+#     - 都道府県別の人口
 #          - [住民基本台帳に基づく人口，人口動態及び世帯数調査](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200241&tstat=000001039591&cycle=7&year=20150&month=0&tclass1=000001039601&result_back=1&tclass2val=0)
 
 # ### STEP4: Analysis
