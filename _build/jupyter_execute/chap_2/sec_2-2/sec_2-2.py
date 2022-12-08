@@ -57,7 +57,7 @@ Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 # 
 # まずは[Iris Dataset](https://drive.google.com/uc?export=download&id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN)を読み込んでおく．
 # このデータに対し，式{eq}`eq:arithmetic_mean`を当てはめれば算術平均を計算することができる．
-# 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は$ \bar{x}=3.054 $ cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は$ \bar{x}=1.199 $ cmとなる．
+# 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は $ \bar{x}=3.054 $ cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は $ \bar{x}=1.199 $ cmとなる．
 
 # In[16]:
 

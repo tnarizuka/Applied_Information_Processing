@@ -1,114 +1,122 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# 使用するモジュールのimport
-
-# In[1]:
+# In[13]:
 
 
+# モジュール・ライブラリのインポート（必ず最初に実行）
 import sys, os
 import numpy as np
 import matplotlib.pyplot as plt
-import japanize_matplotlib
 import pandas as pd
-from pandas import DataFrame
-from scipy import optimize
+import scipy as sp
+
+# 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
+plt.rcParams['font.family'] = 'Hiragino Sans'
+
+# 表記の設定
+pd.set_option('display.precision', 3)   # 小数点以下の表示桁
+pd.set_option('display.max_rows', 20)  # 表示する行数
+pd.set_option('display.max_columns', 10)  # 表示する行数
+get_ipython().run_line_magic('precision', '3')
 
 
-# In[7]:
+# In[2]:
 
 
-# カレントディレクトリの変更（自分の作業フォルダのパスを設定）
-# os.chdir('/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/')
-os.chdir(r"G:\マイドライブ\document\講義\立正\情報処理の応用")
+# アヤメデータをPandasに読み込む
+Iris = pd.read_csv('./Iris.csv')
+Iris = Iris.iloc[:, 1:]
+Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 
 
-# In[4]:
+# # 散布図・相関分析による問題解決
+
+# ## 回帰直線と最小二乗法
+
+# ### 回帰直線
+
+# 2つの量的データ $ X $ と $ Y $ が与えられたとき，変数 $ X $ の値から $ Y $ の値を予測するための数式のことを**回帰モデル**と呼ぶ．
+# また，$ X $ を**説明変数**（独立変数），$ Y $ を**目的変数**（従属変数，被説明変数）と呼ぶ．
+# 
+# 例として，以下の散布図では変数 $ X,\ Y $ の間に直線関係が成り立ちそうである．
+# よって，回帰モデルとして，1次関数
+# 
+# $$
+# 	\hat{y} = ax + b
+# $$(eq:regression_line)
+# 
+# を用いるのが妥当と考えられる．
+# この回帰モデルは**単回帰モデル**と呼ばれ，式{eq}`eq:regression_line`の直線のことを**回帰直線**と呼ぶ．
+# なお，$ a,\ b $ は回帰直線の切片と傾きを表すパラメータであり，**回帰係数**と呼ばれる．
+
+# In[21]:
 
 
-pd.set_option('max_rows', 20)  # 表示する行数
-pd.set_option('precision', 4)  # 小数点以下の表示桁
-np.set_printoptions(suppress=True, precision=4)
-get_ipython().run_line_magic('precision', '4  # 小数点以下の表示桁')
-
-
-# google colab を使う際のセッティング
-
-# In[ ]:
-
-
-# matplotlibで日本語表示
-get_ipython().system('pip install japanize-matplotlib')
-import matplotlib.pyplot as plt
-import japanize_matplotlib
-
-
-# In[ ]:
-
-
-# google driveをマウントする
-from google.colab import drive
-drive.mount('/content/drive')
-
-
-# In[ ]:
-
-
-# カレントディレクトリを変更（自分の作業フォルダのパスを設定）
-os.chdir('/content/drive/My Drive/document/講義/立正/情報処理の応用/')
-
-
-# jupyter lab のcssスタイルを変更（必要な場合だけ）
-
-# In[5]:
-
-
-from IPython.core.display import display, HTML
-display(HTML("<style>.jp-Cell { width:100% !important; margin: 0 auto; }</style>"))
-with open('./material/variables.css') as f: 
-    css = f.read().replace(';', ' !important;')
-display(HTML('<style type="text/css">%s</style>'%css))
-
-
-# # 回帰直線と最小二乗法
-
-# ### データの作成
-
-# In[15]:
-
-
+# データの作成
 np.random.seed(1234)
 x_data = np.linspace(-10, 10, num=100)
 y_data = 2*x_data + 5 + 5.*np.random.randn(x_data.size)
-np.savetxt('material\sec_2-4\data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
+np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
 
 
-# In[6]:
+# In[22]:
 
 
-x_data
-
-
-# In[7]:
-
-
-y_data
+fig, ax = plt.subplots()
+ax.plot(x_data, y_data, 'o', mfc='None')
+ax.set_xlabel('$X$', fontsize=15)
+ax.set_ylabel('$Y$', fontsize=15)
 
 
 # ### 最小二乗法
 
-# In[8]:
+# $ n $ 組のデータ $ (x_{i}, y_{i})\ (i=1, 2, \ldots, n) $ が与えられたとき，式{eq}`eq:regression_line`を用いてデータから最適な回帰直線を求めることを**単回帰分析**と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
+# 単回帰分析には様々な方法があるが，最も基本的な方法が**最小二乗法**である．
+# 最小二乗法の発想は単純であり，予測値 $ \hat{y}_{i}=ax_{i}+b $ と実データ $ y_{i} $ の差の二乗和（残差変動）
+# 
+# $$
+# 	E = \sum_{i=1}^{n}(ax_{i}+b-y_{i})^{2}
+# $$
+# 
+# 
+# が最小となるような $ a,\ b $ を回帰係数とする方法である．
+# このための条件は，残差二乗和 $ E $ の $ a,\ b $ による偏微分がゼロという式で与えられる：
+# 
+# $$
+# 	\frac{\partial E}{\partial a} = 0, \hspace{0.5cm} \frac{\partial E}{\partial b} = 0
+# $$
+# 
+# 実際にこれらの条件を適用すると，$ a,\ b $ は
+# 
+# $$
+# 	a =\frac{\displaystyle\sum_{i=1}^{n} x_{i}y_{i} - \frac{1}{n} \sum_{i=1}^{n}x_{i}\sum_{i=1}^{n}y_{i}}{\displaystyle\sum_{i=1}^{n}x_{i}^{2} - \frac{1}{n} \left(\sum_{i=1}^{n}x_{i}\right)^{2}}=\frac{s_{XY}}{s^{2}_{X}}
+# $$
+# 
+# $$
+# 	b = \bar{y} - a \bar{x} = \frac{1}{n} \sum_{i=1}^{n}(y_{i} - ax_{i})
+# $$
+# 
+# と表される．
+# なお，傾き $ a $ は共分散 $ s_{XY} $ を $ X $ の分散 $ s^{2}_{X} $ で割った形になっている（相関係数の式に似ているが違う）．
+# よって，以下が成り立つ：
+# 
+# - 共分散$ s_{XY} $が正，0，負 $ \Longleftrightarrow $ 最小二乗法による傾き$ a $が正，0，負
+
+# **pythonによる実装**
+
+# In[ ]:
 
 
 # scipy.optimize.curve_fit
 def fit_func(x, a, b):
     return a*x + b
 
-p = optimize.curve_fit(fit_func, x_data, y_data)[0]
+p = sp.optimize.curve_fit(fit_func, x_data, y_data)[0]
 p
 
 
-# In[9]:
+# In[ ]:
 
 
 # scipy.optimize.leastsq
@@ -117,11 +125,11 @@ def func(p, x, y):
     return residual
  
 p0 = [0, 0]
-p = optimize.leastsq(func, p0, args=(x_data, y_data))[0]
+p = sp.optimize.leastsq(func, p0, args=(x_data, y_data))[0]
 p
 
 
-# In[10]:
+# In[ ]:
 
 
 # 公式から
@@ -132,16 +140,7 @@ b = np.mean(y_data - a*x_data)
 (a, b)
 
 
-# ### 決定係数
-
-# In[11]:
-
-
-R2 = np.var(fit_func(x_data, p[0], p[1])) / np.var(y_data)
-R2
-
-
-# In[18]:
+# In[ ]:
 
 
 fig, ax = plt.subplots()
@@ -149,7 +148,51 @@ ax.plot(x_data, y_data, 'o', mfc='None')
 ax.plot(x_data, fit_func(x_data, p[0], p[1]), 'r-', mfc='None')
 ax.set_xlabel('$X$', fontsize=15)
 ax.set_ylabel('$Y$', fontsize=15)
-fig.savefig('figure/lsm_ex.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+
+
+# ## 目的変数の変動と決定係数
+# 
+# $ n $ 組のデータ $ (x_{i}, y_{i})\ (i=1, 2, \ldots, n) $ に対して，次の3つの変動を考える．
+# 
+# 
+# - 全変動（データ$ Y $のばらつき）
+#   - $\displaystyle S_{y}^{2} = \sum_{i=1}^{n} (y_{i} - \bar{y})^{2}$
+# 
+# - 回帰変動（回帰モデルによる予測値のばらつき）
+#   - $\displaystyle S_{\hat{y}}^{2} = \sum_{i=1}^{n} (\hat{y}_{i} - \bar{y})^{2}$
+# 
+# - 残差変動（実データと予測値のズレ）
+#   - $\displaystyle S_{e}^{2} = \sum_{i=1}^{n} (y_{i} - \hat{y}_{i})^{2}$
+# 
+# 単回帰分析の場合，以下の関係が成り立つ：
+# 
+# $$
+# 	S_{y}^{2} = S_{\hat{y}}^{2} + S_{e}^{2}
+# $$
+# 
+# 以上を踏まえ，回帰直線の当てはまりの良さを
+# 
+# $$
+# 	R^{2} = \frac{S_{\hat{y}}^{2}}{S_{y}^{2}} = 1 - \frac{S_{e}^{2}}{S_{y}^{2}}
+# $$(eq:eq:R2)
+# 
+# で定義する．
+# これを**決定係数**と呼ぶ（他の定義もあるので注意）．
+# 
+# 決定係数は，全変動と回帰変動の比として定義されるので，実データの変動のうち，どの程度が回帰モデルで説明できるのかを表す量である．
+# 特に，式{eq}`eq:R2`より定義域は $ 0 \leq R^{2} \leq 1 $ であり，残差変動が0に近づく（データへの当てはまりが良い）と $ R^{2} $ は1に近づく．
+# 一方，残差変動が大きくなる（データへの当てはまりが悪い）と $ R^{2} $ は0に近づく．
+# なお，予測値 $ \hat{y} $ が最小二乗法によって決められた場合，決定係数は相関係数の二乗に等しい．
+
+# **pythonによる実装**
+
+# In[19]:
+
+
+# 決定係数
+R2 = np.var(fit_func(x_data, p[0], p[1])) / np.var(y_data)
+R2
 
 
 # # 実例：都市の平均気温と緯度の関係
