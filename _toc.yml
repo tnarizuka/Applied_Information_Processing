@@ -18,6 +18,7 @@ parts:
       - file: chap_2/sec_2-1/sec_2-1.ipynb
       - file: chap_2/sec_2-2/sec_2-2.ipynb
       - file: chap_2/sec_2-3/sec_2-3.ipynb
+      - file: chap_2/sec_2-4/sec_2-4.ipynb
 - caption:
   numbered: False
   chapters:
