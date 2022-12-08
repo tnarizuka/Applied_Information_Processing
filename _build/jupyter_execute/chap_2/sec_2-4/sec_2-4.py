@@ -245,7 +245,7 @@ D
 # - 一方，緯度と平均気温には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．
 # - このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．
 
-# In[53]:
+# In[66]:
 
 
 # 標高と平均気温の散布図
@@ -254,10 +254,10 @@ ax.plot(D['Z'], D['T'], 'bo', mfc='None')
 ax.set_xlim(0, 3000); ax.set_ylim(-15, 35)
 ax.set_xlabel('標高（$m$）')
 ax.set_ylabel('平均気温（℃）')
-fig.savefig('./alt_temp.pdf', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+fig.savefig('./alt_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[54]:
+# In[67]:
 
 
 # 緯度と平均気温の散布図
@@ -294,7 +294,7 @@ D2 = D.groupby('group').mean()  # groupごとの平均
 y_err = D.groupby('group').std()['T']  # groupごとの標準偏差
 
 
-# In[42]:
+# In[73]:
 
 
 # 平均絶対緯度と平均気温の平均
@@ -303,7 +303,7 @@ ax.errorbar(D2['L2'], D2['T'], yerr= y_err,            capsize=3, fmt='co', mark
 ax.set_xlim(0, 60); ax.set_ylim(-10, 35)
 ax.set_xlabel('平均絶対緯度（度）')
 ax.set_ylabel('平均気温（℃）')
-fig.savefig('./ave_latitude_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./ave_latitude_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # **実習**
@@ -311,7 +311,7 @@ fig.savefig('./ave_latitude_temp.png', bbox_inches="tight", pad_inches=0.2, tran
 # - この散布図に対して，最小二乗法で回帰直線を求めよ
 # - この散布図に対して，相関係数を求めよ
 
-# In[46]:
+# In[69]:
 
 
 ''' 平均気温と緯度の２乗の散布図 '''
@@ -327,7 +327,7 @@ ax.plot(D['L']**2, D['T'], 'ko', mfc='None')
 ax.set_xlim(0, 5000); ax.set_ylim(-15, 35)
 ax.set_xlabel('緯度の2乗')
 ax.set_ylabel('平均気温（℃）')
-fig.savefig('./lat2_temp.pdf', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+fig.savefig('./lat2_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[47]:
@@ -345,7 +345,7 @@ np.corrcoef(D['L']**2, D['T'])
 # - 緯度$ \theta $における太陽エネルギーは$ \cos\theta $に比例することが知られている．これより，年間平均気温と緯度を結びつける，より適切な関数を求めよ．
 # - テイラー展開の観点から，2次関数の妥当性を議論せよ．
 
-# In[51]:
+# In[70]:
 
 
 ''' 平均気温とcos(緯度)の散布図 '''
@@ -361,7 +361,7 @@ ax.plot(np.cos(np.radians(D['L'])), D['T'], 'ko', mfc='None')
 ax.set_xlim(0.3, 1); ax.set_ylim(-15, 35)
 ax.set_xlabel('cos(緯度)')
 ax.set_ylabel('平均気温（℃）')
-fig.savefig('./cos_lat_temp.pdf', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+fig.savefig('./cos_lat_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[52]:
@@ -402,7 +402,7 @@ np.corrcoef(np.cos(np.radians(D['L'])), D['T'])
 D['T0'] = D['T'] + 0.006 * D['Z']
 
 
-# In[61]:
+# In[71]:
 
 
 ''' 高度調整済み平均気温と緯度の２乗の散布図 '''
@@ -418,7 +418,7 @@ ax.plot(D['L']**2, D['T0'], 'ko', mfc='None')
 ax.set_xlim(0, 5000); ax.set_ylim(-15, 35)
 ax.set_xlabel('緯度の2乗')
 ax.set_ylabel('高度調整済み平均気温（℃）')
-fig.savefig('./lat2_temp0.pdf', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+fig.savefig('./lat2_temp0.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[62]:
@@ -428,7 +428,7 @@ fig.savefig('./lat2_temp0.pdf', bbox_inches="tight", pad_inches=0.2, transparent
 np.corrcoef(D['L']**2, D['T0'])
 
 
-# In[64]:
+# In[74]:
 
 
 ''' 高度調整済み平均気温とcos(緯度)の散布図 '''
@@ -444,7 +444,7 @@ ax.plot(np.cos(np.radians(D['L'])), D['T0'], 'ko', mfc='None')
 ax.set_xlim(0.3, 1); ax.set_ylim(-15, 35)
 ax.set_xlabel('cos(緯度)')
 ax.set_ylabel('高度調整済み平均気温（℃）')
-fig.savefig('./cos_lat_temp2.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300) # 保存
+fig.savefig('./cos_lat_temp2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[65]:
