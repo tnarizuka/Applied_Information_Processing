@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>回帰直線と最小二乗法 &#8212; Applied Information Processing B 2022</title>
+    <title>2.4. 散布図・相関分析による問題解決 &#8212; Applied Information Processing B 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -42,6 +42,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -52,14 +53,24 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="参考文献リスト" href="../../reference.html" />
+    <link rel="prev" title="2.3. 関係の度合い" href="../sec_2-3/sec_2-3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     <!-- Google Analytics -->
     
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-E0WHXY1NFV');
+                </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -100,15 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../index.html">
-                    情報処理の応用B
-                </a>
-            </li>
-        </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../chap_1/chap_1.html">
    1. イントロダクション
@@ -136,19 +139,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../chap_2.html">
    2. 記述統計学
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../sec_2-1/sec_2-1.html">
      2.1. データの整理
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sec_2-2/sec_2-2.html">
+     2.2. 特性値の活用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sec_2-3/sec_2-3.html">
+     2.3. 関係の度合い
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.4. 散布図・相関分析による問題解決
     </a>
    </li>
   </ul>
@@ -366,112 +384,76 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   回帰直線と最小二乗法
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.4.1. 回帰直線と最小二乗法
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     データの作成
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     最小二乗法
+     回帰直線
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     決定係数
+     最小二乗法
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   実例：都市の平均気温と緯度の関係
+   2.4.2. 目的変数の変動と決定係数
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   2.4.3. 実例：都市の平均気温と緯度の関係
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
      STEP1: Problem
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
      STEP2: Plan
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
      STEP3: Data
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     STEP4: Analysis
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       散布図
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       緯度と平均気温の関数関係
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id8">
-         実習
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id9">
-         実習
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step4-analysis">
+   2.4.4. STEP4: Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
      STEP5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-6-problem-2">
      STEP 6: Problem 2
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-7-plan-data-2">
      STEP 7: Plan &amp; Data 2
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-8-analysis-2">
      STEP 8: Analysis 2
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-9-conclusion-2">
      STEP 9: Conclusion 2
     </a>
@@ -487,7 +469,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>回帰直線と最小二乗法</h1>
+                <h1>散布図・相関分析による問題解決</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -497,112 +479,76 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   回帰直線と最小二乗法
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.4.1. 回帰直線と最小二乗法
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     データの作成
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     最小二乗法
+     回帰直線
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     決定係数
+     最小二乗法
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   実例：都市の平均気温と緯度の関係
+   2.4.2. 目的変数の変動と決定係数
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   2.4.3. 実例：都市の平均気温と緯度の関係
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
      STEP1: Problem
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
      STEP2: Plan
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
      STEP3: Data
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     STEP4: Analysis
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       散布図
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       緯度と平均気温の関数関係
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id8">
-         実習
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id9">
-         実習
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step4-analysis">
+   2.4.4. STEP4: Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
      STEP5: Conclusion
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-6-problem-2">
      STEP 6: Problem 2
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-7-plan-data-2">
      STEP 7: Plan &amp; Data 2
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-8-analysis-2">
      STEP 8: Analysis 2
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       実習
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-9-conclusion-2">
      STEP 9: Conclusion 2
     </a>
@@ -619,528 +565,138 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>使用するモジュールのimport</p>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># モジュール・ライブラリのインポート（必ず最初に実行）</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># カレントディレクトリの変更（自分の作業フォルダのパスを設定）</span>
-<span class="c1"># os.chdir(&#39;/Users/narizuka/GoogleDrive/My Drive/document/講義/立正/情報処理の応用/&#39;)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;G:\マイドライブ\document\講義\立正\情報処理の応用&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 小数点以下の表示桁</span>
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="o">%</span><span class="k">precision</span> 4  # 小数点以下の表示桁
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="c1"># 日本語フォントの設定（Mac:&#39;Hiragino Sans&#39;, Windows:&#39;MS Gothic&#39;）</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hiragino Sans&#39;</span>
+
+<span class="c1"># 表記の設定</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># 小数点以下の表示桁</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># 表示する行数</span>
+<span class="o">%</span><span class="k">precision</span> 3
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%r&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>google colab を使う際のセッティング</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matplotlibで日本語表示</span>
-<span class="o">!</span>pip install japanize-matplotlib
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%.3f&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># google driveをマウントする</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
+<span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># カレントディレクトリを変更（自分の作業フォルダのパスを設定）</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/My Drive/document/講義/立正/情報処理の応用/&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>jupyter lab のcssスタイルを変更（必要な場合だけ）</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.jp-Cell { width:100% !important; margin: 0 auto; }&lt;/style&gt;&quot;</span><span class="p">))</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./material/variables.css&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
-    <span class="n">css</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39; !important;&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;style type=&quot;text/css&quot;&gt;</span><span class="si">%s</span><span class="s1">&lt;/style&gt;&#39;</span><span class="o">%</span><span class="k">css</span>))
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>.jp-Cell { width:100% !important; margin: 0 auto; }</style></div><div class="output text_html"><style type="text/css">/*-----------------------------------------------------------------------------
-| Copyright (c) Jupyter Development Team.
-| Distributed under the terms of the Modified BSD License.
-|----------------------------------------------------------------------------*/
-
-/*
-The following CSS variables define the main, public API for styling JupyterLab.
-These variables should be used by all plugins wherever possible. In other
-words, plugins should not define custom colors, sizes, etc unless absolutely
-necessary. This enables users to change the visual theme of JupyterLab
-by changing these variables.
-
-Many variables appear in an ordered sequence (0,1,2,3). These sequences
-are designed to work well together, so for example, `--jp-border-color1` should
-be used with `--jp-layout-color1`. The numbers have the following meanings:
-
-* 0: super-primary, reserved for special emphasis
-* 1: primary, most important under normal situations
-* 2: secondary, next most important under normal situations
-* 3: tertiary, next most important under normal situations
-
-Throughout JupyterLab, we are mostly following principles from Google's
-Material Design when selecting colors. We are not, however, following
-all of MD as it is not optimized for dense, information rich UIs.
-*/
-
-:root {
-  /* Elevation
-   *
-   * We style box-shadows using Material Design's idea of elevation. These particular numbers are taken from here:
-   *
-   * https://github.com/material-components/material-components-web
-   * https://material-components-web.appspot.com/elevation.html
-   */
-
-
-  /* The dark theme shadows need a bit of work, but this will probably also require work on the core layout
-   * colors used in the theme as well. */
-  --jp-shadow-base-lightness: 32 !important;
-  --jp-shadow-umbra-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.2
-  ) !important;
-  --jp-shadow-penumbra-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.14
-  ) !important;
-  --jp-shadow-ambient-color: rgba(
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    var(--jp-shadow-base-lightness),
-    0.12
-  ) !important;
-  --jp-elevation-z0: none !important;
-  --jp-elevation-z1: 0px 2px 1px -1px var(--jp-shadow-umbra-color),
-    0px 1px 1px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 3px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z2: 0px 3px 1px -2px var(--jp-shadow-umbra-color),
-    0px 2px 2px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 5px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z4: 0px 2px 4px -1px var(--jp-shadow-umbra-color),
-    0px 4px 5px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 10px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z6: 0px 3px 5px -1px var(--jp-shadow-umbra-color),
-    0px 6px 10px 0px var(--jp-shadow-penumbra-color),
-    0px 1px 18px 0px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z8: 0px 5px 5px -3px var(--jp-shadow-umbra-color),
-    0px 8px 10px 1px var(--jp-shadow-penumbra-color),
-    0px 3px 14px 2px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z12: 0px 7px 8px -4px var(--jp-shadow-umbra-color),
-    0px 12px 17px 2px var(--jp-shadow-penumbra-color),
-    0px 5px 22px 4px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z16: 0px 8px 10px -5px var(--jp-shadow-umbra-color),
-    0px 16px 24px 2px var(--jp-shadow-penumbra-color),
-    0px 6px 30px 5px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z20: 0px 10px 13px -6px var(--jp-shadow-umbra-color),
-    0px 20px 31px 3px var(--jp-shadow-penumbra-color),
-    0px 8px 38px 7px var(--jp-shadow-ambient-color) !important;
-  --jp-elevation-z24: 0px 11px 15px -7px var(--jp-shadow-umbra-color),
-    0px 24px 38px 3px var(--jp-shadow-penumbra-color),
-    0px 9px 46px 8px var(--jp-shadow-ambient-color) !important;
-
-  /* Borders
-   *
-   * The following variables, specify the visual styling of borders in JupyterLab.
-   */
-
-  --jp-border-width: 1px !important;
-  --jp-border-color0: var(--md-grey-700) !important;
-  --jp-border-color1: var(--md-grey-800) !important;
-  --jp-border-color2: var(--md-grey-800) !important;
-  --jp-border-color3: var(--md-grey-900) !important;
-  --jp-border-radius: 2px !important;
-
-  /* UI Fonts
-   *
-   * The UI font CSS variables are used for the typography all of the JupyterLab
-   * user interface elements that are not directly user generated content.
-   *
-   * The font sizing here is done assuming that the body font size of --jp-ui-font-size1
-   * is applied to a parent element. When children elements, such as headings, are sized
-   * in em all things will be computed relative to that body size.
-   */
-
-  --jp-ui-font-scale-factor: 1.2 !important;
-  --jp-ui-font-size0: 0.83333em !important;
-  --jp-ui-font-size1: 13px !important; /* Base font size */
-  --jp-ui-font-size2: 1.2em !important;
-  --jp-ui-font-size3: 1.44em !important;
-
-  --jp-ui-font-family: 'Source Han Code JP L', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
-
-  /*
-   * Use these font colors against the corresponding main layout colors.
-   * In a light theme, these go from dark to light.
-   */
-
-  /* Defaults use Material Design specification */
-  --jp-ui-font-color0: white !important;
-  --jp-ui-font-color1: var(--md-grey-300) !important;
-  --jp-ui-font-color2: var(--md-grey-500) !important;
-  --jp-ui-font-color3: var(--md-grey-700) !important;
-
-  /*
-   * Use these against the brand/accent/warn/error colors.
-   * These will typically go from light to darker, in both a dark and light theme.
-   */
-
-  --jp-ui-inverse-font-color0: rgba(0, 0, 0, 1) !important;
-  --jp-ui-inverse-font-color1: rgba(0, 0, 0, 0.8) !important;
-  --jp-ui-inverse-font-color2: rgba(0, 0, 0, 0.5) !important;
-  --jp-ui-inverse-font-color3: rgba(0, 0, 0, 0.3) !important;
-
-  /* Content Fonts
-   *
-   * Content font variables are used for typography of user generated content.
-   *
-   * The font sizing here is done assuming that the body font size of --jp-content-font-size1
-   * is applied to a parent element. When children elements, such as headings, are sized
-   * in em all things will be computed relative to that body size.
-   */
-
-  --jp-content-line-height: 2 !important; /* markdownの行間 */
-  --jp-content-font-scale-factor: 1.2 !important;
-  --jp-content-font-size0: 0.83333em !important;
-  --jp-content-font-size1: 14px !important; /* Base font size */
-  --jp-content-font-size2: 1.2em !important;
-  --jp-content-font-size3: 1.44em !important;
-  --jp-content-font-size4: 1.728em !important;
-  --jp-content-font-size5: 2.0736em !important;
-
-  /* This gives a magnification of about 125% in presentation mode over normal. */
-  --jp-content-presentation-font-size1: 17px !important;
-
-  --jp-content-heading-line-height: 2 !important;
-  --jp-content-heading-margin-top: 1.2em !important;
-  --jp-content-heading-margin-bottom: 0.8em !important;
-  --jp-content-heading-font-weight: 500 !important;
-
-  /* Defaults use Material Design specification */
-  --jp-content-font-color0: rgba(255, 255, 255, 1) !important;
-  --jp-content-font-color1: rgba(255, 255, 255, 1) !important;
-  --jp-content-font-color2: rgba(255, 255, 255, 0.7) !important;
-  --jp-content-font-color3: rgba(255, 255, 255, 0.5) !important;
-
-  --jp-content-link-color: var(--md-blue-300) !important;
-
-  --jp-content-font-family: 'Source Han Code JP L', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol' !important;
-
-  /*
-   * Code Fonts
-   *
-   * Code font variables are used for typography of code and other monospaces content.
-   */
-
-  --jp-code-font-size: 13px !important;
-  --jp-code-line-height: 1.3077 !important; /* 17px for 13px base */
-  --jp-code-padding: 0.385em !important; /* 5px for 13px base */
-  --jp-code-font-family-default: 'Source Han Code JP L', Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
-  --jp-code-font-family: var(--jp-code-font-family-default) !important;
-
-  /* This gives a magnification of about 125% in presentation mode over normal. */
-  --jp-code-presentation-font-size: 16px !important;
-
-  /* Layout
-   *
-   * The following are the main layout colors use in JupyterLab. In a light
-   * theme these would go from light to dark.
-   */
-
-  --jp-layout-color0: #111111 !important;
-  --jp-layout-color1: var(--md-grey-900) !important;
-  --jp-layout-color2: var(--md-grey-800) !important;
-  --jp-layout-color3: var(--md-grey-700) !important;
-  --jp-layout-color4: var(--md-grey-600) !important;
-
-  /* Inverse Layout
-   *
-   * The following are the inverse layout colors use in JupyterLab. In a light
-   * theme these would go from dark to light.
-   */
-
-  --jp-inverse-layout-color0: white !important;
-  --jp-inverse-layout-color1: white !important;
-  --jp-inverse-layout-color2: var(--md-grey-200) !important;
-  --jp-inverse-layout-color3: var(--md-grey-400) !important;
-  --jp-inverse-layout-color4: var(--md-grey-600) !important;
-
-  /* Brand/accent */
-
-  --jp-brand-color0: var(--md-blue-700) !important;
-  --jp-brand-color1: var(--md-blue-500) !important;
-  --jp-brand-color2: var(--md-blue-300) !important;
-  --jp-brand-color3: var(--md-blue-100) !important;
-
-  --jp-accent-color0: var(--md-green-700) !important;
-  --jp-accent-color1: var(--md-green-500) !important;
-  --jp-accent-color2: var(--md-green-300) !important;
-  --jp-accent-color3: var(--md-green-100) !important;
-
-  /* State colors (warn, error, success, info) */
-
-  --jp-warn-color0: var(--md-orange-700) !important;
-  --jp-warn-color1: var(--md-orange-500) !important;
-  --jp-warn-color2: var(--md-orange-300) !important;
-  --jp-warn-color3: var(--md-orange-100) !important;
-
-  --jp-error-color0: var(--md-red-700) !important;
-  --jp-error-color1: var(--md-red-500) !important;
-  --jp-error-color2: var(--md-red-300) !important;
-  --jp-error-color3: var(--md-red-100) !important;
-
-  --jp-success-color0: var(--md-green-700) !important;
-  --jp-success-color1: var(--md-green-500) !important;
-  --jp-success-color2: var(--md-green-300) !important;
-  --jp-success-color3: var(--md-green-100) !important;
-
-  --jp-info-color0: var(--md-cyan-700) !important;
-  --jp-info-color1: var(--md-cyan-500) !important;
-  --jp-info-color2: var(--md-cyan-300) !important;
-  --jp-info-color3: var(--md-cyan-100) !important;
-
-  /* Cell specific styles */
-
-  --jp-cell-padding: 8px !important;  /* cell間のスペース */
-
-  --jp-cell-collapser-width: 8px !important;
-  --jp-cell-collapser-min-height: 20px !important;
-  --jp-cell-collapser-not-active-hover-opacity: 0.6 !important;
-
-  --jp-cell-editor-background: var(--md-grey-900) !important;
-  --jp-cell-editor-border-color: var(--md-grey-700) !important;
-  --jp-cell-editor-box-shadow: inset 0 0 2px var(--md-blue-300) !important;
-  --jp-cell-editor-active-background: var(--md-grey-900) !important;
-  --jp-cell-editor-active-border-color: var(--jp-brand-color1) !important;
-
-  --jp-cell-prompt-width: 64px !important;
-  --jp-cell-prompt-font-family: 'Source Han Code JP L', monospace !important;
-  --jp-cell-prompt-letter-spacing: 0px !important;
-  --jp-cell-prompt-opacity: 1 !important;
-  --jp-cell-prompt-not-active-opacity: 1 !important;
-  --jp-cell-prompt-not-active-font-color: var(--md-grey-300) !important;
-
-  /* A custom blend of MD grey and blue 600
-   * See https://meyerweb.com/eric/tools/color-blend/#546E7A:1E88E5:5:hex */
-  --jp-cell-inprompt-font-color: #307fc1 !important;
-  /* A custom blend of MD grey and orange 600
-   * https://meyerweb.com/eric/tools/color-blend/#546E7A:F4511E:5:hex */
-  --jp-cell-outprompt-font-color: #bf5b3d !important;
-
-  /* Notebook specific styles */
-
-  --jp-notebook-padding: 10px !important;
-  --jp-notebook-scroll-padding: 100px !important;
-  --jp-notebook-select-background: var(--md-grey-900) !important;
-  --jp-notebook-multiselected-color: rgba(33, 150, 243, 0.24) !important;
-
-  /* Rendermime styles */
-
-  --jp-rendermime-error-background: var(--md-grey-900) !important;
-  --jp-rendermime-table-row-background: var(--md-grey-900) !important;
-  --jp-rendermime-table-row-hover-background: rgba(3, 169, 244, 0.2) !important;
-
-  /* Dialog specific styles */
-
-  --jp-dialog-background: rgba(0, 0, 0, 0.6) !important;
-
-  /* Console specific styles */
-
-  --jp-console-padding: 10px !important;
-
-  /* Toolbar specific styles */
-
-  --jp-toolbar-border-color: var(--jp-border-color2) !important;
-  --jp-toolbar-micro-height: 8px !important;
-  --jp-toolbar-background: var(--md-grey-900) !important;
-  --jp-toolbar-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.8) !important;
-  --jp-toolbar-header-margin: 4px 4px 0px 4px !important;
-  --jp-toolbar-active-background: var(--jp-layout-color0) !important;
-
-  /* Input field styles */
-
-  --jp-input-box-shadow: inset 0 0 2px var(--md-blue-300) !important;
-  --jp-input-active-background: var(--md-grey-900) !important;
-  --jp-input-hover-background: var(--md-grey-900) !important;
-  --jp-input-background: var(--md-grey-900) !important;
-  --jp-input-border-color: var(--jp-border-color1) !important;
-  --jp-input-active-border-color: var(--jp-brand-color1) !important;
-
-  /* General editor styles */
-
-  --jp-editor-selected-background: var(--md-grey-900) !important;
-  --jp-editor-selected-focused-background: var(--md-grey-700) !important;
-  --jp-editor-cursor-color: var(--jp-ui-font-color0) !important;
-
-  /* Code mirror specific styles */
-
-  --jp-mirror-editor-keyword-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-atom-color: var(--md-blue-300) !important;
-  --jp-mirror-editor-number-color: white !important;
-  --jp-mirror-editor-def-color: var(--md-orange-200) !important;   /* 関数名 */
-  --jp-mirror-editor-variable-color: white !important;
-  --jp-mirror-editor-variable-2-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-variable-3-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-punctuation-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-property-color: var(--md-blue-100) !important;
-  --jp-mirror-editor-operator-color: var(--md-pink-100)  !important;  /* = */
-  --jp-mirror-editor-comment-color: var(--md-green-200) !important;   /* コメント */
-  --jp-mirror-editor-string-color: 	var(--md-cyan-200) !important;    /* 文字列 */
-  --jp-mirror-editor-string-2-color: var(--md-purple-300) !important;
-  --jp-mirror-editor-meta-color: var(--md-pink-200) !important;
-  --jp-mirror-editor-qualifier-color: #555 !important;
-  --jp-mirror-editor-builtin-color: var(--md-pink-100) !important;
-  --jp-mirror-editor-bracket-color: cyan !important;
-  --jp-mirror-editor-tag-color: var(--md-blue-200) !important;  /* markdown */
-  --jp-mirror-editor-attribute-color: var(--md-blue-700) !important;
-  --jp-mirror-editor-header-color: var(--md-blue-500) !important;
-  --jp-mirror-editor-quote-color: var(--md-green-300) !important;
-  --jp-mirror-editor-link-color: var(--md-blue-200) !important;
-  --jp-mirror-editor-error-color: #f00 !important;
-  --jp-mirror-editor-hr-color: #999 !important;
-
-  /* Vega extension styles */
-
-  --jp-vega-background: var(--md-grey-900) !important;
-
-  /* Sidebar-related styles */
-
-  --jp-sidebar-min-width: 180px !important;
-}</style></div></div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>回帰直線と最小二乗法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2.4. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2>データの作成<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.4.1. </span>回帰直線と最小二乗法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id3">
+<h3>回帰直線<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>2つの量的データ <span class="math notranslate nohighlight">\( X, Y \)</span> が与えられたとき，変数 <span class="math notranslate nohighlight">\( X \)</span> の値から <span class="math notranslate nohighlight">\( Y \)</span> の値を予測するための数式のことを<strong>回帰モデル</strong>と呼ぶ．
+また，<span class="math notranslate nohighlight">\( X \)</span> を<strong>説明変数</strong>（独立変数），<span class="math notranslate nohighlight">\( Y \)</span> を<strong>目的変数</strong>（従属変数，被説明変数）と呼ぶ．</p>
+<p>回帰モデルには様々な種類が存在するが，以下の散布図のように変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の間に直線関係が成り立ちそうな場合には，回帰モデルとして1次関数</p>
+<div class="math notranslate nohighlight" id="equation-eq-regression-line">
+<span class="eqno">(2.13)<a class="headerlink" href="#equation-eq-regression-line" title="この数式へのパーマリンク">#</a></span>\[
+	\hat{y} = ax + b
+\]</div>
+<p>を用いるのが妥当である．
+このように１次関数による回帰モデルは<strong>単回帰モデル</strong>と呼ばれ，式<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>の直線のことは<strong>回帰直線</strong>と呼ばれる．
+また，<span class="math notranslate nohighlight">\( a,\ b \)</span> は回帰直線の切片と傾きを表すパラメータであり，<strong>回帰係数</strong>と呼ばれる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データの作成</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
 <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">y_data</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x_data</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mf">5.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;material\sec_2-4\data_lsm.csv&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;./data_lsm.csv&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-10.    ,  -9.798 ,  -9.596 ,  -9.3939,  -9.1919,  -8.9899,
-        -8.7879,  -8.5859,  -8.3838,  -8.1818,  -7.9798,  -7.7778,
-        -7.5758,  -7.3737,  -7.1717,  -6.9697,  -6.7677,  -6.5657,
-        -6.3636,  -6.1616,  -5.9596,  -5.7576,  -5.5556,  -5.3535,
-        -5.1515,  -4.9495,  -4.7475,  -4.5455,  -4.3434,  -4.1414,
-        -3.9394,  -3.7374,  -3.5354,  -3.3333,  -3.1313,  -2.9293,
-        -2.7273,  -2.5253,  -2.3232,  -2.1212,  -1.9192,  -1.7172,
-        -1.5152,  -1.3131,  -1.1111,  -0.9091,  -0.7071,  -0.5051,
-        -0.303 ,  -0.101 ,   0.101 ,   0.303 ,   0.5051,   0.7071,
-         0.9091,   1.1111,   1.3131,   1.5152,   1.7172,   1.9192,
-         2.1212,   2.3232,   2.5253,   2.7273,   2.9293,   3.1313,
-         3.3333,   3.5354,   3.7374,   3.9394,   4.1414,   4.3434,
-         4.5455,   4.7475,   4.9495,   5.1515,   5.3535,   5.5556,
-         5.7576,   5.9596,   6.1616,   6.3636,   6.5657,   6.7677,
-         6.9697,   7.1717,   7.3737,   7.5758,   7.7778,   7.9798,
-         8.1818,   8.3838,   8.5859,   8.7879,   8.9899,   9.1919,
-         9.3939,   9.596 ,   9.798 ,  10.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$Y$&#39;)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-12.6428, -20.5508,  -7.0284, -15.3511, -16.9868,  -8.544 ,
-        -8.2778, -15.3543, -11.6892, -22.5771,  -5.2094,  -5.5958,
-        -5.3849, -19.8537, -11.0138,  -8.9288,  -6.5081,  -6.6859,
-        -1.1215, -15.0578,  -7.9324,  -9.795 ,  -5.144 ,  -2.9399,
-         1.2877,  -7.2455,  -1.1172, -13.176 ,  -4.6024,   2.012 ,
-        -4.868 ,  -0.7876,   3.1672,   3.563 ,   3.056 ,  -1.469 ,
-         0.169 ,  -1.6645,   4.5619,  12.7124,   1.5426,  -1.2666,
-         2.1504,  -8.0012,   4.0167,  -1.304 ,   2.9019,   4.0813,
-         8.171 ,   5.8743,   9.4071,  -1.623 ,  -0.9998,   5.9096,
-         4.077 ,   6.4991,   9.3964,   7.8527,  11.263 ,  16.5667,
-         4.3712,   9.2947,  11.5903,   9.4121,  16.0276,  -0.7396,
-        21.8197,   6.3576,  13.5342,  16.4024,   9.3557,  15.9972,
-        17.6121,  17.1125,  10.2677,  25.3422,  16.8419,  10.3478,
-        19.675 ,  17.1168,  19.6452,  -0.0903,  24.7368,  19.2985,
-        19.762 ,  17.193 ,  23.5843,  25.0761,  21.9097,  27.9195,
-        21.7628,  19.7679,  17.0325,  19.6522,  27.0628,  22.9741,
-        22.064 ,  26.8334,  19.251 ,  22.4406])
-</pre></div>
-</div>
+<img alt="../../_images/sec_2-4_7_1.png" src="../../_images/sec_2-4_7_1.png" />
 </div>
 </div>
 </section>
-<section id="id3">
-<h2>最小二乗法<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<section id="id4">
+<h3>最小二乗法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{i}, y_{i}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
+単回帰分析には様々な方法があるが，最も基本的な方法が<strong>最小二乗法</strong>である．</p>
+<p>最小二乗法では，予測値 <span class="math notranslate nohighlight">\( \hat{y}_{i}=ax_{i}+b \)</span> と実データ <span class="math notranslate nohighlight">\( y_{i} \)</span> の差の二乗和</p>
+<div class="math notranslate nohighlight" id="equation-eq-rss">
+<span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-rss" title="この数式へのパーマリンク">#</a></span>\[
+	E(a, b) = \sum_{i=1}^{n}(ax_{i}+b-y_{i})^{2}
+\]</div>
+<p>が最小となるように回帰係数 <span class="math notranslate nohighlight">\( a,\ b \)</span> を選ぶ．
+このとき，<span class="math notranslate nohighlight">\( E \)</span> のことを<strong>残差変動</strong>（残差平方和）と呼ぶ．
+残差変動 <span class="math notranslate nohighlight">\( E \)</span> を最小にすることは，<span class="math notranslate nohighlight">\( a,\ b \)</span> を変数とする２次関数 <span class="math notranslate nohighlight">\( E(a, b) \)</span> の最小値を求めることと言い換えられる．
+このための必要条件は，残差変動 <span class="math notranslate nohighlight">\( E(a, b) \)</span> の <span class="math notranslate nohighlight">\( a,\ b \)</span> による偏微分がゼロになることである：</p>
+<div class="math notranslate nohighlight">
+\[
+	\frac{\partial E}{\partial a} = 0, \hspace{0.5cm} \frac{\partial E}{\partial b} = 0
+\]</div>
+<p>実際にこれらの条件を適用すると，<span class="math notranslate nohighlight">\( a,\ b \)</span> を変数とする以下の連立方程式が得られる：</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\sum_{i=1}^{n} (ax_{i}+b-y_{i})x_{i} &amp;= 0 \\
+	\sum_{i=1}^{n} (ax_{i}+b-y_{i}) &amp;= 0
+\end{align*}\]</div>
+<p>この連立方程式を解くと，<span class="math notranslate nohighlight">\( a,\ b \)</span> は</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	a &amp;=\frac{\displaystyle\left(\frac{1}{n}\sum_{i=1}^{n} x_{i}y_{i}\right) - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)\left(\frac{1}{n}\sum_{i=1}^{n}y_{i}\right)}{\displaystyle \left(\frac{1}{n}\sum_{i=1}^{n} x_{i}^{2}\right) -  \left(\frac{1}{n}\sum_{i=1}^{n}x_{i}\right)^{2}}
+	   = \frac{s_{XY}}{s^{2}_{X}} \\[10pt]
+	b &amp;= \frac{1}{n} \sum_{i=1}^{n}y_{i} - a\left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right) = \bar{y} - a \bar{x}
+\end{align*}\]</div>
+<p>と求まる．</p>
+<p>なお，傾き <span class="math notranslate nohighlight">\( a \)</span> は <span class="math notranslate nohighlight">\(X, Y\)</span> の共分散 <span class="math notranslate nohighlight">\( s_{XY} \)</span> を <span class="math notranslate nohighlight">\( X \)</span> の分散 <span class="math notranslate nohighlight">\( s^{2}_{X} \)</span> で割った形になっている（相関係数の式に似ているが違う）．
+よって，以下が成り立つ：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( s_{XY}&gt;0\quad \Longleftrightarrow\quad a &gt; 0 \)</span>　（正の相関）</p></li>
+<li><p><span class="math notranslate nohighlight">\( s_{XY}=0\quad \Longleftrightarrow\quad a = 0 \)</span>　（無相関）</p></li>
+<li><p><span class="math notranslate nohighlight">\( s_{XY}&lt;0\quad \Longleftrightarrow\quad a &lt; 0 \)</span>　（負の相関）</p></li>
+</ul>
+<p><strong>pythonによる実装</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scipy.optimize.curve_fit</span>
 <span class="k">def</span> <span class="nf">fit_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.9828, 5.1756])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.983, 5.176])
 </pre></div>
 </div>
 </div>
@@ -1153,13 +709,13 @@ all of MD as it is not optimized for dense, information rich UIs.
     <span class="k">return</span> <span class="n">residual</span>
  
 <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.9828, 5.1756])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.983, 5.176])
 </pre></div>
 </div>
 </div>
@@ -1176,23 +732,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9827762695911915, 5.1755614156271825)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id4">
-<h2>決定係数<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
-<span class="n">R2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8436624304844442
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.983, 5.176)
 </pre></div>
 </div>
 </div>
@@ -1204,127 +744,303 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figure/lsm_ex.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./lsm_ex.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_21_0.png" src="../../_images/sec_2-4_21_0.png" />
+<img alt="../../_images/sec_2-4_14_0.png" src="../../_images/sec_2-4_14_0.png" />
 </div>
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id5">
-<h1>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h1>
+<section id="id5">
+<h2><span class="section-number">2.4.2. </span>目的変数の変動と決定係数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p><span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots (x_{n}, y_{n}) \)</span> に対して，次の3つの変動を考える．</p>
+<ul class="simple">
+<li><p>全変動（データ <span class="math notranslate nohighlight">\( Y \)</span> のばらつき）</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle S_{y}^{2} = \sum_{i=1}^{n} (y_{i} - \bar{y})^{2}\)</span></p></li>
+</ul>
+</li>
+<li><p>回帰変動（回帰モデルによる予測値のばらつき）</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle S_{\hat{y}}^{2} = \sum_{i=1}^{n} (\hat{y}_{i} - \bar{y})^{2}\)</span></p></li>
+</ul>
+</li>
+<li><p>残差変動（実データと予測値のズレ）</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle S_{e}^{2} = \sum_{i=1}^{n} (y_{i} - \hat{y}_{i})^{2}\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>最小二乗法による単回帰分析の場合，以下の関係が成り立つ：</p>
+<div class="math notranslate nohighlight">
+\[
+	S_{y}^{2} = S_{\hat{y}}^{2} + S_{e}^{2}
+\]</div>
+<p>以上を踏まえ，最小二乗法による回帰直線の当てはまりの良さを</p>
+<div class="math notranslate nohighlight" id="equation-eq-r2">
+<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-r2" title="この数式へのパーマリンク">#</a></span>\[
+	R^{2} = \frac{S_{\hat{y}}^{2}}{S_{y}^{2}} = 1 - \frac{S_{e}^{2}}{S_{y}^{2}}
+\]</div>
+<p>で定義する．
+これを<strong>決定係数</strong>と呼ぶ（他の定義もあるので注意）．</p>
+<p>最小二乗法による単回帰分析の場合，決定係数は相関係数の２乗に等しく，その定義域は <span class="math notranslate nohighlight">\( 0 \leq R^{2} \leq 1 \)</span> である．
+よって，残差変動（分子）が <span class="math notranslate nohighlight">\( 0 \)</span> に近づく（データへの当てはまりが良い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 1 \)</span> に近づき，残差変動（分子）が大きくなる（データへの当てはまりが悪い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 0 \)</span> に近づく．</p>
+<p>※ 予測値 <span class="math notranslate nohighlight">\( \hat{y} \)</span> が最小二乗法以外の方法によって決められた場合，決定係数が負になることもあり，さらに相関係数の２乗にはならない．</p>
+<p><strong>pythonによる実装</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 決定係数</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+<span class="n">R2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.844
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h2><span class="section-number">2.4.3. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
-<h2>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Permalink to this headline">#</a></h2>
+<h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>地球上では，赤道付近は暑く，極地に近づくほど寒くなる．</p></li>
 <li><p>世界の様々な地域の年間平均気温がどのように決まっているのだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-plan">
-<h2>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Permalink to this headline">#</a></h2>
+<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>世界の各地域で年間平均気温は異なっている．</p></li>
-<li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられる．</p></li>
+<li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられ，これらは<a class="reference internal" href="#fig-fishbone"><span class="std std-numref">図 2.6</span></a>のような特性要因図にまとめることができる．</p></li>
 <li><p>以下では，各都市の地球上での位置に関するデータを収集し，年間平均気温との関係を探る．</p></li>
 </ul>
+<figure class="align-default" id="fig-fishbone">
+<a class="reference internal image-reference" href="../../_images/fishbone.png"><img alt="../../_images/fishbone.png" src="../../_images/fishbone.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">図 2.6 </span><span class="caption-text">特性要因図</span><a class="headerlink" href="#fig-fishbone" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="step3-data">
-<h2>STEP3: Data<a class="headerlink" href="#step3-data" title="Permalink to this headline">#</a></h2>
+<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
-<li><p>理科年表から得られた各都市の年間平均気温，緯度，標高のデータを用いる</p></li>
+<li><p>ここでは，理科年表から取得した世界25都市のデータ（<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1eBbmZSCgVKF61s85kGyrofrLApdO-95J">data_25city.csv</a>）を用いる．</p></li>
+<li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p></li>
+<li><p>ここで，T列は年間平均気温，L列は緯度，Z列は標高を表している．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;material/sec_2-4/data_25city.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data_25city.csv&#39;</span><span class="p">)</span>
+<span class="n">D</span><span class="p">[</span><span class="s1">&#39;L2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>  <span class="c1"># 絶対緯度</span>
+<span class="n">D</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 絶対緯度</span>
-<span class="n">D</span><span class="p">[</span><span class="s1">&#39;L2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>T</th>
+      <th>L</th>
+      <th>Z</th>
+      <th>group</th>
+      <th>L2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>昭和基地</td>
+      <td>-10.5</td>
+      <td>-69.00</td>
+      <td>18</td>
+      <td>5</td>
+      <td>69.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>メルボルン</td>
+      <td>14.5</td>
+      <td>-37.39</td>
+      <td>132</td>
+      <td>4</td>
+      <td>37.39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ブエノスアイレス</td>
+      <td>17.8</td>
+      <td>-34.35</td>
+      <td>25</td>
+      <td>3</td>
+      <td>34.35</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ブリスベン</td>
+      <td>20.3</td>
+      <td>-27.23</td>
+      <td>4</td>
+      <td>3</td>
+      <td>27.23</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>リオデジャネイロ</td>
+      <td>23.9</td>
+      <td>-22.55</td>
+      <td>5</td>
+      <td>2</td>
+      <td>22.55</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>リオン</td>
+      <td>11.9</td>
+      <td>45.43</td>
+      <td>197</td>
+      <td>4</td>
+      <td>45.43</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>チューリッヒ</td>
+      <td>9.4</td>
+      <td>47.22</td>
+      <td>555</td>
+      <td>5</td>
+      <td>47.22</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>プラハ</td>
+      <td>8.4</td>
+      <td>50.06</td>
+      <td>380</td>
+      <td>5</td>
+      <td>50.06</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>ダブリン</td>
+      <td>9.8</td>
+      <td>53.26</td>
+      <td>68</td>
+      <td>5</td>
+      <td>53.26</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>レイキャビク</td>
+      <td>4.7</td>
+      <td>64.08</td>
+      <td>54</td>
+      <td>5</td>
+      <td>64.08</td>
+    </tr>
+  </tbody>
+</table>
+<p>25 rows × 6 columns</p>
+</div></div></div>
 </div>
 </section>
+</section>
 <section id="step4-analysis">
-<h2>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Permalink to this headline">#</a></h2>
-<section id="id6">
-<h3>散布図<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h2><span class="section-number">2.4.4. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p><strong>平均気温と緯度の散布図</strong></p>
 <ul class="simple">
-<li><p>まず，相関関係を視覚的に確認するために散布図を調べることにする．</p></li>
-<li><p>散布図を見ると，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっていることが分かる．</p></li>
-<li><p>一方，標高と平均気温については特定の関数関係はない．</p></li>
+<li><p>各都市の標高と平均気温，および緯度と平均気温の散布図を作成し，これらの関係を視覚的に調べる．</p></li>
+<li><p>まず，標高と平均気温については特定の関数関係はないため，平均気温とはそれほど関係ないと考えられる．</p></li>
+<li><p>一方，緯度と平均気温には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．</p></li>
 <li><p>このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 緯度と平均気温の散布図</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度（度）&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/lat_temp.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_30_1.png" src="../../_images/sec_2-4_30_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標高と平均気温の散布図</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;標高（$m$）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/alt_temp.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./alt_temp.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;平均気温（℃）&#39;)
+<img alt="../../_images/sec_2-4_26_0.png" src="../../_images/sec_2-4_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 緯度と平均気温の散布図</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度（度）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./lat_temp.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_31_1.png" src="../../_images/sec_2-4_31_1.png" />
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sec_2-4_27_0.png" src="../../_images/sec_2-4_27_0.png" />
 </div>
 </div>
-</section>
-<section id="id7">
-<h3>緯度と平均気温の関数関係<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p><strong>緯度と平均気温の関数関係</strong></p>
 <ul class="simple">
 <li><p>緯度と平均気温の関数関係を特定すれば，散布図が直線関係を示すような適切な変数変換を導ける．</p></li>
 <li><p>そこで，緯度の値別に複数のグループに分け，グループ内で平均気温，平均緯度などを求めて関係を調べることにする．</p></li>
 <li><p>ここでは25都市を緯度の絶対値の昇順に5都市ずつのグループに分ける：</p>
-<ul>
-<li><p>群1：シンガポール，ボコタ，ジャカルタ，コロンボ，アジスアベバ</p></li>
-<li><p>群2：リマ，チェンマイ，メキシコ，リオデジャネイロ，ドーハ</p></li>
-<li><p>群3：ブリスベン，カイロ，ケープタウン，ブエノスアイレス，東京</p></li>
-<li><p>群4：サンフランシスコ，メルボルン，北京，サラエボ，リオン</p></li>
-<li><p>群5：チューリッヒ，プラハ，ダブリン，レイキャビク，昭和基地</p></li>
-</ul>
+<ol class="simple">
+<li><p>シンガポール，ボコタ，ジャカルタ，コロンボ，アジスアベバ</p></li>
+<li><p>リマ，チェンマイ，メキシコ，リオデジャネイロ，ドーハ</p></li>
+<li><p>ブリスベン，カイロ，ケープタウン，ブエノスアイレス，東京</p></li>
+<li><p>サンフランシスコ，メルボルン，北京，サラエボ，リオン</p></li>
+<li><p>チューリッヒ，プラハ，ダブリン，レイキャビク，昭和基地</p></li>
+</ol>
 </li>
+<li><p>各都市が属するグループは，データの'group'列に示されている．</p></li>
 </ul>
-<section id="id8">
-<h4>実習<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<p><strong>実習</strong></p>
 <ul class="simple">
-<li><p>各群に対し，絶対緯度の平均，平均気温の平均，平均気温の標準偏差を求めよ</p></li>
-<li><p>平均絶対緯度を横軸，平均気温の平均を縦軸に取った図をエラーバー付きで描け</p></li>
+<li><p>各群に対し，絶対緯度（L2）の平均，平均気温（T）の平均，平均気温（T）の標準偏差を求めよ</p></li>
+<li><p>絶対緯度の平均を横軸，平均気温の平均を縦軸に取った図をエラーバー付きで描け</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 群ごとの集計</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループごとの集計</span>
 <span class="n">D2</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># groupごとの平均</span>
 <span class="n">y_err</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>  <span class="c1"># groupごとの標準偏差</span>
 </pre></div>
@@ -1334,26 +1050,21 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 平均絶対緯度と平均気温の平均</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">D2</span><span class="p">[</span><span class="s1">&#39;L2&#39;</span><span class="p">],</span> <span class="n">D2</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="n">yerr</span><span class="o">=</span> <span class="n">y_err</span><span class="p">,</span>\
-            <span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;平均絶対緯度（度）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/ave_latitude_temp.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./ave_latitude_temp.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_35_1.png" src="../../_images/sec_2-4_35_1.png" />
+<img alt="../../_images/sec_2-4_31_0.png" src="../../_images/sec_2-4_31_0.png" />
 </div>
 </div>
-</section>
-<section id="id9">
-<h4>実習<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>横軸に絶対緯度の２乗，縦軸に平均気温を取った散布図を描け</p></li>
 <li><p>この散布図に対して，最小二乗法で回帰直線を求めよ</p></li>
@@ -1362,10 +1073,10 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 平均気温と緯度の２乗の散布図 &#39;&#39;&#39;</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
@@ -1374,18 +1085,15 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度の2乗&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/lat2_temp.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./lat2_temp.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.0061 24.0986]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_37_2.png" src="../../_images/sec_2-4_37_2.png" />
+<img alt="../../_images/sec_2-4_33_1.png" src="../../_images/sec_2-4_33_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1396,23 +1104,19 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.    , -0.8771],
-       [-0.8771,  1.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.   , -0.877],
+       [-0.877,  1.   ]])
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
 <section id="step5-conclusion">
-<h2>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="Permalink to this headline">#</a></h2>
+<h3>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>各都市の年間平均気温と緯度の関係を散布図によって調べた結果，緯度の２乗に対して直線関係があることが分かった．</p></li>
 <li><p>一方，年間平均気温が緯度の2次関数になるということは，緯度が高くなれば気温もいくらでも大きくなることを意味し，やや奇妙である．</p></li>
 </ul>
-<section id="id10">
-<h3>実習<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>緯度<span class="math notranslate nohighlight">\( \theta \)</span>における太陽エネルギーは<span class="math notranslate nohighlight">\( \cos\theta \)</span>に比例することが知られている．これより，年間平均気温と緯度を結びつける，より適切な関数を求めよ．</p></li>
 <li><p>テイラー展開の観点から，2次関数の妥当性を議論せよ．</p></li>
@@ -1420,10 +1124,10 @@ all of MD as it is not optimized for dense, information rich UIs.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 平均気温とcos(緯度)の散布図 &#39;&#39;&#39;</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
@@ -1432,18 +1136,15 @@ all of MD as it is not optimized for dense, information rich UIs.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;cos(緯度)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/cos_lat_temp.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./cos_lat_temp.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.3151 -19.9226]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_40_2.png" src="../../_images/sec_2-4_40_2.png" />
+<img alt="../../_images/sec_2-4_36_1.png" src="../../_images/sec_2-4_36_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1454,16 +1155,16 @@ all of MD as it is not optimized for dense, information rich UIs.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.    , 0.8743],
-       [0.8743, 1.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.   , 0.874],
+       [0.874, 1.   ]])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
+<hr class="docutils" />
 <section id="step-6-problem-2">
-<h2>STEP 6: Problem 2<a class="headerlink" href="#step-6-problem-2" title="Permalink to this headline">#</a></h2>
+<h3>STEP 6: Problem 2<a class="headerlink" href="#step-6-problem-2" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>緯度の2乗と平均気温の散布図を見ると，直線関係から少し外れる都市がいくつかあることが分かる．</p></li>
 <li><p>これらの都市は，外れ値の大きい順にボコダ，メキシコ，アジスアベバ，である．</p></li>
@@ -1471,7 +1172,7 @@ all of MD as it is not optimized for dense, information rich UIs.
 </ul>
 </section>
 <section id="step-7-plan-data-2">
-<h2>STEP 7: Plan &amp; Data 2<a class="headerlink" href="#step-7-plan-data-2" title="Permalink to this headline">#</a></h2>
+<h3>STEP 7: Plan &amp; Data 2<a class="headerlink" href="#step-7-plan-data-2" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>直線から外れている都市についてのデータを見ると，ある共通点が浮かび上がる．</p></li>
 <li><p>それは，標高が高いことである（いずれも標高2000m以上）．</p></li>
@@ -1485,9 +1186,8 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 </ul>
 </section>
 <section id="step-8-analysis-2">
-<h2>STEP 8: Analysis 2<a class="headerlink" href="#step-8-analysis-2" title="Permalink to this headline">#</a></h2>
-<section id="id11">
-<h3>実習<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<h3>STEP 8: Analysis 2<a class="headerlink" href="#step-8-analysis-2" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>緯度の２乗，<span class="math notranslate nohighlight">\(\cos(緯度)\)</span>と高度調整済み平均気温の散布図を描け</p></li>
 <li><p>この散布図から相関係数を求めよ</p></li>
@@ -1504,10 +1204,10 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 高度調整済み平均気温と緯度の２乗の散布図 &#39;&#39;&#39;</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
@@ -1516,18 +1216,15 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度の2乗&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;高度調整済み平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/lat2_temp0.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./lat2_temp0.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.0071 27.6614]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-7.095e-03  2.766e+01]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;高度調整済み平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_46_2.png" src="../../_images/sec_2-4_46_2.png" />
+<img alt="../../_images/sec_2-4_42_1.png" src="../../_images/sec_2-4_42_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1538,8 +1235,8 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.    , -0.9432],
-       [-0.9432,  1.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.   , -0.943],
+       [-0.943,  1.   ]])
 </pre></div>
 </div>
 </div>
@@ -1547,10 +1244,10 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 高度調整済み平均気温とcos(緯度)の散布図 &#39;&#39;&#39;</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
@@ -1559,18 +1256,15 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;cos(緯度)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;高度調整済み平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="c1"># fig.savefig(&#39;figure/cos_lat_temp2.pdf&#39;, bbox_inches=&quot;tight&quot;, pad_inches=0.2, transparent=True, dpi=300) # 保存</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./cos_lat_temp2.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.6927 -23.6513]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;高度調整済み平均気温（℃）&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_48_2.png" src="../../_images/sec_2-4_48_2.png" />
+<img alt="../../_images/sec_2-4_44_1.png" src="../../_images/sec_2-4_44_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1581,20 +1275,20 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.    , 0.9439],
-       [0.9439, 1.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.   , 0.944],
+       [0.944, 1.   ]])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
 <section id="step-9-conclusion-2">
-<h2>STEP 9: Conclusion 2<a class="headerlink" href="#step-9-conclusion-2" title="Permalink to this headline">#</a></h2>
+<h3>STEP 9: Conclusion 2<a class="headerlink" href="#step-9-conclusion-2" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>年間平均気温と緯度の2乗の関係において発生する外れ値は，標高の影響によるものであることが分かった．</p></li>
 <li><p>そこで，標高の影響を調整することで，年間平均気温，緯度，標高に対する適切な関数を推定することができた．</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -1625,6 +1319,20 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../sec_2-3/sec_2-3.html" title="前へ ページ">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">前へ</p>
+            <p class="prev-next-title"><span class="section-number">2.3. </span>関係の度合い</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">参考文献リスト</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -1632,9 +1340,10 @@ $<span class="math notranslate nohighlight">\( T_{0}=T+0.006z
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book community<br/>
-  
-      &copy; Copyright 2021- by 成塚拓真（Takuma Narizuka）.<br/>
+    <div class="extra_footer">
+      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
+    </div>
 </p>
         </footer>
     </div>
