@@ -157,7 +157,6 @@ fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 # 
 # と定義する．
 # これを**全変動**と呼ぶ．
-# 
 # また，実データと予測値のズレは残差変動{eq}`eq:rss`によって表される．
 # ここでは，残差変動を
 # 
