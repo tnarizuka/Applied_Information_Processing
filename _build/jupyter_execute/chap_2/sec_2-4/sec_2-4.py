@@ -147,7 +147,7 @@ ax.set_ylabel('$Y$', fontsize=15)
 fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# ## 目的変数の変動と決定係数
+# ## 決定係数
 # 
 # $ n $ 組のデータ $ (x_{1}, y_{1}), \ldots (x_{n}, y_{n}) $ に対して，データ $ Y $ のばらつきを
 # 
