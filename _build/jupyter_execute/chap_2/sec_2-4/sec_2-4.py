@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -21,7 +21,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[2]:
+# In[3]:
 
 
 # アヤメデータをPandasに読み込む
@@ -49,7 +49,7 @@ Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Spe
 # このように１次関数による回帰モデルは**単回帰モデル**と呼ばれ，式{eq}`eq:regression_line`の直線のことは**回帰直線**と呼ばれる．
 # また，$ a,\ b $ は回帰直線の切片と傾きを表すパラメータであり，**回帰係数**と呼ばれる．
 
-# In[3]:
+# In[4]:
 
 
 # データの作成
@@ -59,7 +59,7 @@ y_data = 2*x_data + 5 + 5.*np.random.randn(x_data.size)
 np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
 
 
-# In[4]:
+# In[5]:
 
 
 fig, ax = plt.subplots()
@@ -99,8 +99,8 @@ ax.set_ylabel('$Y$', fontsize=15)
 # 
 # \begin{align*}
 # 	a &=\frac{\displaystyle\left(\frac{1}{n}\sum_{i=1}^{n} x_{i}y_{i}\right) - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)\left(\frac{1}{n}\sum_{i=1}^{n}y_{i}\right)}{\displaystyle \left(\frac{1}{n}\sum_{i=1}^{n} x_{i}^{2}\right) -  \left(\frac{1}{n}\sum_{i=1}^{n}x_{i}\right)^{2}}
-# 	   = \frac{s_{XY}}{s^{2}_{X}} \\[10pt]
-# 	b &= \frac{1}{n} \sum_{i=1}^{n}y_{i} - a\left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right) = \bar{y} - a \bar{x}
+# 	   = \frac{\overline{xy}-\bar{x}\bar{y}}{\overline{x^2}-\bar{x}^2} = \frac{s_{XY}}{s_{X}^2} \\[10pt]
+# 	b &= \left(\frac{1}{n} \sum_{i=1}^{n}y_{i}\right) - a\left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right) = \bar{y} - a \bar{x}
 # \end{align*}
 # 
 # と求まる．
@@ -114,7 +114,7 @@ ax.set_ylabel('$Y$', fontsize=15)
 
 # **pythonによる実装**
 
-# In[5]:
+# In[6]:
 
 
 # scipy.optimize.curve_fit
@@ -125,18 +125,18 @@ p = sp.optimize.curve_fit(fit_func, x_data, y_data)[0]
 p
 
 
-# In[6]:
+# In[9]:
 
 
 # 公式から
-nume = np.sum(x_data * y_data) - np.sum(x_data) * np.sum(y_data) / x_data.size
-denom = np.sum(x_data**2) - (np.sum(x_data)**2)/x_data.size
+nume = np.mean(x_data * y_data) - np.mean(x_data) * np.mean(y_data)
+denom = np.mean(x_data**2) - np.mean(x_data)**2
 a = nume / denom
 b = np.mean(y_data - a*x_data)
 (a, b)
 
 
-# In[7]:
+# In[8]:
 
 
 fig, ax = plt.subplots()
@@ -183,7 +183,7 @@ fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # **pythonによる実装**
 
-# In[9]:
+# In[10]:
 
 
 # 決定係数
