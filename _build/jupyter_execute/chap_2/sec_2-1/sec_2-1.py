@@ -232,7 +232,7 @@ fig.savefig('./box_ex.png', bbox_inches="tight",\
 # ```{figure} hist_ex.png
 # ---
 # height: 300px
-# name: fig:fdt
+# name: fig:hist
 # ---
 # ヒストグラムの例
 # ```
