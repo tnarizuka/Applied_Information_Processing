@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -21,7 +21,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[3]:
+# In[2]:
 
 
 # アヤメデータをPandasに読み込む
@@ -49,7 +49,7 @@ Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Spe
 # このように１次関数による回帰モデルは**単回帰モデル**と呼ばれ，式{eq}`eq:regression_line`の直線のことは**回帰直線**と呼ばれる．
 # また，$ a,\ b $ は回帰直線の切片と傾きを表すパラメータであり，**回帰係数**と呼ばれる．
 
-# In[14]:
+# In[3]:
 
 
 # データの作成
@@ -59,7 +59,7 @@ y_data = 2*x_data + 5 + 5.*np.random.randn(x_data.size)
 np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
 
 
-# In[15]:
+# In[4]:
 
 
 fig, ax = plt.subplots()
@@ -114,7 +114,7 @@ ax.set_ylabel('$Y$', fontsize=15)
 
 # **pythonによる実装**
 
-# In[16]:
+# In[5]:
 
 
 # scipy.optimize.curve_fit
@@ -125,20 +125,7 @@ p = sp.optimize.curve_fit(fit_func, x_data, y_data)[0]
 p
 
 
-# In[17]:
-
-
-# scipy.optimize.leastsq
-def func(p, x, y):
-    residual = y - (p[0]*x + p[1])
-    return residual
- 
-p0 = [0, 0]
-p = sp.optimize.leastsq(func, p0, args=(x_data, y_data))[0]
-p
-
-
-# In[18]:
+# In[6]:
 
 
 # 公式から
@@ -149,7 +136,7 @@ b = np.mean(y_data - a*x_data)
 (a, b)
 
 
-# In[21]:
+# In[7]:
 
 
 fig, ax = plt.subplots()
@@ -196,11 +183,12 @@ fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # **pythonによる実装**
 
-# In[19]:
+# In[9]:
 
 
 # 決定係数
-R2 = np.var(fit_func(x_data, p[0], p[1])) / np.var(y_data)
+y_reg = fit_func(x_data, p[0], p[1])
+R2 = np.var(y_reg) / np.var(y_data)
 R2
 
 
@@ -299,7 +287,8 @@ y_err = D.groupby('group').std()['T']  # groupごとの標準偏差
 
 # 平均絶対緯度と平均気温の平均
 fig, ax = plt.subplots(figsize=(4, 3))
-ax.errorbar(D2['L2'], D2['T'], yerr= y_err,            capsize=3, fmt='co', markersize=7, ecolor='k', markeredgecolor='k', markerfacecolor='white')
+ax.errorbar(D2['L2'], D2['T'], yerr= y_err,\
+            capsize=3, fmt='co', markersize=7, ecolor='k', markeredgecolor='k', markerfacecolor='white')
 ax.set_xlim(0, 60); ax.set_ylim(-10, 35)
 ax.set_xlabel('平均絶対緯度（度）')
 ax.set_ylabel('平均気温（℃）')
