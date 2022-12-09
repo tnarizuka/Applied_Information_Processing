@@ -423,30 +423,27 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       平均気温と標高の散布図
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       平均気温と緯度の散布図
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       緯度と平均気温の関数関係
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
      STEP5: Conclusion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-6-problem-2">
-     STEP 6: Problem 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-7-plan-data-2">
-     STEP 7: Plan &amp; Data 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-8-analysis-2">
-     STEP 8: Analysis 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-9-conclusion-2">
-     STEP 9: Conclusion 2
     </a>
    </li>
   </ul>
@@ -509,30 +506,27 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#step4-analysis">
      STEP4: Analysis
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       平均気温と標高の散布図
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       平均気温と緯度の散布図
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       緯度と平均気温の関数関係
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
      STEP5: Conclusion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-6-problem-2">
-     STEP 6: Problem 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-7-plan-data-2">
-     STEP 7: Plan &amp; Data 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-8-analysis-2">
-     STEP 8: Analysis 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-9-conclusion-2">
-     STEP 9: Conclusion 2
     </a>
    </li>
   </ul>
@@ -767,7 +761,7 @@ title="Print to PDF"
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>地球上では，赤道付近は暑く，極地に近づくほど寒くなる．</p></li>
-<li><p>世界の様々な地域の年間平均気温がどのように決まっているのだろうか？</p></li>
+<li><p>世界の様々な地域の年間平均気温はどのように決まっているのだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-plan">
@@ -775,7 +769,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>世界の各地域で年間平均気温は異なっている．</p></li>
 <li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられ，これらは<a class="reference internal" href="#fig-fishbone"><span class="std std-numref">図 2.6</span></a>のような特性要因図にまとめることができる．</p></li>
-<li><p>以下では，各都市の地球上での位置に関するデータを収集し，年間平均気温との関係を探る．</p></li>
+<li><p>以下では，各都市の地球上での緯度と標高に着目し，年間平均気温との関係を探る．</p></li>
 </ul>
 <figure class="align-default" id="fig-fishbone">
 <a class="reference internal image-reference" href="../../_images/fishbone.png"><img alt="../../_images/fishbone.png" src="../../_images/fishbone.png" style="height: 200px;" /></a>
@@ -788,8 +782,12 @@ title="Print to PDF"
 <h3>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>ここでは，理科年表から取得した世界25都市のデータ（<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1eBbmZSCgVKF61s85kGyrofrLApdO-95J">data_25city.csv</a>）を用いる．</p></li>
-<li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p></li>
-<li><p>ここで，T列は年間平均気温，L列は緯度，Z列は標高を表している．</p></li>
+<li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p>
+<ul>
+<li><p>T列は年間平均気温，L列は緯度，Z列は標高を表している．</p></li>
+</ul>
+</li>
+<li><p>後の計算のため，絶対緯度（緯度の絶対値）L2列を作成する．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -934,12 +932,12 @@ title="Print to PDF"
 </section>
 <section id="step4-analysis">
 <h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p><strong>平均気温と緯度の散布図</strong></p>
+<section id="id6">
+<h4>平均気温と標高の散布図<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
-<li><p>各都市の標高と平均気温，および緯度と平均気温の散布図を作成し，これらの関係を視覚的に調べる．</p></li>
-<li><p>まず，標高と平均気温については特定の関数関係はないため，平均気温とはそれほど関係ないと考えられる．</p></li>
-<li><p>一方，緯度と平均気温には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．</p></li>
-<li><p>このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．</p></li>
+<li><p>各都市の標高と平均気温の関係を視覚的に調べるため，散布図を作成する．</p></li>
+<li><p>以下の散布図より，標高と平均気温については特定の関数関係はないため，平均気温とはそれほど関係ないと考えられる．</p></li>
+<li><p>ただし，ボコダ，メキシコ，アジスアベバの3都市は標高が2000m以上であり，外れ値となっている．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -959,6 +957,80 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標高2000m以上の都市</span>
+<span class="n">D</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>T</th>
+      <th>L</th>
+      <th>Z</th>
+      <th>group</th>
+      <th>L2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>ボゴダ</td>
+      <td>13.4</td>
+      <td>4.42</td>
+      <td>2547</td>
+      <td>1</td>
+      <td>4.42</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>アジスアベベ</td>
+      <td>16.6</td>
+      <td>9.02</td>
+      <td>2354</td>
+      <td>1</td>
+      <td>9.02</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>メキシコ</td>
+      <td>16.7</td>
+      <td>19.24</td>
+      <td>2309</td>
+      <td>2</td>
+      <td>19.24</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id7">
+<h4>平均気温と緯度の散布図<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h4>
+<ul class="simple">
+<li><p>同様に，平均気温と緯度の散布図を調べる．</p></li>
+<li><p>散布図より，緯度と平均気温には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．</p></li>
+<li><p>このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 緯度と平均気温の散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
@@ -970,10 +1042,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_25_0.png" src="../../_images/sec_2-4_25_0.png" />
+<img alt="../../_images/sec_2-4_27_0.png" src="../../_images/sec_2-4_27_0.png" />
 </div>
 </div>
-<p><strong>緯度と平均気温の関数関係</strong></p>
+</section>
+<section id="id8">
+<h4>緯度と平均気温の関数関係<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
 <li><p>緯度と平均気温の関数関係を特定すれば，散布図が直線関係を示すような適切な変数変換を導ける．</p></li>
 <li><p>そこで，緯度の値別に複数のグループに分け，グループ内で平均気温，平均緯度などを求めて関係を調べることにする．</p></li>
@@ -1016,7 +1090,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_29_0.png" src="../../_images/sec_2-4_29_0.png" />
+<img alt="../../_images/sec_2-4_31_0.png" src="../../_images/sec_2-4_31_0.png" />
 </div>
 </div>
 <p><strong>実習</strong></p>
@@ -1048,7 +1122,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_31_1.png" src="../../_images/sec_2-4_31_1.png" />
+<img alt="../../_images/sec_2-4_33_1.png" src="../../_images/sec_2-4_33_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1066,16 +1140,32 @@ title="Print to PDF"
 </div>
 </div>
 </section>
+</section>
 <section id="step5-conclusion">
 <h3>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>各都市の年間平均気温と緯度の関係を散布図によって調べた結果，緯度の２乗に対して直線関係があることが分かった．</p></li>
-<li><p>一方，年間平均気温が緯度の2次関数になるということは，緯度が高くなれば気温もいくらでも大きくなることを意味し，やや奇妙である．</p></li>
+<li><p>年間平均気温が緯度の2次関数になることから，緯度が高くなるほど平均気温も高くなることが分かる．</p></li>
+<li><p>一方，これは緯度が高くなるほど平均気温がいくらでも大きくなることを意味し，やや奇妙でもある．</p></li>
+<li><p>また，直線関係から外れる都市がいくつか存在するのも気になる点である．</p></li>
 </ul>
-<p><strong>実習</strong></p>
+<p><strong>発展的な実習</strong></p>
 <ul class="simple">
-<li><p>緯度<span class="math notranslate nohighlight">\( \theta \)</span>における太陽エネルギーは<span class="math notranslate nohighlight">\( \cos\theta \)</span>に比例することが知られている．これより，年間平均気温と緯度を結びつける，より適切な関数を求めよ．</p></li>
-<li><p>テイラー展開の観点から，2次関数の妥当性を議論せよ．</p></li>
+<li><p>より適切な関数</p>
+<ul>
+<li><p>緯度 <span class="math notranslate nohighlight">\( \theta \)</span> における太陽エネルギーは <span class="math notranslate nohighlight">\( \cos\theta \)</span> に比例することが知られている．そこで，横軸に <span class="math notranslate nohighlight">\( \cos(緯度) \)</span>， 縦軸に年間平均気温を取った散布図を作成せよ</p></li>
+<li><p>作成した散布図より，緯度と平均気温を結びつける，より適切な関数を求めよ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos\)</span> のテイラー展開の観点から，2次関数の妥当性を議論せよ</p></li>
+</ul>
+</li>
+<li><p>標高の調整</p>
+<ul>
+<li><p>一般に，標高が100m高くなると，気温は0.6℃低くなると言われている．そこで，高度調整済平均気温（標高0mでの平均気温）を <span class="math notranslate nohighlight">\( T_{0}=T+0.006z  \)</span> によって求めよ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(緯度)\)</span>と高度調整済み平均気温 <span class="math notranslate nohighlight">\( T_{0} \)</span> の散布図を描け</p></li>
+<li><p>この散布図から相関係数を求めよ</p></li>
+<li><p>この散布図に対して回帰直線を引き，直線の式を求めよ</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1100,7 +1190,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_34_1.png" src="../../_images/sec_2-4_34_1.png" />
+<img alt="../../_images/sec_2-4_36_1.png" src="../../_images/sec_2-4_36_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1117,84 +1207,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<hr class="docutils" />
-<section id="step-6-problem-2">
-<h3>STEP 6: Problem 2<a class="headerlink" href="#step-6-problem-2" title="このヘッドラインへのパーマリンク">#</a></h3>
-<ul class="simple">
-<li><p>緯度の2乗と平均気温の散布図を見ると，直線関係から少し外れる都市がいくつかあることが分かる．</p></li>
-<li><p>これらの都市は，外れ値の大きい順にボコダ，メキシコ，アジスアベバ，である．</p></li>
-<li><p>では，これらの都市はなぜ直線関係から外れるのだろうか？</p></li>
-</ul>
-</section>
-<section id="step-7-plan-data-2">
-<h3>STEP 7: Plan &amp; Data 2<a class="headerlink" href="#step-7-plan-data-2" title="このヘッドラインへのパーマリンク">#</a></h3>
-<ul>
-<li><p>直線から外れている都市についてのデータを見ると，ある共通点が浮かび上がる．</p></li>
-<li><p>それは，標高が高いことである（いずれも標高2000m以上）．</p></li>
-<li><p>一般的に，標高が高くなるほど都市の気温は低くなる．</p></li>
-<li><p>よって，平均気温と緯度の関係を見るためには，標高の影響を調整する必要がある．</p></li>
-<li><p>一般に，標高が100m高くなると，気温は0.6℃低くなると言われている．</p></li>
-<li><p>これより，平均気温（<span class="math notranslate nohighlight">\( T \)</span>）に対して標高（<span class="math notranslate nohighlight">\( z \)</span>）の影響を調整した気温（高度調整済み平均気温）は以下のように表される：</p>
-<div class="math notranslate nohighlight">
-\[ 
-      T_{0}=T+0.006z 
-    \]</div>
-</li>
-</ul>
-</section>
-<section id="step-8-analysis-2">
-<h3>STEP 8: Analysis 2<a class="headerlink" href="#step-8-analysis-2" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p><strong>実習</strong></p>
-<ul class="simple">
-<li><p>緯度の２乗，<span class="math notranslate nohighlight">\(\cos(緯度)\)</span>と高度調整済み平均気温の散布図を描け</p></li>
-<li><p>この散布図から相関係数を求めよ</p></li>
-<li><p>この散布図に対して回帰直線を引き，直線の式を求めよ</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 高度調整済み平均気温</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 高度調整済み平均気温の計算</span>
 <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.006</span> <span class="o">*</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 高度調整済み平均気温と緯度の２乗の散布図 &#39;&#39;&#39;</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
-
-<span class="c1"># 散布図</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度の2乗&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;高度調整済み平均気温（℃）&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./lat2_temp0.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-7.095e-03  2.766e+01]
-</pre></div>
-</div>
-<img alt="../../_images/sec_2-4_40_1.png" src="../../_images/sec_2-4_40_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
-<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.   , -0.943],
-       [-0.943,  1.   ]])
 </pre></div>
 </div>
 </div>
@@ -1222,7 +1238,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_42_1.png" src="../../_images/sec_2-4_42_1.png" />
+<img alt="../../_images/sec_2-4_39_1.png" src="../../_images/sec_2-4_39_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1239,13 +1255,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="step-9-conclusion-2">
-<h3>STEP 9: Conclusion 2<a class="headerlink" href="#step-9-conclusion-2" title="このヘッドラインへのパーマリンク">#</a></h3>
-<ul class="simple">
-<li><p>年間平均気温と緯度の2乗の関係において発生する外れ値は，標高の影響によるものであることが分かった．</p></li>
-<li><p>そこで，標高の影響を調整することで，年間平均気温，緯度，標高に対する適切な関数を推定することができた．</p></li>
-</ul>
 </section>
 </section>
 </section>
