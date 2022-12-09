@@ -386,29 +386,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2.4.1. 回帰直線と最小二乗法
+   2.4.1. 回帰直線
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     回帰直線
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     最小二乗法
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   2.4.2. 最小二乗法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   2.4.3. 決定係数
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.4.2. 決定係数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   2.4.3. 実例：都市の平均気温と緯度の関係
+   2.4.4. 実例：都市の平均気温と緯度の関係
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -479,29 +472,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2.4.1. 回帰直線と最小二乗法
+   2.4.1. 回帰直線
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     回帰直線
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     最小二乗法
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   2.4.2. 最小二乗法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   2.4.3. 決定係数
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.4.2. 決定係数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   2.4.3. 実例：都市の平均気温と緯度の関係
+   2.4.4. 実例：都市の平均気温と緯度の関係
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -600,9 +586,7 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">2.4. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">2.4.1. </span>回帰直線と最小二乗法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
-<section id="id3">
-<h3>回帰直線<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h2><span class="section-number">2.4.1. </span>回帰直線<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>2つの量的データ <span class="math notranslate nohighlight">\( X, Y \)</span> が与えられたとき，変数 <span class="math notranslate nohighlight">\( X \)</span> の値から <span class="math notranslate nohighlight">\( Y \)</span> の値を予測するための数式のことを<strong>回帰モデル</strong>と呼ぶ．
 また，<span class="math notranslate nohighlight">\( X \)</span> を<strong>説明変数</strong>（独立変数），<span class="math notranslate nohighlight">\( Y \)</span> を<strong>目的変数</strong>（従属変数，被説明変数）と呼ぶ．</p>
 <p>回帰モデルには様々な種類が存在するが，以下の散布図のように変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の間に直線関係が成り立ちそうな場合には，回帰モデルとして1次関数</p>
@@ -637,12 +621,12 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$Y$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_7_1.png" src="../../_images/sec_2-4_7_1.png" />
+<img alt="../../_images/sec_2-4_6_1.png" src="../../_images/sec_2-4_6_1.png" />
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>最小二乗法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<section id="id3">
+<h2><span class="section-number">2.4.2. </span>最小二乗法<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{i}, y_{i}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
 単回帰分析には様々な方法があるが，最も基本的な方法が<strong>最小二乗法</strong>である．</p>
 <p>最小二乗法では，予測値 <span class="math notranslate nohighlight">\( \hat{y}_{i}=ax_{i}+b \)</span> と実データ <span class="math notranslate nohighlight">\( y_{i} \)</span> の差の二乗和</p>
@@ -726,13 +710,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_13_0.png" src="../../_images/sec_2-4_13_0.png" />
+<img alt="../../_images/sec_2-4_12_0.png" src="../../_images/sec_2-4_12_0.png" />
 </div>
 </div>
 </section>
-</section>
-<section id="id5">
-<h2><span class="section-number">2.4.2. </span>決定係数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id4">
+<h2><span class="section-number">2.4.3. </span>決定係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p><span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots (x_{n}, y_{n}) \)</span> に対して，データ <span class="math notranslate nohighlight">\( Y \)</span> のばらつきを</p>
 <div class="math notranslate nohighlight">
 \[
@@ -778,8 +761,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="id6">
-<h2><span class="section-number">2.4.3. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id5">
+<h2><span class="section-number">2.4.4. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
 <h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
@@ -971,7 +954,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_25_0.png" src="../../_images/sec_2-4_25_0.png" />
+<img alt="../../_images/sec_2-4_24_0.png" src="../../_images/sec_2-4_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -987,7 +970,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_26_0.png" src="../../_images/sec_2-4_26_0.png" />
+<img alt="../../_images/sec_2-4_25_0.png" src="../../_images/sec_2-4_25_0.png" />
 </div>
 </div>
 <p><strong>緯度と平均気温の関数関係</strong></p>
@@ -1033,7 +1016,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_30_0.png" src="../../_images/sec_2-4_30_0.png" />
+<img alt="../../_images/sec_2-4_29_0.png" src="../../_images/sec_2-4_29_0.png" />
 </div>
 </div>
 <p><strong>実習</strong></p>
@@ -1065,7 +1048,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_32_1.png" src="../../_images/sec_2-4_32_1.png" />
+<img alt="../../_images/sec_2-4_31_1.png" src="../../_images/sec_2-4_31_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1117,7 +1100,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_35_1.png" src="../../_images/sec_2-4_35_1.png" />
+<img alt="../../_images/sec_2-4_34_1.png" src="../../_images/sec_2-4_34_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1199,7 +1182,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-7.095e-03  2.766e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_41_1.png" src="../../_images/sec_2-4_41_1.png" />
+<img alt="../../_images/sec_2-4_40_1.png" src="../../_images/sec_2-4_40_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1239,7 +1222,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_43_1.png" src="../../_images/sec_2-4_43_1.png" />
+<img alt="../../_images/sec_2-4_42_1.png" src="../../_images/sec_2-4_42_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
