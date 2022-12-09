@@ -687,12 +687,12 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">p</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.983, 5.176])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.983 5.176]
 </pre></div>
 </div>
 </div>
@@ -764,7 +764,11 @@ title="Print to PDF"
 <p>で定義する．
 これを<strong>決定係数</strong>と呼ぶ（他の定義もあるので注意）．</p>
 <p>最小二乗法による単回帰分析の場合，決定係数は相関係数の２乗に等しく，その定義域は <span class="math notranslate nohighlight">\( 0 \leq R^{2} \leq 1 \)</span> である．
-よって，残差変動（分子）が <span class="math notranslate nohighlight">\( 0 \)</span> に近づく（データへの当てはまりが良い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 1 \)</span> に近づき，残差変動（分子）が大きくなる（データへの当てはまりが悪い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 0 \)</span> に近づく．</p>
+よって，以下が成り立つ</p>
+<ul class="simple">
+<li><p>残差変動 <span class="math notranslate nohighlight">\( S_{e}^{2} \)</span> が小さくなる（データへの当てはまりが良い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 1 \)</span> に近づく</p></li>
+<li><p>残差変動 <span class="math notranslate nohighlight">\( S_{e}^{2} \)</span> が大きくなる（データへの当てはまりが悪い）と <span class="math notranslate nohighlight">\( R^{2} \)</span> は <span class="math notranslate nohighlight">\( 0 \)</span> に近づく．</p></li>
+</ul>
 <p>※ 予測値 <span class="math notranslate nohighlight">\( \hat{y} \)</span> が最小二乗法以外の方法によって決められた場合，決定係数が負になることもあり，さらに相関係数の２乗にはならない．</p>
 <p><strong>pythonによる実装</strong></p>
 <div class="cell docutils container">
