@@ -699,25 +699,6 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scipy.optimize.leastsq</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">residual</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">residual</span>
- 
-<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">p</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.983, 5.176])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 公式から</span>
 <span class="n">nume</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span> <span class="o">*</span> <span class="n">y_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span> <span class="o">/</span> <span class="n">x_data</span><span class="o">.</span><span class="n">size</span>
 <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">x_data</span><span class="o">.</span><span class="n">size</span>
@@ -745,7 +726,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_14_0.png" src="../../_images/sec_2-4_14_0.png" />
+<img alt="../../_images/sec_2-4_13_0.png" src="../../_images/sec_2-4_13_0.png" />
 </div>
 </div>
 </section>
@@ -789,7 +770,8 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 決定係数</span>
-<span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+<span class="n">y_reg</span> <span class="o">=</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_reg</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
 <span class="n">R2</span>
 </pre></div>
 </div>
@@ -994,7 +976,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_26_0.png" src="../../_images/sec_2-4_26_0.png" />
+<img alt="../../_images/sec_2-4_25_0.png" src="../../_images/sec_2-4_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1010,7 +992,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_27_0.png" src="../../_images/sec_2-4_27_0.png" />
+<img alt="../../_images/sec_2-4_26_0.png" src="../../_images/sec_2-4_26_0.png" />
 </div>
 </div>
 <p><strong>緯度と平均気温の関数関係</strong></p>
@@ -1056,7 +1038,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_31_0.png" src="../../_images/sec_2-4_31_0.png" />
+<img alt="../../_images/sec_2-4_30_0.png" src="../../_images/sec_2-4_30_0.png" />
 </div>
 </div>
 <p><strong>実習</strong></p>
@@ -1088,7 +1070,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_33_1.png" src="../../_images/sec_2-4_33_1.png" />
+<img alt="../../_images/sec_2-4_32_1.png" src="../../_images/sec_2-4_32_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1140,7 +1122,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_36_1.png" src="../../_images/sec_2-4_36_1.png" />
+<img alt="../../_images/sec_2-4_35_1.png" src="../../_images/sec_2-4_35_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1222,7 +1204,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-7.095e-03  2.766e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_42_1.png" src="../../_images/sec_2-4_42_1.png" />
+<img alt="../../_images/sec_2-4_41_1.png" src="../../_images/sec_2-4_41_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1262,7 +1244,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_44_1.png" src="../../_images/sec_2-4_44_1.png" />
+<img alt="../../_images/sec_2-4_43_1.png" src="../../_images/sec_2-4_43_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
