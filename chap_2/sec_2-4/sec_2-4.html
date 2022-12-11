@@ -581,7 +581,7 @@ title="Print to PDF"
 <h1><span class="section-number">2.4. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
 <h2><span class="section-number">2.4.1. </span>単回帰モデル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>2つの量的データ <span class="math notranslate nohighlight">\( X, Y \)</span> が与えられたとき，変数 <span class="math notranslate nohighlight">\( X \)</span> の値から <span class="math notranslate nohighlight">\( Y \)</span> の値を予測するための数式のことを<strong>回帰モデル</strong>と呼ぶ．
+<p>量的データ <span class="math notranslate nohighlight">\( X, Y \)</span> が与えられたとき，変数 <span class="math notranslate nohighlight">\( X \)</span> の値から <span class="math notranslate nohighlight">\( Y \)</span> の値を予測するための数式のことを<strong>回帰モデル</strong>と呼ぶ．
 また，<span class="math notranslate nohighlight">\( X \)</span> を<strong>説明変数</strong>（独立変数），<span class="math notranslate nohighlight">\( Y \)</span> を<strong>目的変数</strong>（従属変数，被説明変数）と呼ぶ．</p>
 <p>回帰モデルには様々な種類が存在するが，以下の散布図のように変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の間に直線関係が成り立ちそうな場合には，回帰モデルとして1次関数</p>
 <div class="math notranslate nohighlight" id="equation-eq-regression-line">
@@ -621,7 +621,7 @@ title="Print to PDF"
 </section>
 <section id="id3">
 <h2><span class="section-number">2.4.2. </span>最小二乗法<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{i}, y_{i}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
+<p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
 単回帰分析には様々な方法があるが，最も基本的な方法が<strong>最小二乗法</strong>である．</p>
 <p>最小二乗法では，予測値 <span class="math notranslate nohighlight">\( \hat{y}_{i}=ax_{i}+b \)</span> と実データ <span class="math notranslate nohighlight">\( y_{i} \)</span> の差の二乗和</p>
 <div class="math notranslate nohighlight" id="equation-eq-rss">
