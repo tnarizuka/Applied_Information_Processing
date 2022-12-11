@@ -52,7 +52,7 @@ np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
 
 
 fig, ax = plt.subplots()
-ax.plot(x_data, y_data, 'o', mfc='None')
+ax.plot(x_data, y_data, 'ko', mfc='None')
 ax.set_xlabel('$X$', fontsize=15)
 ax.set_ylabel('$Y$', fontsize=15)
 
@@ -129,7 +129,7 @@ b = np.mean(y_data - a*x_data)
 
 
 fig, ax = plt.subplots()
-ax.plot(x_data, y_data, 'o', mfc='None')
+ax.plot(x_data, y_data, 'ko', mfc='None')
 ax.plot(x_data, fit_func(x_data, p[0], p[1]), 'r-', mfc='None')
 ax.set_xlabel('$X$', fontsize=15)
 ax.set_ylabel('$Y$', fontsize=15)
@@ -186,7 +186,7 @@ R2
 
 
 # 相関係数の２乗
-r_xy = DataFrame(np.c_[x_data, y_data]).corr()[0][1]
+r_xy = pd.DataFrame(np.c_[x_data, y_data]).corr()[0][1]
 r_xy**2
 
 
