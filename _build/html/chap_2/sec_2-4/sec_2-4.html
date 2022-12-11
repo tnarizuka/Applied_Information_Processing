@@ -567,16 +567,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># アヤメデータをPandasに読み込む</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Iris.csv&#39;</span><span class="p">)</span>
-<span class="n">Iris</span> <span class="o">=</span> <span class="n">Iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
-<span class="n">Iris</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="s1">&#39;Petal Width&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">2.4. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
@@ -615,7 +605,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$Y$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_6_1.png" src="../../_images/sec_2-4_6_1.png" />
+<img alt="../../_images/sec_2-4_5_1.png" src="../../_images/sec_2-4_5_1.png" />
 </div>
 </div>
 </section>
@@ -704,7 +694,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_12_0.png" src="../../_images/sec_2-4_12_0.png" />
+<img alt="../../_images/sec_2-4_11_0.png" src="../../_images/sec_2-4_11_0.png" />
 </div>
 </div>
 </section>
@@ -745,6 +735,20 @@ title="Print to PDF"
 <span class="n">y_reg</span> <span class="o">=</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">R2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_reg</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
 <span class="n">R2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.844
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数の２乗</span>
+<span class="n">r_xy</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">])</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r_xy</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>

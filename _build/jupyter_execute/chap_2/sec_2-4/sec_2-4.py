@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[3]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -19,15 +19,6 @@ pd.set_option('display.precision', 3)   # 小数点以下の表示桁
 pd.set_option('display.max_rows', 20)  # 表示する行数
 pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
-
-
-# In[3]:
-
-
-# アヤメデータをPandasに読み込む
-Iris = pd.read_csv('./Iris.csv')
-Iris = Iris.iloc[:, 1:]
-Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 
 
 # # 散布図・相関分析による問題解決
@@ -112,7 +103,7 @@ ax.set_ylabel('$Y$', fontsize=15)
 
 # **pythonによる実装**
 
-# In[11]:
+# In[6]:
 
 
 # scipy.optimize.curve_fit
@@ -123,7 +114,7 @@ p = sp.optimize.curve_fit(fit_func, x_data, y_data)[0]
 print(p)
 
 
-# In[13]:
+# In[7]:
 
 
 # 公式から
@@ -182,13 +173,21 @@ fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # **pythonによる実装**
 
-# In[10]:
+# In[9]:
 
 
 # 決定係数
 y_reg = fit_func(x_data, p[0], p[1])
 R2 = np.var(y_reg) / np.var(y_data)
 R2
+
+
+# In[20]:
+
+
+# 相関係数の２乗
+r_xy = DataFrame(np.c_[x_data, y_data]).corr()[0][1]
+r_xy**2
 
 
 # ## 実例：都市の平均気温と緯度の関係
