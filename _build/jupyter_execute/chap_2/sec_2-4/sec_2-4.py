@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[21]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import scipy as sp
+from scipy import optimize
 
 # 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
 plt.rcParams['font.family'] = 'Hiragino Sans'
@@ -103,14 +104,14 @@ ax.set_ylabel('$Y$', fontsize=15)
 
 # **pythonによる実装**
 
-# In[6]:
+# In[22]:
 
 
 # scipy.optimize.curve_fit
 def fit_func(x, a, b):
     return a*x + b
 
-p = sp.optimize.curve_fit(fit_func, x_data, y_data)[0]
+p = optimize.curve_fit(fit_func, x_data, y_data)[0]
 print(p)
 
 
