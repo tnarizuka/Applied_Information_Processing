@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[21]:
+# In[1]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -39,7 +39,7 @@ get_ipython().run_line_magic('precision', '3')
 # このように１次関数による回帰モデルは**単回帰モデル**と呼ばれ，式{eq}`eq:regression_line`の直線のことは**回帰直線**と呼ばれる．
 # また，$ a,\ b $ は回帰直線の切片と傾きを表すパラメータであり，**回帰係数**と呼ばれる．
 
-# In[4]:
+# In[9]:
 
 
 # データの作成
@@ -49,7 +49,7 @@ y_data = 2*x_data + 5 + 5.*np.random.randn(x_data.size)
 np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
 
 
-# In[5]:
+# In[10]:
 
 
 fig, ax = plt.subplots()
@@ -104,7 +104,7 @@ ax.set_ylabel('$Y$', fontsize=15)
 
 # **pythonによる実装**
 
-# In[22]:
+# In[11]:
 
 
 # scipy.optimize.curve_fit
@@ -115,7 +115,7 @@ p = optimize.curve_fit(fit_func, x_data, y_data)[0]
 print(p)
 
 
-# In[7]:
+# In[12]:
 
 
 # 公式から
@@ -126,7 +126,7 @@ b = np.mean(y_data - a*x_data)
 (a, b)
 
 
-# In[8]:
+# In[13]:
 
 
 fig, ax = plt.subplots()
@@ -216,7 +216,7 @@ r_xy**2
 # - まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．
 #   - T列は年間平均気温，L列は緯度，Z列は標高を表している．
 
-# In[32]:
+# In[2]:
 
 
 D = pd.read_csv('./data_25city.csv')
@@ -230,7 +230,7 @@ D
 # - 以下の散布図には特定の関数関係はないため，年間平均気温と標高はそれほど関係ないと考えられる．
 # - ただし，ボコダ，メキシコ，アジスアベバの3都市は標高が2000m以上であり，外れ値となっている．
 
-# In[36]:
+# In[3]:
 
 
 # 標高と平均気温の散布図
@@ -242,10 +242,10 @@ ax.set_ylabel('平均気温 $T$（℃）')
 fig.savefig('./alt_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[37]:
+# In[5]:
 
 
-# 標高2000m以上の都市
+# 標高2000m以上の都市を抽出
 D.loc[D['Z'] > 2000]
 
 
@@ -254,7 +254,7 @@ D.loc[D['Z'] > 2000]
 # - 散布図より，年間平均気温と緯度には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．
 # - このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．
 
-# In[38]:
+# In[6]:
 
 
 # 緯度と平均気温の散布図
@@ -277,14 +277,17 @@ fig.savefig('./lat_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=F
 # - この散布図に対して，最小二乗法で回帰直線を求めよ
 # - この散布図に対して，相関係数を求めよ
 
-# In[40]:
+# In[15]:
 
 
 ''' 平均気温と緯度の２乗の散布図 '''
+def fit_func(x, a, b):
+    return a*x + b
+
 fig, ax = plt.subplots(figsize=(4, 3))
 
 # 最小二乗法による回帰直線
-p = sp.optimize.curve_fit(fit_func, D['L']**2, D['T'])[0]
+p = optimize.curve_fit(fit_func, D['L']**2, D['T'])[0]
 print(p)
 ax.plot(D['L']**2, fit_func(D['L']**2, p[0], p[1]), 'r-')
 
@@ -299,7 +302,7 @@ fig.savefig('./lat2_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=
 # In[41]:
 
 
-# 相関係数
+# 緯度の2乗と平均気温の相関係数
 np.corrcoef(D['L']**2, D['T'])
 
 
@@ -324,14 +327,15 @@ np.corrcoef(D['L']**2, D['T'])
 #   - この散布図から相関係数を求めよ
 #   - この散布図に対して回帰直線を引き，直線の式を求めよ
 
-# In[45]:
+# In[16]:
 
 
 ''' 平均気温とcos(緯度)の散布図 '''
+
 fig, ax = plt.subplots(figsize=(4, 3))
 
 # 最小二乗法による回帰直線
-p = sp.optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T'])[0]
+p = optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T'])[0]
 print(p)
 ax.plot(np.cos(np.radians(D['L'])), fit_func(np.cos(np.radians(D['L'])), p[0], p[1]), 'r-')
 
@@ -343,28 +347,28 @@ ax.set_ylabel('平均気温 $T$ （℃）')
 fig.savefig('./cos_lat_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[46]:
+# In[17]:
 
 
-# 相関係数
+# cos(緯度)と平均気温の相関係数
 np.corrcoef(np.cos(np.radians(D['L'])), D['T'])
 
 
-# In[47]:
+# In[18]:
 
 
 # 高度調整済み平均気温の計算
 D['T0'] = D['T'] + 0.006 * D['Z']
 
 
-# In[49]:
+# In[19]:
 
 
 ''' 高度調整済み平均気温とcos(緯度)の散布図 '''
 fig, ax = plt.subplots(figsize=(4, 3))
 
 # 最小二乗法による回帰直線
-p = sp.optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T0'])[0]
+p = optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T0'])[0]
 print(p)
 ax.plot(np.cos(np.radians(D['L'])), fit_func(np.cos(np.radians(D['L'])), p[0], p[1]), 'r-')
 
@@ -376,7 +380,7 @@ ax.set_ylabel('高度調整済み平均気温 $T_{0}$（℃）')
 fig.savefig('./cos_lat_temp2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[50]:
+# In[20]:
 
 
 # 相関係数
