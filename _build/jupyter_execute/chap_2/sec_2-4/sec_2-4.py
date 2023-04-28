@@ -179,7 +179,7 @@ fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # 決定係数
 y_reg = fit_func(x_data, p[0], p[1])
-R2 = np.var(y_reg) / np.var(y_data)
+R2 = 1-np.var(y_data - y_reg) / np.var(y_data)
 R2
 
 

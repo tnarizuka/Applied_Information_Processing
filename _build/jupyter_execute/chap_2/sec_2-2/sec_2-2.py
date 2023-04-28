@@ -296,7 +296,6 @@ print(np.fabs(x_C - x_C.mean()).mean())
 # 
 # \begin{align*}
 #     s^{2} 
-#     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)^{2} \\
 #     &= \frac{1}{n} \sum_{i=1}^{n} (x_{i}^{2} - 2x_{i}\bar{x} + \bar{x}^{2})\\
 #     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - \frac{1}{n} \sum_{i=1}^{n} 2x_{i}\bar{x} + \frac{1}{n} \sum_{i=1}^{n} \bar{x}^{2} \\
 #     &= \frac{1}{n} \sum_{i=1}^{n} x_{i}^{2} - 2\bar{x} \frac{1}{n} \sum_{i=1}^{n}x_{i} + \frac{1}{n}\bar{x}^{2} \sum_{i=1}^{n} 1\\
