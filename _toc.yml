@@ -8,15 +8,12 @@ parts:
 - caption:
   numbered: 3
   chapters:
-  - file: chap_1/chap_1
-    sections:
-      - file: chap_1/sec_1-1.md
-      - file: chap_1/sec_1-2.md
-      - file: chap_1/sec_1-3.ipynb
+  - file: chap_1/chap_1.md
   - file: chap_2/chap_2.ipynb
   - file: chap_3/chap_3.ipynb
   - file: chap_4/chap_4.ipynb
   - file: chap_5/chap_5.ipynb
+  - file: chap_6/chap_6.ipynb
 - caption:
   numbered: False
   chapters:

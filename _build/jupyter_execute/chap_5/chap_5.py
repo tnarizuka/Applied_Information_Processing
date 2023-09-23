@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# 使用するモジュールのimport
+
+# In[2]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -9,8 +11,6 @@ import sys, os
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import scipy as sp
-from scipy import optimize
 
 # 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
 plt.rcParams['font.family'] = 'Hiragino Sans'
@@ -22,367 +22,370 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# # 散布図・相関分析による問題解決
-
-# ## 単回帰モデル
-
-# 量的データ $ X, Y $ が与えられたとき，変数 $ X $ の値から $ Y $ の値を予測するための数式のことを**回帰モデル**と呼ぶ．
-# また，$ X $ を**説明変数**（独立変数），$ Y $ を**目的変数**（従属変数，被説明変数）と呼ぶ．
-# 
-# 回帰モデルには様々な種類が存在するが，以下の散布図のように変数 $ X,\ Y $ の間に直線関係が成り立ちそうな場合には，回帰モデルとして1次関数
-# 
-# $$
-# 	\hat{y} = ax + b
-# $$(eq:regression_line)
-# 
-# を用いるのが妥当である．
-# このように１次関数による回帰モデルは**単回帰モデル**と呼ばれ，式{eq}`eq:regression_line`の直線のことは**回帰直線**と呼ばれる．
-# また，$ a,\ b $ は回帰直線の切片と傾きを表すパラメータであり，**回帰係数**と呼ばれる．
-
-# In[9]:
-
-
-# データの作成
-np.random.seed(1234)
-x_data = np.linspace(-10, 10, num=100)
-y_data = 2*x_data + 5 + 5.*np.random.randn(x_data.size)
-np.savetxt('./data_lsm.csv', np.c_[x_data, y_data], fmt='%.2f', delimiter=',')
-
-
-# In[10]:
-
-
-fig, ax = plt.subplots()
-ax.plot(x_data, y_data, 'ko', mfc='None')
-ax.set_xlabel('$X$', fontsize=15)
-ax.set_ylabel('$Y$', fontsize=15)
-
-
-# ## 最小二乗法
-
-# １つの説明変数と目的変数から成る $ n $ 組のデータ $ (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) $ が与えられたとき，単回帰モデル{eq}`eq:regression_line`を用いてデータから最適な回帰直線を求めることを**単回帰分析**と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
-# 単回帰分析には様々な方法があるが，最も基本的な方法が**最小二乗法**である．
-# 
-# 最小二乗法では，予測値 $ \hat{y}_{i}=ax_{i}+b $ と実データ $ y_{i} $ の差の二乗和
-# 
-# $$
-# 	E(a, b) = \sum_{i=1}^{n}(ax_{i}+b-y_{i})^{2}
-# $$(eq:rss)
-# 
-# が最小となるように回帰係数 $ a,\ b $ を選ぶ．
-# このとき，$ E $ のことを**残差変動**（残差平方和）と呼ぶ．
-# 残差変動 $ E $ を最小にすることは，$ a,\ b $ を変数とする２次関数 $ E(a, b) $ の最小値を求めることと言い換えられる．
-# このための必要条件は，残差変動 $ E(a, b) $ の $ a,\ b $ による偏微分がゼロになることである：
-# 
-# $$
-# 	\frac{\partial E}{\partial a} = 0, \hspace{0.5cm} \frac{\partial E}{\partial b} = 0
-# $$
-# 
-# 実際にこれらの条件を適用すると，$ a,\ b $ を変数とする以下の連立方程式が得られる：
-# 
-# \begin{align*}
-# 	\sum_{i=1}^{n} (ax_{i}+b-y_{i})x_{i} &= 0 \\
-# 	\sum_{i=1}^{n} (ax_{i}+b-y_{i}) &= 0
-# \end{align*}
-# 
-# この連立方程式を解くと，$ a,\ b $ は
-# 
-# \begin{align*}
-# 	a &=\frac{\displaystyle\left(\frac{1}{n}\sum_{i=1}^{n} x_{i}y_{i}\right) - \left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right)\left(\frac{1}{n}\sum_{i=1}^{n}y_{i}\right)}{\displaystyle \left(\frac{1}{n}\sum_{i=1}^{n} x_{i}^{2}\right) -  \left(\frac{1}{n}\sum_{i=1}^{n}x_{i}\right)^{2}}
-# 	   = \frac{\overline{xy}-\bar{x}\bar{y}}{\overline{x^2}-\bar{x}^2} = \frac{s_{XY}}{s_{X}^2} \\[10pt]
-# 	b &= \left(\frac{1}{n} \sum_{i=1}^{n}y_{i}\right) - a\left(\frac{1}{n} \sum_{i=1}^{n}x_{i}\right) = \bar{y} - a \bar{x}
-# \end{align*}
-# 
-# と求まる．
-# 
-# なお，傾き $ a $ は $X, Y$ の共分散 $ s_{XY} $ を $ X $ の分散 $ s^{2}_{X} $ で割った形になっている（相関係数の式に似ているが違う）．
-# よって，以下が成り立つ：
-# 
-# - $ s_{XY}>0\quad \Longleftrightarrow\quad a > 0 $　（正の相関）
-# - $ s_{XY}=0\quad \Longleftrightarrow\quad a = 0 $　（無相関）
-# - $ s_{XY}<0\quad \Longleftrightarrow\quad a < 0 $　（負の相関）
-
-# **pythonによる実装**
-
-# In[11]:
-
-
-# scipy.optimize.curve_fit
-def fit_func(x, a, b):
-    return a*x + b
-
-p = optimize.curve_fit(fit_func, x_data, y_data)[0]
-print(p)
-
-
-# In[12]:
-
-
-# 公式から
-nume = np.mean(x_data * y_data) - np.mean(x_data) * np.mean(y_data)
-denom = np.mean(x_data**2) - np.mean(x_data)**2
-a = nume / denom
-b = np.mean(y_data - a*x_data)
-(a, b)
-
-
-# In[13]:
-
-
-fig, ax = plt.subplots()
-ax.plot(x_data, y_data, 'ko', mfc='None')
-ax.plot(x_data, fit_func(x_data, p[0], p[1]), 'r-', mfc='None')
-ax.set_xlabel('$X$', fontsize=15)
-ax.set_ylabel('$Y$', fontsize=15)
-fig.savefig('./lsm_ex.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
-
-
-# ## 決定係数
-# 
-# $ n $ 組のデータ $ (x_{1}, y_{1}), \ldots (x_{n}, y_{n}) $ に対して，データ $ Y $ のばらつきを
-# 
-# $$
-#   S_{y}^{2} = \sum_{i=1}^{n} (y_{i} - \bar{y})^{2}
-# $$
-# 
-# と定義する．
-# これを**全変動**と呼ぶ．
-# また，実データと予測値のズレは残差変動{eq}`eq:rss`によって表される．
-# ここでは，残差変動を
-# 
-# $$
-#   \displaystyle S_{e}^{2} = \sum_{i=1}^{n} (y_{i} - \hat{y}_{i})^{2}
-# $$
-# 
-# と表す．
-# 
-# このとき，回帰直線のデータへの当てはまりの良さを
-# 
-# $$
-# 	R^{2} = 1 - \frac{S_{e}^{2}}{S_{y}^{2}}
-# $$(eq:R2)
-# 
-# で定義する．
-# これを**決定係数**と呼ぶ（他の定義もあるので注意）．
-# 
-# 最小二乗法による線形単回帰分析の場合，決定係数は $ X,\ Y $ の相関係数の２乗に等しく，その定義域は $ 0 \leq R^{2} \leq 1 $ である．
-# よって，以下が成り立つ
-# - 残差変動 $ S_{e}^{2} $ が小さくなると $ R^{2} $ は $ 1 $ に近づく（データへの当てはまりが良い）
-# - 残差変動 $ S_{e}^{2} $ が大きくなると $ R^{2} $ は $ 0 $ に近づく（データへの当てはまりが悪い）
-# 
-# ※ 予測値 $ \hat{y} $ が最小二乗法以外の方法によって決められた場合，決定係数が負になることもあり，さらに相関係数の２乗にはならない．
-
-# **pythonによる実装**
-
-# In[9]:
-
-
-# 決定係数
-y_reg = fit_func(x_data, p[0], p[1])
-R2 = 1-np.var(y_data - y_reg) / np.var(y_data)
-R2
-
-
-# In[20]:
-
-
-# 相関係数の２乗
-r_xy = pd.DataFrame(np.c_[x_data, y_data]).corr()[0][1]
-r_xy**2
-
-
-# ## 実例：都市の平均気温と緯度の関係
-
-# ### STEP1: Problem
-# - 地球上では，赤道付近は暑く，極地に近づくほど寒くなる．
-# - 世界の様々な地域の年間平均気温はどのように決まっているのだろうか？
-
-# ### STEP2: Plan
-# - 世界の各地域で年間平均気温は異なっている．
-# - 各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられ，これらは{numref}`fig:fishbone`のようにまとめることができる（これを**特性要因図**と呼ぶ）．
-# - 以下では，各都市の地球上での緯度と標高に着目し，年間平均気温との関係を探る．
-
-# ```{figure} fishbone.png
-# ---
-# height: 200px
-# name: fig:fishbone
-# ---
-# 特性要因図
-# ```
-
-# ### STEP3: Data
-# 
-# - ここでは，理科年表から取得した世界25都市のデータ（[data_25city.csv](https://drive.google.com/uc?export=download&id=1eBbmZSCgVKF61s85kGyrofrLApdO-95J)）を用いる．
-# - まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．
-#   - T列は年間平均気温，L列は緯度，Z列は標高を表している．
-
-# In[2]:
-
-
-D = pd.read_csv('./data_25city.csv')
-D
-
-
-# ### STEP4: Analysis
-
-# #### 平均気温と標高の散布図
-# - 各都市の年間平均気温 $ T $ と標高 $ Z $ の関係を視覚的に調べるため，散布図を作成する．
-# - 以下の散布図には特定の関数関係はないため，年間平均気温と標高はそれほど関係ないと考えられる．
-# - ただし，ボコダ，メキシコ，アジスアベバの3都市は標高が2000m以上であり，外れ値となっている．
-
 # In[3]:
 
 
-# 標高と平均気温の散布図
-fig, ax = plt.subplots(figsize=(4, 3))
-ax.plot(D['Z'], D['T'], 'bo', mfc='None')
-ax.set_xlim(0, 3000); ax.set_ylim(-15, 35)
-ax.set_xlabel('標高 $Z$ （$m$）')
-ax.set_ylabel('平均気温 $T$（℃）')
-fig.savefig('./alt_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+# アヤメデータをPandasに読み込む
+Iris = pd.read_csv('./Iris.csv')
+Iris = Iris.iloc[:, 1:]
+Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 
+
+# # 関係の度合い
+
+# ## 散布図と相関係数
+
+# ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
+# 以下では，2種類の量的データを変数 $ X $ と $ Y $ で表し，これらの間の関係を可視化・定量化する方法を扱う．
+
+# ### 散布図
+# 
+# まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
+# すなわち， $ n $ 組のデータ $ (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) $ に対し， $ (x_{i}, y_{i}) $ を座標とする点を $ X-Y $ 平面上にとったグラフを考える．
+# このようなグラフは**散布図**と呼ばれる．
+# なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
+# また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
+# このような場合にはデータの加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．
+
+# 散布図を描いた後，通常はおおまかに以下の３つのいずれかに当てはまるか検討する：
+# 
+# - 散布図が右上がり：**正の相関**
+# - 散布図が右下がり：**負の相関**
+# - 散布図が広い範囲に一様に分布：**無相関**
+# 
+# もし，これ以外に特別な規則性がありそうな場合（データ点がある曲線上に分布する場合など）は個別に検討する必要がある．
+
+# 例として，アヤメデータについて，がく片の長さ（Sepal Length）を $X$ ，幅（Sepal Width）を $Y$ として散布図を描いてみる．
+# 以下のグラフを見ると，特に正の相関や負の相関は見られない．
+# しかし，がく片の長さ（Length）に対して幅（Width）が一定値となっており，がく片の形状を反映した結果となっている．
+
+# In[4]:
+
+
+# 散布図（アヤメのがく片）
+fig, ax = plt.subplots(figsize=(5, 3))
+for spc in Iris['Species'].unique():
+    x = Iris.loc[Iris['Species']==spc, 'Sepal Length']
+    y = Iris.loc[Iris['Species']==spc, 'Sepal Width']
+    ax.plot(x, y, 'o', mfc='None', label=spc)
+ax.set_xlim(4, 8); ax.set_ylim(0, 5)
+ax.set_yticks([0, 1, 2, 3])
+ax.set_xlabel('Sepal Length [cm]'); ax.set_ylabel('Sepal Width [cm]')
+ax.legend(fontsize=10, loc='upper left', frameon=True, bbox_to_anchor=(1.0, 1.0))
+fig.savefig('./sepal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+
+
+# 次に，花弁の長さ（Petal Length）を $X$ ，幅（Petal Width）を $Y$ として散布図を描いてみる．
+# 今度は右上と左下の区画にデータ点が多く，右上がりの傾向がある．
+# すなわち，花弁が長くなれば，それとともに花弁の幅も大きくなる傾向がある．
+# また，アヤメの品種ごとに色分けすると，きれいに品種ごとに分かれることが分かる．
 
 # In[5]:
 
 
-# 標高2000m以上の都市を抽出
-D.loc[D['Z'] > 2000]
+# 散布図（アヤメの花弁）
+fig, ax = plt.subplots(figsize=(5, 3))
+for spc in Iris['Species'].unique():
+    x = Iris.loc[Iris['Species']==spc, 'Petal Length']
+    y = Iris.loc[Iris['Species']==spc, 'Petal Width']
+    ax.plot(x, y, 'o', mfc='None', label=spc)
+ax.set_xlim(0, 8); ax.set_ylim(0, 3)
+ax.set_yticks([0, 1, 2, 3])
+ax.set_xlabel('Petal Length [cm]'); ax.set_ylabel('Petal Width [cm]')
+ax.legend(fontsize=10, loc='upper left', frameon=True, bbox_to_anchor=(1.0, 1.0))
+fig.savefig('./petal_l-w.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# #### 平均気温と緯度の散布図
-# - 同様に，年間平均気温 $ T $ と緯度 $ L $ の散布図を調べる．
-# - 散布図より，年間平均気温と緯度には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．
-# - このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．
+# ### 共分散
+
+# 変数 $ X,\ Y $ の散布図に右上がりや右下がりの傾向がある場合には， $ X $ と $ Y $ に**相関関係がある**という．
+# 例えば，アヤメの花弁には，長さ（Petal Length）と幅（Petal Width）に相関関係がある．
+# 
+# 相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
+# このような統計量として，以下で定義される**共分散**がある：
+# 
+# $$
+# 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
+# $$(eq:covariance)
+# 
+# ただし，2つ目の等式には分散公式{eq}`eq:deviation2`を使った．
+# 
+# 共分散の意味は以下の通りである．
+# まず，散布図の中心として，平均値 $ (\bar{x}, \bar{y}) $ を求める．
+# その上で，データ $ (x_{i}, y_{i}) $ に対し，平均値から $ X,\ Y $ 方向への増分（つまり偏差）の積 $ (x_{i}-\bar{x})(y_{i}-\bar{y}) $ を計算する．
+# この量は，データ $ (x_{i}, y_{i}) $ が平均値 $ (\bar{x}, \bar{y}) $ より右上か左下にあれば正，左上か右下にあれば負となる．
+# よって， $ (x_{i}-\bar{x})(y_{i}-\bar{y}) $ を全データに対して平均した量（共分散）は，データ全体が右上がりのときに正，右下がりのときに負となる．
+# 
+# なお， 同じ量同士の共分散は分散となる（例えば，$ X $ と $ X $ の共分散は $ X $ の分散となる）．
+
+# ### 相関係数
+
+# 共分散はデータ $ X,\ Y $ の単位やばらつきの度合いによって値がいくらでも大きくなってしまうため，相関の程度を一定の基準で表すことができない．
+# そこで，共分散を $ X,\ Y $ の標準偏差 $ s_{X},\ s_{Y} $ で割った量
+# 
+# $$
+# 	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
+# $$(eq:correlation)
+# 
+# を考える．
+# 分散公式{eq}`eq:deviation2`を用いた場合は以下のように表される：
+# 
+# $$
+# 	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
+# $$(eq:correlation2)
+# 
+# これを**ピアソンの相関係数**（あるいは単に相関関係）と呼ぶ．
+
+# 相関係数は，データ $ X,\ Y $ の単位やばらつきに依らず，定義域が常に $ -1\leq r_{XY} \leq 1 $ となる．
+# 特に，相関係数の符号は散布図が右上がりの場合に正，右下がりの場合に負となる．
+# 一般に，相関係数が正の値のときに**正の相関**，負の値のときに**負の相関**があるという．
+# また，相関係数が0のときには**無相関**という．
+# 相関係数が最大値1となるのは，同じデータ同士の場合である．
+# 
+# なお，相関係数はあくまでも２つの変数の散布図が直線的な関係になる場合だけ意味があることに注意しなければならない．
+# 例えば，$ X,\ Y $の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
+# このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．
+
+# 実際にアヤメデータから相関係数を求めてみる．
+# がく片については $ r_{XY} = -0.109 $ なのでほぼ無相関，花弁については $ r_{XY}=0.963 $ となるので強い正の相関があることが分かる．
 
 # In[6]:
 
 
-# 緯度と平均気温の散布図
-fig, ax = plt.subplots(figsize=(4, 3))
-ax.plot(D['L'], D['T'], 'bo', mfc='None')
-ax.set_xlim(-100, 100); ax.set_ylim(-15, 35)
-ax.set_xlabel('緯度 $L$（度）')
-ax.set_ylabel('平均気温 $T$（℃）')
-fig.savefig('./lat_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+# 相関係数（Pandasを用いる）
+Iris.corr()
 
 
-# #### 平均気温と緯度の関数関係
+# ## 相関関係と因果関係
+
+# 2つの変数 $ X,\ Y $ の間に相関関係があったときに，それらの間に因果関係があるといえるだろうか？
+# つまり，$ X\Rightarrow Y $ または $ Y \Rightarrow X $ という関係が成り立つだろうか？
+# 実は，これは必ずしも成り立つとは限らない．
+# その理由は，主に以下の２つが考えられる．
 # 
-# - 年間平均気温 $ T $ と緯度 $ L $の関数関係を特定すれば，散布図が直線関係を示すような適切な変数変換を導ける．
-# - 年間平均気温と緯度の散布図から，平均気温は緯度に対して上に凸の２次関数となっている．
-# - そこで，横軸に緯度の２乗 $L^2$，縦軸に年間平均気温 $ T $ を取った散布図を描けば，直線関係が得られそうである．
-
-# **実習**
-# - 横軸に緯度の２乗 $ L^2 $，縦軸に年間平均気温 $ T $ を取った散布図を描け
-# - この散布図に対して，最小二乗法で回帰直線を求めよ
-# - この散布図に対して，相関係数を求めよ
-
-# In[15]:
-
-
-''' 平均気温と緯度の２乗の散布図 '''
-def fit_func(x, a, b):
-    return a*x + b
-
-fig, ax = plt.subplots(figsize=(4, 3))
-
-# 最小二乗法による回帰直線
-p = optimize.curve_fit(fit_func, D['L']**2, D['T'])[0]
-print(p)
-ax.plot(D['L']**2, fit_func(D['L']**2, p[0], p[1]), 'r-')
-
-# 散布図
-ax.plot(D['L']**2, D['T'], 'ko', mfc='None')
-ax.set_xlim(0, 5000); ax.set_ylim(-15, 35)
-ax.set_xlabel('緯度の2乗 $L^2$')
-ax.set_ylabel('平均気温 $T$（℃）')
-fig.savefig('./lat2_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
-
-
-# In[41]:
-
-
-# 緯度の2乗と平均気温の相関係数
-np.corrcoef(D['L']**2, D['T'])
-
-
-# ### STEP5: Conclusion
-# - 各都市の年間平均気温と緯度の関係を散布図によって調べた結果，緯度の２乗に対して直線関係があることが分かった．
-# - これより，年間平均気温 $ T $ と緯度 $ L $ の関数関係は以下のように推定できる：
-#   $$
-#     T = -0.0061L^2 + 24.1
-#   $$
+# ### 偶然の相関
 # 
-# - 一方，年間平均気温が緯度の2次関数になるということは緯度が高くなるほど平均気温がいくらでも大きくなることを意味し，やや奇妙でもある．
-# - また，直線関係から外れる都市がいくつか存在するのも気になる点である．
+# 第一に，全くの偶然で強い相関関係が現れることがある．
+# 例えば，文献{cite}`中室2017`によると，以下の３つは全くの偶然で強い相関関係が現れた例である：
+# - 「ニコラス・ケイジの年間映画出演本数」と「プールの溺死者数」
+# - 「ミス・アメリカの年齢」と「暖房器具による死亡者数」
+# - 「商店街における総収入」と「アメリカでのコンピュータサイエンス博士号取得者数」
 
-# **発展的な実習1：より適切な関数**
-# - 緯度 $ L $ における太陽エネルギーは $ \cos L $ に比例することが知られている．そこで，横軸に $ \cos(L) $， 縦軸に年間平均気温 $ T $ を取った散布図を作成せよ
-# - 作成した散布図より，緯度 $ L $ と年間平均気温 $ T $ を結びつける，より適切な関数を求めよ
-# - $ \cos $ のテイラー展開の観点から，2次関数の妥当性を議論せよ
+# ### 疑似相関
+# 
+# 第二に，調べたい2つの変数 $ X,\ Y $ それぞれが別の変数 $ Z $ と強く相関する場合，$ X $ と $ Y $ の相関が見かけ上強くなってしまうこともある．
+# このような相関は**疑似相関**と呼ばれ，疑似相関の原因となる変数 $ Z $ のことを**第3の変数**と呼ぶ．
+# （第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は**潜在変数**と呼ぶ）．
+# 
+# 疑似相関では，$ Z \Rightarrow X $ および $ Z \Rightarrow Y $ という因果関係が成り立つが，$ X\Rightarrow Y $ または $ Y \Rightarrow X $ という因果関係は成り立たない．
+# 疑似相関の例は数多く存在するが，例えば，「子供の体力」と「子供の学力」の強い相関関係は疑似相関の典型例である．
+# この場合，第3の変数は「親の教育熱心さ」であり，親が教育熱心であれば当然学力が高い傾向にあり，また子供にスポーツを習わせるので体力も上がる傾向があるということになる．
+
+# 第3の変数の影響を除く方法はいくつか知られている．
+# 
+# **1. 第3の変数による層別**
+# 
+# 1つ目は第3の変数による層別の方法である．
+# これは，第3の変数の値が近いものだけでいくつかのグループに分け，グループ内で相関を見る方法である．
+# もし，第3の変数の影響を受けているなら，第3の変数が近いもの同士で比較することによって，グループ内の相関は小さくなる．
+# 
+# **2. 第3の変数の単位あたりの量に変換する**
+# 
+# 2つ目は変数 $X,\ Y$ を第3の変数 $ Z $ で割って，第3の変数の単位あたりの量に変換する方法である．
+# これにより，変数 $ X,\ Y $ と $ Z $ は無相関になる．
+# 例えば，第3の変数が人口の場合，人口１人あたりの $ X,\ Y $ に変換し，これらの相関を見ることで正しい相関関係を調べることができる．
+
+# **3. 偏相関係数を用いる**
+# 
+# 3つ目は**偏相関係数**を用いる方法である．
+# 偏相関係数とは，関係を調べたい2つの変数 $X,\ Y$ に対して第3の変数 $ Z $ の影響を取り除いた上で求めた相関係数である．
+# ここで，第3の変数 $ Z $ の影響を取り除くとは，変数 $X,\ Y$ と第3の変数 $ Z $ との相関関係が無相関になるように変数 $X,\ Y$ を変換するということである．
+# このためには，上で述べた単位あたりの量に変換する方法もあるが，偏相関係数を求める際には以下のように回帰直線の考え方が用いられる．
+# 
+# ```{admonition} 偏相関係数の導出
+# :class: dropdown
+# 
+# いま，データ $ (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) $ に対して $ (z_{1}, \ldots, z_{n}) $ の影響を除いた相関係数を考えたい．
+# これには，以下のように回帰直線の考え方を使う．
+# まず，$ Z $ による $ X,\ Y $ の予測値を
+# 
+# \begin{align*}
+# 	\hat{x}_{i} &= a z_{i} + b\\
+# 	\hat{y}_{i} &= c z_{i} + d
+# \end{align*}
+# 
+# とする（ $ a,\ b $ および $ c,\ d $ は一般に次節で扱う最小二乗法によって求める）．
+# このとき，$ Z $ の影響を除いた $ X,\ Y $ を $ \tilde{X},\ \tilde{Y} $ とすると，これらは残差
+# 
+# \begin{align*}
+# 	\tilde{x}_{i} &= x_{i} - \hat{x}_{i}\\
+# 	\tilde{y}_{i} &= y_{i} - \hat{y}_{i}
+# \end{align*}
+# 
+# によって与えられる．
+# このようにして，$ Z $ の影響を除いたデータ $ (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i}) $ は，$ Z $ と無相関になる．
+# 
+# 偏相関係数は $ Z $ の影響を除いた $ \tilde{X}, \tilde{Y} $ の相関係数 $ r_{\tilde{X}, \tilde{Y}} $ として定義されるが，実は $ r_{\tilde{X}, \tilde{Y}} $ は以下のように変数 $ X,\ Y,\ Z $ の相関係数を用いて以下のように表すことができる：
+# 
+# $$
+# 	r_{\tilde{X}, \tilde{Y}} = \frac{r_{XY} - r_{XZ} r_{YZ}}{\sqrt{(1-r_{XZ}^{2})(1-r_{YZ}^{2})}}
+# $$(eq:tpartial_correlation)
+# 
+# 証明には次節で扱う最小二乗法が必要となるのでここでは省略する（[ここ](https://manabitimes.jp/math/1400)を参照）．
+# ```
+
+# なお，第3の変数 $Z$ の影響を取り除いた結果，$X,\ Y$ の相関がなくなれば，それは擬似相関であり，２変数間に因果関係がないことが分かる．
+# 一方，第3の変数を取り除いても相関が大きいままの場合，相関関係が成立する可能性は高くなるが，２変数間に因果関係があるかについては何も言えない．
+# すなわち，偏相関係数が大きくてもそれが因果関係の存在を意味するわけではない．
+# また，第3の変数の影響によって見かけ上相関が発生する疑似相関とは逆に，第3の変数の影響によって見かけ上無相関となる**疑似無相関**も存在する．
+
+# ## 実例：警察職員数と刑法犯認知件数の関係 {cite}`竹村2019`
+
+# ### STEP1: Problem
+# - ある統計によると，警察官の数と犯罪の件数には正の相関があると言われている．
+# - では，これらの間に因果関係はあるだろうか？
+
+# ### STEP2, 3: Plan, Data
+
+# - 都道府県別の警察職員数と刑法犯認知件数について，これらの相関関係および因果関係の有無を調べる．
+# - 今回用いるデータ[（number_crime.csv）](https://drive.google.com/uc?export=download&id=1e77OcwY2VcyOPv60j8i2wdky54I4gvPC)をダウンロードせよ．
+# - このデータは以下から取得できる：
+#     - 都道府県別の刑法犯認知件数
+#         - [H27年，都道府県別刑法犯の認知件数，検挙件数，検挙人員](https://www.npa.go.jp/hakusyo/h27/data.html)
+#     - 都道府県別の警察職員数
+#         - [H27年，地方公共団体定員管理関係](https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/teiin/109981data.html)
+#     - 都道府県別の人口
+#          - [住民基本台帳に基づく人口，人口動態及び世帯数調査](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200241&tstat=000001039591&cycle=7&year=20150&month=0&tclass1=000001039601&result_back=1&tclass2val=0)
+
+# ### STEP4: Analysis
+
+# In[2]:
+
+
+# データの読み込み
+Crime = pd.read_csv('./number_crime.csv', index_col='p')
+
+
+# - 下図は2015年度の都道府県別警察職員数（$ X $）と刑法犯認知件数（$ Y $）の散布図を表している．
+# - この散布図を見ると確かに両者には正の相関関係があり，以下のように相関係数も大きくなる
 
 # In[16]:
 
 
-''' 平均気温とcos(緯度)の散布図 '''
-
-fig, ax = plt.subplots(figsize=(4, 3))
-
-# 最小二乗法による回帰直線
-p = optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T'])[0]
-print(p)
-ax.plot(np.cos(np.radians(D['L'])), fit_func(np.cos(np.radians(D['L'])), p[0], p[1]), 'r-')
-
-# 散布図
-ax.plot(np.cos(np.radians(D['L'])), D['T'], 'ko', mfc='None')
-ax.set_xlim(0.3, 1); ax.set_ylim(-15, 35)
-ax.set_xlabel('$\cos(L)$', fontsize=15)
-ax.set_ylabel('平均気温 $T$ （℃）')
-fig.savefig('./cos_lat_temp.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+fig, ax = plt.subplots()
+ax.plot(Crime['警察職員数']/10000, Crime['刑法犯認知件数']/10000, 'co', mfc='None')
+ax.set_xticks([0, 1, 2, 3, 4]); ax.set_yticks([0, 5, 10, 15])
+ax.set_xlabel('警察職員数 $X$（万人）')
+ax.set_ylabel('刑法犯認知件数 $Y$（万件）')
+fig.savefig('./police_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
-# In[17]:
+# In[6]:
 
 
-# cos(緯度)と平均気温の相関係数
-np.corrcoef(np.cos(np.radians(D['L'])), D['T'])
+# 相関係数
+Crime.corr()['刑法犯認知件数']['警察職員数']
 
 
-# **発展的な実習2：標高の調整**
-# - 一般に，標高が100m高くなると，気温は0.6℃低くなると言われている．そこで，高度調整済平均気温（標高0mでの平均気温）を $ T_{0}=T+0.006Z  $ によって求めよ
-# - $\cos(L)$ と高度調整済み平均気温 $ T_{0} $ の散布図を描け
-# - この散布図から相関係数を求めよ
-# - この散布図に対して回帰直線を引き，直線の式を求めよ
+# - では，このことから警察職員数（$ X $）と刑法犯認知件数（$ Y $）に因果関係があるといえるだろうか？
+# - これを調べるため，以下では都道府県の人口を第3の変数 $ Z $ と仮定し，警察職員数（$ X $）と刑法犯認知件数（$ Y $）の関係が疑似相関であるか調べる．
 
-# In[18]:
-
-
-# 高度調整済み平均気温の計算
-D['T0'] = D['T'] + 0.006 * D['Z']
-
+# **実習：人口（$ Z $）との散布図**
+# - 刑法犯認知件数（$ X $）と警察職員数（$ Y $）のそれぞれについて人口（$ Z $）との散布図を描け．
+# - これらの散布図の相関係数を求め，それが何を意味するか考察せよ．
 
 # In[19]:
 
 
-''' 高度調整済み平均気温とcos(緯度)の散布図 '''
-fig, ax = plt.subplots(figsize=(4, 3))
-
-# 最小二乗法による回帰直線
-p = optimize.curve_fit(fit_func, np.cos(np.radians(D['L'])), D['T0'])[0]
-print(p)
-ax.plot(np.cos(np.radians(D['L'])), fit_func(np.cos(np.radians(D['L'])), p[0], p[1]), 'r-')
-
-# 散布図
-ax.plot(np.cos(np.radians(D['L'])), D['T0'], 'ko', mfc='None')
-ax.set_xlim(0.3, 1); ax.set_ylim(-15, 35)
-ax.set_xlabel('$cos(L)$', fontsize=15)
-ax.set_ylabel('高度調整済み平均気温 $T_{0}$（℃）')
-fig.savefig('./cos_lat_temp2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+# 警察職員数（X）と人口（Z）の散布図
+fig, ax = plt.subplots()
+ax.plot(Crime['人口']/10000, Crime['警察職員数']/10000, 'co', mfc='None')
+ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 1, 2, 3, 4])
+ax.set_xlabel('人口 $Z$（万人）')
+ax.set_ylabel('警察職員数 $X$（万人）')
+fig.savefig('./pop_police.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
 
 
 # In[20]:
 
 
-# 相関係数
-np.corrcoef(np.cos(np.radians(D['L'])), D['T0'])
+# 警察職員数（X）と人口（Z）の相関係数
+Crime.corr()['人口']['警察職員数']
 
+
+# In[ ]:
+
+
+# 刑法犯認知件数（Y）と人口（Z）の散布図
+fig, ax = plt.subplots()
+ax.plot(Crime['人口']/10000, Crime['刑法犯認知件数']/10000, 'co', mfc='None')
+ax.set_xticks([0, 500, 1000]); ax.set_yticks([0, 5, 10, 15])
+ax.set_xlabel('人口 $Z$（万人）')
+ax.set_ylabel('刑法犯認知件数 $Y$（万件）')
+fig.savefig('./pop_crime.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+
+
+# In[21]:
+
+
+# 刑法犯認知件数（Y）と人口（Z）の相関係数
+Crime.corr()['人口']['刑法犯認知件数']
+
+
+# **実習：人口（$ Z $）の影響を取り除く方法１**
+# - 刑法犯認知件数と警察職員数の散布図について，人口が100万人未満，100万人以上200万人未満，200万人以上500万人未満で層別し，結果を考察せよ．
+
+# In[22]:
+
+
+cnd1 = (Crime['人口'] <  1000000)
+cnd2 = (Crime['人口'] >= 1000000) & (Crime['人口'] < 2000000)
+cnd3 = (Crime['人口'] >= 2000000) & (Crime['人口'] < 5000000)
+
+
+# In[23]:
+
+
+# 層別散布図
+fig, ax = plt.subplots()
+ax.plot(Crime.loc[cnd1, '警察職員数']/1000, Crime.loc[cnd1, '刑法犯認知件数']/10000, 'ko', mfc='None')
+ax.plot(Crime.loc[cnd2, '警察職員数']/1000, Crime.loc[cnd2, '刑法犯認知件数']/10000, 'co', mfc='None')
+ax.plot(Crime.loc[cnd3, '警察職員数']/1000, Crime.loc[cnd3, '刑法犯認知件数']/10000, 'mo', mfc='None')
+ax.set_xticks([0, 1, 2, 3, 4, 5, 6, 7]); ax.set_yticks([0, 1, 2, 3])
+ax.set_xlabel('警察職員数 $X$（千人）')
+ax.set_ylabel('刑法犯認知件数 $Y$（万件）')
+fig.savefig('./police_crime2.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+
+
+# **実習：人口（$ Z $）の影響を取り除く方法２**
+# - 人口1000人あたりの警察職員数と刑法犯罪認知件数に関する散布図を描いてその相関係数を求め，結果を考察せよ．
+
+# In[24]:
+
+
+# 人口1000人あたりの散布図
+fig, ax = plt.subplots()
+ax.plot(1000*Crime['警察職員数']/Crime['人口'], 1000*Crime['刑法犯認知件数']/Crime['人口'], 'co', mfc='None')
+ax.set_xticks([2, 2.5, 3, 3.5]); ax.set_yticks([0, 5, 10, 15])
+ax.set_xlabel('警察職員数 $X$（人口1000人あたり）')
+ax.set_ylabel('刑法犯認知件数 $Y$（人口1000人あたり）')
+fig.savefig('./police_crime3.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300) # 保存
+
+
+# **実習：人口（$ Z $）の影響を取り除く方法３**
+# - 人口の影響を除いた警察職員数と刑法犯認知件数の偏相関係数を求め，結果を考察せよ．
+
+# In[28]:
+
+
+# 偏相関係数（公式を用いる）
+r = Crime.corr()  # 各変数間の相関係数を求める
+cov = r['警察職員数']['刑法犯認知件数'] - r['警察職員数']['人口']*r['刑法犯認知件数']['人口'] # 分子
+denom = np.sqrt((1-r['警察職員数']['人口']**2)*(1-r['刑法犯認知件数']['人口']**2))  # 分母
+cov / denom
+
+
+# ### STEP 5: Conclusion
+# 
+# **実習**
+# - 解析の結果から，警察職員数と刑法犯認知件数の間の相関関係について考察せよ．
