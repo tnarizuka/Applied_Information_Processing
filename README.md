@@ -8,7 +8,7 @@
 - 科目群：専門科目・専門基礎科目群
 - 必選区分：選択
 
-## [講義ノート](https://tnarizuka.github.io/AIP_2022/)
+## [講義ノート](https://tnarizuka.github.io/Applied_Information_Processing/)
 
 本講義ノートは[Jupyter Book](https://jupyterbook.org/en/stable/intro.html)を用いて作られています
 
