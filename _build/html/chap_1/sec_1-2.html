@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.2. PPDACメソッドとレポートの書き方 &#8212; Applied Information Processing B 2022</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1.3. プログラミング環境の構築" href="sec_1-3.html" />
+    <link rel="prev" title="1.1. オーバービュー" href="sec_1-1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="ja">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-E0WHXY1NFV');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Information Processing B 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chap_1.html">
+   1. イントロダクション
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sec_1-1.html">
+     1.1. オーバービュー
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.2. PPDACメソッドとレポートの書き方
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sec_1-3.html">
+     1.3. プログラミング環境の構築
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_2/chap_2.html">
+   2. データの整理
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_3/chap_3.html">
+   3. 特性値の活用
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_4/chap_4.html">
+   4. 関係の度合い
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_5/chap_5.html">
+   5. 散布図・相関分析による問題解決
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference.html">
+   参考文献リスト
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/tnarizuka/Applied_Information_Processing"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_1/sec_1-2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chap_1/sec_1-2.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.2.1. PPDACメソッド
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   1.2.2. レポートとの対応
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   1.2.3. レポートの書き方
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     最低限遵守すること
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     各項目の書き方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     図・表について
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PPDACメソッドとレポートの書き方</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.2.1. PPDACメソッド
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   1.2.2. レポートとの対応
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   1.2.3. レポートの書き方
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     最低限遵守すること
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     各項目の書き方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     図・表について
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ppdac">
+<h1><span class="section-number">1.2. </span>PPDACメソッドとレポートの書き方<a class="headerlink" href="#ppdac" title="このヘッドラインへのパーマリンク">#</a></h1>
+<section id="id1">
+<h2><span class="section-number">1.2.1. </span>PPDACメソッド<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>PPDACメソッドとはProblem，Plan，Data，Analysis，Conclusionという科学的探求の手順を示したものである．カナダ・アメリカ・ニュージーランド等の学校教育で使用されている．本講義では，各テーマごとにデータ解析の実例を示すが，これらはPPDACメソッドに沿っている．以下に各ステップで行われる探求プロセスをまとめる．</p>
+<p><strong>STEP 1: Problem</strong></p>
+<p>第1ステップでは，まず関心のあるテーマを決め，そこでの課題を明らかにする．
+また，課題から問題の構造を明確にし，具体的な研究仮設（リサーチクエスチョン）を設定する．</p>
+<p><strong>STEP 2: Plan</strong></p>
+<p>第2ステップでは，研究仮設を明らかにするための分析の計画を立てる．具体的には，計測すべきデータや統計資料を決め，その収集計画を立てる．</p>
+<p><strong>STEP 3: Data</strong></p>
+<p>第3ステップでは，実際にデータを取得し，整理する．</p>
+<p><strong>STEP 4: Analysis</strong></p>
+<p>第4ステップでは，収集したデータを実際に分析する．分析の具体例としては，以下が挙げられる</p>
+<ul class="simple">
+<li><p>全体の傾向（分布）を見る</p></li>
+<li><p>条件の違いなどによってデータをグループに分け，比較する</p></li>
+<li><p>指標間の相関関係を見る</p></li>
+<li><p>指標間の因果関係を見る</p></li>
+<li><p>時間経過による変化を見る（時系列解析）</p></li>
+<li><p>対象を分類する（クラスタリング）</p></li>
+</ul>
+<p><strong>STEP 5: Coclusion</strong></p>
+<p>第5ステップでは，分析結果に基づいた考察や提言を行い，同時に新たな課題を明らかにする．最後に，最初に立てた研究仮設に対して判断や結論を示す．</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">1.2.2. </span>レポートとの対応<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>PPDACメソッドによる問題解決によって得られた結果はレポートや論文の形にまとめることになる．通常，レポートや論文は，Introduction（導入），Method（方法），Result（結果），Discussion（考察），Conclusion（結論），という手順でまとめる．</p>
+<p>PPDACメソッドとの対応関係はおおよそ以下のようになる：</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PPDAC</p></th>
+<th class="head"><p>レポート，論文</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Problem</p></td>
+<td><p>Introduction（導入，はじめに）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Plan, Data</p></td>
+<td><p>Method（方法）</p></td>
+</tr>
+<tr class="row-even"><td><p>Analysis</p></td>
+<td><p>Result（結果）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Coclusion</p></td>
+<td><p>Discussion（考察）, Conclusion（結論）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.2.3. </span>レポートの書き方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id4">
+<h3>最低限遵守すること<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>レポートとは，科学的な研究で得られた知見を，研究をやっていない人でも分かるようにまとめた<strong>フォーマルな報告書</strong>である．よって，<strong>見栄えが整っていることは大前提</strong>であり，その上で内容が伝わるように書く．最低限以下を遵守する：</p>
+<ul class="simple">
+<li><p>鉄則：当事者でなくても分かるように書く</p></li>
+<li><p>Word，LaTeX，などを使って書いても良いが，書式は統一する</p>
+<ul>
+<li><p>フォントや文字サイズを統一する，見出しをつける，数式エディタを使うなど</p></li>
+<li><p>ソフトを使いこなせないなら手書きのほうが良い</p></li>
+</ul>
+</li>
+<li><p>初めにレポートのタイトル，学籍番号・氏名を書く</p></li>
+<li><p>項目ごとに見出しをつける（PPDACメソッドに対応させる）</p></li>
+<li><p>本文は（この講義ノートのように）フォーマルな文章で過不足なく記述する</p>
+<ul>
+<li><p>省略記号やメモ書き，パワポのスライドのような記述はレポートとして相応しくない</p></li>
+</ul>
+</li>
+<li><p>ファイル形式はPDF（手書きの場合はスキャンしてPDF化する）</p></li>
+<li><p>レポートは1つのファイルにまとめ，ファイル名は<code class="docutils literal notranslate"><span class="pre">211k00000_narizuka.pdf</span></code>などとする</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>各項目の書き方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
+<ul class="simple">
+<li><p>Introduction（はじめに）</p>
+<ul>
+<li><p>一般的な話題から書き始め，レポートで扱う研究課題を明らかにする</p></li>
+<li><p>扱う課題がなぜ問題なのか，なぜ研究する必要があるのかを論理立てて説明する</p></li>
+<li><p>レポートの目的を簡潔に述べる</p></li>
+</ul>
+</li>
+<li><p>Method（方法）</p>
+<ul>
+<li><p>課題解決のために用いる方法について述べる</p></li>
+<li><p>どのようなデータを用いたのか？</p></li>
+<li><p>どのようにデータを集めたのか？</p></li>
+<li><p>データをどのような手法で解析したのか？</p></li>
+</ul>
+</li>
+<li><p>Result（結果）</p>
+<ul>
+<li><p>分析によって得られた結果について図や表を用いながらまとめる</p></li>
+<li><p>分析結果から直接分かることを中心に述べる</p></li>
+</ul>
+</li>
+<li><p>Discussion（議論）とConclusion（結論）</p>
+<ul>
+<li><p>分析結果に基づいた発展的な考察や提言について述べる</p></li>
+<li><p>新たな課題について述べる</p></li>
+<li><p>レポートの目的に対応させる形で結論を簡潔に述べる</p></li>
+<li><p>※ 個人の感想は書かなくて良い</p></li>
+</ul>
+</li>
+<li><p>参考文献</p>
+<ul>
+<li><p>書籍</p>
+<ul>
+<li><p>[1] 著者名，書籍のタイトル，出版社，出版年．</p></li>
+</ul>
+</li>
+<li><p>論文</p>
+<ul>
+<li><p>[2] 著者名，論文のタイトル，雑誌名，巻，出版年．</p></li>
+</ul>
+</li>
+<li><p>Webサイト</p>
+<ul>
+<li><p>[3] 著者名，ページ名，Webサイト名，URL，アクセス日．</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h3>図・表について<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h3>
+<ul class="simple">
+<li><p>図・表の番号，タイトルを入れる</p>
+<ul>
+<li><p>例）図1. テューキーの方式による箱ひげ図の例</p></li>
+</ul>
+</li>
+<li><p>本文でも詳細を説明する．</p>
+<ul>
+<li><p>例）図1は○○○についてまとめた図である．この図から△△△が分かる．</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chap_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="sec_1-1.html" title="前へ ページ">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">前へ</p>
+            <p class="prev-next-title"><span class="section-number">1.1. </span>オーバービュー</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sec_1-3.html" title="次へ ページ">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>プログラミング環境の構築</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
