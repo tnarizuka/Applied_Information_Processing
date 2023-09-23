@@ -6,57 +6,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.4. 散布図・相関分析による問題解決 &#8212; Applied Information Processing B 2022</title>
+    <title>5. 散布図・相関分析による問題解決 &#8212; Applied Information Processing B 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="参考文献リスト" href="../../reference.html" />
-    <link rel="prev" title="2.3. 関係の度合い" href="../sec_2-3/sec_2-3.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="参考文献リスト" href="../reference.html" />
+    <link rel="prev" title="4. 関係の度合い" href="../chap_4/chap_4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="ja">
     
@@ -99,21 +99,21 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
       
       
       <h1 class="site-logo" id="site-title">Applied Information Processing B 2022</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../chap_1/chap_1.html">
+  <a class="reference internal" href="../chap_1/chap_1.html">
    1. イントロダクション
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -123,58 +123,46 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../chap_1/sec_1-1.html">
+    <a class="reference internal" href="../chap_1/sec_1-1.html">
      1.1. オーバービュー
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../chap_1/sec_1-2.html">
+    <a class="reference internal" href="../chap_1/sec_1-2.html">
      1.2. PPDACメソッドとレポートの書き方
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../chap_1/sec_1-3.html">
+    <a class="reference internal" href="../chap_1/sec_1-3.html">
      1.3. プログラミング環境の構築
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../chap_2.html">
-   2. 記述統計学
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_2/chap_2.html">
+   2. データの整理
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-1/sec_2-1.html">
-     2.1. データの整理
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-2/sec_2-2.html">
-     2.2. 特性値の活用
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sec_2-3/sec_2-3.html">
-     2.3. 関係の度合い
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.4. 散布図・相関分析による問題解決
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_3/chap_3.html">
+   3. 特性値の活用
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap_4/chap_4.html">
+   4. 関係の度合い
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. 散布図・相関分析による問題解決
+  </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../reference.html">
+  <a class="reference internal" href="../reference.html">
    参考文献リスト
   </a>
  </li>
@@ -237,7 +225,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/tnarizuka/Applied_Information_Processing/main?urlpath=tree/docs/chap_2/sec_2-4/sec_2-4.ipynb"
+        <a href="https://mybinder.org/v2/gh/tnarizuka/Applied_Information_Processing/main?urlpath=tree/docs/chap_5/chap_5.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -247,7 +235,7 @@ title="Launch on Binder"
 
 <span class="headerbtn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img src="../_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
 </a>
@@ -297,7 +285,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_2/sec_2-4/sec_2-4.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_5/chap_5.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -325,7 +313,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/chap_2/sec_2-4/sec_2-4.ipynb"
+        <a href="../_sources/chap_5/chap_5.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,42 +374,42 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2.4.1. 単回帰モデル
+   5.1. 単回帰モデル
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   2.4.2. 最小二乗法
+   5.2. 最小二乗法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   2.4.3. 決定係数
+   5.3. 決定係数
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.4.4. 実例：都市の平均気温と緯度の関係
+   5.4. 実例：都市の平均気温と緯度の関係
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
-     STEP1: Problem
+     5.4.1. STEP1: Problem
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
-     STEP2: Plan
+     5.4.2. STEP2: Plan
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
-     STEP3: Data
+     5.4.3. STEP3: Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
-     STEP4: Analysis
+     5.4.4. STEP4: Analysis
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -443,7 +431,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
-     STEP5: Conclusion
+     5.4.5. STEP5: Conclusion
     </a>
    </li>
   </ul>
@@ -469,42 +457,42 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2.4.1. 単回帰モデル
+   5.1. 単回帰モデル
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   2.4.2. 最小二乗法
+   5.2. 最小二乗法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   2.4.3. 決定係数
+   5.3. 決定係数
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   2.4.4. 実例：都市の平均気温と緯度の関係
+   5.4. 実例：都市の平均気温と緯度の関係
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step1-problem">
-     STEP1: Problem
+     5.4.1. STEP1: Problem
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step2-plan">
-     STEP2: Plan
+     5.4.2. STEP2: Plan
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step3-data">
-     STEP3: Data
+     5.4.3. STEP3: Data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step4-analysis">
-     STEP4: Analysis
+     5.4.4. STEP4: Analysis
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -526,7 +514,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step5-conclusion">
-     STEP5: Conclusion
+     5.4.5. STEP5: Conclusion
     </a>
    </li>
   </ul>
@@ -569,18 +557,18 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">2.4. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1><span class="section-number">5. </span>散布図・相関分析による問題解決<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">2.4.1. </span>単回帰モデル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.1. </span>単回帰モデル<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>量的データ <span class="math notranslate nohighlight">\( X, Y \)</span> が与えられたとき，変数 <span class="math notranslate nohighlight">\( X \)</span> の値から <span class="math notranslate nohighlight">\( Y \)</span> の値を予測するための数式のことを<strong>回帰モデル</strong>と呼ぶ．
 また，<span class="math notranslate nohighlight">\( X \)</span> を<strong>説明変数</strong>（独立変数），<span class="math notranslate nohighlight">\( Y \)</span> を<strong>目的変数</strong>（従属変数，被説明変数）と呼ぶ．</p>
 <p>回帰モデルには様々な種類が存在するが，以下の散布図のように変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の間に直線関係が成り立ちそうな場合には，回帰モデルとして1次関数</p>
 <div class="math notranslate nohighlight" id="equation-eq-regression-line">
-<span class="eqno">(2.13)<a class="headerlink" href="#equation-eq-regression-line" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-regression-line" title="この数式へのパーマリンク">#</a></span>\[
 	\hat{y} = ax + b
 \]</div>
 <p>を用いるのが妥当である．
-このように１次関数による回帰モデルは<strong>単回帰モデル</strong>と呼ばれ，式<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>の直線のことは<strong>回帰直線</strong>と呼ばれる．
+このように１次関数による回帰モデルは<strong>単回帰モデル</strong>と呼ばれ，式<a class="reference internal" href="#equation-eq-regression-line">(5.1)</a>の直線のことは<strong>回帰直線</strong>と呼ばれる．
 また，<span class="math notranslate nohighlight">\( a,\ b \)</span> は回帰直線の切片と傾きを表すパラメータであり，<strong>回帰係数</strong>と呼ばれる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -606,17 +594,17 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$Y$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_5_1.png" src="../../_images/sec_2-4_5_1.png" />
+<img alt="../_images/chap_5_5_1.png" src="../_images/chap_5_5_1.png" />
 </div>
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.4.2. </span>最小二乗法<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(2.13)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
+<h2><span class="section-number">5.2. </span>最小二乗法<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>１つの説明変数と目的変数から成る <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots, (x_{n}, y_{n}) \)</span> が与えられたとき，単回帰モデル<a class="reference internal" href="#equation-eq-regression-line">(5.1)</a>を用いてデータから最適な回帰直線を求めることを<strong>単回帰分析</strong>と呼ぶ（説明変数が複数ある場合は重回帰分析と呼ぶ）．
 単回帰分析には様々な方法があるが，最も基本的な方法が<strong>最小二乗法</strong>である．</p>
 <p>最小二乗法では，予測値 <span class="math notranslate nohighlight">\( \hat{y}_{i}=ax_{i}+b \)</span> と実データ <span class="math notranslate nohighlight">\( y_{i} \)</span> の差の二乗和</p>
 <div class="math notranslate nohighlight" id="equation-eq-rss">
-<span class="eqno">(2.14)<a class="headerlink" href="#equation-eq-rss" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-rss" title="この数式へのパーマリンク">#</a></span>\[
 	E(a, b) = \sum_{i=1}^{n}(ax_{i}+b-y_{i})^{2}
 \]</div>
 <p>が最小となるように回帰係数 <span class="math notranslate nohighlight">\( a,\ b \)</span> を選ぶ．
@@ -695,12 +683,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_11_0.png" src="../../_images/sec_2-4_11_0.png" />
+<img alt="../_images/chap_5_11_0.png" src="../_images/chap_5_11_0.png" />
 </div>
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">2.4.3. </span>決定係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.3. </span>決定係数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p><span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}), \ldots (x_{n}, y_{n}) \)</span> に対して，データ <span class="math notranslate nohighlight">\( Y \)</span> のばらつきを</p>
 <div class="math notranslate nohighlight">
 \[
@@ -708,7 +696,7 @@ title="Print to PDF"
 \]</div>
 <p>と定義する．
 これを<strong>全変動</strong>と呼ぶ．
-また，実データと予測値のズレは残差変動<a class="reference internal" href="#equation-eq-rss">(2.14)</a>によって表される．
+また，実データと予測値のズレは残差変動<a class="reference internal" href="#equation-eq-rss">(5.2)</a>によって表される．
 ここでは，残差変動を</p>
 <div class="math notranslate nohighlight">
 \[
@@ -717,7 +705,7 @@ title="Print to PDF"
 <p>と表す．</p>
 <p>このとき，回帰直線のデータへの当てはまりの良さを</p>
 <div class="math notranslate nohighlight" id="equation-eq-r2">
-<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-r2" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-r2" title="この数式へのパーマリンク">#</a></span>\[
 	R^{2} = 1 - \frac{S_{e}^{2}}{S_{y}^{2}}
 \]</div>
 <p>で定義する．
@@ -761,30 +749,30 @@ title="Print to PDF"
 </div>
 </section>
 <section id="id5">
-<h2><span class="section-number">2.4.4. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.4. </span>実例：都市の平均気温と緯度の関係<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="step1-problem">
-<h3>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>地球上では，赤道付近は暑く，極地に近づくほど寒くなる．</p></li>
 <li><p>世界の様々な地域の年間平均気温はどのように決まっているのだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-plan">
-<h3>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.4.2. </span>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>世界の各地域で年間平均気温は異なっている．</p></li>
-<li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられ，これらは<a class="reference internal" href="#fig-fishbone"><span class="std std-numref">図 2.6</span></a>のようにまとめることができる（これを<strong>特性要因図</strong>と呼ぶ）．</p></li>
+<li><p>各地域での年間平均気温に影響を与える要因は，各地域の地球上での位置，都市の自然環境，人間活動などが考えられ，これらは<a class="reference internal" href="#fig-fishbone"><span class="std std-numref">図 5.1</span></a>のようにまとめることができる（これを<strong>特性要因図</strong>と呼ぶ）．</p></li>
 <li><p>以下では，各都市の地球上での緯度と標高に着目し，年間平均気温との関係を探る．</p></li>
 </ul>
 <figure class="align-default" id="fig-fishbone">
-<a class="reference internal image-reference" href="../../_images/fishbone.png"><img alt="../../_images/fishbone.png" src="../../_images/fishbone.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/fishbone.png"><img alt="../_images/fishbone.png" src="../_images/fishbone.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 2.6 </span><span class="caption-text">特性要因図</span><a class="headerlink" href="#fig-fishbone" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 5.1 </span><span class="caption-text">特性要因図</span><a class="headerlink" href="#fig-fishbone" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step3-data">
-<h3>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.4.3. </span>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>ここでは，理科年表から取得した世界25都市のデータ（<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1eBbmZSCgVKF61s85kGyrofrLApdO-95J">data_25city.csv</a>）を用いる．</p></li>
 <li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p>
@@ -922,7 +910,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="step4-analysis">
-<h3>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.4.4. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
 <section id="id6">
 <h4>平均気温と標高の散布図<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h4>
 <ul class="simple">
@@ -943,7 +931,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_24_0.png" src="../../_images/sec_2-4_24_0.png" />
+<img alt="../_images/chap_5_24_0.png" src="../_images/chap_5_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1029,7 +1017,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/sec_2-4_27_0.png" src="../../_images/sec_2-4_27_0.png" />
+<img alt="../_images/chap_5_27_0.png" src="../_images/chap_5_27_0.png" />
 </div>
 </div>
 </section>
@@ -1072,7 +1060,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_30_1.png" src="../../_images/sec_2-4_30_1.png" />
+<img alt="../_images/chap_5_30_1.png" src="../_images/chap_5_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1092,7 +1080,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="step5-conclusion">
-<h3>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.4.5. </span>STEP5: Conclusion<a class="headerlink" href="#step5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
 <ul class="simple">
 <li><p>各都市の年間平均気温と緯度の関係を散布図によって調べた結果，緯度の２乗に対して直線関係があることが分かった．</p></li>
 <li><p>これより，年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> と緯度 <span class="math notranslate nohighlight">\( L \)</span> の関数関係は以下のように推定できる：
@@ -1132,7 +1120,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_34_1.png" src="../../_images/sec_2-4_34_1.png" />
+<img alt="../_images/chap_5_34_1.png" src="../_images/chap_5_34_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1187,7 +1175,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<img alt="../../_images/sec_2-4_38_1.png" src="../../_images/sec_2-4_38_1.png" />
+<img alt="../_images/chap_5_38_1.png" src="../_images/chap_5_38_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1221,7 +1209,7 @@ $<span class="math notranslate nohighlight">\(
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chap_2/sec_2-4"
+            path: "./chap_5"
         },
         predefinedOutput: true
     }
@@ -1235,14 +1223,14 @@ $<span class="math notranslate nohighlight">\(
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../sec_2-3/sec_2-3.html" title="前へ ページ">
+    <a class='left-prev' id="prev-link" href="../chap_4/chap_4.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">前へ</p>
-            <p class="prev-next-title"><span class="section-number">2.3. </span>関係の度合い</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>関係の度合い</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../reference.html" title="次へ ページ">
+    <a class='right-next' id="next-link" href="../reference.html" title="次へ ページ">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title">参考文献リスト</p>
@@ -1271,7 +1259,7 @@ $<span class="math notranslate nohighlight">\(
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
