@@ -4,7 +4,7 @@ plugins:
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Applied Information Processing B 2022
+title: Applied Information Processing
 author: ""
 copyright: "2021-present by 成塚拓真（Takuma Narizuka）"
 # logo: logo.png
