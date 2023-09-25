@@ -3,7 +3,7 @@
 
 # 使用するモジュールのimport
 
-# In[2]:
+# In[1]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
-plt.rcParams['font.family'] = 'Hiragino Sans'
+plt.rcParams['font.family'] = 'MS Gothic'
 
 # 表記の設定
 pd.set_option('display.precision', 3)   # 小数点以下の表示桁

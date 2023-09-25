@@ -13,7 +13,7 @@ import scipy as sp
 from scipy import optimize
 
 # 日本語フォントの設定（Mac:'Hiragino Sans', Windows:'MS Gothic'）
-plt.rcParams['font.family'] = 'Hiragino Sans'
+plt.rcParams['font.family'] = 'MS Gothic'
 
 # 表記の設定
 pd.set_option('display.precision', 3)   # 小数点以下の表示桁
