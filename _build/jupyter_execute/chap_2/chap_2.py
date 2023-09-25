@@ -115,15 +115,15 @@ get_ipython().run_line_magic('precision', '3')
 # 練習として，以下のコードを実行してみよう．
 # カレントディレクトリの中に`test.pdf`というファイルができるはずである．
 
-# In[3]:
+# In[7]:
 
-
-import numpy as np
-import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(3.5, 3))
 x = np.arange(-np.pi, np.pi, 0.01)
 ax.plot(x, np.sin(x))
+ax.set_xlabel('横軸') # 横軸のラベル
+ax.set_ylabel('縦軸') # 縦軸のラベル
+ax.set_title('三角関数のグラフ', fontsize=12) # タイトル
 
 fig.savefig('./test.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 
@@ -177,12 +177,12 @@ fig.savefig(, bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 # 以下のように，好きな日本語フォントを使用できるが，WindowsやMacによって使用可能なフォントが異なるので注意する．
 # フォントにこだわりがなければ，Windowsの場合は'MS Gothic'，Macの場合は'Hiragino Sans'としておけば良い．
 
-# In[2]:
+# In[8]:
 
 
 # 日本語フォントの設定（Mac:'Hiragino Sans'，Windows: 'MS Gothic'）
 import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = 'Hiragino Sans'
+plt.rcParams['font.family'] = 'MS Gothic'
 
 
 # **2. japanize_matplotlib を利用する（pipでインストールする必要がある）**
