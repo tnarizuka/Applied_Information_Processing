@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[23]:
+# In[31]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -20,7 +20,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[10]:
+# In[28]:
 
 
 # アヤメデータをPandasに読み込む
@@ -416,12 +416,12 @@ Q[3] - Q[1]
 # まず，各人物を所得の小さい順に並べて$ n $個の階級に等分する．
 # その上で，下から$ i $番目の階級の度数（人数）を$ x_{i} $，累積相対度数を$ X_{i} $とする．
 # ここで，累積相対度数$ X_{i} $とは，下から$ i $までの階級に属する人物が全体に占める比率である．
-# 同様にして，階級$ i $の平均所得を$ y_{i} $，平均所得の累積比率を$ Y_{i} $とする．
+# 同様にして，階級$ i $の平均所得を$ y_{i} $，平均所得の累積相対度数（累積比率）を$ Y_{i} $とする．
 # この場合，$ Y_{i} $は下から$ i $までの階級の平均所得が全体に占める比率となる．
 # 
 # 例えば，100人の集団を4つの階級（$n=4$）に等分した場合は以下のようになる（所得は適当に設定している）．
 
-# In[3]:
+# In[25]:
 
 
 x = np.array([25, 25, 25, 25])
@@ -430,15 +430,15 @@ y = np.array([150, 250, 400, 800])
 Y = np.cumsum(y) / np.sum(y)
 
 
-# In[7]:
+# In[26]:
 
 
 pd.DataFrame(np.c_[x, X, y, Y],
-             columns=['度数x', '累積相対度数X', '平均所得y', '平均所得の累積比率Y'],
+             columns=['度数x', '累積相対度数X', '平均所得y', '平均所得の累積相対度数Y'],
              index=[1,2,3,4])
 
 
-# 次に，横軸に階級の累積相対度数$ X_{i} $，縦軸に平均所得の累積比率$ Y_{i} $を取ったグラフを考える．
+# 次に，横軸に階級の累積相対度数$ X_{i} $，縦軸に平均所得の累積相対度数$ Y_{i} $を取ったグラフを考える．
 # これを**ローレンツ曲線**と呼ぶ．
 # ローレンツ曲線の横軸，縦軸は（比率なので）0から1の範囲であり，必ず両端が$ (0, 0) $と$ (1, 1) $の折れ線グラフとなる．
 # ローレンツ曲線上の$ (X, Y) $という点は，集団全体の貧しい側から$ X\times100 $\%の人が全体の$ Y\times100 $\%の所得を占めることを表す．
@@ -447,7 +447,7 @@ pd.DataFrame(np.c_[x, X, y, Y],
 # 一方，所得の配分に格差があるほどローレンツ曲線は完全平等線から下にずれていく．
 # このように，ローレンツ曲線はある集団における所得の配分格差を可視化したグラフといえる．
 
-# In[12]:
+# In[29]:
 
 
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -460,7 +460,7 @@ ax.plot([0, 1], [0, 1], '-')
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.set_xlabel(u'階級の累積相対度数', fontsize=15)
-ax.set_ylabel(u'所得の累積比率', fontsize=15);
+ax.set_ylabel(u'所得の累積相対度数', fontsize=15);
 fig.savefig('./lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 
 
@@ -531,7 +531,7 @@ fig.savefig('./lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=Tr
 
 # ```{table} $ n=3 $の場合の度数分布表
 # :name: tb:n=3
-# |  階級  | 累積相対度数（横軸） | 所得の累積比率（縦軸） |
+# |  階級  | 累積相対度数（横軸） | 所得の累積相対度数（縦軸） |
 # | :---: | :---: | :---: |
 # | 1    |  $1/3$ | $\alpha_{1}=\frac{y_{1}}{y_{1}+y_{2}+y_{3}}$ |
 # | 2   | $2/3$ | $\alpha_{1}=\frac{y_{1}+y_{2}}{y_{1}+y_{2}+y_{3}}$ |
@@ -667,7 +667,7 @@ g = np.fabs(np.add.outer(y, -y)).sum() / np.mean(y) / 2 / len(y)**2
 print(g)
 
 
-# In[20]:
+# In[30]:
 
 
 fig, ax = plt.subplots()
@@ -678,7 +678,7 @@ ax.plot([0, 1], [0, 1], '-')
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.set_xlabel(u'階級の累積相対度数')
-ax.set_ylabel(u'平均所得の累積比率')
+ax.set_ylabel(u'平均所得の累積相対度数')
 
 fig.savefig('./lorenz_curve.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
