@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[23]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -20,7 +20,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[11]:
+# In[10]:
 
 
 # アヤメデータをPandasに読み込む
@@ -421,7 +421,7 @@ Q[3] - Q[1]
 # 
 # 例えば，100人の集団を4つの階級（$n=4$）に等分した場合は以下のようになる（所得は適当に設定している）．
 
-# In[4]:
+# In[3]:
 
 
 x = np.array([25, 25, 25, 25])
@@ -430,7 +430,7 @@ y = np.array([150, 250, 400, 800])
 Y = np.cumsum(y) / np.sum(y)
 
 
-# In[8]:
+# In[7]:
 
 
 pd.DataFrame(np.c_[x, X, y, Y],
@@ -447,7 +447,7 @@ pd.DataFrame(np.c_[x, X, y, Y],
 # 一方，所得の配分に格差があるほどローレンツ曲線は完全平等線から下にずれていく．
 # このように，ローレンツ曲線はある集団における所得の配分格差を可視化したグラフといえる．
 
-# In[9]:
+# In[12]:
 
 
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -461,7 +461,7 @@ ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.set_xlabel(u'階級の累積相対度数', fontsize=15)
 ax.set_ylabel(u'所得の累積比率', fontsize=15);
-# fig.savefig('./figure/lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
+fig.savefig('./lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=True, dpi=300)
 
 
 # ### ジニ係数
@@ -540,7 +540,7 @@ ax.set_ylabel(u'所得の累積比率', fontsize=15);
 
 # **Pythonによる実装**
 
-# In[39]:
+# In[13]:
 
 
 # 面積から求める
@@ -552,7 +552,7 @@ G = (S1 - S2) / S1
 G
 
 
-# In[40]:
+# In[14]:
 
 
 # 公式から求める
@@ -586,7 +586,7 @@ G
 #   - そこで，異なる基準のデータが適切に接続するように，一部推定値を用いている．
 # - 読み込んだ所得のデータは単位が千円になっているので，万円に直せ．
 
-# In[27]:
+# In[15]:
 
 
 PI = pd.read_csv('prefectural_income.csv', index_col='p')
@@ -601,7 +601,7 @@ PI
 # - 各年度に対して1人あたり県民所得の平均と標準偏差を求め，時系列変化を同じグラフ上にプロットせよ．
 # - 1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？標準偏差の特徴を踏まえた上で平均値の変化と関連付けて考えよ．
 
-# In[29]:
+# In[17]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -616,7 +616,7 @@ ax.set_ylabel('1人あたり県民所得の平均（万円）')
 ax2 = ax.twinx()
 ax2.plot(PI.columns, PI.std(), 'r--')
 ax2.set_ylim(0, 70)
-ax2.set_ylabel('1人あたり県民所得の標準偏差（万円）', color='r')
+ax2.set_ylabel('1人あたり県民所得の標準偏差（万円）', color='r', rotation=270, labelpad=15)
 
 # 保存
 fig.savefig('./ave_std.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
@@ -626,7 +626,7 @@ fig.savefig('./ave_std.png', bbox_inches="tight", pad_inches=0.2, transparent=Fa
 # - 全年度に対して1人あたり県民所得の標準偏差と変動係数を求め，時系列変化を同じグラフ上にプロットせよ．
 # - 変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．
 
-# In[30]:
+# In[18]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -641,7 +641,7 @@ ax.set_ylabel('1人あたり県民所得の標準偏差（万円）', fontname='
 ax2 = ax.twinx()
 ax2.plot(PI.columns, PI.std()/PI.mean(), 'r--')
 ax2.set_ylim(0, 0.2)
-ax2.set_ylabel('1人あたり県民所得の変動係数', fontname='IPAexGothic', color='r')
+ax2.set_ylabel('1人あたり県民所得の変動係数', fontname='IPAexGothic', color='r', rotation=270, labelpad=15)
 
 fig.savefig('./std_cv.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
 
@@ -653,7 +653,7 @@ fig.savefig('./std_cv.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # 2013年度のローレンツ曲線とジニ係数
 
-# In[36]:
+# In[19]:
 
 
 x = np.ones(47)
@@ -667,7 +667,7 @@ g = np.fabs(np.add.outer(y, -y)).sum() / np.mean(y) / 2 / len(y)**2
 print(g)
 
 
-# In[32]:
+# In[20]:
 
 
 fig, ax = plt.subplots()
@@ -685,7 +685,7 @@ fig.savefig('./lorenz_curve.png', bbox_inches="tight", pad_inches=0.2, transpare
 
 # ジニ係数の時間変化
 
-# In[33]:
+# In[21]:
 
 
 # ジニ係数の計算（公式を使う）
@@ -700,7 +700,7 @@ for t in PI.columns:
     G.append(g)
 
 
-# In[34]:
+# In[22]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -715,7 +715,7 @@ ax.set_ylabel('1人あたり県民所得の変動係数')
 ax2 = ax.twinx()
 ax2.plot(PI.columns, np.array(G), 'r--', label='ジニ係数')
 ax2.set_ylim(0.05, 0.1)
-ax2.set_ylabel('1人あたり県民所得のジニ係数', color='r')
+ax2.set_ylabel('1人あたり県民所得のジニ係数', color='r', rotation=270, labelpad=15)
 
 # 保存
 fig.savefig('./gini.png', bbox_inches="tight", pad_inches=0.2, transparent=False, dpi=300)
