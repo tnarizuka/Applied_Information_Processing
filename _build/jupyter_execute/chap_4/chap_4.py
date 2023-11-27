@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[31]:
+# In[62]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -20,7 +20,7 @@ pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
 
-# In[28]:
+# In[34]:
 
 
 # アヤメデータをPandasに読み込む
@@ -58,7 +58,7 @@ Iris.columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
 # このデータに対し，式{eq}`eq:arithmetic_mean`を当てはめれば算術平均を計算することができる．
 # 例えば，アヤメのがく片の幅（Sepal Width）のデータの場合，平均値は $ \bar{x}=3.054 $ cm，アヤメの花弁の幅（Petal Width）のデータの場合，平均値は $ \bar{x}=1.199 $ cmとなる．
 
-# In[16]:
+# In[35]:
 
 
 # アヤメのがく片の長さの平均（Pandasのmeanメソッドを用いる）
@@ -133,7 +133,7 @@ for i in ['Sepal Width', 'Petal Width']:
 # 幾何平均の定義をそのまま適用すると，全データの積を計算する必要がありその結果が巨大な数となる可能性がある．
 # この場合，オーバーフローを起こすことがあるので，以下のように対数を取ってから算術平均を計算し，最後に元に戻すとうまくいく．
 
-# In[18]:
+# In[36]:
 
 
 x = np.log(Iris['Sepal Length'])
@@ -142,7 +142,7 @@ np.exp(np.sum(x)/len(x))
 
 # 以下のように`scipy`を使う方法もある．
 
-# In[19]:
+# In[37]:
 
 
 from scipy.stats.mstats import gmean
@@ -165,7 +165,7 @@ gmean(Iris['Sepal Length'])
 
 # **Pythonによる実装**
 
-# In[20]:
+# In[38]:
 
 
 # 最頻値の計算（Pandasのmedianメソッドを用いる）
@@ -181,7 +181,7 @@ Iris['Sepal Length'].median()
 
 # **Pythonによる実装**
 
-# In[21]:
+# In[39]:
 
 
 # 最頻値の計算（Pandasのmodeメソッドを用いる）
@@ -193,7 +193,7 @@ Iris['Sepal Length'].mode()
 # データの特性を知りたい場合，中心を表す特性値だけでは情報不足であり，中心からどの程度ばらついているかも考慮しなければならない．
 # 例えば，以下の3つのデータは中心を表す算術平均，中央値，最頻値がすべて5であるが，分布の形状は異なる．
 
-# In[22]:
+# In[40]:
 
 
 # 3つのデータを作成
@@ -202,7 +202,7 @@ x_B = np.array([0,1,2,3,5,5,7,8,9,10])
 x_C = np.array([3,4,4,5,5,5,5,6,6,7])
 
 
-# In[23]:
+# In[41]:
 
 
 # 各データの平均値，中央値，最頻値を求める
@@ -212,7 +212,7 @@ print(np.mean(x_B), np.median(x_B), stats.mode(x_B))
 print(np.mean(x_C), np.median(x_C), stats.mode(x_C))
 
 
-# In[24]:
+# In[42]:
 
 
 # 各データのヒストグラムを描く
@@ -245,7 +245,7 @@ for x in [x_A, x_B, x_C]:
 
 # **Pythonによる実装**
 
-# In[25]:
+# In[43]:
 
 
 print(np.fabs(x_A - x_A.mean()).mean())
@@ -308,7 +308,7 @@ print(np.fabs(x_C - x_C.mean()).mean())
 
 # **Pythonによる実装**
 
-# In[26]:
+# In[44]:
 
 
 # 分散（numpyのvar関数を用いる）
@@ -317,14 +317,14 @@ print(np.var(x_B))
 print(np.var(x_C))
 
 
-# In[27]:
+# In[45]:
 
 
 # 分散（Pandasを用いる）
 Iris['Sepal Length'].var()
 
 
-# In[9]:
+# In[46]:
 
 
 # 標準偏差（numpyのstd関数を用いる）
@@ -333,7 +333,7 @@ print(np.std(x_B))
 print(np.std(x_C))
 
 
-# In[28]:
+# In[47]:
 
 
 # 標準偏差（Pandasを用いる）
@@ -373,7 +373,7 @@ Iris['Sepal Length'].std()
 
 # **Pythonによる実装**
 
-# In[12]:
+# In[48]:
 
 
 print(np.std(x_A)/np.mean(x_A))
@@ -396,7 +396,7 @@ print(np.std(x_C)/np.mean(x_C))
 
 # **Pythonによる実装**
 
-# In[21]:
+# In[49]:
 
 
 # 最小値，第1四分位数，中央値，第3四分位数，最大値
@@ -421,7 +421,7 @@ Q[3] - Q[1]
 # 
 # 例えば，100人の集団を4つの階級（$n=4$）に等分した場合は以下のようになる（所得は適当に設定している）．
 
-# In[25]:
+# In[50]:
 
 
 x = np.array([25, 25, 25, 25])
@@ -430,7 +430,7 @@ y = np.array([150, 250, 400, 800])
 Y = np.cumsum(y) / np.sum(y)
 
 
-# In[26]:
+# In[51]:
 
 
 pd.DataFrame(np.c_[x, X, y, Y],
@@ -447,7 +447,7 @@ pd.DataFrame(np.c_[x, X, y, Y],
 # 一方，所得の配分に格差があるほどローレンツ曲線は完全平等線から下にずれていく．
 # このように，ローレンツ曲線はある集団における所得の配分格差を可視化したグラフといえる．
 
-# In[29]:
+# In[52]:
 
 
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -540,7 +540,7 @@ fig.savefig('./lorentz.pdf', bbox_inches="tight", pad_inches=0.2, transparent=Tr
 
 # **Pythonによる実装**
 
-# In[13]:
+# In[53]:
 
 
 # 面積から求める
@@ -552,7 +552,7 @@ G = (S1 - S2) / S1
 G
 
 
-# In[14]:
+# In[54]:
 
 
 # 公式から求める
@@ -586,7 +586,7 @@ G
 #   - そこで，異なる基準のデータが適切に接続するように，一部推定値を用いている．
 # - 読み込んだ所得のデータは単位が千円になっているので，万円に直せ．
 
-# In[15]:
+# In[55]:
 
 
 PI = pd.read_csv('prefectural_income.csv', index_col='p')
@@ -601,7 +601,7 @@ PI
 # - 各年度に対して1人あたり県民所得の平均と標準偏差を求め，時系列変化を同じグラフ上にプロットせよ．
 # - 1975年〜91年の標準偏差は一貫して増加しており，格差は拡大しているように見えるが，本当にそう言えるか？標準偏差の特徴を踏まえた上で平均値の変化と関連付けて考えよ．
 
-# In[17]:
+# In[56]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -626,7 +626,7 @@ fig.savefig('./ave_std.png', bbox_inches="tight", pad_inches=0.2, transparent=Fa
 # - 全年度に対して1人あたり県民所得の標準偏差と変動係数を求め，時系列変化を同じグラフ上にプロットせよ．
 # - 変動係数の変化から，1975年〜91年および全期間にかけて格差が増加しているか考えよ．
 
-# In[18]:
+# In[57]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
@@ -653,7 +653,7 @@ fig.savefig('./std_cv.png', bbox_inches="tight", pad_inches=0.2, transparent=Fal
 
 # 2013年度のローレンツ曲線とジニ係数
 
-# In[19]:
+# In[58]:
 
 
 x = np.ones(47)
@@ -667,7 +667,7 @@ g = np.fabs(np.add.outer(y, -y)).sum() / np.mean(y) / 2 / len(y)**2
 print(g)
 
 
-# In[30]:
+# In[59]:
 
 
 fig, ax = plt.subplots()
@@ -685,7 +685,7 @@ fig.savefig('./lorenz_curve.png', bbox_inches="tight", pad_inches=0.2, transpare
 
 # ジニ係数の時間変化
 
-# In[21]:
+# In[60]:
 
 
 # ジニ係数の計算（公式を使う）
@@ -700,7 +700,7 @@ for t in PI.columns:
     G.append(g)
 
 
-# In[22]:
+# In[61]:
 
 
 fig, ax = plt.subplots(figsize=(7, 3))
