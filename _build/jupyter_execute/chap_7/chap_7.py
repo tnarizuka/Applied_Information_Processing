@@ -21,3 +21,5 @@ pd.set_option('display.max_rows', 20)  # 表示する行数
 pd.set_option('display.max_columns', 10)  # 表示する行数
 get_ipython().run_line_magic('precision', '3')
 
+
+# # 確率の応用
