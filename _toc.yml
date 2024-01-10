@@ -14,7 +14,7 @@ parts:
   - file: chap_4/chap_4.ipynb
   - file: chap_5/chap_5.ipynb
   - file: chap_6/chap_6.ipynb
-  - file: chap_7/chap_7.ipynb
+  # - file: chap_7/chap_7.ipynb
 - caption:
   numbered: False
   chapters:
