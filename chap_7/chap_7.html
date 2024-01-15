@@ -396,16 +396,23 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#id8">
      7.2.2. 分散
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       例）宝くじ
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id10">
    7.3. 代表的な離散型確率分布
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id11">
    7.4. 代表的な連続型確率分布
   </a>
  </li>
@@ -464,16 +471,23 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#id8">
      7.2.2. 分散
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       例）宝くじ
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id10">
    7.3. 代表的な離散型確率分布
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id11">
    7.4. 代表的な連続型確率分布
   </a>
  </li>
@@ -520,28 +534,28 @@ title="Print to PDF"
 <h2><span class="section-number">7.1. </span>確率変数と確率分布<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <section id="id3">
 <h3><span class="section-number">7.1.1. </span>確率変数<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>確率を数学的に扱うには，確率的な事象が数値で表されている必要がある．
-例えば，サイコロを投げる場合，目の数字を変数と見なすと，各事象には1から6までの整数値が与えられることになる．
-また，雨が降る，降らないといった事象の場合には，「降る」を1，「降らない」を0とすれば変数となり得る．
-このように，確率的な事象に数値を対応させた変数 <span class="math notranslate nohighlight">\( X \)</span> に対して <span class="math notranslate nohighlight">\( X=x \)</span> となる確率が定まっているとき，<span class="math notranslate nohighlight">\( X \)</span>を<strong>確率変数</strong>と呼ぶ．
-一般に，確率変数 <span class="math notranslate nohighlight">\( X \)</span> は大文字で表し，個々の試行の結果（確率変数の<strong>実現値</strong>）は小文字で表す．
-もし，確率変数 <span class="math notranslate nohighlight">\( X \)</span> が離散的な値 <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ \cdots \)</span> しか取らないとき（サイコロの目など），<span class="math notranslate nohighlight">\( X \)</span>を<strong>離散型確率変数</strong>と呼ぶ．
+<p>確率を数学的に扱うには，確率的な事象を数値で表わし，その数値に対して確率が定まっている必要がある．
+例えば，サイコロを投げる場合，目の数字を変数と見なすと，各事象には1から6までの整数値が与えられ，それぞれの事象の確率は1/6である．
+このように，確率的な事象に数値を対応させた変数 <span class="math notranslate nohighlight">\( X \)</span> に対して <span class="math notranslate nohighlight">\( X=x \)</span> となる確率が定まっているとき，<span class="math notranslate nohighlight">\( X \)</span> を<strong>確率変数</strong>と呼ぶ．
+一般に，確率変数 <span class="math notranslate nohighlight">\( X \)</span> は大文字で表し，その<strong>実現値</strong>（個々の試行の結果）は小文字で表す．
+もし，確率変数 <span class="math notranslate nohighlight">\( X \)</span> が離散的な値 <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ \cdots \)</span> しか取らないとき（サイコロの目など），<span class="math notranslate nohighlight">\( X \)</span> を<strong>離散型確率変数</strong>と呼ぶ．
 一方，<span class="math notranslate nohighlight">\( X \)</span> が連続値を取る場合（重さ，長さ，時間など）は<strong>連続型確率変数</strong>と呼ぶ．</p>
 </section>
 <section id="id4">
 <h3><span class="section-number">7.1.2. </span>離散型確率分布<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>離散型確率変数 <span class="math notranslate nohighlight">\( X \)</span> が実現値 <span class="math notranslate nohighlight">\( x_{i} \)</span> を取る確率を
-$<span class="math notranslate nohighlight">\(
-	P(X=x_{i}) = f(x_{i}) \hspace{0.5cm} (i=1,2,\cdots)
-\)</span>$</p>
+<p>離散型確率変数 <span class="math notranslate nohighlight">\( X \)</span> が実現値 <span class="math notranslate nohighlight">\( x_{i} \)</span> を取る確率を</p>
+<div class="math notranslate nohighlight">
+\[
+	P(X=x_{i}) = f(x_{i})
+\]</div>
 <p>と表す．
 ただし，<span class="math notranslate nohighlight">\( f \)</span> は以下の条件を満たすとする：</p>
 <div class="math notranslate nohighlight">
 \[
 	f(x_{i}) \geq 0, \hspace{0.5cm}かつ \hspace{0.5cm} \sum_{i=1}^{\infty} f(x_{i})=1
 \]</div>
-<p>このように，確率変数 <span class="math notranslate nohighlight">\( X \)</span> の各実現値 <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ \cdots \)</span> に対してその確率を対応させた関数 <span class="math notranslate nohighlight">\( f \)</span> を<strong>確率分布</strong>と呼ぶ．
-特に，<span class="math notranslate nohighlight">\( X \)</span> が離散型確率変数の場合，<span class="math notranslate nohighlight">\( f \)</span> を<strong>離散型確率分布</strong>または<strong>確率（質量）関数</strong>と呼ぶ．
+<p>このように，確率変数 <span class="math notranslate nohighlight">\( X \)</span> の各実現値 <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ \cdots \)</span> に対してその確率を対応させた関数 <span class="math notranslate nohighlight">\( f \)</span> を<strong>確率分布関数</strong>と呼ぶ．</p>
+<p>特に，<span class="math notranslate nohighlight">\( X \)</span> が離散型確率変数の場合，<span class="math notranslate nohighlight">\( f \)</span> を<strong>離散型確率分布</strong>または<strong>確率（質量）関数</strong>と呼ぶ．
 また，確率変数 <span class="math notranslate nohighlight">\( X \)</span> が <span class="math notranslate nohighlight">\( x \)</span> 以下である確率を</p>
 <div class="math notranslate nohighlight">
 \[
@@ -566,19 +580,18 @@ $<span class="math notranslate nohighlight">\(
 \[
 	P(X=a) = 0
 \]</div>
-<p>そこで，連続型確率変数の場合には，<span class="math notranslate nohighlight">\( X \)</span> がある範囲 <span class="math notranslate nohighlight">\( a \leq X \leq b \)</span> に入る確率を考え，</p>
+<p>そこで，連続型確率変数の場合には，<span class="math notranslate nohighlight">\( X \)</span> がある範囲 <span class="math notranslate nohighlight">\( a \leq X \leq b \)</span> に入る確率</p>
 <div class="math notranslate nohighlight">
 \[
 	P(a \leq X \leq b) = \int_{a}^{b} f(x) dx
 \]</div>
-<p>と表す．
+<p>を考え，これを<strong>確率密度関数</strong>と呼ぶ．
 ただし，<span class="math notranslate nohighlight">\( f \)</span> は以下の条件を満たす：</p>
 <div class="math notranslate nohighlight">
 \[
 	f(x) \geq 0, \hspace{0.5cm}かつ \hspace{0.5cm} \int_{-\infty}^{\infty} f(x) dx = 1
 \]</div>
-<p>このとき，関数 <span class="math notranslate nohighlight">\( f(x) \)</span> を <span class="math notranslate nohighlight">\( X \)</span> の<strong>確率密度関数</strong>と呼ぶ．
-また，離散型の場合と同様に，<span class="math notranslate nohighlight">\( X \)</span> の取る値が <span class="math notranslate nohighlight">\( x \)</span> 以下である確率を</p>
+<p>連続型確率変数 <span class="math notranslate nohighlight">\( X \)</span> の取る値が <span class="math notranslate nohighlight">\( x \)</span> 以下である確率を</p>
 <div class="math notranslate nohighlight">
 \[
 	F(x) = \int_{-\infty}^{x} f(x') dx'
@@ -594,44 +607,17 @@ $<span class="math notranslate nohighlight">\(
 </section>
 <section id="id6">
 <h2><span class="section-number">7.2. </span>期待値と分散<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>一般に，ある確率変数が従う分布が与えられると，確率変数の各実現値がどのような確率で生じるか完全に分かる．
-つまり，確率関数や確率密度関数は確率変数に関する情報をすべて含んでいる．
-一方，現実の問題では，確率分布に関する細かい情報まで知る必要はなく，大体どの程度の値を取るかが分かれば良い場合も多い．
-このような場合，確率密度関数や確率分布関数を要約した統計量を用いたほうが良く，その代表例が期待値や分散・標準偏差である．
-これは，実データからヒストグラムを求めてその要約のために平均や分散を求めたのと同じことである．</p>
 <section id="id7">
 <h3><span class="section-number">7.2.1. </span>期待値<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>確率分布においてもヒストグラムにおける平均値に対応する量を定義でき，これを<strong>期待値</strong>と呼ぶ．
+<p>確率分布関数に対してもヒストグラムにおける平均値に対応する量を定義でき，これを<strong>期待値</strong>と呼ぶ．
 これは，試行の結果期待される値という意味である．
 一般に，確率変数 <span class="math notranslate nohighlight">\( X \)</span> に対する期待値は <span class="math notranslate nohighlight">\( E(X) \)</span> と表し，離散型，連続型それぞれに対して以下で定義される：</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 	\begin{split}
-	E(X) &amp;= \sum_{i=1}^{n} x_{i} f(x_{i}) \hspace{0.5cm} （離散型）\\[15pt]
-	E(X) &amp;= \int_{-\infty}^{\infty} x f(x) dx \hspace{0.5cm}（連続型）
+	E(X) &amp;= \sum_{i=1}^{n} x_{i} f(x_{i}) \hspace{0.5cm} \textrm{（離散型）}\\[15pt]
+	E(X) &amp;= \int_{-\infty}^{\infty} x f(x) dx \hspace{0.5cm} \textrm{（連続型）}
 	\end{split}
-\end{align*}\]</div>
-<p>ある「くじ」から得られる賞金をどれだけ期待できるかを表すの期待金額であり，これが確率変数の期待値の本来的な意味である．
-いま，1から100までの番号がついた100個の玉が入っている箱から（毎回元に戻しながら）玉を1個取り出す．
-このとき，玉の番号に応じて賞金 <span class="math notranslate nohighlight">\( X \)</span> の金額が以下のように決まっているとする（単位は千円）：</p>
-<ul class="simple">
-<li><p>番号が1から60：<span class="math notranslate nohighlight">\( x_{1}=0 \)</span></p></li>
-<li><p>番号が61から90：<span class="math notranslate nohighlight">\( x_{2}=1 \)</span></p></li>
-<li><p>番号が91から100：<span class="math notranslate nohighlight">\( x_{3}=10 \)</span></p></li>
-</ul>
-<p>これより，くじを1回引いて <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ x_{3} \)</span> という結果が起きる確率（確率分布）は</p>
-<div class="math notranslate nohighlight">
-\[
-	f(x_{1})=0.6,\ f(x_{2})=0.3,\ f(x_{3})=0.1
-\]</div>
-<p>である．
-このとき，くじを多数回引くときに得られる1回当たりの金額が期待値であり，式\eqref{eq:expectation}より以下のように計算される：</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-	E(X) &amp;= \sum_{i=1}^{3} x_{i}f(x_{i})\\
-	&amp;= x_{1}f(x_{1}) + x_{2}f(x_{2}) + x_{3}f(x_{3}) \\
-	&amp;= 0\times 0.6 + 1\times 0.3 + 10 \times 0.1 \\
-	&amp;= 1.3（千円）
 \end{align*}\]</div>
 </section>
 <section id="id8">
@@ -645,21 +631,93 @@ $<span class="math notranslate nohighlight">\(
 \]</div>
 <p>と定義される．
 特に，離散型，連続型の確率変数に対して以下のように与えられる：</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8869e50a-1c90-4729-923c-12e53e01bb36">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-8869e50a-1c90-4729-923c-12e53e01bb36" title="この数式へのパーマリンク">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 	\begin{split}
-	V(X) &amp;= \sum_{i} (x_{i}-\mu)^{2} f(x_{i}) \hspace{0.5cm}（離散型） \\
-	V(X) &amp;= \int_{-\infty}^{\infty} (x-\mu)^{2} f(x) dx \hspace{0.5cm}（連続型）
+	V(X) &amp;= \sum_{i} (x_{i}-\mu)^{2} f(x_{i}) \hspace{0.5cm}\textrm{（離散型）} \\
+	V(X) &amp;= \int_{-\infty}^{\infty} (x-\mu)^{2} f(x) dx \hspace{0.5cm}\textrm{（連続型）}
 	\end{split}
-\end{align}\]</div>
+\end{align*}\]</div>
 <p>なお，確率分布の標準偏差は分散の平方根として定義される．</p>
-</section>
-</section>
 <section id="id9">
-<h2><span class="section-number">7.3. </span>代表的な離散型確率分布<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h4>例）宝くじ<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p>ある「くじ」から得られる賞金をどれだけ期待できるかを表すのが期待金額であり，これが確率変数の期待値の本来的な意味である．
+いま，1から100までの番号がついた100個の玉が入っている箱から（毎回元に戻しながら）玉を1個取り出す．
+このとき，玉の番号に応じて賞金 <span class="math notranslate nohighlight">\( X \)</span> の金額が以下のように決まっているとする（単位は千円）：</p>
+<ul class="simple">
+<li><p>番号が1から60：<span class="math notranslate nohighlight">\( x_{1}=0 \)</span></p></li>
+<li><p>番号が61から90：<span class="math notranslate nohighlight">\( x_{2}=1 \)</span></p></li>
+<li><p>番号が91から100：<span class="math notranslate nohighlight">\( x_{3}=10 \)</span></p></li>
+</ul>
+<p>これより，くじを1回引いて <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ x_{3} \)</span> という結果が起きる確率（確率分布）は</p>
+<div class="math notranslate nohighlight">
+\[
+	f(x_{1})=0.6,\ f(x_{2})=0.3,\ f(x_{3})=0.1
+\]</div>
+<p>である．
+このとき，くじを多数回引くときに得られる1回当たりの金額が期待値であり，以下のように計算される：</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	E(X) &amp;= \sum_{i=1}^{3} x_{i}f(x_{i})\\
+	&amp;= x_{1}f(x_{1}) + x_{2}f(x_{2}) + x_{3}f(x_{3}) \\
+	&amp;= 0\times 0.6 + 1\times 0.3 + 10 \times 0.1 \\
+	&amp;= 1.3 \textrm{（千円）}
+\end{align*}\]</div>
+<p>下表は1枚300円のある宝くじの賞金と当選確率の関係（確率分布）である．
+この宝くじの賞金 <span class="math notranslate nohighlight">\( x \)</span> に対してその期待値を計算すると，<span class="math notranslate nohighlight">\( E[X] = 134 \)</span> 円となる．
+宝くじの値段300円に対して期待値が134円であり，買い手からすると明らかに損をするように見える．
+しかし，標準偏差の値は約10万円であり，ばらつきも非常に大きいことが分かる．
+これは，購入枚数が少なければ大勝する可能性がある一方で，購入枚数が増えるほど損をすることを意味する．</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>賞</p></th>
+<th class="head"><p>賞金 <span class="math notranslate nohighlight">\( x \)</span> （円）</p></th>
+<th class="head"><p>当選確率 <span class="math notranslate nohighlight">\( f(x) \)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 3\times 10^{8} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 1/10^{7} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1等前後賞</p></td>
+<td><p><span class="math notranslate nohighlight">\( 1\times 10^{8} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 2/10^{7} \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 1\times 10^{7} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 4/10^{7} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 1\times 10^{5} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 1/10^{4} \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>4等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 1\times 10^{4} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 2/10^{3} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>5等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 2\times 10^{3} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 1/100 \)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>6等</p></td>
+<td><p><span class="math notranslate nohighlight">\( 3\times 10^{2} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 1/10 \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>はずれ</p></td>
+<td><p><span class="math notranslate nohighlight">\( 0 \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 0.8878993 \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 </section>
 <section id="id10">
-<h2><span class="section-number">7.4. </span>代表的な連続型確率分布<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">7.3. </span>代表的な離散型確率分布<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id11">
+<h2><span class="section-number">7.4. </span>代表的な連続型確率分布<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h2>
 </section>
 </section>
 
