@@ -643,11 +643,11 @@ title="Print to PDF"
 <h4>例）宝くじ<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h4>
 <p>「くじ」を引いた時にどのくらいの賞金が期待できるかを表すのが期待金額であり，これが確率変数の期待値の本来的な意味である．
 いま，1から100までの番号がついた100個の玉が入っている箱から玉を1個取り出す．
-このとき，玉の番号に応じて賞金 <span class="math notranslate nohighlight">\( X \)</span> の金額が以下のように決まっているとする（単位は千円）：</p>
+このとき，玉の番号に応じて賞金 <span class="math notranslate nohighlight">\( X \)</span> の金額が以下のように決まっているとする（単位は円）：</p>
 <ul class="simple">
 <li><p>番号が1から60：<span class="math notranslate nohighlight">\( x_{1}=0 \)</span></p></li>
-<li><p>番号が61から90：<span class="math notranslate nohighlight">\( x_{2}=1 \)</span></p></li>
-<li><p>番号が91から100：<span class="math notranslate nohighlight">\( x_{3}=10 \)</span></p></li>
+<li><p>番号が61から90：<span class="math notranslate nohighlight">\( x_{2}=100 \)</span></p></li>
+<li><p>番号が91から100：<span class="math notranslate nohighlight">\( x_{3}=10000 \)</span></p></li>
 </ul>
 <p>これより，くじを1回引いて <span class="math notranslate nohighlight">\( x_{1},\ x_{2},\ x_{3} \)</span> という結果が起きる確率（確率分布）は</p>
 <div class="math notranslate nohighlight">
@@ -660,9 +660,10 @@ title="Print to PDF"
 \[\begin{align*}
 	E(X) &amp;= \sum_{i=1}^{3} x_{i}f(x_{i})\\
 	&amp;= x_{1}f(x_{1}) + x_{2}f(x_{2}) + x_{3}f(x_{3}) \\
-	&amp;= 0\times 0.6 + 1\times 0.3 + 10 \times 0.1 \\
-	&amp;= 1.3 \textrm{（千円）}
+	&amp;= 0\times 0.6 + 100\times 0.3 + 10000 \times 0.1 \\
+	&amp;= 130 \textrm{（円）}
 \end{align*}\]</div>
+<p>このようなくじを１回300円くらいの金額に設定しておけば，たまに1000円のあたりが出たとしても，トータルでは損をすることはない．</p>
 <p>下表は1枚300円のある宝くじの賞金と当選確率の関係（確率分布）である．
 この宝くじの賞金 <span class="math notranslate nohighlight">\( x \)</span> に対してその期待値を計算すると，<span class="math notranslate nohighlight">\( E[X] = 134 \)</span> 円となる．
 宝くじの値段300円に対して期待値が134円であり，買い手からすると明らかに損をするように見える．
