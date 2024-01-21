@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[82]:
 
 
 # モジュール・ライブラリのインポート（必ず最初に実行）
@@ -182,7 +182,7 @@ get_ipython().run_line_magic('precision', '3')
 # これは，購入枚数が少なければ大勝する可能性がある一方で，購入枚数が増えるほど損をすることを意味する．
 
 # | 賞      | 賞金 $ x $ （円）                         | 当選確率 $ f(x) $ |
-# | ---------- | -------------------------------------- | ---- |
+# | :----------: | :--------------------------------------: | :----: |
 # | 1等    | $ 3\times 10^{8} $ | $ 1/10^{7} $ |
 # | 1等前後賞 | $ 1\times 10^{8} $ | $ 2/10^{7} $ |
 # | 2等 | $ 1\times 10^{7} $ | $ 4/10^{7} $ |
@@ -194,5 +194,300 @@ get_ipython().run_line_magic('precision', '3')
 
 # ## 代表的な離散型確率分布
 
+# ### 一様分布
+# 
+# $$ f(x) = \frac{1}{b-a+1} \quad (a\leq x \leq b) $$
+# 
+# - $ a \leq x \leq b $ において，一定確率を取る分布．
+# - 具体例：サイコロを1回投げた場合は $ a=1,\ b=6 $ の一様分布に従う．
+
+# In[173]:
+
+
+from scipy.stats import uniform
+fig, ax = plt.subplots(figsize=(4, 3))
+x = [1, 2, 3, 4, 5, 6]
+ax.stem(x, uniform.pdf(x, loc=x[0], scale=x[-1]))
+ax.set_ylim(0, 0.2)
+ax.set_yticks([0, 1/6])
+ax.set_yticklabels(['0', '1/6'])
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15);
+
+
+# ### ベルヌーイ分布
+# 
+# $$ f(x) = p^{x}(1-p)^{1-x} $$
+# 
+# - 成功確率が $ p $，失敗確率が $ 1-p $ の試行を**ベルヌーイ試行**と呼ぶ．
+# - 1回のベルヌーイ試行において，成功，失敗を1と0に対応させた確率変数を $ X $ とすると，その確率分布はベルヌーイ分布に従う．
+
+# In[174]:
+
+
+from scipy.stats import bernoulli
+fig, ax = plt.subplots(figsize=(4, 3))
+x = [0, 1]
+ax.stem(x, bernoulli.pmf(x, 0.2))
+ax.set_xlim(-0.1, 1.1); ax.set_ylim(0, 1)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15);
+
+
+# ### 二項分布
+# 
+# $$ f(x) = \binom{n}{x} p^{x}(1-p)^{n-x} $$
+# 
+# - ベルヌーイ試行を $ n $ 回繰り返すとき，成功回数 $ X $ は二項分布に従う．
+# - 具体例：コイン投げを繰り返した時に表の出る回数．
+
+# In[175]:
+
+
+from scipy.stats import binom
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 20, 1)
+ax.plot(x, binom.pmf(x, 5, 0.2), '-o', mfc='w', ms=5, label='$n=5, p=0.2$')
+ax.plot(x, binom.pmf(x, 10, 0.4), '-o', mfc='w', ms=5, label='$n=10, p=0.4$')
+ax.plot(x, binom.pmf(x, 20, 0.6), '-o', mfc='w', ms=5, label='$n=20, p=0.6$')
+ax.set_xlim(0, 18); ax.set_ylim(0, 0.5)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.set_xticks(x[::2])
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### ポアソン分布
+# 
+# $$ f(x) = \frac{\lambda^{x}}{x!} \mathrm{e}^{-\lambda} $$
+# 
+# - 二項分布において平均を $ np = \lambda $ とおき，$ \lambda $ を一定に保ったまま $ n\to \infty,\ p\to 0 $ とした場合に導かれる．
+# - 稀な現象（ $ p\to 0 $ ）を大量に（ $ n\to \infty $ ）観測したとき，一定期間内の成功数が従う確率分布として知られている．
+# - 具体例：交通事故の件数，放射性元素の崩壊数，サッカーの得点
+
+# In[176]:
+
+
+from scipy.stats import poisson
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 20, 1)
+ax.plot(x, poisson.pmf(x, 1, 1), '-o', mfc='w', ms=5, label='$\lambda=1$')
+ax.plot(x, poisson.pmf(x, 4, 1), '-o', mfc='w', ms=5, label='$\lambda=4$')
+ax.plot(x, poisson.pmf(x, 8, 1), '-o', mfc='w', ms=5, label='$\lambda=8$')
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.set_xlim(0, 18); ax.set_ylim(0, 0.4)
+ax.set_xticks(x[::2])
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### 幾何分布
+# 
+# $$ f(x) = (1-p)^{x-1}p $$
+# 
+# - ベルヌーイ試行を繰り返すとき，初めて成功した時点で失敗した回数を確率変数 $ X $ は幾何分布に従う．
+
+# In[177]:
+
+
+from scipy.stats import geom
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(1, 20, 1)
+ax.plot(x, geom.pmf(x, 0.2), '-o', mfc='w', ms=5, label='$p=0.2$')
+ax.plot(x, geom.pmf(x, 0.5), '-o', mfc='w', ms=5, label='$p=0.5$')
+ax.plot(x, geom.pmf(x, 0.8), '-o', mfc='w', ms=5, label='$p=0.8$')
+ax.set_xlim(1, 10); ax.set_ylim(0, 1)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### 超幾何分布
+# 
+# $$ f(x) = \frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}} $$
+# 
+# - 赤玉 $ K $ 個と青玉 $ N-K $ 個を混ぜた計 $ N $ 個の中から，$ n $ 個を取り出すとき，含まれている赤玉の数 $ X $ は超幾何分布に従う．
+
+# In[160]:
+
+
+from scipy.stats import hypergeom
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 60, 1)
+ax.plot(x, hypergeom.pmf(x, 500, 100, 50), '-o', mfc='w', ms=5, label='$N=500, K=50, n=100$')
+ax.plot(x, hypergeom.pmf(x, 500, 200, 60), '-o', mfc='w', ms=5, label='$N=500, K=60, n=200$')
+ax.plot(x, hypergeom.pmf(x, 500, 300, 70), '-o', mfc='w', ms=5, label='$N=500, K=70, n=300$')
+ax.set_xlim(0, 60); ax.set_ylim(0, 0.16)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=7, loc='upper right', frameon=True);
+
+
+# ### 負の二項分布
+# 
+# $$ f(x)= \binom{r+x-1}{x} p^{r} (1-p)^{x} $$
+# 
+# - ベルヌーイ試行を繰り返すとき，$ r $ 回成功した時点での失敗回数 $ X $ は負の二項分布に従う．
+# - 具体例：ネットゲームで１ゲーム獲得するまでの失点数
+
+# In[161]:
+
+
+from scipy.stats import nbinom
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 30, 1)
+ax.plot(x, nbinom.pmf(x, 3, 0.2), '-o', mfc='w', ms=5, label='$r=3, p=0.2$')
+ax.plot(x, nbinom.pmf(x, 3, 0.4), '-o', mfc='w', ms=5, label='$r=3, p=0.4$')
+ax.plot(x, nbinom.pmf(x, 3, 0.6), '-o', mfc='w', ms=5, label='$r=3, p=0.6$')
+ax.set_xlim(0, 30); ax.set_ylim(0, 0.3)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
 # ## 代表的な連続型確率分布
 # 
+
+# ### 一様分布
+# 
+# $$ f(x) = \frac{1}{b-a},\quad  (a\leq x \leq b) $$
+# 
+# - $ f(x) $ が確率変数 $ X $ の値に依らず，一定値を取る分布．
+
+# In[183]:
+
+
+from scipy.stats import uniform
+fig, ax = plt.subplots(figsize=(4, 3))
+ax.hlines(0, -10, 1, colors='k', lw=2)
+ax.hlines(1/2, 1, 3, colors='k', lw=2)
+ax.hlines(0, 3, 10, colors='k', lw=2)
+ax.set_xlim([0, 4])
+ax.set_xticks([0, 1, 2, 3, 4])
+ax.set_yticks([0, 1/2])
+ax.set_yticklabels(['0', '1/2'])
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15);
+
+
+# ### 正規分布
+# 
+# $$ f(x) = \frac{1}{\sqrt{2\pi} \sigma} \exp\left[- \frac{(x-\mu)^{2}}{2\sigma^{2}}\right] $$
+# 
+# - 様々な自然現象，社会現象において観られる確率分布．
+# - 二項分布で $ n\to \infty $ とした場合に現れる．
+# - 正規分布が現れるメカニズムには中心極限定理「任意の分布に従う $ n $ 個の確率変数の和の分布が $ n $ を大きくしたときに正規分布に近づく」がある．
+# - 具体例：成人の身長，測定誤差
+
+# In[182]:
+
+
+from scipy.stats import norm
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(-5, 10, 0.01)
+ax.plot(x, norm.pdf(x, 0, 0.5), '-', mfc='w', ms=5, label='$\mu=0, \sigma=0.5$')
+ax.plot(x, norm.pdf(x, 1, 1.0), '-', mfc='w', ms=5, label='$\mu=1, \sigma=1.0$')
+ax.plot(x, norm.pdf(x, 2, 2.0), '-', mfc='w', ms=5, label='$\mu=2, \sigma=2.0$')
+ax.set_xlim(-5, 10); ax.set_ylim(0, 0.9)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### 指数分布
+# 
+# $$ f(x) = \frac{1}{\lambda} \mathrm{e}^{-x/\lambda}, \quad (x \geq 0) $$ 
+# 
+# - 連続的な時間で事象が独立に一定の確率で生じるような確率過程（ポアソン過程）において，初めて事象が生じるまでの待ち時間分布は指数分布に従う．
+# - 幾何分布の連続変数版．
+# - 具体例：放射性元素の崩壊間隔，バスケットボールの得点間隔
+
+# In[181]:
+
+
+from scipy.stats import expon
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 10, 0.1)
+ax.plot(x, expon.pdf(x, loc=0, scale=2), '-', mfc='w', ms=5, label='$\lambda=2$')
+ax.plot(x, expon.pdf(x, loc=0, scale=5), '-', mfc='w', ms=5, label='$\lambda=5$')
+ax.plot(x, expon.pdf(x, loc=0, scale=10), '-', mfc='w', ms=5, label='$\lambda=10$')
+ax.set_xlim(0, 10); ax.set_ylim(0, 0.5)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### ガンマ分布
+# 
+# $$ f(x) = \frac{\beta^{\alpha}}{\Gamma(\alpha)}x^{\alpha - 1} \mathrm{e}^{-\beta x}, \quad (x > 0) $$
+# 
+# - ポアソン過程において，事象が $ \alpha $ 回生じるまでの待ち時間はガンマ分布に従う．
+# - 指数分布に従う確率変数の和の分布はガンマ分布に従う．
+
+# In[180]:
+
+
+from scipy.stats import gamma
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 20, 0.1)
+ax.plot(x, gamma.pdf(x, 1, scale=5), '-', mfc='w', ms=5, label='$\\alpha=1, \\beta=5$')
+ax.plot(x, gamma.pdf(x, 3, scale=2), '-', mfc='w', ms=5, label='$\\alpha=3, \\beta=2$')
+ax.plot(x, gamma.pdf(x, 5, scale=2), '-', mfc='w', ms=5, label='$\\alpha=5, \\beta=2$')
+ax.set_xlim(0, 20); ax.set_ylim(0, 0.2)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### 対数正規分布
+# 
+# $$ f(x) = \frac{1}{\sqrt{2\pi}\sigma x} \exp \left[ - \frac{(\log x - \mu)^{2}}{2\sigma^{2}}\right], \quad (x > 0) $$
+# 
+# - 確率変数 $ X $ の対数変換 $ Y=\log X $ が正規分布に従うとき，$ X $ は対数正規分布に従う．
+# - 一般に，確率変数 $ X_{t} $，$ \alpha_{t} $ に対して，$ X_{t} $ の時間発展が
+# 
+#     $$
+#         X_{t} = \alpha_{t-1} X_{t-1}
+#     $$
+# 
+#     で与えられるとする．これは，ある量 $ X_{t-1} $ にランダムな成長率 $ \alpha_{t} $ を掛けたものが次の時刻の値 $ X_{t} $ になるということを意味し，**ランダム乗算過程**と呼ばれる．
+# - ランダム乗算過程において，$ t\to \infty $ における $ X_{t} $ の分布は対数正規分布に従う．
+# - 具体例１：ガラス棒を落として破壊する実験を考える．時刻 $ t $ における破片の大きさを $ X_{t} $ とすると，$ X_{t} $ の時間発展はランダム乗算過程で記述できる（ただし，落とす高さなどにも依存する）．
+# - 具体例２：社会現象における対数正規分布の例としては，高齢者の死亡年齢，児童生徒の身長・体重，駅の降車人数，アニメのキャラクターのサイズ，などが知られている．
+
+# In[179]:
+
+
+from scipy.stats import lognorm
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 20, 0.01)[1:]
+ax.plot(x, lognorm.pdf(x, 10, loc=0), '-', mfc='w', ms=5, label='$\mu=0, \sigma=10$')
+ax.plot(x, lognorm.pdf(x, 1.5, loc=0), '-', mfc='w', ms=5, label='$\mu=0, \sigma=1.5$')
+ax.plot(x, lognorm.pdf(x, 0.5, loc=0), '-', mfc='w', ms=5, label='$\mu=0, \sigma=0.5$')
+ax.set_xlim(0, 3); ax.set_ylim(0, 1.5)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=10, loc='upper right', frameon=True);
+
+
+# ### べき分布
+# 
+# $$ f(x)= Cx^{-\alpha} $$ 
+# 
+# - べき分布の著しい性質として，分布を特徴づける平均や分散が意味を成さない点がある．実際，べき分布では極端に大きい値を取る確率が無視できないので，平均値は分布の中心を意味せず，$ \alpha $ の値によっては分散が発散する．
+# - 自然現象や社会現象にはべき分布に従う現象が数多く観測されている．
+# - 具体例１：個人の資産がべき分布に従うということは，一部の人が莫大な資産を有する一方で，大多数の人は平均以下の資産しか持たないことを意味する．
+# - 具体例２：地震のエネルギー，個人の資産，都市の人口，テキスト中に出現する単語の頻度，本や音楽の売上げ，論文の引用回数など．
+# - べき分布が現れる背景には要素間の複雑な相互作用が存在することが多く，その出現メカニズムは未だに研究対象となっている．
+
+# In[178]:
+
+
+fig, ax = plt.subplots(figsize=(4, 3))
+x = np.arange(0, 100, 0.01)[1:]
+ax.plot(x, x**(-3)/1000, 'r-', lw=2, label='$\\alpha=3$')
+ax.set_xlim(0, 10); ax.set_ylim(0, 1)
+ax.set_xlabel('$x$', fontsize=15)
+ax.set_ylabel('$f(x)$', fontsize=15)
+ax.legend(numpoints=1, fontsize=12, loc='upper right', frameon=True);
+
