@@ -883,8 +883,16 @@ title="Print to PDF"
 </section>
 <section id="id12">
 <h3><span class="section-number">7.3.2. </span>ベルヌーイ分布<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">#</a></h3>
-<div class="math notranslate nohighlight">
-\[ f(x) = p^{x}(1-p)^{1-x} \]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \begin{split}
+    f(x) &amp;= p^{x}(1-p)^{1-x} \\[10pt]
+    &amp;= \begin{cases}
+        p &amp; (x=1) \\
+        1-p &amp; (x=0)
+    \end{cases}
+    \end{split}
+\end{align*}\]</div>
 <ul class="simple">
 <li><p>成功確率が <span class="math notranslate nohighlight">\( p \)</span>，失敗確率が <span class="math notranslate nohighlight">\( 1-p \)</span> の試行を<strong>ベルヌーイ試行</strong>と呼ぶ．</p></li>
 <li><p>1回のベルヌーイ試行において，成功，失敗を1と0に対応させた確率変数を <span class="math notranslate nohighlight">\( X \)</span> とすると，その確率分布はベルヌーイ分布に従う．</p></li>
