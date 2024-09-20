@@ -68,6 +68,8 @@ bibtex_bibfiles:
 
 sphinx:
   config:
+    html_context:
+      default_mode: light
     language: ja
     html_show_copyright: false
     # bibtex_reference_style: author_year
