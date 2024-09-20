@@ -1,532 +1,421 @@
 
 <!DOCTYPE html>
 
-<html lang="ja">
+
+<html lang="ja" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5. 関係の度合い &#8212; Applied Information Processing</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/documentation_options.js?v=1cf7f4d9"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=91613774"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-E0WHXY1NFV');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-E0WHXY1NFV');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chap_5/chap_5';</script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="6. 散布図・相関分析による問題解決" href="../chap_6/chap_6.html" />
     <link rel="prev" title="4. 特性値の活用" href="../chap_4/chap_4.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ja">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-E0WHXY1NFV');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Information Processing</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Applied Information Processing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_1/chap_1.html">
-   1. イントロダクション
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_2/chap_2.html">
-   2. プログラミング環境の構築
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_3/chap_3.html">
-   3. データの整理
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_4/chap_4.html">
-   4. 特性値の活用
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. 関係の度合い
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_6/chap_6.html">
-   6. 散布図・相関分析による問題解決
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_7/chap_7.html">
-   7. 確率の応用
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_1/chap_1.html">1. イントロダクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_2/chap_2.html">2. プログラミング環境の構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_3/chap_3.html">3. データの整理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_4/chap_4.html">4. 特性値の活用</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. 関係の度合い</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_6/chap_6.html">6. 散布図・相関分析による問題解決</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_7/chap_7.html">7. 確率の応用</a></li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference.html">
-   参考文献リスト
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">参考文献リスト</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/tnarizuka/Applied_Information_Processing/main?urlpath=tree/docs/chap_5/chap_5.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tnarizuka/Applied_Information_Processing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_5/chap_5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chap_5/chap_5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/tnarizuka/Applied_Information_Processing"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_5/chap_5.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chap_5/chap_5.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </button>
-
-      </li>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   5.1. 散布図と相関係数
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     5.1.1. 散布図
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     5.1.2. 共分散
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     5.1.3. 相関係数
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   5.2. 相関関係と因果関係
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     5.2.1. 偶然の相関
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     5.2.2. 疑似相関
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   5.3. 実例：警察職員数と刑法犯認知件数の関係
-   <span class="xref cite">
-    竹村2019
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step1-problem">
-     5.3.1. STEP1: Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step2-3-plan-data">
-     5.3.2. STEP2, 3: Plan, Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     5.3.3. STEP4: Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-conclusion">
-     5.3.4. STEP 5: Conclusion
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>関係の度合い</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   5.1. 散布図と相関係数
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     5.1.1. 散布図
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     5.1.2. 共分散
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     5.1.3. 相関係数
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   5.2. 相関関係と因果関係
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     5.2.1. 偶然の相関
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     5.2.2. 疑似相関
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   5.3. 実例：警察職員数と刑法犯認知件数の関係
-   <span class="xref cite">
-    竹村2019
-   </span>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step1-problem">
-     5.3.1. STEP1: Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step2-3-plan-data">
-     5.3.2. STEP2, 3: Plan, Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     5.3.3. STEP4: Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-conclusion">
-     5.3.4. STEP 5: Conclusion
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>関係の度合い</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.1. 散布図と相関係数</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.1. 散布図</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.1.2. 共分散</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.1.3. 相関係数</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.2. 相関関係と因果関係</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.2.1. 偶然の相関</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.2.2. 疑似相関</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">5.3. 実例：警察職員数と刑法犯認知件数の関係 <span class="xref cite">竹村2019</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step1-problem">5.3.1. STEP1: Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step2-3-plan-data">5.3.2. STEP2, 3: Plan, Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step4-analysis">5.3.3. STEP4: Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-conclusion">5.3.4. STEP 5: Conclusion</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <p>使用するモジュールのimport</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,13 +453,13 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">5. </span>関係の度合い<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1><span class="section-number">5. </span>関係の度合い<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">5.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.1. </span>散布図と相関係数<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>ここまでは１種類の量的データの要約法を扱ってきたが，一方で２種類の量的データの間の関係について知りたい場合もある．
 以下では，2種類の量的データを変数 <span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
 <section id="id3">
-<h3><span class="section-number">5.1.1. </span>散布図<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.1.1. </span>散布図<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
 すなわち， <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span> に対し， <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> を座標とする点を <span class="math notranslate nohighlight">\( X-Y \)</span> 平面上にとったグラフを考える．
 このようなグラフは<strong>散布図</strong>と呼ばれる．
@@ -604,7 +493,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_9_0.png" src="../_images/chap_5_9_0.png" />
+<img alt="../_images/c5357cf732d1a368647da87e0c4ad9f2a3702f6e5c1da8d3615aa1dd5637d01a.png" src="../_images/c5357cf732d1a368647da87e0c4ad9f2a3702f6e5c1da8d3615aa1dd5637d01a.png" />
 </div>
 </div>
 <p>次に，花弁の長さ（Petal Length）を <span class="math notranslate nohighlight">\(X\)</span> ，幅（Petal Width）を <span class="math notranslate nohighlight">\(Y\)</span> として散布図を描いてみる．
@@ -628,18 +517,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_11_0.png" src="../_images/chap_5_11_0.png" />
+<img alt="../_images/7c6fb445914b495c2b166469feac39b702ac30b0b76be0752f00ab331e3e9adb.png" src="../_images/7c6fb445914b495c2b166469feac39b702ac30b0b76be0752f00ab331e3e9adb.png" />
 </div>
 </div>
 </section>
 <section id="id4">
-<h3><span class="section-number">5.1.2. </span>共分散<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.1.2. </span>共分散<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の散布図に右上がりや右下がりの傾向がある場合には， <span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> に<strong>相関関係がある</strong>という．
 例えば，アヤメの花弁には，長さ（Petal Length）と幅（Petal Width）に相関関係がある．</p>
 <p>相関関係を定量化するためには，散布図が右上がりのときに正，右下がりのときに負となるような統計量を考えれば良い．
 このような統計量として，以下で定義される<strong>共分散</strong>がある：</p>
 <div class="math notranslate nohighlight" id="equation-eq-covariance">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-covariance" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-covariance" title="Link to this equation">#</a></span>\[
 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
 \]</div>
 <p>ただし，2つ目の等式には分散公式<a class="reference internal" href="../chap_4/chap_4.html#equation-eq-deviation2">(4.6)</a>を使った．</p>
@@ -651,17 +540,17 @@ title="Print to PDF"
 <p>なお， 同じ量同士の共分散は分散となる（例えば，<span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( X \)</span> の共分散は <span class="math notranslate nohighlight">\( X \)</span> の分散となる）．</p>
 </section>
 <section id="id5">
-<h3><span class="section-number">5.1.3. </span>相関係数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.1.3. </span>相関係数<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>共分散はデータ <span class="math notranslate nohighlight">\( X,\ Y \)</span> の単位やばらつきの度合いによって値がいくらでも大きくなってしまうため，相関の程度を一定の基準で表すことができない．
 そこで，共分散を <span class="math notranslate nohighlight">\( X,\ Y \)</span> の標準偏差 <span class="math notranslate nohighlight">\( s_{X},\ s_{Y} \)</span> で割った量</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-correlation" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-correlation" title="Link to this equation">#</a></span>\[
 	r_{XY} = \frac{\displaystyle\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\sqrt{\frac{1}{n} \sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}} = \frac{s_{XY}}{s_{X}s_{Y}}
 \]</div>
 <p>を考える．
 分散公式<a class="reference internal" href="../chap_4/chap_4.html#equation-eq-deviation2">(4.6)</a>を用いた場合は以下のように表される：</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation2">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-correlation2" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-correlation2" title="Link to this equation">#</a></span>\[
 	r_{XY} = \frac{\overline{xy} - \bar{x}\bar{y}}{(\overline{x^{2}} - \bar{x}^{2})(\overline{y^{2}} - \bar{y}^{2})}
 \]</div>
 <p>これを<strong>ピアソンの相関係数</strong>（あるいは単に相関関係）と呼ぶ．</p>
@@ -743,13 +632,13 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">5.2. </span>相関関係と因果関係<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.2. </span>相関関係と因果関係<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>2つの変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> の間に相関関係があったときに，それらの間に因果関係があるといえるだろうか？
 つまり，<span class="math notranslate nohighlight">\( X\Rightarrow Y \)</span> または <span class="math notranslate nohighlight">\( Y \Rightarrow X \)</span> という関係が成り立つだろうか？
 実は，これは必ずしも成り立つとは限らない．
 その理由は，主に以下の２つが考えられる．</p>
 <section id="id7">
-<h3><span class="section-number">5.2.1. </span>偶然の相関<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>偶然の相関<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>第一に，全くの偶然で強い相関関係が現れることがある．
 例えば，文献<span id="id8">[<a class="reference internal" href="../reference.html#id9" title="中室牧子，津川友介. 「原因と結果」の経済学. ダイヤモンド社, 2017.">7</a>]</span>によると，以下の３つは全くの偶然で強い相関関係が現れた例である：</p>
 <ul class="simple">
@@ -759,7 +648,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="id9">
-<h3><span class="section-number">5.2.2. </span>疑似相関<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.2.2. </span>疑似相関<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>第二に，調べたい2つの変数 <span class="math notranslate nohighlight">\( X,\ Y \)</span> それぞれが別の変数 <span class="math notranslate nohighlight">\( Z \)</span> と強く相関する場合，<span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> の相関が見かけ上強くなってしまうこともある．
 このような相関は<strong>疑似相関</strong>と呼ばれ，疑似相関の原因となる変数 <span class="math notranslate nohighlight">\( Z \)</span> のことを<strong>第3の変数</strong>と呼ぶ．
 （第3の変数のデータは必ずしも手に入るとは限らないが，もし入手できていない場合は<strong>潜在変数</strong>と呼ぶ）．</p>
@@ -801,7 +690,7 @@ title="Print to PDF"
 このようにして，<span class="math notranslate nohighlight">\( Z \)</span> の影響を除いたデータ <span class="math notranslate nohighlight">\( (\tilde{x}_{i}, \tilde{y}_{i})=(x_{i}-\hat{x}_{i}, y_{i}-\hat{y}_{i}) \)</span> は，<span class="math notranslate nohighlight">\( Z \)</span> と無相関になる．</p>
 <p>偏相関係数は <span class="math notranslate nohighlight">\( Z \)</span> の影響を除いた <span class="math notranslate nohighlight">\( \tilde{X}, \tilde{Y} \)</span> の相関係数 <span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span> として定義されるが，実は <span class="math notranslate nohighlight">\( r_{\tilde{X}, \tilde{Y}} \)</span> は以下のように変数 <span class="math notranslate nohighlight">\( X,\ Y,\ Z \)</span> の相関係数を用いて以下のように表すことができる：</p>
 <div class="math notranslate nohighlight" id="equation-eq-tpartial-correlation">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-tpartial-correlation" title="この数式へのパーマリンク">#</a></span>\[
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-tpartial-correlation" title="Link to this equation">#</a></span>\[
 	r_{\tilde{X}, \tilde{Y}} = \frac{r_{XY} - r_{XZ} r_{YZ}}{\sqrt{(1-r_{XZ}^{2})(1-r_{YZ}^{2})}}
 \]</div>
 <p>証明には次節で扱う最小二乗法が必要となるのでここでは省略する（<a class="reference external" href="https://manabitimes.jp/math/1400">ここ</a>を参照）．</p>
@@ -813,19 +702,19 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id11">
-<h2><span class="section-number">5.3. </span>実例：警察職員数と刑法犯認知件数の関係 <span id="id10">[<a class="reference internal" href="../reference.html#id4" title="竹村彰通・姫野哲人・高田聖治編. データサイエンス入門. 学術図書出版社, 2019.">2</a>]</span><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">5.3. </span>実例：警察職員数と刑法犯認知件数の関係 <span id="id10">[<a class="reference internal" href="../reference.html#id4" title="竹村彰通・姫野哲人・高田聖治編. データサイエンス入門. 学術図書出版社, 2019.">2</a>]</span><a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <section id="step1-problem">
-<h3><span class="section-number">5.3.1. </span>STEP1: Problem<a class="headerlink" href="#step1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>STEP1: Problem<a class="headerlink" href="#step1-problem" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>ある統計によると，警察官の数と犯罪の件数には正の相関があると言われている．</p></li>
 <li><p>では，これらの間に因果関係はあるだろうか？</p></li>
 </ul>
 </section>
 <section id="step2-3-plan-data">
-<h3><span class="section-number">5.3.2. </span>STEP2, 3: Plan, Data<a class="headerlink" href="#step2-3-plan-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>STEP2, 3: Plan, Data<a class="headerlink" href="#step2-3-plan-data" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>都道府県別の警察職員数と刑法犯認知件数について，これらの相関関係および因果関係の有無を調べる．</p></li>
-<li><p>今回用いるデータ<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1e77OcwY2VcyOPv60j8i2wdky54I4gvPC">（number_crime.csv）</a>をダウンロードせよ．</p></li>
+<li><p>今回用いるデータ<a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1e77OcwY2VcyOPv60j8i2wdky54I4gvPC">（number_crime.csv）</a>をダウンロードせよ．</p></li>
 <li><p>このデータは以下から取得できる：</p>
 <ul>
 <li><p>都道府県別の刑法犯認知件数</p>
@@ -840,7 +729,7 @@ title="Print to PDF"
 </li>
 <li><p>都道府県別の人口</p>
 <ul>
-<li><p><a class="reference external" href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;layout=datalist&amp;toukei=00200241&amp;tstat=000001039591&amp;cycle=7&amp;year=20150&amp;month=0&amp;tclass1=000001039601&amp;result_back=1&amp;tclass2val=0">住民基本台帳に基づく人口，人口動態及び世帯数調査</a></p></li>
+<li><p><a class="reference external" href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;amp;layout=datalist&amp;amp;toukei=00200241&amp;amp;tstat=000001039591&amp;amp;cycle=7&amp;amp;year=20150&amp;amp;month=0&amp;amp;tclass1=000001039601&amp;amp;result_back=1&amp;amp;tclass2val=0">住民基本台帳に基づく人口，人口動態及び世帯数調査</a></p></li>
 </ul>
 </li>
 </ul>
@@ -848,7 +737,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="step4-analysis">
-<h3><span class="section-number">5.3.3. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.3.3. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データの読み込み</span>
@@ -873,7 +762,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_32_0.png" src="../_images/chap_5_32_0.png" />
+<img alt="../_images/581166ff4b17879ff39b6f59143037d17b2c3b4e8e1e9761c6950c38e388bb29.png" src="../_images/581166ff4b17879ff39b6f59143037d17b2c3b4e8e1e9761c6950c38e388bb29.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -911,7 +800,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_36_0.png" src="../_images/chap_5_36_0.png" />
+<img alt="../_images/29b21826f4dcb13965e3315aae524b59ed2cc516294ff0ee4a3cba53d6c9f1f5.png" src="../_images/29b21826f4dcb13965e3315aae524b59ed2cc516294ff0ee4a3cba53d6c9f1f5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -940,7 +829,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_38_0.png" src="../_images/chap_5_38_0.png" />
+<img alt="../_images/1451d2c9f14821e2c86b7737a6ee96643131b11bb31f218dea124caa915a8b5a.png" src="../_images/1451d2c9f14821e2c86b7737a6ee96643131b11bb31f218dea124caa915a8b5a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -984,7 +873,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_42_0.png" src="../_images/chap_5_42_0.png" />
+<img alt="../_images/f722990245212fa13bc8dd4208d6f8c5e0b6da3df620f8c866fe6c7fa149bb70.png" src="../_images/f722990245212fa13bc8dd4208d6f8c5e0b6da3df620f8c866fe6c7fa149bb70.png" />
 </div>
 </div>
 <p><strong>実習：人口（<span class="math notranslate nohighlight">\( Z \)</span>）の影響を取り除く方法２</strong></p>
@@ -1004,7 +893,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_5_44_0.png" src="../_images/chap_5_44_0.png" />
+<img alt="../_images/8af01112264daed5151cf6eae678a14dc32e84c4427462a9838cb8ba136c3620.png" src="../_images/8af01112264daed5151cf6eae678a14dc32e84c4427462a9838cb8ba136c3620.png" />
 </div>
 </div>
 <p><strong>実習：人口（<span class="math notranslate nohighlight">\( Z \)</span>）の影響を取り除く方法３</strong></p>
@@ -1029,7 +918,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="step-5-conclusion">
-<h3><span class="section-number">5.3.4. </span>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">5.3.4. </span>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Link to this heading">#</a></h3>
 <p><strong>実習</strong></p>
 <ul class="simple">
 <li><p>解析の結果から，警察職員数と刑法犯認知件数の間の相関関係について考察せよ．</p></li>
@@ -1050,7 +939,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chap_5"
         },
         predefinedOutput: true
@@ -1058,51 +947,113 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chap_4/chap_4.html" title="前へ ページ">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">前へ</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>特性値の活用</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chap_4/chap_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>特性値の活用</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chap_6/chap_6.html" title="次へ ページ">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chap_6/chap_6.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title"><span class="section-number">6. </span>散布図・相関分析による問題解決</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.1. 散布図と相関係数</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.1. 散布図</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.1.2. 共分散</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.1.3. 相関係数</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.2. 相関関係と因果関係</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.2.1. 偶然の相関</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.2.2. 疑似相関</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">5.3. 実例：警察職員数と刑法犯認知件数の関係 <span class="xref cite">竹村2019</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step1-problem">5.3.1. STEP1: Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step2-3-plan-data">5.3.2. STEP2, 3: Plan, Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step4-analysis">5.3.3. STEP4: Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-conclusion">5.3.4. STEP 5: Conclusion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    <div class="extra_footer">
-      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
-
-    </div>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

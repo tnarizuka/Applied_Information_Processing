@@ -1,536 +1,422 @@
 
 <!DOCTYPE html>
 
-<html lang="ja">
+
+<html lang="ja" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. データの整理 &#8212; Applied Information Processing</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/documentation_options.js?v=1cf7f4d9"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=91613774"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-E0WHXY1NFV');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-E0WHXY1NFV');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chap_3/chap_3';</script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="4. 特性値の活用" href="../chap_4/chap_4.html" />
     <link rel="prev" title="2. プログラミング環境の構築" href="../chap_2/chap_2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ja">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0WHXY1NFV"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-E0WHXY1NFV');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Applied Information Processing</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Applied Information Processing</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_1/chap_1.html">
-   1. イントロダクション
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_2/chap_2.html">
-   2. プログラミング環境の構築
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   3. データの整理
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_4/chap_4.html">
-   4. 特性値の活用
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_5/chap_5.html">
-   5. 関係の度合い
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_6/chap_6.html">
-   6. 散布図・相関分析による問題解決
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chap_7/chap_7.html">
-   7. 確率の応用
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_1/chap_1.html">1. イントロダクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_2/chap_2.html">2. プログラミング環境の構築</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. データの整理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_4/chap_4.html">4. 特性値の活用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_5/chap_5.html">5. 関係の度合い</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_6/chap_6.html">6. 散布図・相関分析による問題解決</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap_7/chap_7.html">7. 確率の応用</a></li>
 </ul>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference.html">
-   参考文献リスト
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">参考文献リスト</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/tnarizuka/Applied_Information_Processing/main?urlpath=tree/docs/chap_3/chap_3.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/tnarizuka/Applied_Information_Processing" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_3/chap_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chap_3/chap_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/tnarizuka/Applied_Information_Processing"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/tnarizuka/Applied_Information_Processing/issues/new?title=Issue%20on%20page%20%2Fchap_3/chap_3.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chap_3/chap_3.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </button>
-
-      </li>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   3.1. データの種類と尺度
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     3.1.1. 質的データ
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     3.1.2. 量的データ
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   3.2. 量的データの要約
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     3.2.1. 五数要約
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     3.2.2. 箱ひげ図
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     3.2.3. ヒストグラム
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   3.3. 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-1-problem">
-     3.3.1. STEP 1: Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step2-plan">
-     3.3.2. STEP2: Plan
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step3-data">
-     3.3.3. STEP3: Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     3.3.4. STEP4: Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-conclusion">
-     3.3.5. STEP 5: Conclusion
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>データの整理</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   3.1. データの種類と尺度
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     3.1.1. 質的データ
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     3.1.2. 量的データ
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   3.2. 量的データの要約
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     3.2.1. 五数要約
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     3.2.2. 箱ひげ図
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     3.2.3. ヒストグラム
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   3.3. 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-1-problem">
-     3.3.1. STEP 1: Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step2-plan">
-     3.3.2. STEP2: Plan
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step3-data">
-     3.3.3. STEP3: Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step4-analysis">
-     3.3.4. STEP4: Analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-5-conclusion">
-     3.3.5. STEP 5: Conclusion
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>データの整理</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. データの種類と尺度</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.1. 質的データ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.1.2. 量的データ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2. 量的データの要約</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.2.1. 五数要約</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2.2. 箱ひげ図</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2.3. ヒストグラム</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.3. 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-problem">3.3.1. STEP 1: Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step2-plan">3.3.2. STEP2: Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step3-data">3.3.3. STEP3: Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step4-analysis">3.3.4. STEP4: Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-conclusion">3.3.5. STEP 5: Conclusion</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># モジュール・ライブラリのインポート（必ず最初に実行）</span>
@@ -557,13 +443,13 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">3. </span>データの整理<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1><span class="section-number">3. </span>データの整理<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">3.1. </span>データの種類と尺度<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">3.1. </span>データの種類と尺度<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>データには<strong>質的データ</strong>と<strong>量的データ</strong>の2種類がある．
 また，これらは，データをどのように数値に対応させるかという規則（<strong>尺度</strong>）によってさらに細かく分類できる．</p>
 <section id="id3">
-<h3><span class="section-number">3.1.1. </span>質的データ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.1.1. </span>質的データ<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>まず，性別（男，女），天気（晴，曇，雨，雪）など，他と区別することだけができるデータを<strong>カテゴリカルデータ</strong>と呼ぶ．
 カテゴリカルデータは，「男を１，女を２」などとすれば数値で表すことができるが，その数値には他と区別するという以上の意味はない．
 このように数値を割り当てる規則は<strong>名義尺度</strong>と呼ばれる．
@@ -575,7 +461,7 @@ title="Print to PDF"
 <p>以上のカテゴリカルデータと順序データを合わせて<strong>質的データ</strong>と呼ぶ．</p>
 </section>
 <section id="id4">
-<h3><span class="section-number">3.1.2. </span>量的データ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.1.2. </span>量的データ<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>値の大小関係に加えて値の差にも意味があるようなデータを<strong>間隔データ</strong>と呼ぶ．
 間隔データの代表例は，摂氏・華氏温度や時刻（時間ではない）である．
 例えば，摂氏温度は水の融点を0℃，沸点を100℃としてその間を等分することで数値を定める．
@@ -601,10 +487,10 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 </section>
 </section>
 <section id="id5">
-<h2><span class="section-number">3.2. </span>量的データの要約<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">3.2. </span>量的データの要約<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>これ以降，量的データだけを対象とする．</p>
 <section id="id6">
-<h3><span class="section-number">3.2.1. </span>五数要約<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.2.1. </span>五数要約<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>15個の量的データがあるとする．
 これを（左から右に向かって）小さい順に並べたとき，<a class="reference internal" href="#fig-5number"><span class="std std-numref">図 3.1</span></a>のように4等分に分割できる．
 このとき，アを<strong>最小値</strong>，イを<strong>第1四分位数</strong>，ウを<strong>中央値（第2四分位数）</strong>，エを<strong>第3四分位数</strong>，オを<strong>最大値</strong>と呼ぶ．
@@ -617,7 +503,7 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 <figure class="align-default" id="fig-5number">
 <a class="reference internal image-reference" href="../_images/5number.png"><img alt="../_images/5number.png" src="../_images/5number.png" style="height: 100px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.1 </span><span class="caption-text">15個の量的データを（左から右に向かって）小さい順に並べた例．</span><a class="headerlink" href="#fig-5number" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3.1 </span><span class="caption-text">15個の量的データを（左から右に向かって）小さい順に並べた例．</span><a class="headerlink" href="#fig-5number" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>五数要約の求め方はデータの数が奇数個の場合と偶数個の場合で異なる．
@@ -681,11 +567,11 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 </div>
 </section>
 <section id="id7">
-<h3><span class="section-number">3.2.2. </span>箱ひげ図<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.2.2. </span>箱ひげ図<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>五数要約の結果は<a class="reference internal" href="#fig-boxplot"><span class="std std-numref">図 3.2</span></a>のようなグラフによって可視化できる．
 これを<strong>箱ひげ図</strong>と呼ぶ．
 箱ひげ図は以下の手順によって描くのが一般的である（これを<strong>テューキーの方式</strong>と呼ぶ）．</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>データの第1四分位数から第3四分位数の間に箱を描く．</p></li>
 <li><p>中央値の位置に線を引く．</p></li>
 <li><p>箱から四分位範囲（箱の長さ）の1.5倍を超えて離れた点を<strong>外れ値</strong>と見なしてを白丸で描く．</p></li>
@@ -696,7 +582,7 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 <figure class="align-default" id="fig-boxplot">
 <a class="reference internal image-reference" href="../_images/box_plot.png"><img alt="../_images/box_plot.png" src="../_images/box_plot.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.2 </span><span class="caption-text">テューキーの方式による箱ひげ図の例</span><a class="headerlink" href="#fig-boxplot" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3.2 </span><span class="caption-text">テューキーの方式による箱ひげ図の例</span><a class="headerlink" href="#fig-boxplot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Pythonでの実装</strong></p>
@@ -723,12 +609,12 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_26_0.png" src="../_images/chap_3_26_0.png" />
+<img alt="../_images/e3df00dbd178aa3d5f49f38073f1f2d70adf1bc625f789ff51245008065d0506.png" src="../_images/e3df00dbd178aa3d5f49f38073f1f2d70adf1bc625f789ff51245008065d0506.png" />
 </div>
 </div>
 </section>
 <section id="id8">
-<h3><span class="section-number">3.2.3. </span>ヒストグラム<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.2.3. </span>ヒストグラム<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>データの分布の傾向（どの値がどのくらいあるか）を表す方法として，箱ひげ図ではデータを要約しすぎてしまい適切にその特徴を表せないことがある．
 そこで，より詳細に分布の傾向を捉える方法として<strong>度数分布</strong>がある．
 度数分布とは，ある値のデータがいくつあるかを示したもので，以下のように作成する．</p>
@@ -748,24 +634,24 @@ K（ケルビン）で表される絶対温度も比率データの例である�
 <figure class="align-default" id="fig-fdt-data">
 <a class="reference internal image-reference" href="../_images/fdt_data.png"><img alt="../_images/fdt_data.png" src="../_images/fdt_data.png" style="height: 80px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.3 </span><span class="caption-text">量的データ<span class="math notranslate nohighlight">\(X\)</span></span><a class="headerlink" href="#fig-fdt-data" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3.3 </span><span class="caption-text">量的データ<span class="math notranslate nohighlight">\(X\)</span></span><a class="headerlink" href="#fig-fdt-data" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fdt">
 <a class="reference internal image-reference" href="../_images/fdt_ex.png"><img alt="../_images/fdt_ex.png" src="../_images/fdt_ex.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.4 </span><span class="caption-text">度数分布表の例</span><a class="headerlink" href="#fig-fdt" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3.4 </span><span class="caption-text">度数分布表の例</span><a class="headerlink" href="#fig-fdt" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-hist">
 <a class="reference internal image-reference" href="../_images/hist_ex.png"><img alt="../_images/hist_ex.png" src="../_images/hist_ex.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.5 </span><span class="caption-text">ヒストグラムの例</span><a class="headerlink" href="#fig-hist" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3.5 </span><span class="caption-text">ヒストグラムの例</span><a class="headerlink" href="#fig-hist" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Pythonでの実装</strong></p>
 <p>具体例として，ここではIris Dataset <span id="id9">[<a class="reference internal" href="../reference.html#id8" title="Ronald A Fisher. The use of multiple measurements in taxonomic problems. Annals of eugenics, 7(2):179–188, 1936.">6</a>]</span>に含まれるアヤメのがく片の長さ（Sepal Length），がく片の幅（Sepal Width），花弁の長さ（Petal Length），花弁の幅（Petal Width）のデータを用いる．
-まずは<a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN">Iris Datasetをダウンロード</a>して作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：</p>
+まずは<a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN">Iris Datasetをダウンロード</a>して作業フォルダに保存し，以下のようにPandasのDataFrame形式で読み込む：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CSVファイルをPandasのデータフレーム形式で読み込み</span>
@@ -1051,16 +937,16 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_38_0.png" src="../_images/chap_3_38_0.png" />
-<img alt="../_images/chap_3_38_1.png" src="../_images/chap_3_38_1.png" />
-<img alt="../_images/chap_3_38_2.png" src="../_images/chap_3_38_2.png" />
-<img alt="../_images/chap_3_38_3.png" src="../_images/chap_3_38_3.png" />
+<img alt="../_images/3476aa84e10c6f071257063c615db15a08001e8b1226ea8387a5e82ce8717003.png" src="../_images/3476aa84e10c6f071257063c615db15a08001e8b1226ea8387a5e82ce8717003.png" />
+<img alt="../_images/b1b3800ae64414d787f804509d1d6fa389c17481b37d7ecfd71aa7ac3fab02ce.png" src="../_images/b1b3800ae64414d787f804509d1d6fa389c17481b37d7ecfd71aa7ac3fab02ce.png" />
+<img alt="../_images/744b930afd21fb51928433817db9a3802642885cd58aac645928cb91823694f8.png" src="../_images/744b930afd21fb51928433817db9a3802642885cd58aac645928cb91823694f8.png" />
+<img alt="../_images/6f622ee81abed770cf3e1a727e808b178bf46bee76fe6a29d01da4854b0a623f.png" src="../_images/6f622ee81abed770cf3e1a727e808b178bf46bee76fe6a29d01da4854b0a623f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">3.3. </span>実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2><span class="section-number">3.3. </span>実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>日本への外国人旅行者は近年急増しているが，一方で，日本人の国内旅行者の動向を月別に見ると，以下のように月ごとに変動している．
 特に，5月や8月は国内旅行者の数が突出して多くなっているが，これはゴールデンウィークや夏休みを利用して旅行する人が多いからである．</p>
 <div class="cell docutils container">
@@ -1084,11 +970,11 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_42_0.png" src="../_images/chap_3_42_0.png" />
+<img alt="../_images/1a6c4d49f5557016bbb68a3149141261bdcf82f0ce0875ae30a6663c48633446.png" src="../_images/1a6c4d49f5557016bbb68a3149141261bdcf82f0ce0875ae30a6663c48633446.png" />
 </div>
 </div>
 <section id="step-1-problem">
-<h3><span class="section-number">3.3.1. </span>STEP 1: Problem<a class="headerlink" href="#step-1-problem" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>STEP 1: Problem<a class="headerlink" href="#step-1-problem" title="Link to this heading">#</a></h3>
 <p>ある高校に通う5人の高校生は，2015年の夏休みにそれぞれ別の都市で過ごした．
 以下は日本の各都市についての気候に関する意見をまとめたものである．</p>
 <ul class="simple">
@@ -1102,7 +988,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 特に，日本では，夏に避暑地を訪れる人が多いが，避暑地にはどのような特徴があるのだろうか？</p>
 </section>
 <section id="step2-plan">
-<h3><span class="section-number">3.3.2. </span>STEP2: Plan<a class="headerlink" href="#step2-plan" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>STEP2: Plan<a class="headerlink" href="#step2-plan" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/index.php">気象庁のHP</a> には1日の平均気温，最高気温，最低気温，湿度などのデータが掲載されている．
 ここでは，1日の最高気温，最低気温，湿度のデータを収集する．</p>
 <p>収集したデータは五数要約や箱ひげ図によって傾向を調べる．
@@ -1116,13 +1002,13 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 一般に，不快指数が75になると人口の約1割が不快を感じ，85になると全員が不快になる［三省堂編集所，大辞林，三省堂(1988)］．</p>
 </section>
 <section id="step3-data">
-<h3><span class="section-number">3.3.3. </span>STEP3: Data<a class="headerlink" href="#step3-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>STEP3: Data<a class="headerlink" href="#step3-data" title="Link to this heading">#</a></h3>
 <p><strong>実習：データの加工</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/index.php">気象庁のHP</a>から2015年8月の各地点（東京，軽井沢，熊谷，石垣島，札幌，大阪）の日平均気温，日最高気温，日最低気温，日平均相対湿度のデータをcsv形式でダウンロードせよ．</p></li>
 <li><p>ダウンロードしたデータをPythonで解析しやすいように加工せよ（Excel等を用いよ）．</p>
 <ul>
-<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1p62JY9i2OUwDMP_S_x4FQ0Gn0do-J-qH">加工済みデータのダウンロード</a>（まずは自分でやってみること）</p></li>
+<li><p><a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1p62JY9i2OUwDMP_S_x4FQ0Gn0do-J-qH">加工済みデータのダウンロード</a>（まずは自分でやってみること）</p></li>
 </ul>
 </li>
 <li><p>加工したデータを読み込め．</p></li>
@@ -1140,7 +1026,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </section>
 <section id="step4-analysis">
-<h3><span class="section-number">3.3.4. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.3.4. </span>STEP4: Analysis<a class="headerlink" href="#step4-analysis" title="Link to this heading">#</a></h3>
 <p><strong>実習：最高気温</strong></p>
 <ul class="simple">
 <li><p>6地点の2015年8月1日から31日までの最高気温のデータに対し，五数要約を求め，並行箱ひげ図を作成せよ．</p></li>
@@ -1406,7 +1292,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_52_0.png" src="../_images/chap_3_52_0.png" />
+<img alt="../_images/8a2b4d65c87be544add98c5f5f96d4ea91d315377a7967de076f35a14209b169.png" src="../_images/8a2b4d65c87be544add98c5f5f96d4ea91d315377a7967de076f35a14209b169.png" />
 </div>
 </div>
 <p><strong>実習：最低気温</strong></p>
@@ -1675,7 +1561,7 @@ Irisデータの場合，がく片（Sepal）のヒストグラムは単峰性�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_56_0.png" src="../_images/chap_3_56_0.png" />
+<img alt="../_images/3c47bbbe881b350df154164633bcafa4a1b8266a71b8b91af8f6b987d1708617.png" src="../_images/3c47bbbe881b350df154164633bcafa4a1b8266a71b8b91af8f6b987d1708617.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1960,7 +1846,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_61_0.png" src="../_images/chap_3_61_0.png" />
+<img alt="../_images/f089d5bb0bb9691a897935e8a9697abfd259fb86ad874b3b70b86d31a34029f9.png" src="../_images/f089d5bb0bb9691a897935e8a9697abfd259fb86ad874b3b70b86d31a34029f9.png" />
 </div>
 </div>
 <p><strong>実習：不快指数</strong></p>
@@ -2231,12 +2117,12 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chap_3_65_0.png" src="../_images/chap_3_65_0.png" />
+<img alt="../_images/175f8441a97f54882af57a0a30b54c47d288456c3ab2177ca24c712133f423a2.png" src="../_images/175f8441a97f54882af57a0a30b54c47d288456c3ab2177ca24c712133f423a2.png" />
 </div>
 </div>
 </section>
 <section id="step-5-conclusion">
-<h3><span class="section-number">3.3.5. </span>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3><span class="section-number">3.3.5. </span>STEP 5: Conclusion<a class="headerlink" href="#step-5-conclusion" title="Link to this heading">#</a></h3>
 <p><strong>実習：考察</strong></p>
 <ul class="simple">
 <li><p>最高気温に対する並行箱ひげ図を基に，各地点の特徴について分かったことを次の観点からまとめよ．</p>
@@ -2267,7 +2153,7 @@ dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chap_3"
         },
         predefinedOutput: true
@@ -2275,51 +2161,114 @@ dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../chap_2/chap_2.html" title="前へ ページ">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">前へ</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>プログラミング環境の構築</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chap_2/chap_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>プログラミング環境の構築</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chap_4/chap_4.html" title="次へ ページ">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chap_4/chap_4.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title"><span class="section-number">4. </span>特性値の活用</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. データの種類と尺度</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.1. 質的データ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.1.2. 量的データ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2. 量的データの要約</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.2.1. 五数要約</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2.2. 箱ひげ図</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2.3. ヒストグラム</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.3. 実例：夏の避暑地の気候の特徴〜夏の避暑地が快適な理由は？〜</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-problem">3.3.1. STEP 1: Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step2-plan">3.3.2. STEP2: Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step3-data">3.3.3. STEP3: Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step4-analysis">3.3.4. STEP4: Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-conclusion">3.3.5. STEP 5: Conclusion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    <div class="extra_footer">
-      © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
-
-    </div>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © Copyright 2022-present by 成塚拓真 (Takuma Narizuka). この講義ノートは<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>の下に提供する．</a>ただし，コード部分は<a rel="license" href="https://opensource.org/licenses/MIT">MITライセンス</a>の下に提供する．
+
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
