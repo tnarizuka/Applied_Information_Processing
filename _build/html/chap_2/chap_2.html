@@ -438,16 +438,39 @@ document.write(`
 <h1><span class="section-number">2. </span>プログラミング環境の構築<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="anaconda">
 <h2><span class="section-number">2.1. </span>Anacondaのインストール<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
-<p>既に「プログラミング基礎」の授業内でAnacondaをインストールしているはずなので，以下ではインストールの概要だけ述べる．詳細は<a class="reference external" href="https://www.python.jp/install/anaconda/windows/install.html">Python.jp</a>や<a class="reference external" href="https://www.javadrive.jp/python/install/index5.html">Let'sプログラミング</a>などが参考になる．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.anaconda.com/products/individual">Anacondaの公式サイト</a>にアクセスする</p></li>
-<li><p>下にスクロールし，&quot;Anaconda Installers&quot;から環境に応じたインストーラをダウンロードする</p></li>
-<li><p>ダウンロードしたインストーラをクリックし，画面の指示に従う</p>
+<li><p>Anacondaのアンインストール（環境再構築の場合）</p>
 <ul>
-<li><p>途中で，<code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">Anaconda</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">Path</span> <span class="pre">environment</span> <span class="pre">variable</span></code>にチェックを入れてPathの設定を行う</p></li>
+<li><p>コントロールパネル &gt; プログラムのアンインストール</p></li>
+<li><p>Anacondaを選択してアンインストール</p></li>
+<li><p>PC再起動</p></li>
 </ul>
 </li>
-<li><p>Anaconda Navigatorが起動するか確認する</p></li>
+<li><p>インストーラのダウンロード</p>
+<ul>
+<li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda Distribution</a> にアクセス</p></li>
+<li><p>メールアドレスを入力して，届いたメールのURLを開く</p></li>
+<li><p>Anacondaをダウンロード</p></li>
+</ul>
+</li>
+<li><p>Cドライブ直下（ユーザフォルダと同じ階層）に<code class="docutils literal notranslate"><span class="pre">anaconda3</span></code>というフォルダを作っておく</p></li>
+<li><p>Anacondaのインストール</p>
+<ul>
+<li><p>Select Installation TypeでJust Meを選ぶ</p></li>
+<li><p>Choose Install LocationでCドライブ直下に作ったanaconda3フォルダを選ぶ</p>
+<ul>
+<li><p>anacondaのインストール先のパスに日本語が含まれるとうまくいかないため</p></li>
+</ul>
+</li>
+<li><p>Advanced Installation Optionsで以下の2つに必ずチェックを入れる</p>
+<ul>
+<li><p>Add Anaconda3 to my PATH environment variable</p></li>
+<li><p>Register Anaconda3 as my default Python 3.9</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Anaconda Navigatorを起動して，インストールが成功しているか確認する（適宜アップデートする）</p></li>
 </ul>
 </section>
 <section id="id2">
