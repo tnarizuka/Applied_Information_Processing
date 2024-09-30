@@ -389,7 +389,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2. 作業フォルダの作成</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">2.3. Jupyter Labの運用</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.1. Jupyter Labの起動</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipynb">2.3.2. .ipynbファイルの起動</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipynb">2.3.2. ノートブック（.ipynbファイル）の起動</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#path">2.4. パス（Path）について</a><ul class="nav section-nav flex-column">
@@ -476,10 +476,11 @@ document.write(`
 <section id="id2">
 <h2><span class="section-number">2.2. </span>作業フォルダの作成<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>データ分析では，様々なファイルを扱わなければならない．
-これらのファイルが自分のPC内のどこに保存されているかを把握しておかないと，ファイルを探すだけで時間を取られてしまい，時間の無駄である．
+これらのファイルが自分のPC内のどこに保存されているかを把握しておかないと，ファイルを探すだけで時間を取られてしまう．
 データ分析を始める際にまず行うべきことは，PC内のフォルダやファイルを整理することである．</p>
-<p>まず本講義専用の作業フォルダを作成する（名前は自分で分かれば何でも良い）．
-作業フォルダの作成場所はできればOneDriveの中に作ることを推奨する（こうすれば，自動的にクラウド上にバックアップされる）．</p>
+<p>まず本講義専用の作業フォルダを作成する．
+フォルダ名は自分で分かれば何でも良いが（英数字の方が望ましい），スペースは絶対に入れないこと．
+作業フォルダの作成場所はクラウドストレージのフォルダ（例えば，OneDrive）の中に作ることを推奨する（こうすれば，自動的にクラウド上にバックアップされる）．</p>
 <p>ここでは，<code class="docutils literal notranslate"><span class="pre">ローカルディスク（C:）&gt;ユーザー&gt;username&gt;OneDrive</span></code>の中に<code class="docutils literal notranslate"><span class="pre">情報処理の応用</span></code>という作業フォルダを作ったとする：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">OneDrive</span><span class="p">]</span>
     <span class="o">-</span> <span class="p">[</span><span class="n">デスクトップ</span><span class="p">]</span>
@@ -494,8 +495,6 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">情報処理の応用</span><span class="p">]</span>
     <span class="o">-</span> <span class="p">[</span><span class="n">chap_1</span><span class="p">]</span>
     <span class="o">-</span> <span class="p">[</span><span class="n">chap_2</span><span class="p">]</span>
-        <span class="o">-</span> <span class="p">[</span><span class="n">sec_2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="o">-</span> <span class="p">[</span><span class="n">sec_2</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
     <span class="o">...</span>
     <span class="o">-</span> <span class="p">[</span><span class="n">report</span><span class="p">]</span>
     <span class="o">-</span> <span class="p">[</span><span class="n">others</span><span class="p">]</span>
@@ -514,16 +513,16 @@ document.write(`
 <li><p>［スタートメニュー］→［Anaconda Navigator (anaconda3)］</p></li>
 </ul>
 </li>
-<li><p>［Jupyter Lab］をクリック</p></li>
+<li><p>［Jupyter Lab］をLaunch</p></li>
 </ul>
 </section>
 <section id="ipynb">
-<h3><span class="section-number">2.3.2. </span>.ipynbファイルの起動<a class="headerlink" href="#ipynb" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2. </span>ノートブック（.ipynbファイル）の起動<a class="headerlink" href="#ipynb" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>ファイルをダウンロードし，作業フォルダ内に保存する．</p>
 <ul>
 <li><p>講義ノート上部のアイコンから<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>をクリック</p></li>
-<li><p>自動保存された場合は[ダウンロード]フォルダ内に保存されているはず</p></li>
+<li><p>自動保存された場合は<code class="docutils literal notranslate"><span class="pre">ダウンロード</span></code>フォルダ内に保存されているはず</p></li>
 </ul>
 </li>
 <li><p>Jupyter Lab左上のフォルダアイコンをクリックする．</p></li>
@@ -627,6 +626,7 @@ Matplotlibは標準で日本語に対応していないが，以下の2つの方
 </div>
 </div>
 <p><strong>2. japanize_matplotlib を利用する（pipでインストールする必要がある）</strong></p>
+<p>※ 2024年9月現在，Python 3.12以上ではjapanize_matplotlibが使えない．対処法は<a class="reference external" href="https://qiita.com/take_me/items/7d1a8823b99951210efa">ここ</a>を参照．</p>
 <p>japanize_matplotlibはPythonのモジュールなので，最初にインストールしておけば，あとは他のモジュールと同じように<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">japanize_matplotlib</span></code>とするだけで日本語が使用可能になる．
 ただし，使用可能なフォントはIPAexゴシックだけなので，フォントにこだわりたい場合は2.の方法をおすすめする．</p>
 <p><strong>japanize_matplotlibのインストール（詳しくは<a class="reference external" href="https://pypi.org/project/japanize-matplotlib/">こちら</a>）</strong></p>
@@ -718,7 +718,7 @@ Matplotlibは標準で日本語に対応していないが，以下の2つの方
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2. 作業フォルダの作成</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">2.3. Jupyter Labの運用</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.1. Jupyter Labの起動</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipynb">2.3.2. .ipynbファイルの起動</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipynb">2.3.2. ノートブック（.ipynbファイル）の起動</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#path">2.4. パス（Path）について</a><ul class="nav section-nav flex-column">
