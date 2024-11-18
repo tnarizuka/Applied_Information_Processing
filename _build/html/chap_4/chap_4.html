@@ -1019,7 +1019,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/82ff1e64fab40158f06d085189b239a5466e3563d62c902c78d5abdd0c298b2e.png" src="../_images/82ff1e64fab40158f06d085189b239a5466e3563d62c902c78d5abdd0c298b2e.png" />
+<img alt="../_images/4758e5fbcea622aabbf39c7f445ef29889597d14f7e0c69ec991d50820d4dc74.png" src="../_images/4758e5fbcea622aabbf39c7f445ef29889597d14f7e0c69ec991d50820d4dc74.png" />
 </div>
 </div>
 </section>
@@ -1400,13 +1400,13 @@ Q_{3}-Q_{1}
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;年度&#39;</span><span class="p">)</span>
 
 <span class="c1"># 1人あたり県民所得の平均</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;k.-&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得の平均（万円）&#39;</span><span class="p">)</span>
 
 <span class="c1"># 1人あたり県民所得の標準偏差</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="s1">&#39;r.--&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得の標準偏差（万円）&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
@@ -1416,7 +1416,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dd7836c3bb185ee2678099c221b854a04eb806e70e97574da8ce64cd31b66d45.png" src="../_images/dd7836c3bb185ee2678099c221b854a04eb806e70e97574da8ce64cd31b66d45.png" />
+<img alt="../_images/96ec35da6d125dadf04c46e45e4f36989d7a947b047ed1e48ae07857b40b0e07.png" src="../_images/96ec35da6d125dadf04c46e45e4f36989d7a947b047ed1e48ae07857b40b0e07.png" />
 </div>
 </div>
 <p><strong>実習：変動係数</strong></p>
@@ -1430,14 +1430,14 @@ Q_{3}-Q_{1}
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;年度&#39;</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="s1">&#39;IPAexGothic&#39;</span><span class="p">)</span>
 
 <span class="c1"># 1人あたり県民所得の標準偏差</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="s1">&#39;k.-&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得の標準偏差（万円）&#39;</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="s1">&#39;IPAexGothic&#39;</span><span class="p">)</span>
 
 <span class="c1"># 1人あたり県民所得の変動係数</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;r.--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得の変動係数&#39;</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="s1">&#39;IPAexGothic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./std_cv.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
@@ -1445,7 +1445,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a8f53752d45bc839cefb634b1c39f9c7258a75750279b87d396d5192b2a19474.png" src="../_images/a8f53752d45bc839cefb634b1c39f9c7258a75750279b87d396d5192b2a19474.png" />
+<img alt="../_images/952a28287dde32fd2fd82046d5d8769645a3b5c5b330aa47587b701dc2620e06.png" src="../_images/952a28287dde32fd2fd82046d5d8769645a3b5c5b330aa47587b701dc2620e06.png" />
 </div>
 </div>
 <p><strong>実習：ローレンツ曲線，ジニ係数</strong></p>
@@ -1492,7 +1492,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/89c76aabe1278d7bf8ca6cf0a87c268509d4383f82c95d7bab014f7215b4e903.png" src="../_images/89c76aabe1278d7bf8ca6cf0a87c268509d4383f82c95d7bab014f7215b4e903.png" />
+<img alt="../_images/7ab713cc23693a31b3621b8b24aa1f136fd0b7cf0f6cbc3379db95b71264be12.png" src="../_images/7ab713cc23693a31b3621b8b24aa1f136fd0b7cf0f6cbc3379db95b71264be12.png" />
 </div>
 </div>
 <p>ジニ係数の時間変化</p>
@@ -1518,13 +1518,13 @@ Q_{3}-Q_{1}
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;年度&#39;</span><span class="p">)</span>
 
 <span class="c1"># 1人あたり県民所得の変動係数</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;変動係数&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">PI</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">PI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;k.-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;変動係数&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得の変動係数&#39;</span><span class="p">)</span>
 
 <span class="c1"># ジニ係数</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ジニ係数&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">PI</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="s1">&#39;r.--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ジニ係数&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1人あたり県民所得のジニ係数&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
@@ -1534,7 +1534,7 @@ Q_{3}-Q_{1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5e3956f25d4fa923ea3880e6192db43044a3f29ab9c6ee7bab2852be75d13921.png" src="../_images/5e3956f25d4fa923ea3880e6192db43044a3f29ab9c6ee7bab2852be75d13921.png" />
+<img alt="../_images/b31171467c3cb37897491573eae6fc90eae3a85791bd9a4f2866f96ac70441db.png" src="../_images/b31171467c3cb37897491573eae6fc90eae3a85791bd9a4f2866f96ac70441db.png" />
 </div>
 </div>
 </section>
