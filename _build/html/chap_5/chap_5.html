@@ -460,11 +460,11 @@ document.write(`
 以下では，2種類の量的データを変数 <span class="math notranslate nohighlight">\( X \)</span> と <span class="math notranslate nohighlight">\( Y \)</span> で表し，これらの間の関係を可視化・定量化する方法を扱う．</p>
 <section id="id3">
 <h3><span class="section-number">5.1.1. </span>散布図<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>まず，２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
+<p>２つの量的データの間の関係を可視化するには，それぞれを横軸と縦軸に取ったグラフを描けば一目瞭然である．
 すなわち， <span class="math notranslate nohighlight">\( n \)</span> 組のデータ <span class="math notranslate nohighlight">\( (x_{1}, y_{1}),\ (x_{2}, y_{2}), \ldots, (x_{n}, y_{n}) \)</span> に対し， <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> を座標とする点を <span class="math notranslate nohighlight">\( X-Y \)</span> 平面上にとったグラフを考える．
-このようなグラフは<strong>散布図</strong>と呼ばれる．
-なお，データは必ず点でプロットし，データ同士を線で結んだりはしない．
-また，散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
+このようなグラフは<strong>散布図</strong>と呼ばれる．</p>
+<p>散布図では，各データを必ず点でプロットし，データ同士を線で結んだりはしない．
+散布図の中に他の点から極端に外れた点がある場合は外れ値の可能性が高い．
 このような場合にはデータの加工に誤りがないか調べ，データ解析からその値を削除するかどうか検討する．</p>
 <p>散布図を描いた後，通常はおおまかに以下の３つのいずれかに当てはまるか検討する：</p>
 <ul class="simple">
@@ -472,9 +472,9 @@ document.write(`
 <li><p>散布図が右下がり：<strong>負の相関</strong></p></li>
 <li><p>散布図が広い範囲に一様に分布：<strong>無相関</strong></p></li>
 </ul>
-<p>もし，これ以外に特別な規則性がありそうな場合（データ点がある曲線上に分布する場合など）は個別に検討する必要がある．</p>
-<p>例として，アヤメデータについて，がく片の長さ（Sepal Length）を <span class="math notranslate nohighlight">\(X\)</span> ，幅（Sepal Width）を <span class="math notranslate nohighlight">\(Y\)</span> として散布図を描いてみる．
-以下のグラフを見ると，特に正の相関や負の相関は見られない．
+<p>もし，これ以外に特別な規則性がありそうな場合（データ点がある曲線や特定の図形上に分布する場合など）は個別に検討する必要がある．</p>
+<p>例として，<a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1dmRM6SiafHEkCH_c7G0KHmt_IISqKrWN">Iris Dataset</a>を用いて，がく片の長さ（Sepal Length）を <span class="math notranslate nohighlight">\( X \)</span> ，幅（Sepal Width）を <span class="math notranslate nohighlight">\( Y \)</span> として散布図を描いてみる．
+散布図を見ると，特に正の相関や負の相関は見られない．
 しかし，がく片の長さ（Length）に対して幅（Width）が一定値となっており，がく片の形状を反映した結果となっている．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +531,7 @@ document.write(`
 <span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-covariance" title="Link to this equation">#</a></span>\[
 	s_{XY} = \frac{1}{n} \sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y}) = \overline{xy} - \bar{x}\bar{y}
 \]</div>
-<p>ただし，2つ目の等式には分散公式<a class="reference internal" href="../chap_4/chap_4.html#equation-eq-deviation2">(4.6)</a>を使った．</p>
+<p>ただし，2つ目の等式には分散公式<a class="reference internal" href="../chap_4/chap_4.html#equation-eq-deviation2">(4.6)</a>を用いた．</p>
 <p>共分散の意味は以下の通りである．
 まず，散布図の中心として，平均値 <span class="math notranslate nohighlight">\( (\bar{x}, \bar{y}) \)</span> を求める．
 その上で，データ <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> に対し，平均値から <span class="math notranslate nohighlight">\( X,\ Y \)</span> 方向への増分（つまり偏差）の積 <span class="math notranslate nohighlight">\( (x_{i}-\bar{x})(y_{i}-\bar{y}) \)</span> を計算する．
@@ -541,7 +541,7 @@ document.write(`
 </section>
 <section id="id5">
 <h3><span class="section-number">5.1.3. </span>相関係数<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>共分散はデータ <span class="math notranslate nohighlight">\( X,\ Y \)</span> の単位やばらつきの度合いによって値がいくらでも大きくなってしまうため，相関の程度を一定の基準で表すことができない．
+<p>共分散はデータ <span class="math notranslate nohighlight">\( X,\ Y \)</span> の単位やばらつきの度合いによって値がいくらでも大きくなってしまうため，異なる散布図に対して相関の程度を一定の基準で比較することができない．
 そこで，共分散を <span class="math notranslate nohighlight">\( X,\ Y \)</span> の標準偏差 <span class="math notranslate nohighlight">\( s_{X},\ s_{Y} \)</span> で割った量</p>
 <div class="math notranslate nohighlight" id="equation-eq-correlation">
 <span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-correlation" title="Link to this equation">#</a></span>\[
@@ -561,9 +561,9 @@ document.write(`
 相関係数が最大値1となるのは，同じデータ同士の場合である．</p>
 <p>なお，相関係数はあくまでも２つの変数の散布図が直線的な関係になる場合だけ意味があることに注意しなければならない．
 例えば，<span class="math notranslate nohighlight">\( X,\ Y \)</span>の散布図が円状に分布する場合，２つの変数には何かしらの規則があると考えられるが，相関係数は0となり無相関と判断されてしまう．
-このため，相関係数を調べる際には必ず散布図も併せて描く必要がある．</p>
+このため，相関係数を調べる際には，あらかじめ散布図を描いて直線的な関係があるかを確認することが重要である．</p>
 <p>実際にアヤメデータから相関係数を求めてみる．
-がく片については <span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span> なのでほぼ無相関，花弁については <span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span> となるので強い正の相関があることが分かる．</p>
+がく片については <span class="math notranslate nohighlight">\( r_{XY} = -0.109 \)</span> なので無相関，花弁については <span class="math notranslate nohighlight">\( r_{XY}=0.963 \)</span> となるので正の相関があることが分かる．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数（Pandasを用いる）</span>
