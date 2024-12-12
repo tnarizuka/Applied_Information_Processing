@@ -393,7 +393,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.5.1. PPDACメソッドとの対応</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.5.2. 最低限遵守すること</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.5.3. 各項目の書き方</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.5.4. 図・表について</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.5.4. 参考文献について</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">1.5.5. 図・表について</a></li>
 </ul>
 </li>
 </ul>
@@ -479,20 +480,31 @@ document.write(`
 </section>
 <section id="id9">
 <h3><span class="section-number">1.5.2. </span>最低限遵守すること<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>レポートとは，科学的な研究で得られた知見を，研究をやっていない人でも分かるようにまとめた<strong>フォーマルな報告書</strong>である．よって，<strong>見栄えが整っていることは大前提</strong>であり，その上で内容が伝わるように書く．最低限以下を遵守する：</p>
+<p>レポートとは，科学的な研究で得られた知見を，研究をやっていない人でも分かるようにまとめた<strong>フォーマルな報告書</strong>である．
+よって，<strong>見栄えが整っていることは大前提</strong>であり，その上で内容が伝わるように書く．最低限以下を遵守する：</p>
 <ul class="simple">
-<li><p>鉄則：当事者でなくても分かるように書く</p></li>
-<li><p>Word，LaTeX，などを使って書いても良いが，書式は統一する</p>
+<li><p>鉄則：当事者でなくても分かるように書く</p>
+<ul>
+<li><p>想定する読者を明確にすると，本文中で前提知識として扱って良い範囲が分かる．</p></li>
+<li><p>例えば，同じ学部の学生を想定読者として設定すると書きやすい．</p></li>
+</ul>
+</li>
+<li><p>です・ます調ではなく，である調で書く</p></li>
+<li><p>ワープロソフト（Word，LaTeXなど）を使って書いても良いが，書式は統一する</p>
 <ul>
 <li><p>フォントや文字サイズを統一する，見出しをつける，数式エディタを使うなど</p></li>
-<li><p>ソフトを使いこなせないなら手書きのほうが良い</p></li>
+<li><p>ソフトを使いこなせないなら手書きでも良い</p></li>
 </ul>
 </li>
 <li><p>初めにレポートのタイトル，学籍番号・氏名を書く</p></li>
-<li><p>項目ごとに見出しをつける（PPDACメソッドに対応させる）</p></li>
+<li><p>項目ごとに見出しをつける</p>
+<ul>
+<li><p>PPDACメソッドに対応させると書きやすい</p></li>
+</ul>
+</li>
 <li><p>本文は（この講義ノートのように）フォーマルな文章で過不足なく記述する</p>
 <ul>
-<li><p>省略記号やメモ書き，パワポのスライドのような記述はレポートとして相応しくない</p></li>
+<li><p>省略記号の使用，メモ書き，スライドのような簡略化した記述はレポートとして相応しくない</p></li>
 </ul>
 </li>
 <li><p>ファイル形式はPDF（手書きの場合はスキャンしてPDF化する）</p></li>
@@ -525,42 +537,48 @@ document.write(`
 </li>
 <li><p>Discussion（議論）とConclusion（結論）</p>
 <ul>
+<li><p>※ Discussion（議論）とConclusion（結論）を別々に書いても良い</p></li>
 <li><p>分析結果に基づいた発展的な考察や提言について述べる</p></li>
 <li><p>新たな課題について述べる</p></li>
 <li><p>レポートの目的に対応させる形で結論を簡潔に述べる</p></li>
 <li><p>※ 個人の感想は書かなくて良い</p></li>
 </ul>
 </li>
-<li><p>参考文献</p>
+</ul>
+</section>
+<section id="id11">
+<h3><span class="section-number">1.5.4. </span>参考文献について<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>レポートの末尾に以下のように参考文献を記載する</p>
 <ul>
-<li><p>書籍</p>
-<ul>
-<li><p>[1] 著者名，書籍のタイトル，出版社，出版年．</p></li>
+<li><p>書籍の場合：[1] 著者名，書籍のタイトル，出版社，出版年．</p></li>
+<li><p>論文の場合：[2] 著者名，論文のタイトル，雑誌名，巻，出版年．</p></li>
+<li><p>Webサイトの場合：[3] 著者名，ページ名，Webサイト名，URL，アクセス日．</p></li>
 </ul>
 </li>
-<li><p>論文</p>
+<li><p>本文で引用する際には，[1]，[2]，[3]のように番号を振る．</p>
 <ul>
-<li><p>[2] 著者名，論文のタイトル，雑誌名，巻，出版年．</p></li>
-</ul>
-</li>
-<li><p>Webサイト</p>
-<ul>
-<li><p>[3] 著者名，ページ名，Webサイト名，URL，アクセス日．</p></li>
-</ul>
-</li>
+<li><p>例）アイスクリームの消費量と気温の間には正の相関があることが報告されている[1,2]．</p></li>
+<li><p>例）ジニ係数は，集団内のばらつきを表す指標である[3-5]．</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="id11">
-<h3><span class="section-number">1.5.4. </span>図・表について<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3><span class="section-number">1.5.5. </span>図・表について<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>図・表の番号，タイトルを入れる</p>
+<li><p>図の下部に図番号，タイトル，図の簡単な説明を付ける．</p>
 <ul>
-<li><p>例）図1. テューキーの方式による箱ひげ図の例</p></li>
+<li><p>例）図1. テューキーの方式による箱ひげ図の例．</p></li>
 </ul>
 </li>
-<li><p>本文でも詳細を説明する．</p>
+<li><p>表の上部に表番号，タイトル，表の簡単な説明を付ける．</p>
+<ul>
+<li><p>例）表1. 男女別の平均身長と標準偏差．</p></li>
+</ul>
+</li>
+<li><p>図・表は中央揃えにする．</p></li>
+<li><p>レポートに載せた図と表は本文でも詳細を説明する．</p>
 <ul>
 <li><p>例）図1は○○○についてまとめた図である．この図から△△△が分かる．</p></li>
 </ul>
@@ -642,7 +660,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.5.1. PPDACメソッドとの対応</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.5.2. 最低限遵守すること</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.5.3. 各項目の書き方</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.5.4. 図・表について</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.5.4. 参考文献について</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">1.5.5. 図・表について</a></li>
 </ul>
 </li>
 </ul>
