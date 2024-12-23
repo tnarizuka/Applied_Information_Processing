@@ -479,7 +479,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;$Y$&#39;)
 </pre></div>
 </div>
-<img alt="../_images/325bba8caec9092f9631f232fccbcdc0680020600e3801ab0d28bccaa795857e.png" src="../_images/325bba8caec9092f9631f232fccbcdc0680020600e3801ab0d28bccaa795857e.png" />
+<img alt="../_images/a661275b8115fe27b3a975328629a5897c5157fd5f80b028218fb770348fc0ca.png" src="../_images/a661275b8115fe27b3a975328629a5897c5157fd5f80b028218fb770348fc0ca.png" />
 </div>
 </div>
 </section>
@@ -568,7 +568,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/771723cd5dd0db61668a2229a85cb530276aee5ec8c90c5a98f709528741325c.png" src="../_images/771723cd5dd0db61668a2229a85cb530276aee5ec8c90c5a98f709528741325c.png" />
+<img alt="../_images/15d7b2bf24c776f7af3cf9ccc9ba77a6a19d0952c977708d49ddf8dbd58f66cd.png" src="../_images/15d7b2bf24c776f7af3cf9ccc9ba77a6a19d0952c977708d49ddf8dbd58f66cd.png" />
 </div>
 </div>
 </section>
@@ -660,16 +660,13 @@ document.write(`
 <h3><span class="section-number">6.4.3. </span>STEP3: Data<a class="headerlink" href="#step3-data" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>ここでは，理科年表から取得した世界25都市のデータ（<a class="reference external" href="https://drive.google.com/uc?export=download&amp;amp;id=1eBbmZSCgVKF61s85kGyrofrLApdO-95J">data_25city.csv</a>）を用いる．</p></li>
-<li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p>
-<ul>
-<li><p>T列は年間平均気温，L列は緯度，Z列は標高を表している．</p></li>
-</ul>
-</li>
+<li><p>まずはダウンロードしたcsvファイルをpandasのDataFrameに読み込む．</p></li>
+<li><p>T列は年間平均気温（℃），L列は緯度（度），Z列は標高（m）を表している．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data_25city.csv&#39;</span><span class="p">)</span>
-<span class="n">D</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data_25city.csv&#39;</span><span class="p">)</span>
+<span class="n">df_data</span>
 </pre></div>
 </div>
 </div>
@@ -799,15 +796,15 @@ document.write(`
 <section id="id6">
 <h4>平均気温と標高の散布図<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>各都市の年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> と標高 <span class="math notranslate nohighlight">\( Z \)</span> の関係を視覚的に調べるため，散布図を作成する．</p></li>
-<li><p>以下の散布図には特定の関数関係はないため，年間平均気温と標高はそれほど関係ないと考えられる．</p></li>
+<li><p>まず，各都市の年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> と標高 <span class="math notranslate nohighlight">\( Z \)</span> の関係を視覚的に調べるため，散布図を作成する．</p></li>
+<li><p>以下の散布図には特定の関数関係が見られないため，年間平均気温と標高にはそれほど相関関係がないと考えられる．</p></li>
 <li><p>ただし，ボコダ，メキシコ，アジスアベバの3都市は標高が2000m以上であり，外れ値となっている．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標高と平均気温の散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;標高 $Z$ （$m$）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温 $T$（℃）&#39;</span><span class="p">)</span>
@@ -816,13 +813,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6068d80f5c69aaba6b113d9c86605685107b4fff9623bdc7517e5685fb2cbeb8.png" src="../_images/6068d80f5c69aaba6b113d9c86605685107b4fff9623bdc7517e5685fb2cbeb8.png" />
+<img alt="../_images/7c3d292343cec5e3e5d63657eb0e4a3395d7235117624ed40ae1e0d4afc63f83.png" src="../_images/7c3d292343cec5e3e5d63657eb0e4a3395d7235117624ed40ae1e0d4afc63f83.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 標高2000m以上の都市を抽出</span>
-<span class="n">D</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">df_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -885,15 +882,15 @@ document.write(`
 <section id="id7">
 <h4>平均気温と緯度の散布図<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>同様に，年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> と緯度 <span class="math notranslate nohighlight">\( L \)</span> の散布図を調べる．</p></li>
-<li><p>散布図より，年間平均気温と緯度には何らかの相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．</p></li>
+<li><p>次に，年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> と緯度 <span class="math notranslate nohighlight">\( L \)</span> の散布図を調べる．</p></li>
+<li><p>散布図より，年間平均気温と緯度には特別な相関関係がありそうだが，平均気温は緯度に対して上に凸の2次関数のような関係となり，かつ赤道（0度）に対して左右対称になっている．</p></li>
 <li><p>このように，散布図がそもそも直線関係となっていない場合には，相関係数を求めるのは不適切である．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 緯度と平均気温の散布図</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">],</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度 $L$（度）&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温 $T$（℃）&#39;</span><span class="p">)</span>
@@ -902,7 +899,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/44bd31bfa0f4a12bffd0643c07830e8aa2a32e856e034379b7624934da504712.png" src="../_images/44bd31bfa0f4a12bffd0643c07830e8aa2a32e856e034379b7624934da504712.png" />
+<img alt="../_images/b735964714f1e9fac4a716293e7a9434991226660023d6ba324a60bc605e4ce4.png" src="../_images/b735964714f1e9fac4a716293e7a9434991226660023d6ba324a60bc605e4ce4.png" />
 </div>
 </div>
 </section>
@@ -928,12 +925,12 @@ document.write(`
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
 <span class="c1"># 散布図</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;緯度の2乗 $L^2$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温 $T$（℃）&#39;</span><span class="p">)</span>
@@ -945,13 +942,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-6.108e-03  2.410e+01]
 </pre></div>
 </div>
-<img alt="../_images/4974392e1b8a5f3f080ff692b1e6dcda17d883010062a2406206d5b32672a1ab.png" src="../_images/4974392e1b8a5f3f080ff692b1e6dcda17d883010062a2406206d5b32672a1ab.png" />
+<img alt="../_images/35fbae36a7b670b25332a42865749857808f0e8073db61a8d626420d8b527cc9.png" src="../_images/35fbae36a7b670b25332a42865749857808f0e8073db61a8d626420d8b527cc9.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 緯度の2乗と平均気温の相関係数</span>
-<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -979,7 +976,7 @@ document.write(`
 </ul>
 <p><strong>発展的な実習1：より適切な関数</strong></p>
 <ul class="simple">
-<li><p>緯度 <span class="math notranslate nohighlight">\( L \)</span> における太陽エネルギーは <span class="math notranslate nohighlight">\( \cos L \)</span> に比例することが知られている．そこで，横軸に <span class="math notranslate nohighlight">\( \cos(L) \)</span>， 縦軸に年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> を取った散布図を作成せよ</p></li>
+<li><p>緯度 <span class="math notranslate nohighlight">\( L \)</span> における太陽エネルギーは <span class="math notranslate nohighlight">\( \cos L \)</span> に比例することが知られている．そこで，横軸に <span class="math notranslate nohighlight">\( \cos L \)</span>， 縦軸に年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> を取った散布図を作成せよ</p></li>
 <li><p>作成した散布図より，緯度 <span class="math notranslate nohighlight">\( L \)</span> と年間平均気温 <span class="math notranslate nohighlight">\( T \)</span> を結びつける，より適切な関数を求めよ</p></li>
 <li><p><span class="math notranslate nohighlight">\( \cos \)</span> のテイラー展開の観点から，2次関数の妥当性を議論せよ</p></li>
 </ul>
@@ -990,14 +987,14 @@ document.write(`
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
 <span class="c1"># 散布図</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\cos(L)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\cos L$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;平均気温 $T$ （℃）&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./cos_lat_temp.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
@@ -1007,13 +1004,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 44.315 -19.923]
 </pre></div>
 </div>
-<img alt="../_images/8dd8e108f835f37a0d2d1cc9359ec8949be35ac6b833d082dba2d0509ce1b558.png" src="../_images/8dd8e108f835f37a0d2d1cc9359ec8949be35ac6b833d082dba2d0509ce1b558.png" />
+<img alt="../_images/b231dfd1910f0ee9781ddd4594d6cc13261c060d40eff51dea32d376e0b1af8c.png" src="../_images/b231dfd1910f0ee9781ddd4594d6cc13261c060d40eff51dea32d376e0b1af8c.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cos(緯度)と平均気温の相関係数</span>
-<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1027,14 +1024,14 @@ document.write(`
 <p><strong>発展的な実習2：標高の調整</strong></p>
 <ul class="simple">
 <li><p>一般に，標高が100m高くなると，気温は0.6℃低くなると言われている．そこで，高度調整済平均気温（標高0mでの平均気温）を <span class="math notranslate nohighlight">\( T_{0}=T+0.006Z  \)</span> によって求めよ</p></li>
-<li><p><span class="math notranslate nohighlight">\(\cos(L)\)</span> と高度調整済み平均気温 <span class="math notranslate nohighlight">\( T_{0} \)</span> の散布図を描け</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos L\)</span> と高度調整済み平均気温 <span class="math notranslate nohighlight">\( T_{0} \)</span> の散布図を描け</p></li>
 <li><p>この散布図から相関係数を求めよ</p></li>
 <li><p>この散布図に対して回帰直線を引き，直線の式を求めよ</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 高度調整済み平均気温の計算</span>
-<span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.006</span> <span class="o">*</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+<span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.006</span> <span class="o">*</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1045,14 +1042,14 @@ document.write(`
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># 最小二乗法による回帰直線</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fit_func</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">fit_func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 
 <span class="c1"># 散布図</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$cos(L)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\cos L$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;高度調整済み平均気温 $T_</span><span class="si">{0}</span><span class="s1">$（℃）&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./cos_lat_temp2.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># 保存</span>
 </pre></div>
@@ -1062,13 +1059,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 51.693 -23.651]
 </pre></div>
 </div>
-<img alt="../_images/1f1c37da4f38884b493fcfc085f2c12b53bbbac5c171bcf4fd98a17243013c03.png" src="../_images/1f1c37da4f38884b493fcfc085f2c12b53bbbac5c171bcf4fd98a17243013c03.png" />
+<img alt="../_images/27e7d7cd8a0948f001a9380d30a19dc3550d9f168c7596690777d58240f5aa7b.png" src="../_images/27e7d7cd8a0948f001a9380d30a19dc3550d9f168c7596690777d58240f5aa7b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相関係数</span>
-<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">])),</span> <span class="n">df_data</span><span class="p">[</span><span class="s1">&#39;T0&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
