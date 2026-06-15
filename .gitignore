@@ -1,6 +1,13 @@
 # Mac
 .DS_Store
 Icon?
+.vscode/
+
+# Local build and management notes
+_build/
+private/
+conf.py
+*.pptx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
